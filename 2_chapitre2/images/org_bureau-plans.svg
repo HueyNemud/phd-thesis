@@ -1,0 +1,1380 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="org_bureau-plans.svg"
+   inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau_plans.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;">
+      <path
+         id="path8283"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;">
+      <path
+         id="path5494"
+         style="fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;">
+      <path
+         id="path5482"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+    <inkscape:path-effect
+       effect="envelope"
+       id="path-effect3034"
+       is_visible="true"
+       yy="true"
+       xx="true"
+       bendpath1="m 172.14008,250.37023 205.75893,0"
+       bendpath2="m 377.89901,250.37023 0,15.4155"
+       bendpath3="m 172.14008,265.78573 205.75893,0"
+       bendpath4="m 172.14008,250.37023 0,15.4155" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path2989-7"
+       d="M 270.84099,463.41595 C 228.9258,452.18481 204.05146,409.1012 215.2826,367.186 c 11.23114,-41.91519 54.31476,-66.78953 96.22996,-55.55839 41.91519,11.23115 66.78952,54.31477 55.55838,96.22996 -11.23115,41.91519 -54.31476,66.78952 -96.22995,55.55838 z"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path2989-9"
+       d="M 270.84099,463.41595 C 228.9258,452.18481 204.05146,409.1012 215.2826,367.186 c 11.23114,-41.91519 54.31476,-66.78953 96.22996,-55.55839 41.91519,11.23115 66.78952,54.31477 55.55838,96.22996 -11.23115,41.91519 -54.31476,66.78952 -96.22995,55.55838 z"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path2989-97"
+       d="M 270.84099,463.41595 C 228.9258,452.18481 204.05146,409.1012 215.2826,367.186 c 11.23114,-41.91519 54.31476,-66.78953 96.22996,-55.55839 41.91519,11.23115 66.78952,54.31477 55.55838,96.22996 -11.23115,41.91519 -54.31476,66.78952 -96.22995,55.55838 z"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path2989-6"
+       d="M 270.84099,463.41595 C 228.9258,452.18481 204.05146,409.1012 215.2826,367.186 c 11.23114,-41.91519 54.31476,-66.78953 96.22996,-55.55839 41.91519,11.23115 66.78952,54.31477 55.55838,96.22996 -11.23115,41.91519 -54.31476,66.78952 -96.22995,55.55838 z"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path2989-6-6"
+       d="M 270.84099,463.41595 C 228.9258,452.18481 204.05146,409.1012 215.2826,367.186 c 11.23114,-41.91519 54.31476,-66.78953 96.22996,-55.55839 41.91519,11.23115 66.78952,54.31477 55.55838,96.22996 -11.23115,41.91519 -54.31476,66.78952 -96.22995,55.55838 z"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.36253627"
+     inkscape:cx="626.69297"
+     inkscape:cy="705.41072"
+     inkscape:document-units="px"
+     inkscape:current-layer="g5423"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1280"
+     inkscape:window-height="940"
+     inkscape:window-x="0"
+     inkscape:window-y="31"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:30px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="183.3427"
+       y="221.5117"
+       id="text3056"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3058"
+         x="183.3427"
+         y="221.5117" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+       x="222.82875"
+       y="108.63768"
+       id="text4251"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4253"
+         x="222.82875"
+         y="108.63768"
+         style="font-size:14px">De 1823 à 1830 </tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4689"
+       y="298.49466"
+       x="222.82875"
+       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+       xml:space="preserve"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         style="font-size:14px"
+         y="298.49466"
+         x="222.82875"
+         id="tspan4691"
+         sodipodi:role="line">De 1830 à 1837 </tspan></text>
+    <g
+       id="g5301"
+       transform="translate(308.86524,-193.04252)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         inkscape:connector-curvature="0"
+         id="path2989"
+         d="m -59.159007,469.74779 c -41.915193,-11.23114 -66.789533,-54.31475 -55.558393,-96.22995 11.23114,-41.91519 54.314763,-66.78953 96.229963,-55.55839 41.91519,11.23115 66.78952,54.31477 55.55838,96.22996 -11.23115,41.91519 -54.31476,66.78952 -96.22995,55.55838 z"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3987"
+         d="m -38.823227,472.99286 0,-156.69772"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path3989"
+         d="m -101.88551,347.90395 0,93.59696"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text3991"
+         y="348.79199"
+         x="-69.575058"
+         style="font-size:8.99842072px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:13px;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;-inkscape-font-specification:Bitstream Charter Bold"
+           y="348.79199"
+           x="-67.683456"
+           id="tspan3993"
+           sodipodi:role="line">Grande </tspan><tspan
+           style="font-size:13px;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;-inkscape-font-specification:Bitstream Charter Bold"
+           y="365.04199"
+           x="-69.575058"
+           sodipodi:role="line"
+           id="tspan9110">Voirie</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text3991-8"
+         y="399.44736"
+         x="-5.1422896"
+         style="font-size:11.39897442px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#004e92;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:13px;font-weight:bold;text-align:center;text-anchor:middle;fill:#004e92;fill-opacity:1;-inkscape-font-specification:Bitstream Charter Bold"
+           y="399.44736"
+           x="-3.2506883"
+           id="tspan3993-1"
+           sodipodi:role="line">Bureau </tspan><tspan
+           style="font-size:13px;font-weight:bold;text-align:center;text-anchor:middle;fill:#004e92;fill-opacity:1;-inkscape-font-specification:Bitstream Charter Bold"
+           y="415.69736"
+           x="-3.2506883"
+           sodipodi:role="line"
+           id="tspan9112">des </tspan><tspan
+           style="font-size:13px;font-weight:bold;text-align:center;text-anchor:middle;fill:#004e92;fill-opacity:1;-inkscape-font-specification:Bitstream Charter Bold"
+           y="431.94736"
+           x="-5.1422896"
+           sodipodi:role="line"
+           id="tspan9114">Plans</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         transform="matrix(0,-1,1,0,0,0)"
+         sodipodi:linespacing="125%"
+         id="text3991-8-6"
+         y="-105.27225"
+         x="-418.38577"
+         style="font-size:9.46905994px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:8px"
+           y="-105.27225"
+           x="-418.38577"
+           id="tspan3993-1-0"
+           sodipodi:role="line">Autres bureaux</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text3991-8-8"
+         y="351.71909"
+         x="-7.2394519"
+         style="font-size:11.63363552px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:12px;text-align:center;text-anchor:middle"
+           y="351.71909"
+           x="-5.5753894"
+           id="tspan3993-1-6"
+           sodipodi:role="line">Inspecteurs </tspan><tspan
+           id="tspan4078"
+           style="font-size:12px;text-align:center;text-anchor:middle"
+           y="366.71909"
+           x="-7.2394519"
+           sodipodi:role="line">généraux</tspan></text>
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path4080"
+         d="m -38.75617,373.61118 25.366155,0 12.58928943,12.58929"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:nodetypes="ccc"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 37.003936,373.61118 -25.661802,0 -12.5892896,12.58929"
+         id="path4082"
+         inkscape:connector-curvature="0" />
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text4295-3-4"
+         y="390.67502"
+         x="-68.149193"
+         style="font-size:10.22049999px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-style:italic;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Italic;font-size:10px"
+           y="390.67502"
+           x="-66.731895"
+           id="tspan4297-9-5"
+           sodipodi:role="line">J. A. </tspan><tspan
+           style="font-style:italic;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Italic;font-size:10px"
+           y="403.45065"
+           x="-68.149193"
+           sodipodi:role="line"
+           id="tspan9098">Hourdequin</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text4295-0-54-8"
+         y="378.74271"
+         x="-79.194321"
+         style="font-size:7.81490612px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           y="378.74271"
+           x="-79.194321"
+           id="tspan4297-3-3-4"
+           sodipodi:role="line"
+           style="font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold;font-size:10px">Chef </tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:12.00510406px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Serif;-inkscape-font-specification:Bitstream Vera Serif"
+         id="text4663-8"
+         sodipodi:linespacing="125%"
+         transform="matrix(-0.10997795,0.99393402,-0.99393402,-0.10997795,378.45785,146.9733)"><textPath
+           xlink:href="#path2989-6-6"
+           id="textPath4665-1">Préfecture de la Seine : 3<tspan
+   id="tspan4667-3"
+   style="font-size:65.00091553%;baseline-shift:super">e </tspan>division</textPath></text>
+    </g>
+    <g
+       id="g5324"
+       transform="translate(128.83025,-1.4352065)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:12.00510406px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Serif;-inkscape-font-specification:Bitstream Vera Serif"
+         id="text4663"
+         sodipodi:linespacing="125%"
+         transform="matrix(-0.10997795,0.99393402,-0.99393402,-0.10997795,558.49284,149.82581)"><textPath
+           xlink:href="#path2989-6"
+           id="textPath4665">Préfecture de la Seine : 2<tspan
+   id="tspan4667"
+   style="font-size:65.00091553%;baseline-shift:super">e </tspan>division</textPath></text>
+      <g
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         transform="translate(-149.64402,9.1889828)"
+         id="g4669">
+        <path
+           inkscape:connector-curvature="0"
+           id="path4671"
+           d="M 270.84099,463.41595 C 228.9258,452.18481 204.05146,409.1012 215.2826,367.186 c 11.23114,-41.91519 54.31476,-66.78953 96.22996,-55.55839 41.91519,11.23115 66.78952,54.31477 55.55838,96.22996 -11.23115,41.91519 -54.31476,66.78952 -96.22995,55.55838 z"
+           style="fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      </g>
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 78.470463,349.13905 0,93.59696"
+         id="path4675"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:10.91070366px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="99.499382"
+         y="345.79697"
+         id="text4677"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4679"
+           x="99.499382"
+           y="345.79697"
+           style="font-size:13px;font-style:normal;font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold">Grande Voirie</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:10.91070366px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#004e92;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="96.141838"
+         y="425.4855"
+         id="text4681"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4683"
+           x="96.141838"
+           y="425.4855"
+           style="font-size:13px;font-weight:bold;fill:#004e92;fill-opacity:1;-inkscape-font-specification:Bitstream Charter Bold">Bureau des Plans</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:9.46905994px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="-419.62088"
+         y="75.083702"
+         id="text4685"
+         sodipodi:linespacing="125%"
+         transform="matrix(0,-1,1,0,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan4687"
+           x="-419.62088"
+           y="75.083702"
+           style="font-size:8px">Autres bureaux</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:7.57513523px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="87.867104"
+         y="450.79099"
+         id="text4693"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4695"
+           x="87.867104"
+           y="450.79099"
+           style="font-size:10px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic">Chameau</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:7.57513523px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="97.074898"
+         y="440.0354"
+         id="text4697"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4699"
+           x="97.074898"
+           y="440.0354"
+           style="font-size:10px;font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold">Chef </tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:7.57513523px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="137.74997"
+         y="438.22076"
+         id="text4701"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4703"
+           x="137.74997"
+           y="438.22076"
+           style="font-size:10px;font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold">Chef adjoint</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:7.57513523px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="140.40735"
+         y="450.79099"
+         id="text4705"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4707"
+           x="140.40735"
+           y="450.79099"
+           style="font-size:10px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic">Th. Jacoubet</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:10.7844677px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="109.44045"
+         y="383.19882"
+         id="text4709"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4711"
+           x="110.93596"
+           y="383.19882"
+           style="font-style:italic;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Italic;font-size:10px">J. A. </tspan><tspan
+           sodipodi:role="line"
+           x="109.44045"
+           y="396.67941"
+           style="font-style:italic;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Italic;font-size:10px"
+           id="tspan9106">Hourdequin</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:11.09404182px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="98.657463"
+         y="371.22354"
+         id="text4713"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4715"
+           x="98.657463"
+           y="371.22354"
+           style="font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold"><tspan
+             style="font-size:10px"
+             id="tspan9116">Chef </tspan></tspan></text>
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path4080-3"
+         d="m 78.498983,403.45895 52.360767,0 12.58929,12.58929"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:nodetypes="ccc"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 218.42366,403.45895 -62.73706,0 -12.58929,12.58929"
+         id="path4082-0"
+         inkscape:connector-curvature="0" />
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:11.47634697px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="174.81995"
+         y="370.45834"
+         id="text4701-1"
+         sodipodi:linespacing="125%"><tspan
+           style="text-align:center;text-anchor:middle;font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold;font-size:10px"
+           sodipodi:role="line"
+           id="tspan4703-1"
+           x="176.41139"
+           y="370.45834">Chef adjoint </tspan><tspan
+           style="font-size:10px;text-align:center;text-anchor:middle;font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold"
+           id="tspan4957"
+           sodipodi:role="line"
+           x="174.81995"
+           y="384.25064">(depuis 1834)</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:11.15610504px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="153.00932"
+         y="397.30276"
+         id="text4705-7"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4707-7"
+           x="153.00932"
+           y="397.30276"
+           style="font-style:italic;-inkscape-font-specification:Bitstream Charter Italic;font-size:10px">Chantelot</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+       x="222.82875"
+       y="492.97311"
+       id="text4851"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4853"
+         x="222.82875"
+         y="492.97311"
+         style="font-size:14px">De 1839 à 1842 </tspan></text>
+    <g
+       id="g5357"
+       transform="matrix(1.0690396,0,0,0.98284589,-71.946869,202.65756)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         transform="matrix(-0.10997795,0.99393402,-0.99393402,-0.10997795,737.06427,149.82581)"
+         sodipodi:linespacing="125%"
+         id="text4827"
+         style="font-size:12.00510406px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Serif;-inkscape-font-specification:Bitstream Vera Serif"
+         xml:space="preserve"><textPath
+           id="textPath4829"
+           xlink:href="#path2989-6">Préfecture de la Seine : 2<tspan
+   style="font-size:65.00091553%;baseline-shift:super"
+   id="tspan4831">e </tspan>division</textPath></text>
+      <g
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         id="g4833"
+         transform="translate(28.927413,9.1889828)">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.48778719;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="M 270.84099,463.41595 C 228.9258,452.18481 204.05146,409.1012 215.2826,367.186 c 11.23114,-41.91519 54.31476,-66.78953 96.22996,-55.55839 41.91519,11.23115 66.78952,54.31477 55.55838,96.22996 -11.23115,41.91519 -54.31476,66.78952 -96.22995,55.55838 z"
+           id="path4835"
+           inkscape:connector-curvature="0" />
+      </g>
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4837"
+         d="m 257.04189,349.13905 0,93.59696"
+         style="fill:none;stroke:#000000;stroke-width:0.48778719;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text4839"
+         y="345.67117"
+         x="279.94327"
+         style="font-size:9.71352768px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:12.68246746px;font-style:normal;font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold"
+           y="345.67117"
+           x="279.94327"
+           id="tspan4841"
+           sodipodi:role="line">Grande Voirie</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text4843"
+         y="426.81534"
+         x="275.31036"
+         style="font-size:9.71352768px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#004e92;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:12.68246746px;font-weight:bold;fill:#004e92;fill-opacity:1;-inkscape-font-specification:Bitstream Charter Bold"
+           y="426.81534"
+           x="275.31036"
+           id="tspan4845"
+           sodipodi:role="line">Bureau des Plans</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         transform="matrix(0,-1,1,0,0,0)"
+         sodipodi:linespacing="125%"
+         id="text4847"
+         y="253.65515"
+         x="-419.62088"
+         style="font-size:9.46905994px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:8px"
+           y="253.65515"
+           x="-419.62088"
+           id="tspan4849"
+           sodipodi:role="line">Autres bureaux</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text4855"
+         y="451.80273"
+         x="265.32202"
+         style="font-size:6.95195293px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:9.75574398px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic"
+           y="451.80273"
+           x="265.32202"
+           id="tspan4857"
+           sodipodi:role="line">Th. Jacoubet</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text4859"
+         y="441.16858"
+         x="279.93689"
+         style="font-size:6.95195293px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           y="441.16858"
+           x="279.93689"
+           id="tspan4861"
+           sodipodi:role="line"
+           style="font-size:9.75574398px;font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold">Chef </tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text4863"
+         y="439.04929"
+         x="326.72202"
+         style="font-size:6.95195293px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           y="439.04929"
+           x="326.72202"
+           id="tspan4865"
+           sodipodi:role="line"
+           style="font-size:9.75574398px;font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold">Chef adjoint</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text4867"
+         y="451.45193"
+         x="351.27515"
+         style="font-size:6.95195293px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:9.75574398px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic"
+           y="451.45193"
+           x="351.27515"
+           id="tspan4869"
+           sodipodi:role="line">?</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text4871"
+         y="386.00043"
+         x="258.56827"
+         style="font-size:7.30484533px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:9.75574398px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic"
+           y="386.00043"
+           x="258.56827"
+           id="tspan4873"
+           sodipodi:role="line">J. A. Hourdequin</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text4875"
+         y="374.43555"
+         x="280.97736"
+         style="font-size:7.30484533px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           y="374.43555"
+           x="280.97736"
+           id="tspan4877"
+           sodipodi:role="line"
+           style="font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold"><tspan
+             style="font-size:9.75574398px"
+             id="tspan9118">Chef </tspan></tspan></text>
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         style="fill:none;stroke:#000000;stroke-width:0.48778719;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 257.07041,403.45895 52.36077,0 12.58929,12.58929"
+         id="path4879"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc" />
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         inkscape:connector-curvature="0"
+         id="path4881"
+         d="m 396.99509,403.45895 -62.73706,0 -12.58929,12.58929"
+         style="fill:none;stroke:#000000;stroke-width:0.48778719;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:nodetypes="ccc" />
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text4883"
+         y="373.71521"
+         x="332.75565"
+         style="font-size:7.30484533px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           y="373.71521"
+           x="332.75565"
+           id="tspan4885"
+           sodipodi:role="line"
+           style="font-size:9.75574398px;font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold">Chef adjoint</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text4887"
+         y="386.11172"
+         x="340.78598"
+         style="font-size:9.75574398px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:9.75574398px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic"
+           y="386.11172"
+           x="340.78598"
+           id="tspan4889"
+           sodipodi:role="line">Chantelot</tspan></text>
+    </g>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4915"
+       y="193.36649"
+       x="415.91287"
+       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+       xml:space="preserve"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         style="font-size:14px"
+         y="193.36649"
+         x="415.91287"
+         id="tspan4917"
+         sodipodi:role="line">De 1843 à 1857 </tspan></text>
+    <g
+       id="g5389"
+       transform="translate(-37.033294,-108.44032)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:12.00510406px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Serif;-inkscape-font-specification:Bitstream Vera Serif"
+         id="text4891"
+         sodipodi:linespacing="125%"
+         transform="matrix(-0.11137597,1.0065687,-1.0065687,-0.11137597,921.1841,147.80249)"><textPath
+           xlink:href="#path2989-6"
+           id="textPath4893">Préfecture de la Seine : 2<tspan
+   id="tspan4895"
+   style="font-size:65.00091553%;baseline-shift:super">e </tspan>division, 4<tspan
+   id="tspan5299"
+   style="font-size:64.18457031%;baseline-shift:super">e</tspan> (1847-50), 3<tspan
+   id="tspan5297"
+   style="font-size:64.18457031%;baseline-shift:super">e</tspan> (1850-57)</textPath></text>
+      <g
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         transform="translate(206.71426,9.1889828)"
+         id="g4897">
+        <path
+           inkscape:connector-curvature="0"
+           id="path4899"
+           d="M 270.84099,463.41595 C 228.9258,452.18481 204.05146,409.1012 215.2826,367.186 c 11.23114,-41.91519 54.31476,-66.78953 96.22996,-55.55839 41.91519,11.23115 66.78952,54.31477 55.55838,96.22996 -11.23115,41.91519 -54.31476,66.78952 -96.22995,55.55838 z"
+           style="fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      </g>
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 434.82874,349.13905 0,93.59696"
+         id="path4901"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:8.60257912px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="500.64651"
+         y="335.64627"
+         id="text4903"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4905"
+           x="500.64651"
+           y="335.64627"
+           style="font-size:10.64099979px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold">Grande Voirie</tspan><tspan
+           id="tspan4961"
+           sodipodi:role="line"
+           x="502.19485"
+           y="348.94751"
+           style="font-size:10.64099979px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold">puis </tspan><tspan
+           id="tspan4963"
+           sodipodi:role="line"
+           x="500.64651"
+           y="362.24878"
+           style="font-size:10.64099979px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold">Travaux de Voirie (1854)</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:9.827384px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#004e92;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="438.70447"
+         y="425.11105"
+         id="text4907"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4909"
+           x="438.70447"
+           y="425.11105"
+           style="font-size:11.62082767px;font-weight:bold;fill:#004e92;fill-opacity:1;-inkscape-font-specification:Bitstream Charter Bold">Service du Plan de Paris</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:9.46905994px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="-419.62088"
+         y="431.44199"
+         id="text4911"
+         sodipodi:linespacing="125%"
+         transform="matrix(0,-1,1,0,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan4913"
+           x="-419.62088"
+           y="431.44199"
+           style="font-size:8px">Autres bureaux</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:8.87962055px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="487.25433"
+         y="464.08353"
+         id="text4919"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4921"
+           x="487.25433"
+           y="464.08353"
+           style="font-size:10px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic">Leclère</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:8.87962055px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="501.20767"
+         y="438.65363"
+         id="text4923"
+         sodipodi:linespacing="125%"><tspan
+           style="font-size:10px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold"
+           sodipodi:role="line"
+           id="tspan4925"
+           x="501.20767"
+           y="438.65363">Géomètre en chef</tspan><tspan
+           style="font-size:10px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold"
+           id="tspan4971"
+           sodipodi:role="line"
+           x="501.20767"
+           y="451.15363">(jusqu'en 1848)</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:7.06230497px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="437.30881"
+         y="385.8208"
+         id="text4935"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4937"
+           x="437.30881"
+           y="385.8208"
+           style="font-size:10px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic">Chantelot</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:6.57054806px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="447.80759"
+         y="376.03342"
+         id="text4939"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4941"
+           x="447.80759"
+           y="376.03342"
+           style="font-size:10px;font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold">Chef </tspan></text>
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path4943"
+         d="m 434.85726,403.45895 52.36077,0 12.58929,12.58929"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:nodetypes="ccc"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 574.78194,403.45895 -62.73706,0 -12.58929,12.58929"
+         id="path4945"
+         inkscape:connector-curvature="0" />
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:6.57054806px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="534.81549"
+         y="374.75439"
+         id="text4947"
+         sodipodi:linespacing="125%"><tspan
+           style="font-size:10px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold"
+           sodipodi:role="line"
+           id="tspan4949"
+           x="534.81549"
+           y="374.75439">Sous-Chef</tspan><tspan
+           style="font-size:10px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold"
+           id="tspan4965"
+           sodipodi:role="line"
+           x="534.81549"
+           y="387.25439">(depuis 1851)</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:7.06230497px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="487.10623"
+         y="399.30048"
+         id="text4951"
+         sodipodi:linespacing="125%"><tspan
+           id="tspan4967"
+           sodipodi:role="line"
+           x="487.10623"
+           y="399.30048"
+           style="font-size:10px;font-style:italic;-inkscape-font-specification:Bitstream Charter Italic">Soupé puis de Pouilly</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+       x="414.8891"
+       y="421.647"
+       id="text5115"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan5117"
+         x="414.8891"
+         y="421.647"
+         style="font-size:14px">À partir de 1857</tspan></text>
+    <g
+       id="g5423"
+       transform="translate(-220.15818,122.1383)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         transform="matrix(-0.10997795,0.99393402,-0.99393402,-0.10997795,1100.5654,149.82581)"
+         sodipodi:linespacing="125%"
+         id="text5087"
+         style="font-size:12.00510406px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Serif;-inkscape-font-specification:Bitstream Vera Serif"
+         xml:space="preserve"><textPath
+           id="textPath5089"
+           xlink:href="#path2989-6">Préfecture de la Seine : 3<tspan
+   style="font-size:65.00091553%;baseline-shift:super"
+   id="tspan5091">e </tspan>division</textPath></text>
+      <g
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         id="g5093"
+         transform="translate(392.42855,9.1889828)">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="M 270.84099,463.41595 C 228.9258,452.18481 204.05146,409.1012 215.2826,367.186 c 11.23114,-41.91519 54.31476,-66.78953 96.22996,-55.55839 41.91519,11.23115 66.78952,54.31477 55.55838,96.22996 -11.23115,41.91519 -54.31476,66.78952 -96.22995,55.55838 z"
+           id="path5095"
+           inkscape:connector-curvature="0" />
+      </g>
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path5097"
+         d="m 620.54303,349.13905 0,93.59696"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text5107"
+         y="335.40527"
+         x="684.67596"
+         style="font-size:13.23411274000000049px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:13px;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;-inkscape-font-specification:Bitstream Charter Bold"
+           y="335.40527"
+           x="686.65063"
+           id="tspan5109"
+           sodipodi:role="line">Service </tspan><tspan
+           style="font-size:13px;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;-inkscape-font-specification:Bitstream Charter Bold"
+           y="352.36884"
+           x="684.67596"
+           sodipodi:role="line"
+           id="tspan9100">du Plan de Paris</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         transform="matrix(0,-1,1,0,0,0)"
+         sodipodi:linespacing="125%"
+         id="text5111"
+         y="617.15625"
+         x="-419.62088"
+         style="font-size:9.46905994px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:8px"
+           y="617.15625"
+           x="-419.62088"
+           id="tspan5113"
+           sodipodi:role="line">Autres bureaux</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text5119"
+         y="382.76993"
+         x="653.55432"
+         style="font-size:11.74458408px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-style:italic;-inkscape-font-specification:Bitstream Charter Italic;font-size:10px"
+           y="382.76993"
+           x="653.55432"
+           id="tspan5121"
+           sodipodi:role="line">E. Deschamps</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text5123"
+         y="367.99521"
+         x="686.8291"
+         style="font-size:11.74458408px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           y="367.99521"
+           x="686.8291"
+           id="tspan5125"
+           sodipodi:role="line"
+           style="text-align:center;text-anchor:middle;font-size:10px;font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold">Chef de service</tspan><tspan
+           y="382.67593"
+           x="686.8291"
+           sodipodi:role="line"
+           id="tspan5127"
+           style="font-size:8.93729401px;text-align:center;text-anchor:middle" /></text>
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 620.48226,391.33712 52.36077,0 12.58929,12.58929"
+         id="path5172"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc" />
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         inkscape:connector-curvature="0"
+         id="path5174"
+         d="m 761.74623,391.33712 -64.07635,0 -12.58929,12.58929"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:nodetypes="ccc" />
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text5107-1"
+         y="411.86523"
+         x="620.80127"
+         style="font-size:14.61422062px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#004e92;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:13px;font-weight:bold;fill:#004e92;fill-opacity:1;-inkscape-font-specification:Bitstream Charter Bold"
+           y="411.86523"
+           x="620.80127"
+           id="tspan5109-8"
+           sodipodi:role="line">Service Topographique</tspan></text>
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path5197"
+         d="m 620.48226,418.72307 52.36077,0 12.58929,12.58929"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:nodetypes="ccc"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 758.21466,418.72307 -60.54478,0 -12.58929,12.58929"
+         id="path5199"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         inkscape:connector-curvature="0"
+         id="path5201"
+         d="m 685.23067,431.19013 0,41.70184"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:nodetypes="cc" />
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         sodipodi:linespacing="125%"
+         id="text5107-1-6"
+         y="430.48663"
+         x="652.70538"
+         style="font-size:7.86928749px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="font-size:8px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold"
+           y="430.48663"
+           x="653.92181"
+           id="tspan5109-8-9"
+           sodipodi:role="line">Travaux </tspan><tspan
+           style="font-size:8px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold"
+           y="440.93628"
+           x="652.70538"
+           sodipodi:role="line"
+           id="tspan9102">Topographiques</tspan></text>
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:8.77826405px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="720.34851"
+         y="428.86417"
+         id="text5224"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5226"
+           x="721.51257"
+           y="428.86417"
+           style="font-size:8px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold">Alignements, </tspan><tspan
+           sodipodi:role="line"
+           x="720.34851"
+           y="438.86417"
+           style="font-size:8px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold"
+           id="tspan9104">récolements</tspan><tspan
+           id="tspan5228"
+           sodipodi:role="line"
+           x="720.34851"
+           y="448.86417"
+           style="font-size:8px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold">et bornages</tspan></text>
+    </g>
+    <g
+       id="g5457"
+       transform="matrix(0,1,-1,0,1187.8712,200.4305)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         transform="matrix(0,-1,1,0,0,0)"
+         sodipodi:linespacing="125%"
+         id="text5232"
+         y="-25.533255"
+         x="-789.65155"
+         style="font-size:11.46994781px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         xml:space="preserve"><tspan
+           style="fill:#ff0000;fill-opacity:1"
+           y="-25.533255"
+           x="-789.65155"
+           id="tspan5234"
+           sodipodi:role="line">1842 : Affaire Hourdequin </tspan></text>
+    </g>
+    <g
+       id="g5462"
+       transform="matrix(0,1,-1,0,1505.8748,-909.36068)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <text
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:11.46994781px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="-1115.7212"
+         y="1310.0637"
+         id="text5279"
+         sodipodi:linespacing="125%"
+         transform="matrix(0,-1,1,0,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan5281"
+           x="-1115.7212"
+           y="1310.0637"
+           style="fill:#ff0000;fill-opacity:1">1853 : Arrivée de Haussmann</tspan></text>
+    </g>
+    <g
+       id="g5452"
+       transform="matrix(0,1,-1,0,1082.1669,381.38548)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <text
+         transform="matrix(0,-1,1,0,0,0)"
+         inkscape:export-ydpi="200"
+         inkscape:export-xdpi="200"
+         inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+         xml:space="preserve"
+         style="font-size:11.46994781px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter"
+         x="-904.42224"
+         y="-291.77762"
+         id="text5293"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5295"
+           x="-904.42224"
+           y="-291.77762"
+           style="fill:#ff0000;fill-opacity:1">1823 : Jacoubet arrive à la préfecture</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 269.64892,670.07511 0,15.42723 101.34844,0 0,-576.57525 92.40455,0 0,50.91947"
+       id="path8910"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/images/org_bureau-plans.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+  </g>
+</svg>

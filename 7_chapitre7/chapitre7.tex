@@ -1,0 +1,117 @@
+\chapter[construction du graphe des rues de Paris]{Application du processus~: construction du graphe des rues de Paris}
+
+\section{Introduction}
+
+\section{Présentation des données et vérité terrain}
+Zones choisies car leurs transformations sont bien connues.
+L'observation est constituée du tronçon de rue, sur les filaires.
+\subsection{Ancien îlot de la Trinité}
+1:1200
+Verniquet : Hopital de la Trinité : ilot d'un bloc avec un cimetière, des passages et des ateliers.
+Vasserot : Hopital vendu aux biens nationaux et détruit. Replacé par 
+\subsection{Iles de la Cite et Saint-Louis}
+Quai de la cité construit sur vasserot, mais sinon peu de changements.
+Jacoubet : les ponts en plus, création de passages (prado,...)
+Poubelle : passage de Haussmann : la cité est grosso modo rasée.
+\subsection{Lotissement de l'Europe}
+Verniquet : très rural
+Vasserot: ça bouge pas
+Jacoubet : Premier lotissement
+Poubelle: 2 e restructuration par St Lazare.
+
+
+
+\section{Paramètrage construction de l'hypergraphe des processus de chaque zone d'étude}
+\subsection{Critères de vraisemblance}
+
+\subsubsection{Critère spatial}
+\myparagraph{Distance de Fréchet}
+\myparagraph{Agrégateur : strokes}
+
+\subsubsection{Critère sémantique}
+\myparagraph{Similarité des noms de rues}
+\myparagraph{Agrégateur}
+
+\subsubsection{Critère d'antécédance}
+\myparagraph{Kolodzzz}
+\myparagraph{Agrégateur : intersection}
+
+\subsubsection{Critère d'ordre temporel}
+\myparagraph{Ranking temporel}
+\myparagraph{Agrégateur : intersection}
+
+\subsection{Paramètres du recuit simulé}
+\subsubsection{Paramètres de température}
+\subsubsection{Loi de décroissance de température}
+\subsubsection{Pondération des NM}
+\subsubsection{Critères d'arrêt}
+
+\subsection{Application sur les zones d'étude}
+\subsubsection{Déroulement de l'optimisation}
+\subsubsection{Résultats de la construction de l'hypergraphe}
+\subsubsection{Discussion sur les résultats}
+
+\subsection{Sensibilité aux paramètres}
+\subsubsection{Sensibilité aux paramètres de température}
+\subsubsection{Pertinence des critères de vraisemblance}
+\subsubsection{Pondération NM}
+
+\section{Spécialisation des hypergraphs construits}
+\subsection{Fonctions de masse de croyances}
+\subsection{Stratégie de résolution des conflits d'identité}
+\subsection{Application}
+
+\section{Application à Paris et premières cartes de transformations}
+
+
+
+\section{Critères d'appariement}
+\subsection{Critères spatiaux}
+\subsection{Critères sémantiques}
+
+\section{Fonctions de croyances pour la phase de fusion}
+\subsection{Choix des fonctions}
+\myparagraph{Géométrique}
+$g(h=(V_1,V_2)) = 1-e^{(-\text{dfrechet}(V_1,V_2))}$ 
+
+\newpage
+\section{Application}
+\subsection{Evaluation de la méthode d'optimisation}
+\subsection{Evaluation de la qualité}
+\subsection{Analyse de sensibilité aux paramètres}
+
+\section{Résultats~: graphe spatio-temporel}
+\begin{figure}[hb]
+	\centering
+	\includegraphics[width=1\textwidth]{graphst.png} 
+	\caption{Graphe spatio-temporel créé}
+ \end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{graphst_detail.png} 
+	\caption{Zoom sur le graphe créé}
+ \end{figure} 
+ 
+\section{Résultats~: cartes de transformations}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{destroyed_since_1791_geom_only.pdf} 
+	\caption{Rues détruites entre 1791 et 1888}
+ \end{figure}
+ \begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{destruct_haussmann.pdf} 
+	\caption{Rues de Paris détruites par les opérations Haussmanniennes.}
+ \end{figure}
+ \begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{birth_1830.pdf} 
+	\caption{Le lotissement de Paris~: nouvelles rues percées entre 1800 et 1830}
+%\label{figure:schema_plan_no_obs}
+ \end{figure}
+ 
+\section{Discussion sur les résultats}
+
+\section{Conclusion}
+Comment le graphe peut servir à faire de la conflation de données.

@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg8927"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="procST.svg">
+  <defs
+     id="defs8929">
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <path
+         id="path8360"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.4) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;">
+      <path
+         id="path8381"
+         style="fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Send"
+       style="overflow:visible;">
+      <path
+         id="path8369"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.2) rotate(180) translate(6,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="349.18745"
+     inkscape:cy="793.02909"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="975"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata8932">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:16.53920174px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="185.29359"
+       y="32.36758"
+       id="text8935"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan8937"
+         x="185.29359"
+         y="32.36758"
+         style="font-weight:bold;-inkscape-font-specification:Sans Bold">Processus Spatio-Temporels</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text8949"
+       y="190.56827"
+       x="170.48834"
+       style="font-size:16.53920174px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
+         id="tspan8953"
+         y="190.56827"
+         x="170.48834"
+         sodipodi:role="line">Évolutions</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16.53920174px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="541.99835"
+       y="118.84743"
+       id="text8957"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="541.99835"
+         y="118.84743"
+         id="tspan8959"
+         style="font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold">Restructurations</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text8965"
+       y="180.29976"
+       x="365.39178"
+       style="font-size:16.53920173999999932px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#a00016;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       xml:space="preserve"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;font-weight:bold;-inkscape-font-specification:Sans Bold"
+         id="tspan8967"
+         y="180.29976"
+         x="365.39178"
+         sodipodi:role="line">Fusion</tspan><tspan
+         style="text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;font-weight:bold;-inkscape-font-specification:Sans Bold"
+         y="200.97375"
+         x="365.39178"
+         sodipodi:role="line"
+         id="tspan8971" /><tspan
+         style="text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;font-weight:bold;-inkscape-font-specification:Sans Bold"
+         y="221.64777"
+         x="365.39178"
+         sodipodi:role="line"
+         id="tspan8973" /></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text8996"
+       y="249.24898"
+       x="36.247375"
+       style="font-size:16.53920174px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#a00016;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       xml:space="preserve"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-weight:bold;text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;-inkscape-font-specification:Sans Bold"
+         y="249.24898"
+         x="36.247375"
+         sodipodi:role="line"
+         id="tspan9000">Stabilité</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+       d="m 305.41241,37.637021 -0.26361,25.294332 -142.94505,0.06217 0.32719,108.540787"
+       id="path9022"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:16.53920174px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#a00016;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="177.15358"
+       y="248.91786"
+       id="text9396"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         id="tspan9400"
+         sodipodi:role="line"
+         x="177.15358"
+         y="248.91786"
+         style="font-weight:bold;text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;-inkscape-font-specification:Sans Bold">Transformation</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16.53920173999999932px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#a00016;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="765.29193"
+       y="139.28287"
+       id="text9436"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="765.29193"
+         y="139.28287"
+         id="tspan9438"
+         style="text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;font-weight:bold;-inkscape-font-specification:Sans Bold" /><tspan
+         id="tspan9440"
+         sodipodi:role="line"
+         x="765.29193"
+         y="159.95686"
+         style="text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;font-weight:bold;-inkscape-font-specification:Sans Bold" /><tspan
+         id="tspan9442"
+         sodipodi:role="line"
+         x="765.29193"
+         y="180.63087"
+         style="text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;font-weight:bold;-inkscape-font-specification:Sans Bold">Réallocation</tspan><tspan
+         id="tspan9444"
+         sodipodi:role="line"
+         x="765.29193"
+         y="201.30487"
+         style="text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;font-weight:bold;-inkscape-font-specification:Sans Bold" /></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text9446"
+       y="159.62576"
+       x="547.60345"
+       style="font-size:16.53920173999999932px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#a00016;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       xml:space="preserve"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;font-weight:bold;-inkscape-font-specification:Sans Bold"
+         id="tspan9448"
+         y="159.62576"
+         x="547.60345"
+         sodipodi:role="line" /><tspan
+         style="text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;font-weight:bold;-inkscape-font-specification:Sans Bold"
+         y="180.29976"
+         x="547.60345"
+         sodipodi:role="line"
+         id="tspan9452">Scission</tspan><tspan
+         style="text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;font-weight:bold;-inkscape-font-specification:Sans Bold"
+         y="200.97377"
+         x="547.60345"
+         sodipodi:role="line"
+         id="tspan9454" /></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text9460"
+       y="180.29976"
+       x="453.55402"
+       style="font-size:16.53920173999999932px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#a00016;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       xml:space="preserve"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;font-weight:bold;-inkscape-font-specification:Sans Bold"
+         y="180.29976"
+         x="453.55402"
+         sodipodi:role="line"
+         id="tspan9462">Annexion</tspan><tspan
+         id="tspan9464"
+         style="text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;font-weight:bold;-inkscape-font-specification:Sans Bold"
+         y="200.97375"
+         x="453.55402"
+         sodipodi:role="line" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16.53920173999999932px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#a00016;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="648.04883"
+       y="179.02783"
+       id="text9468"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         id="tspan9470"
+         sodipodi:role="line"
+         x="648.04883"
+         y="179.02783"
+         style="text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;font-weight:bold;-inkscape-font-specification:Sans Bold">Séparation</tspan><tspan
+         sodipodi:role="line"
+         x="648.04883"
+         y="199.70183"
+         style="text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;font-weight:bold;-inkscape-font-specification:Sans Bold"
+         id="tspan9472" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16.53920174px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#a00016;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="327.16925"
+       y="247.31482"
+       id="text8943"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="327.16925"
+         y="247.31482"
+         id="tspan8947"
+         style="font-weight:bold;text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;-inkscape-font-specification:Sans Bold">Apparition</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16.53920174px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#a00016;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="456.01025"
+       y="247.31482"
+       id="text8943-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="456.01025"
+         y="247.31482"
+         id="tspan8947-4"
+         style="font-weight:bold;text-align:center;text-anchor:middle;fill:#a00016;fill-opacity:1;-inkscape-font-specification:Sans Bold">Disparition</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 163.07401,194.23759 40.406102,234.13861"
+       id="path21195"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path21197"
+       d="m 163.07401,194.23759 -0.43945,39.90102"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 163.07401,194.23759 88.45398,39.90102"
+       id="path21199"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path21201"
+       d="m 163.07401,194.23759 163.71035,39.90102"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 543.16427,121.50661 196.26908,39.90102"
+       id="path21203"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path21205"
+       d="m 543.16427,121.50661 100.30459,39.90102"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 543.16427,121.50661 -1.21574,39.90102"
+       id="path21207"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path21209"
+       d="m 543.16427,121.50661 -85.56348,39.90102"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 543.16427,121.50661 367.69721,161.40763"
+       id="path21211"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="path21213"
+       d="m 305.28002,37.637021 -0.17833,25.294332 239.4084,0.06217 -0.32719,36.819955"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/procST.png"
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 163.07401,194.23759 287.95911,39.90102"
+       id="path27212"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

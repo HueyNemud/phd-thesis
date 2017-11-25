@@ -1,0 +1,194 @@
+\documentclass[a4paper, 11pt]{COGITthese}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[toc,page]{appendix} 
+\usepackage[frenchb]{babel}
+\usepackage{xspace}
+\usepackage[round,authoryear]{natbib}
+\usepackage{graphicx} %
+\usepackage[table,dvipsnames]{xcolor} %Couleurs dans les tableaux (cellules, colonnes, etc.)
+\usepackage{url} %Formatage hyperlinks
+\usepackage{float} 
+\usepackage{wrapfig} %Placement fin des figures dans les pages
+\usepackage{booktabs} % 
+\usepackage{caption}
+\usepackage{subcaption}
+%\usepackage{glossaries}
+\usepackage{acronym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\usepackage[toc,page]{appendix}
+\usepackage{pdflscape}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{color,colortbl}
+\usepackage[final]{pdfpages} % pour la couverture
+\usepackage[only]{excludeonly}
+\usepackage{lmodern}
+\usepackage{hhline}
+\usepackage{relsize}
+
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{longtable}
+
+\usepackage{silence}
+\WarningFilter{latex}{Text page}%remove warning on page 162 that contains only floats
+
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[pagebackref=true,breaklinks=true]{hyperref}
+
+\usepackage[nohints]{minitoc}
+
+\renewcommand{\appendixtocname}{Annexes}%pour renommer les annexes
+\renewcommand{\appendixpagename}{Annexes}%pour renommer les annexes
+
+\hypersetup{
+ colorlinks=false,
+ citecolor=Violet,
+ linkcolor=Red,
+ urlcolor=Blue}
+
+\headheight=27.76pt % 13.6 pour répondre à un warning de fancyheader
+%pour les underfull hbox
+\hfuzz=20pt
+\vfuzz=20pt
+\hbadness=2000
+\vbadness=\maxdimen
+
+\newcolumntype{x}[1]{%
+>{\centering\hspace{0pt}}p{#1}}%
+
+
+%Argmin / Argmax
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+
+\newcommand\myparagraph[1]{%
+\paragraph{#1}%
+~\par}
+
+
+%Change le titre "Contents" des Minitoc par "Sommaire"
+\mtcselectlanguage{french}
+
+\fboxrule=1.5pt%border thickness
+
+\graphicspath{{introduction/images/}{1_chapitre1/images/}{2_chapitre2/images/}{3_chapitre3/images/}{4_chapitre4/images/}{5_chapitre5/images/}{6_chapitre6/images/}{7_chapitre7/images/}{annexes/images/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+%\title{A GIS for Tracking Urban Historical Objects Through Space and Time}
+
+%\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{1}
+
+%Custom colors definition
+\definecolor{violet1}{HTML}{846FD7}
+\definecolor{violet2}{HTML}{5C2680}
+\definecolor{violet3}{HTML}{44036F}
+\definecolor{possibilite}{HTML}{756BB1}
+\definecolor{impossibilite}{HTML}{EFEDF5}
+\definecolor{incertitude}{HTML}{BCBDDC}
+\definecolor{incoherence}{HTML}{FEC44F}
+\definecolor{arrow}{HTML}{114F8F}
+\definecolor{arrowleft}{HTML}{114F8F}
+%\makeglossaries
+
+\newcommand{\blankpage}{
+  \newpage
+  \thispagestyle{empty}
+  \mbox{}
+  \newpage
+}
+ 
+ 
+\newmdenv[innerlinewidth=0.5pt, roundcorner=4pt,linecolor=Gray,innerleftmargin=6pt,
+innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox}
+
+% gestion des chapitres
+% commenter tous les \includeonly pour avoir le document complet
+
+% juste l'introduction
+%\includeonly{introduction/introduction}
+
+% juste le chapitre 1 (Positionnement)
+%\includeonly{1_chapitre1/chapitre1}
+
+% juste le chapitre 2 (Histoire des plans)
+%\includeonly{2_chapitre2/chapitre2}
+
+% juste le chapitre 3 (Géoréférencement)
+%\includeonly{3_chapitre3/chapitre3}
+
+% juste le chapitre 4 (Modèle S+T)
+%\includeonly{4_chapitre4/chapitre4}
+
+% juste le chapitre 5 (Graphe ST)
+%\includeonly{5_chapitre5/chapitre5}
+
+% juste le chapitre 6 (Construction automatique + Application aux rues)
+%\includeonly{6_chapitre6/chapitre6}
+
+% juste la conclusion
+%\includeonly{conclusion/conclusion}
+
+%\includeonly{annexes/annexes}
+
+\begin{document}
+\includepdf[offset=0 -40]{0_couverture/frontcover.pdf}
+
+\blankpage
+
+%\markboth{Table des matières}{Table des matières}
+\dominitoc
+
+\tableofcontents
+
+\newpage\cleardoublepage\thispagestyle{empty}
+\addcontentsline{toc}{chapter}{Introduction}
+\setcounter{mtc}{1}
+\renewcommand\labelitemi{\textbullet}% bullet
+
+\markboth{Introduction}{Introduction}
+\include{introduction/introduction} %Introduction
+
+%---------------------PARTIE 1---------------------
+\part{Positionnement et sources cartographiques sur Paris}
+
+\include{1_chapitre1/chapitre1} % Positionnement du sujet : positionnement par rapport à la pratique de l'histoire et aussi par rapport à l'utilisation de SIG pour faire de l'histoire.
+\include{2_chapitre2/chapitre2} % Dans ce chapitre on fait un peut d'histoire pour définir un peut mieux les objets que l'on manipule.
+%\chapter*{Conclusion de la partie 1}
+
+%---------------------PARTIE 2---------------------
+\part[Construction de graphes spatio-temporels]{Construction de graphes spatio-temporels à partir de sources cartographiques anciennes}
+
+\include{3_chapitre3/chapitre3} % Géoréférencement des plans
+\include{4_chapitre4/chapitre4} % Modèle de données spatiales et temporelles
+\include{5_chapitre5/chapitre5} % Graphe géohistorique
+\include{6_chapitre6/chapitre6} % Processus de construction automatique
+%\include{7_chapitre7/chapitre7} % Application
+%\chapter*{Conclusion de la partie 2}
+\cleardoublepage
+
+\markboth{Conclusion et perspectives}{Conclusion et perspectives}
+\addcontentsline{toc}{chapter}{Conclusion et perspectives}
+\include{conclusion/conclusion} %Conclusion générale
+
+\include{annexes/annexes} %Annexes
+
+% bibliographie
+\addcontentsline{toc}{chapter}{Bibliographie}
+\bibliographystyle{apalike-fr}
+\bibliography{biblio}
+
+% table des figures
+\listoffigures \addcontentsline{toc}{chapter}{Table des Figures}
+\listoftables \addcontentsline{toc}{chapter}{Liste des Tableaux}
+%glossaire
+%\printglossaries
+
+\pagestyle{empty}
+\cleardoublepage
+\null\newpage
+\includepdf[offset=0 -20]{0_couverture/backcover.pdf}
+\end{document}

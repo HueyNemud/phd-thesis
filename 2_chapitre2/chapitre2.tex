@@ -1,0 +1,1143 @@
+\chapter{Sources cartographiques sur Paris}
+\label{chap:sources}
+
+\renewcommand{\labelitemi}{\tiny$\blacksquare$}
+\large \begin{mybox} \normalsize
+\textbf{Objectifs~:} 
+\vspace{11pt}
+\begin{itemize}
+\item  Présenter les sources topographiques parisiennes utilisées.
+\vspace{11pt}
+\item  Identifier les hétérogénéités des sources et les liens d'héritages existants entre elles.
+\vspace{11pt}
+\item  Déterminer de façon qualitative les temporalités valides des sources.
+\vspace{11pt}
+\item  Explorer la mutation de d'administration de la Seine à travers les plans de Paris.
+\end{itemize}
+\end{mybox}
+\renewcommand\labelitemi{\textbullet}% bullet
+\newpage
+\minitoc
+\newpage
+Traiter des plans anciens au sein d'un SIG implique nécessairement qu'ils soient proches des plans topographiques contemporains pour lesquels ont été développés les outils et les méthodes de traitement actuels. Cette proximité est tout d'abord cartographique~: la vue doit être verticale, les thèmes cartographiques semblables. Elle doit être aussi géométrique, dans la précision du positionnement des objets dans le plan de la carte~: il faut donc des plans marqués par une forte précision, présentant de faibles déformations géométriques. Les plans en perspective, majoritaires avant le XVIII\up{e} siècle, sont donc difficilement utilisables par un SIG à deux dimensions \footnote{On parle de SIG 2D pour désigner les outils classiques destinés à la cartographie, en opposition aux SIG 3D qui permettent de représenter des données géographiques en volume.}
+\cite{Balletti2000}, ayant référencé un plan de la ville de Venise en plaçant un ensemble de points d'amer sur des bâtiments dessinés en perspective, a conclu à une difficulté de comparaison du résultat avec des données planimétriques, et ce, malgré un géoréférencement satisfaisant.
+Plus généralement, de telles vues sont davantage utilisées dans le cadre de SIG à trois dimensions ou pour la reconstitution d'édifices anciens en archéologie~\citep{Stefani2010}.
+C'est par exemple le cas du \emph{Virtual Lodeum}~\citep{Pfeiffer2013}, SIG 3D de la ville de Liège constitué à partir d'une maquette de 1730, dans lequel des gravures anciennes de bâtiments peuvent être projetées sur les modèles 3D correspondants.
+\subparagraph{}
+Les transformations les plus importantes de l'espace parisien que l'on peut aisément documenter se situent durant les XVIII\up{e}, XIX\up{e} et XX\up{e} siècles.
+
+La population parisienne passe ainsi d'environ 640.000 âmes en 1793~\citep{Landry1935} à 600.000 en 1811, dépasse le million en 1846 pour atteindre 1.200.000 en 1856~\citep{Chevalier1952} dans les mêmes limites.
+En 1891 la ville compte plus de 2.440.000 habitants, soit près de quatre fois la population cent ans plus tôt.
+La ville se transforme en profondeur et à plusieurs reprises~: la Révolution amène la vente des anciennes propriétés ecclésiastiques et libère de larges espaces lotissables, tandis que le Consulat et le Premier Empire mettent en place des politiques de grand travaux~: canal de l'Ourcq et réservoirs, abattoirs, quais, etc. Aux grandes opérations de lotissement de Grenelle et Plaisance au sud, Passy à l'ouest ou encore Poissonnière et Batignolles au nord succèdent les premières grandes percées~: la poursuite de la rue de Rivoli au travers du centre parisien ou la rue Rambuteau sont ouvertes.
+Au milieu du XIX\up{e} siècle c'est le centre parisien qui subit les politiques hygiénistes des autorités centrales; les rues sont élargies, rendues rectilignes, les impasses deviennent des rues.
+Surviennent ensuite le rattachement des communes limitrophes qui agrandit Paris de  4.365 hectares, puis les opérations haussmanniennes qui poursuivent la transformation de la ville.
+Après 1885, Paris ne connaîtra plus de transformations majeures, sinon dans le quartier de la Villette en raison du développement des industries~\citep{Bourillon2000}.
+\subparagraph{}
+Dans ce cadre, nous avons choisi de nous concentrer sur la période allant de la Révolution Française à la fin du XIX\up{e} siècle.
+Ainsi, nous couvrons une période marquée par des modifications majeures mais aussi par une riche production de plans topographiques.
+En effet, la rapidité des transformations urbaine s'accompagne d'une profusion de plans souvent réalisés par des architectes.
+\subparagraph{}
+Simples guides de la ville, la plupart de ces plans sont à une échelle trop grande et sont trop peu précis pour être utilisables comme sources principales d'information sur l'espace parisien.
+Certains d'entre eux se distinguent cependant par une très grande précision et une échelle fine, entre 1/2.000\up{e} et 1/10.000\up{e}.
+Ils sont pour la plupart liés aux instances du pouvoir parisien et ils étaient destinés à être de véritables outils d'aménagement de la ville, ce qui permet de les considérer comme les sources les plus précises et fiables sur la topographie de Paris.
+Ainsi, nous avons sélectionnés cinq plans qui nous permettent de couvrir la totalité de la période considérée~:
+\begin{itemize}
+\item l'\emph{Atlas National de la ville de Paris} par Edmé Verniquet, publié entre 1791 et 1799. On le désignera par souci de simplicité \emph{atlas de Verniquet},
+\item la \emph{Topographie de Paris}, plan réalisé par Nicolas Maire et publié en 1808. Il sera nommé \emph{plan de Maire},
+\item le \emph{cadastre de Paris par îlots} de Philibert Vasserot, commencé en 1810 et terminé en 1836 (1855 pour certains îlots). On l'appellera \emph{Cadastre de Vasserot},
+\item l'\emph{Atlas Général de la ville et des faubourgs de Paris} de Théodore Jacoubet, publié en 1836. Il sera nommé \emph{atlas de Jacoubet},
+\item l'\emph{Atlas municipal des vingt arrondissements de la ville de Paris}, plan officiel de la préfecture de la Seine, édition de 1888. Il sera désigné comme un \emph{atlas municipal}.
+\end{itemize} 
+Parmi ces plans, seul le dernier est officiellement issu des services municipaux, tous les autres étant le produit d'entreprises individuelles\footnote{Si le projet est à l'initiative d'une seule personne -architecte, commissaire voyer, etc.-, des équipes de taille variée travaillerons à la réalisation de chaque plan. Plus de 40 géomètres participerons par exemple à la réalisation de l'atlas de Verniquet.}. Nous verrons au cours de ce chapitre qu'il s'agit bien d'une caractéristique propre de cette période qui marque la nature de ces sources aussi bien du point de vue technique que de leur utilisation dans le cadre de la politique urbaine de Paris. Issus d'un travail individuel, ces plans étaient levés sur des périodes souvent longues. Ils étaient aussi objets d'un marché de vente, échange, reprise et diffusion qui impactait non seulement les formes des uns sur les autres mais induisant aussi la reproduction non contrôlée de leurs erreurs et imprécisions. Dans plusieurs cas, une analyse attentive, permet en effet de voir comment, dans une même planche, architectes et géomètres réutilisaient des levés ou des représentations cartographiques antérieures, conservant alors leurs erreurs et imprécisions. Si ces aspects sont connus des historiens, ils ont été rarement considérés dans la construction des SIG historiques existants qui acceptent de les intégrer sans un véritable travail critique. Au cours de ce chapitre, nous essayerons donc d'analyser qualitativement le contexte, la structure et le contenu de chaque plan, de façon à déterminer plus précisément leur nature, notamment en ce qui concerne les temps de validité, aspect qui est très souvent difficile de déterminer, comme nous avons vu au cours du chapitre précédent. 
+
+Une telle démarche s'est révélée particulièrement fructueuse.  Ainsi nous avons pu démontrer que, pour l'ensemble de ces plans, les dates officielles de publication ne reflètent jamais la réalité de terrain des planches qui les composent. Emprunts, reprises, nouveaux levés et projets d'ouverture se superposent de manière souvent contradictoire en restituant surtout l'image d'un plan comme d'un millefeuille qui accumule les fragments locaux d'une ville qui change sans cesse. La complexité de ce tramage temporel est donc avant tout le résultat  presque inévitable induit par les techniques de travail de l'époque. Mais nous avons pu voir qu'elle révèle aussi une dynamique plus complexe donnée par le changement des formes de production de l'objet cartographique qui passent de la dimension de l'entreprise privée à celle du public. Si Edmé Verniquet avait travaillé sur son plan en tant que géomètre privé commissionné par l'administration préfectorale, Théodore Jacoubet produira le sien en tant que fonctionnaire du Bureau des Plans de la ville de Paris.  Dans les plans levés au cours du XIXème siècle, nous trouvons donc aussi la trace de nombreuses tensions qui marquent ce processus. Tout au long du siècle les intérêts privés et intérêts publics se superposent de manière souvent contradictoire en impactant très souvent sur la qualité et même la véracité des levés. Au centre de cette période et de ces changements, l'analyse de la figure de Théodore Jacoubet et de son travail permet de mesurer très précisément la nature et l'importance de ces déterminations.
+
+\section{Atlas de Verniquet}
+\label{subsection:verniquet}
+L'\emph{Atlas National de la Ville de Paris}\footnote{Le nom complet de cet atlas est \emph{Atlas du Plan Général de la Ville de Paris, levé géométriquement par le citoyen Verniquet, rapporté sur une échelle d'une demi ligne pour toise et divisé en 72 planches.}} est à la fois l'{\oe}uvre majeure de son auteur, l'architecte Edmé Verniquet, et la matrice de la plupart des plans parisiens du XIX\up{e} siècle.
+Terminé en 1791, cet atlas composé de 72 feuilles à l'échelle de 1/1.800 environ (à l'origine, le plan est en toises à une échelle d'une demi-ligne par toise) est un portrait de la ville à l'aube de la Révolution.
+La précision extrême du plan et le style dépouillé qui lui sont caractéristiques feront de lui la base de la plupart des grands plans de Paris pendant de nombreuses années et un outil convoité par l'administration de la Seine.
+Ce n'est pourtant ni le plan le plus riche d'informations, ni le plus novateur de son époque.
+En 1730 déjà des cartographes tel Delagrive s'étaient attachés à concevoir des plans de Paris dits \emph{géométraux} où la précision géométrique était l'objectif principal.
+On connaît aujourd'hui l'ampleur et les détails de la tâche de Verniquet grâce aux travaux de Jeanne Pronteau~\citep{Pronteau1986} qui a reconstitué toutes les étapes de la construction du plan, depuis l'achat du titre de commissaire-voyer par Verniquet\footnote{Verniquet prend en effet la suite de Turgot en 1774 après avoir acheté son titre de commissaire voyer à la ville de Paris pour 100.000 livres.} jusqu'aux dernières gravures des feuilles du plan en 1799.
+Bien qu'il s'agisse du plus ancien plan que nous utilisons, ces travaux nous offrent la possibilité de connaître en détail la phase, pour nous cruciale, du levé du plan.
+Il s'agira d'ailleurs de l'unique plan pour lequel nous connaissons avec précision la période de levé.
+
+\subsection{Levé et structure}
+Jeanne Pronteau décrit précisément toutes les opérations qui ont mené à la construction de l'atlas de Verniquet. Nous n'en ferons ici qu'une synthèse rapide et certainement incomplète, mais dont l'objectif est de faire apparaître les différentes couches temporelles qui constituent l'atlas final.
+\subparagraph{}
+La première chose à noter est que la grande majorité des levés topographiques effectuée par Verniquet ne concernent pas la construction du fameux atlas. Son objectif est, à l'origine, la constitution d'un plan de Paris rue par rue. C'est dans ce but qu'il entame en 1775 le relevé topographique de l'ensemble des rues de Paris, dans un premier temps à ses frais, puis, à partir de 1783, officiellement chargé par l'administration royale\footnote{Jeanne Pronteau indique ainsi que de 1775 à l'été 1783, Verniquet procède à des relevés qui deviendront officiels à la suite de la déclaration royale du 10 avril 1783.
+Celle-ci fixe des règles entre la largeur de la rue et la hauteur des constructions qui l'entourent.
+Le Roi charge alors les commissaires voyers, dont Verniquet fait partie, d'effectuer un levé complet des rues de la ville \citep[p.409]{Pronteau1986}.}
+Verniquet termine ses plans de rues en 1785 au 1/144\up{e} pour l'ensemble des rues contenues dans les limites de Paris fixées par Louis XV\footnote{Déclaration du 18 juillet 1724}.
+Notons que ces plans, bien plus détaillés que l'atlas, contiennent, en plus de la forme des rues, les amorces des parcelles, le numéro ainsi que le nom du propriétaire du moment.
+\paragraph{}
+La même année, Verniquet demande et obtient de la part du Roi la construction d'un grand plan de Paris, qui aboutira à l'atlas que l'on connaît aujourd'hui.
+Après avoir effectué les relevés des rues allant jusqu'à l'enceinte des Fermiers Généraux (Jeanne Pronteau donne ainsi 184 rues nouvellement levées jusqu'en 1788~\citep{Pronteau1986}) et désormais assisté par plus de 40 personnes, Verniquet commence à former son plan général.
+Pour cela, il réutilise les levés des rues de Paris qui lui fournissent les mesures des rues puis replace par triangulation ces différentes mesures dans la ville.
+Finalement, il assemble toutes les rues les unes après les autres pour former la structure complète du plan. Le plan complet de la ville de Paris est ainsi achevé en 1791, mais sa gravure s'étalera jusqu'en 1799.
+
+\myparagraph{Structure du plan}
+L'atlas de Verniquet a été entièrement construit sur la base de relevés topographiques et trigonométriques.
+À partir de la méridienne de Paris et de sa perpendiculaire se croisant à l'observatoire, Verniquet a effectué une triangulation couvrant toute la ville et permettant d'assembler et de corriger les différents levés des rues.
+Cette triangulation et la structure complète du plan sont aujourd'hui connus non seulement par les travaux précédemment cités, mais aussi grâce à un plan fourni par Verniquet à la page 70 de son Atlas.
+Fourni en annexe~\ref{annexe:triangulations_verniquet}, il s'agit d'un plan résumant l'ensemble des points fixes choisis comme repère (nommés \emph{points de station}) et les triangles les reliant. 
+Il définit ainsi 67 points de station dont 8 points principaux et 59 points secondaires fixés sur des monuments remarquables (clochers, colonnes, coupoles, etc.).
+Il rajoute enfin 27 points de station aux alentours de Paris, pour améliorer à la fois les vérifications des calculs et la précision des tracés dans les faubourgs.
+Les 8 points de station principaux sont fournis avec un plan détaillé qui permet de les placer très précisément encore aujourd'hui.
+Quant aux autres points, si les 59 stations secondaires peuvent encore être retrouvées car placées sur des éléments bâtis (souvent les flèches ou tours d'églises, de couvents et d'autres bâtiments d'importance), la plupart des 27 points des faubourgs ne peuvent pas être placés avec précision (l'un d'eux indique par exemple seulement \emph{Dans la plaine de Grenelle}).
+Finalement, le plan entier de Verniquet est découpé en 72 feuilles selon un carroyage fixé sur la méridienne et sa perpendiculaire.
+
+\subsection{Contenu du plan}
+L'atlas de Verniquet est en rupture avec les plans de Paris qui le précèdent dans lesquels le dessin des bâtiments, des cours ou des îlots est souvent très détaillé, tel celui de Jaillot.
+Son {\oe}uvre est à l'inverse extrêmement épurée~: seuls les contours des îlots urbains sont dessinés d'un trait d'encre, l'intérieur étant laissé vide. Seul le dessin du relief, c'est notamment le cas de Montmartre, est riche en détails sans doute plus décoratifs qu'indiquant la véritable dénivellation. 
+\paragraph{}
+Certains bâtiments sont cependant tracés à l'encre et de façon détaillée.
+Il s'agit en fait de l'ensemble des biens nationaux, qui seront ajoutés par Verniquet pour répondre à la demande de la Convention en 1793 de produire des plans de l'ensemble de ces biens dans le but de les lotir et les vendre \citep{Pronteau1986}.
+Cette demande finale aboutira à la gravure, unique, de l'atlas complet entre 1793 et 1799.
+
+\section{Plan de Maire}
+Comme nous l'avons évoqué, Paris connaît d'importantes transformations pendant le règne de Napoléon I\up{e} tant en raison des politiques publiques d'urbanisme (démolition du Grand Châtelet, percement de la rue de Rivoli et du canal de l'Ourq, construction d'abattoirs) que des opérations privées de lotissement dans les espaces des différents biens nationaux qui parsèment le centre de la ville.
+\paragraph{}
+Le \emph{Plan de la ville de Paris}  (ou \emph{La topographie de la Ville de Paris et de ses faubourgs}) dessiné par Nicolas Maire en 1808 est un témoin privilégié des modifications apportées par le Premier Empire, non seulement sur le tissu urbain mais aussi sur les dénominations des rues (on remarque plus de 66 nouveaux noms de rues, auxquelles il faut ajouter les très nombreuses rues ayant repris le nom qu'elles avaient avant la Révolution).
+Divisé en 20 planches plus une planche d'assemblage, le plan est accompagné par un tableau des rues et une notice explicative de l'auteur qui le présente comme une version corrigée et mise à jour du plan de Delagrive\footnote{Précurseur du plan de Verniquet, le plan de De La Grive a été publié en 1728 puis réédité plusieurs fois au cours du XVIIIe siècle, jusqu'en 1761}.
+L'échelle n'est pas notée sur le plan, mais Maire indique qu'elle est la même que celle du plan de Delagrive, soit environ 1/4.500\up{ème}\footnote{Le plan de Delagrive daté de 1728 est gravé à 11mm pour 25 toises, soit environ 1/4.429\up{ème}.
+Jean Boutier~\citep{Boutier2007} aboutit également à une échelle de 1/4.500\up{e}, soit 17,2 cm pour 400 toises.}, faisant de ce plan l'un des plus détaillés sur les années 1800-1810.
+\`A titre de comparaison, une autre série de plans de Paris de haute qualité édités par Charles Piquet à partir de 1804 ne sont qu'à l'échelle de 1/8.000\up{e}.
+\paragraph{}
+Nous ne connaissons pas précisément les dates de réalisation de ce plan, 1808 étant seulement sa date de parution.
+Cependant, il ne s'agit pas d'une édition originale mais de la mise à jour d'un autre plan édité par le même auteur en 1803.
+Maire corrigera et éditera de nouveau son plan régulièrement, en 1812, 1813, 1816 et finalement 1824~\cite[p.226]{Bonnardot1851}.
+Un tel rythme de gravure, au moins jusqu'en 1816, laisse penser qu'il s'agit surtout de corrections apportées à un tracé réalisé sans doute en 1803 ou avant.
+\paragraph{}
+On pourrait s'étonner que l'auteur, pourtant \emph{ingénieur géographe} reconnu\footnote{On le retrouve sous la Restauration avec le titre de \emph{géographe ordinaire du Roi}}, ne se soit pas plutôt appuyé sur l'atlas de Verniquet.
+Il faut rappeler, cependant, que, tout en restant la référence principale pour la cartographie de la capitale, en 1803 Edmé Verniquet est engagé dans un important procès avec les administrations napoléoniennes et les exemplaires de son Atlas se trouvent dispersés entre les différents protagonistes. 
+% En analysant plus finement le plan, nous allons pourtant observer qu'il est plus complexe que l'annonce l'auteur et en particulier qu'il n'est pas aussi éloigné du plan de Verniquet qu'on pourrait le croire.
+
+\subsection{Structure du plan}
+\myparagraph{Un plan issu de plusieurs sources}
+En premier lieu il nous faut remettre en question la présentation officielle du plan de Maire comme héritier d'un unique plan qui, rappelons-le, est âgé de près de 80 ans.
+C'est ce que Alain Fourquier suggérait déjà  \citep{Fourquier2007} en montrant que Maire avait certainement utilisés aussi deux autres plans.
+Le premier, dit \emph{Plan de Jaillot} \citep{MAPJaillot1775}, daté de 1775 à 1778, est proche du plan de Delagrive tant en termes de contenu que de construction~: représentation des bâtiments publics et religieux sans détailler les îlots, échelle proche (environ 1/3600\up{e}), etc. Le second n'est autre que l'atlas de Verniquet.
+\paragraph{}
+Si les plans de Jaillot et de Delagrive ont pu servir à Maire pour dessiner l'intérieur de Paris, ils ne couvrent pas les espaces externes à l'enceinte des Fermiers Généraux, pourtant représentée dans son plan. Or il est intéressant de remarquer que les espaces de Monceau, Chaillot, Vaugirard et le sud de la Bièvre, en dehors des limites du plan de 1728, étaient parfaitement renseignés chez Verniquet.
+L'utilisation de son plan par Maire est donc plus que crédible, d'autant plus que les deux géomètres sont contemporain (seuls 4 ans séparent la fin de la gravure de l'atlas de Verniquet et la première publication de Maire en 1803 et que les mises à jours de Verniquet étaient beaucoup plus récentes.
+\paragraph{}
+Si l'on compare visuellement les faubourgs de la ville sur les plans de Maire et Verniquet, la ressemblance des styles apparaît immédiatement.
+La figure \ref{fig:verniquetvsmaire} donne ainsi deux exemples extraits de ces deux plans, le premier centré sur les Buttes-Chaumont à l'Est et le second sur la Butte-Aux-Cailles.
+On remarque ainsi qu'en plus d'une symbolisation très proche, les mêmes détails sont représentés sur les deux plans.
+De plus, dans l'espace des Buttes-Chaumont  les dénivellations sont presque identiques et symbolisées de la même façon, un tel niveau de détail ne se trouvant que dans l'atlas de Verniquet.
+À côté de chaque extrait figure également la zone correspondante sur le plan de Delagrive, permettant de mieux juger de la proximité entre les travaux de Verniquet et Maire. Il semble donc que le plan de Maire soit en fait composé de deux sources, la première sur le centre parisien et la seconde permettant la mise à jour des espaces fortement transformés depuis 1728, en particulier autour de l'enceinte des Fermiers Généraux.
+\begin{figure}
+ \centering
+\includegraphics[width=1\textwidth]{verniquet_vs_maire.png} 
+	\caption{Les Buttes-Chaumont et la Butte-Aux-Cailles telles que représentées dans le plan de Maire en comparaison avec l'atlas de Verniquet et le plan de Delagrive.}
+	\label{fig:verniquetvsmaire}
+\end{figure}
+
+Le plan de Maire est donc particulier puisqu'il apparaît comme un assemblage d'au moins deux plans plus anciens et non comme une mise à jour d'un plan unique ou un nouveau levé.
+Bien que cet assemblage ait pu permettre d'obtenir un plan détaillé pour l'ensemble de la ville en 1808, il est donc évident qu'une telle construction peut induire une précision géométrique hétérogène.
+
+\myparagraph{Le carroyage du plan}
+Assez étrangement, Maire ne fait pas apparaître la méridienne de Paris sur son plan, et il ne construit pas non plus son carroyage à la façon de Delagrive et Verniquet  en utilisant la méridienne et sa perpendiculaire passant à l'Observatoire pour former les carreaux.
+Au contraire, le carroyage, composé de 80 rectangles de 900 mètres sur 640 mètres, présente un décalage de plus de 300 mètres à l'ouest de la méridienne, et de près de 150 mètres au nord de sa perpendiculaire.
+Il corrigera cependant ceci à partir de 1813 en reproduisant le carroyage adopté par Verniquet.
+
+\subsection{Contenu du plan}
+\myparagraph{Corrections du plan et profondeur historique}
+Le plan de Maire, comme la plupart des autres plans topographiques de la ville, présente, en superposition du réseau routier, les tracés des voies projetés des travaux de voirie en cours ou prévus.
+Maire précise que les tracés annotés sur le plan sont tous arrêtés par le gouvernement, ce qui n'empêche pas le plan de contenir certains projets jamais réalisés.
+Parmi les travaux principaux indiqués, le pont Iéna en 1814, le prolongement de la rue de Tournon ou encore la rue d'Ulm verront le jour.
+Le canal de l'Ourq est quant à lui noté comme projet et esquissé au sud de son tracé.
+Les réorganisations des abords de l'Observatoire de Paris et de l'église Saint-Eustache, jamais effectuées, sont tout de même décrites.
+\paragraph{}
+Sur les rues toujours, Maire fait le choix de figurer les noms des rues révolutionnaires ayant changé de nom pendant le Premier Empire.
+Puisque le plan de 1808 est une réédition corrigée d'un plan de 1803, ces doubles dénominations concernent les rues ayant changé de nom entre 1803 et 1808.
+Par exemple, la rue du Roi de Sicile qui s'est appelée \emph{rue des droits de l'Homme} pendant la Révolution est visiblement corrigée sur le plan qui indique  \emph{Rue du Roi de Sicile et non Rue des Droits de l'Homme}.
+Il s'agit donc davantage de corrections de l'édition précédente que d'une volonté de description historique.
+De la même façon, la maison de chanoine du Petit Saint Antoine qui se situerait aujourd'hui au 11 rue du Roi de Sicile, détruite en 1792 et définitivement démolie en 1804 est dessinée sur le plan et accompagnée d'une note précisant sa destruction : \emph{démoli en 1804}.
+Maire ne se contente pas de corriger son plan mais prévoit certains changements de noms par avance, telle la rue de la Réunion, ancienne rue de Montmorency, qui reprendra son titre d'origine en 1808.
+Aussi Maire note-t-il : \emph{rue de Montmorency act. rue de la Réunion}.
+D'autres changements plus tardifs sont indiqués de la même façon, comme la rue révolutionnaire \emph{De la Convention} qui deviendra en 1814 la \emph{rue du Dauphin} ou encore l'ancienne place du Louvre appelée place d'Iéna jusqu'en 1814 que Maire renomme \emph{Place de la Colonnade}.
+\paragraph{}
+Dernière particularité de ce plan, plusieurs planches sont annotées de textes décrivant certains bâtiments de la capitale impériale ou certains lieux qui en offrent un point de vue unique.
+Ainsi, la planche 10 du plan, centrée sur le Champ de Mars, indique qu'\emph{ici l'École Militaire se déploie dans toute sa beauté, au milieu de la campagne la mieux cultivée avec son vaste et magnifique Champ de Mars.} Le plan de Maire se veut précis et juste mais vise aussi un usage touristique dont l'objectif est d'intéresser \emph{l'Étranger comme l'habitant de Paris} pour lui donner un accès simple à \emph{tout ce que [la] capitale de l'Empire renferme d'utile et de curieux.}\citep[p.VII]{Maire1808}.
+Le plan de Maire est l'unique plan touristique dont nous ferons usage au sein de ce travail, ceux-ci étant souvent très peu précis géométriquement et, par là même, difficilement utilisables au sein d'un SIG.
+%\myparagraph{Conclusion}
+Le plan de Paris réalisé par Nicolas Maire est la seule de nos sources de données qui ne soit pas directement liée aux dépositaires officiels de l'aménagement urbain parisien.
+En effet, jusqu'à la réalisation du cadastre parisien en 1807, le travail de Verniquet constituait l'unique grand plan utilisé par l'Hôtel de Ville, qui ne possédait alors aucun service cartographique suffisamment développé pour produire un nouveau grand plan de Paris.
+De 1791 à 1810 au moins, nous sommes donc obligés de nous fier à des plans réalisés par des cartographes indépendants, dont l'exactitude et la fiabilité sont souvent très critiquables.
+Choisir le plan de Maire implique donc de s'intéresser à un plan singulier par sa construction mais aussi particulièrement riche de contenu.
+L'ultime édition date de 1824 et continue à intégrer des transformations en présentant les plaines d'Ivry et de Châtillon, lieux de plaisir et de guinguettes où se rendaient tant de Parisiens. Ces plans étaient vendus en noir et blanc, ou coloriés.
+\section{Cadastre de Vasserot}
+Réalisé dans un premier temps par l'architecte employé des services du cadastre Philibert Vasserot, puis par son fils Charles Vasserot, le cadastre \emph{par îlots} de Paris est une production cartographique majeure du XIX\up{e} siècle. Celui-ci se présente sous la forme de 912 plans des îlots de la ville, rassemblés en 24 volumes ~\citep{Noizet2009, Pinon2004}. La quasi totalité des 12 anciens arrondissements est couverte. Nous avons utilisé pour notre travail les plans d'îlots assemblés et géoréférencés dans le cadre du projet ALPAGE~\citep{ALPAGE}. Ce projet ayant mené à des recherches sur la création de l'atlas lui-même et sur le personnage de Philibert Vasserot, nous nous appuierons ici sur les travaux de~\cite{Noizet2009}. On pourra également trouver une étude détaillée du plan et de son auteur dans~\cite{Souchon2002} et des détails complémentaires dans~\cite{Coyecque1909}.
+
+\myparagraph{Une part du cadastre napoléonien}
+Après l'échec du premier cadastre français en 1802 \emph{par masses de culture}, Napoléon Bonaparte relance avec la loi du 15 septembre 1807 le projet d'un cadastre parcellaire sur la France entière, immédiatement mis en {\oe}uvre.
+La capitale, qui en 1802 n'avait pas été couverte par les opérations, connaît une fois encore un traitement particulier.
+En effet, l'Atlas de Verniquet, alors utilisé par les services de la ville, constitue un plan suffisamment précis pour être utilisé comme base d'un plan cadastral.
+Son trait épuré le rend particulièrement adapté à servir de fond topographique pour ce travail.
+C'est donc assez logiquement qu'en 1807 le Service du Cadastre de la préfecture entame la réalisation d'un plan parcellaire des 48 quartiers de Paris au 1/2.000\up{e} fondé sur l'Atlas de Verniquet, plan qui sera terminé en 1821.
+Mais l'échelle de ce plan ne permet pas de décrire en détail une ville aussi dense et il se contentera de représenter les amorces des parcelles avec leurs numéros.
+En 1809, un second projet cartographique est lancé pour compléter ce premier travail en se plaçant à une plus grande échelle.
+Cette fois, il s'agit de lever le plan de toutes les maisons de la capitale\footnote{On trouvera une note détaillant précisément les opérations de levé des maisons dans \citep[p. 2]{Souchon2002}}, ce qui prendra 27 ans et se terminera en 1836.
+Philibert Vasserot, architecte des Hospices de Paris et attaché au service du cadastre, travaillera sur ces deux projets.
+\paragraph{}
+Constatant que l'écart d'échelle entre les deux plans complique la localisation d'un plan de maison dans celui des 48 quartiers, Philibert Vasserot propose alors la réalisation d'un plan intermédiaire par îlots devant former \emph{un atlas composé de 60 à 80 tableaux par arrondissement municipal}.
+Cécile Souchon \citep[p. 3]{Souchon2002} précise que le travail de Vasserot, commencé en 1810 avancera à bon rythme jusqu'en 1815 avant de ralentir et finalement de s'arrêter faute de financement dans les années suivantes.
+Il reprendra son travail en 1821, qui accélérera à partir de 1823 quant Philibert Vasserot recevra l'aide d'autres personnes\footnote{\cite{Souchon2002, Coyecque1909, Noizet2009} s'accordent sur l'aide apportée par son fils Charles Vasserot, qui poursuivra d'ailleurs le travail de son père. \cite{Noizet2009} s'interroge sur la participation d'autres personnes à partir de 1823, notamment un architecte du nom de Delucenay qui prendra le relais de Charles Vasserot après 1848.} et sera publié en 1836 bien qu'il soit alors inachevé.
+Philibert Vasserot meurt en 1840, mais son fils poursuivra le dessin des îlots manquants jusqu'en 1848 avant de laisser lui même la main à l'architecte Delucenay.
+\cite{Noizet2009} fait en outre remarquer que l'atlas régulièrement appelé \emph{atlas de Vasserot et Bellanger} est en réalité un projet initié par Vasserot après 1836 visant à rassembler les plans d'îlots par quartiers.
+Le projet ne sera toutefois jamais terminé et seules les minutes~\footnote{La minute désigne les premières versions du plan, généralement dessinées sur le terrain, qui précèdent la gravure ou bien la mise au net.} de 37 quartiers tracées au crayon seront faites.
+
+\subsection{Levé et structure du plan}
+Les plans des îlots levés par Vasserot sont tout à fait particuliers.
+Contrairement à la majorité des plans topographiques qui sont construits selon une logique  \emph{descendante}, partant d'une triangulation générale de l'espace qui est ensuite raffinée, Vasserot s'appuiera directement sur les plans des maisons.
+Nous ne savons pas si Vasserot s'est appuyé sur les plans d'îlots déjà réalisé par Verniquet entre 1785 et 1791 \citep[p. 5]{Noizet2009}, peut-être également utilisé par les géomètres ayant réalisé le plan des 48 quartiers, ou s'il a effectué de nouveaux levés. Il est toutefois certain que les plans d'îlots ont été réalisés en assemblant la multitude de plans de maisons levés en même temps que les feuilles étaient dessinées.
+\paragraph{}
+Une telle méthodologie pose deux problèmes.
+D'abord, la réalisation simultanée des îlots et des plans de maisons contraignait Vasserot à attendre la réalisation des maisons d'un îlot pour pouvoir le terminer.
+Or, il apparaît que les levés des maisons des deux côtés d'une rue étaient parfois décalés de plusieurs années, menant éventuellement à des plans représentant deux états différents de la rue.
+%On peut le voir par exemple dans le passage du Saumon \ref{figure:passagesaumon}, modifié en 1828 qui apparaît différent dans les deux îlots l'encadrant.
+Plus encore que les autre plans, le cadastre par îlots de Vasserot contient de multiples temporalités.
+Le projet ALPAGE a analysé l'ensemble des 912 îlots référencés et a déduit pour chacun d'entre eux une date approximative de dessin.
+\paragraph{}
+Ensuite, le fait d'assembler des plans de maisons réalisés indépendamment questionne la précision géométrique du résultat.
+En effet, la juxtaposition de ces plans inévitablement inexacts mène à une accumulation d'erreurs aboutissant à des îlots dont les limites sont distendues.
+Si en revanche les limites des îlots étaient connues de Vasserot par de nouveaux relevés ou grâce à Verniquet, les plans de maisons ont pu être modifiés pour pouvoir s'agencer à l'intérieur.
+Dans tous les cas, la création de plans en assemblant d'autres plans demande à s'interroger sur leur précision géométrique et peut engendrer des déformations potentiellement importantes lors du géoréférencement.
+
+
+\subsection{Contenu du plan}
+De par son échelle et l'ampleur de la tâche (plus de 40 personnes -ingénieurs géomètres, architectes et arpenteurs- participeront au levé des plans des maisons), le cadastre de Vasserot est extrêmement détaillé.
+De plus, contrairement aux autres plans que nous utilisons, construits comme des outils d'aménagement et de promotion de Paris, le cadastre de Vasserot a un but fiscal.
+L'accent est donc mis sur la parcelle plutôt que sur la voirie ou la ville elle-même.
+Le réseau des rues n'est visible que dans les plans d'assemblage de chaque quartier fourni avec l'atlas par îlots, mais n'est pratiquement pas représenté dans les plans d'îlots, dont la nature même ne permet pas de représenter une rue dans son intégralité.
+\paragraph{}
+\`A l'inverse, les propriétés foncières sont extrêmement détaillées~: toutes les maisons sont vues en coupe, présentant leur configuration interne, mais aussi les puits, cours, escaliers, etc.
+\cite{Noizet2009} note cependant que certains éléments distingués sur les plans n'ont sans doute pas fait l'objet de mesures spéciales et sont ainsi représentés uniquement dans un but fiscal ou pour faciliter la lecture.
+C'est par exemple le cas des murs internes et externes des maisons (les premiers étant plus épais sur le plan), ou encore des escaliers internes aux maisons.
+\\
+Enfin, les plans indiquent deux numérotations des maisons.
+Les premiers, notés à l'encre, sont les numéros impériaux de 1805.
+D'autres numéros, indiqués au crayon, sont des corrections et mises à jour effectuées sans doute par le personnel du cadastre.
+
+%\subsection{Conclusion}
+Les plans par îlots de Vasserot, bien que jamais terminés, ont été utilisés par la préfecture de la Seine comme plan parcellaire, comme en témoignent divers plans d'alignements de rues\footnote{En 1851 encore, les plans de percements de la rue de Rivoli entre la rue de la Bibliothèque et la rue du Louvre seront tracés sur un plan parcellaire très proche de celui de Vasserot} mais aussi la mise à jour des numéros d'adresses rues qui y figurent.
+\paragraph{}
+Pourtant, les services de la Seine étaient conscients dès 1835 que la durée de réalisation des plans constituait un sérieux frein à leur utilisation.
+Accumulant des plans faits à des périodes trop différentes, dessinant une ville en pleine transformation, ils devenaient rapidement obsolètes ou incohérents et obligeaient à rapporter en continu les nouvelles rues et maisons.
+Comme le constate~\cite{Souchon2002}, le projet de Philibert Vasserot était en fait voué à l'échec, tant les temps de réalisation des feuilles étaient inadaptés au rythme de transformation d'une ville en pleine expansion.
+
+
+%\section{1825-1836~: \emph{Atlas général de la ville de Paris} par Théodore Jacoubet}
+\section{Atlas de Jacoubet}
+Simon-Théodore Jacoubet, né en 1798 à Toulouse fut architecte employé dès 1823 à la Préfecture de la Seine puis chef du bureau chargé de la réalisation des plans d'alignements.
+Mêlé à divers procès liés à ses activités à la préfecture, il fut révolutionnaire en 1830, 1832 puis 1848, arrêté, interné et condamné à la déportation en Algérie en 1852, condamné à la \emph{mort civile} et enfin assigné à résidence à Montesquieu-Volvestre la même année.
+Il sera l'auteur du plus grand et plus complet plan de Paris existant sur la première moitié du XIX\up{e} siècle.
+\paragraph{}
+La réalisation de son \emph{Atlas Général de la Ville, des faubourgs et des monuments de Paris} est une fenêtre ouverte non seulement sur la topographie parisienne pré-haussmanienne, mais aussi sur le fonctionnement des services de voirie de la Seine.
+Suivre la construction de cet atlas permet non seulement d'entrer au c{\oe}ur de la machine d'aménagement urbain mise en place en 1800 par Napoléon, mais surtout de découvrir les rapports qu'entretenaient les employés de la préfecture et les agents d'affaires dans un objectif commun de spéculations immobilières, ainsi que la corruption à l'{\oe}uvre dans les services chargés de l'aménagement urbain~: percements, alignements, gestion des carrières, etc.
+
+\subsection{Levé et structure du plan}
+Le travail de Jacoubet s'inscrit volontairement dans la lignée des grands plans de Paris contruits au XVIII\textsuperscript{e} siècle~\footnote{Notamment ceux de Delagrive, Verniquet, Delisle et Jaillot}. Commencé entre 1825 et 1827, l'Atlas Général s'inspire directement des travaux de Verniquet dont il reprend en partie la triangulation. Il est important de noter dès maintenant que Jacoubet entreprend la réalisation de son atlas alors qu'il se trouve employé au \emph{Bureau des Plans} de la préfecture de la Seine. C'est grâce à cette position qu'il sera en mesure d'utiliser les relevés topographiques réalisés par les géomètres de l'administration à partir des plans de Verniquet, alors utilisé comme plan général pour les travaux de voierie. Comme nous le verrons plus tard, il a également repris les mesures de triangulation effectuées par les équipes de Verniquet, ce qui lui permet d'économiser des opérations de levé topographiques d'envergure~\footnote{Paris ayant toutefois évolué depuis 1791, notamment aux alentours des boulevards, Jacoubet complète le canevas de triangle existantRéutilisant en partie les levés de Verniquet, il est possible qu'il se soit cantonné à lever en détail les parties périphériques de la ville. En effet, contrairement à Verniquet ou même Vasserot, Jacoubet est presque seul à réaliser son atlas. Seuls quelques employé de la Seine l'aideront à reporter les calques -c'est à dire les premières minutes- de l'atlas sur les feuilles de l'atlas.}. L'atlas est réalisé entre 1825 (ou 1827) et 1836 et il est publié par parties selon la méthode de la souscription. Cette méthode consiste à financer le travail de gravure, très coûteux, par étapes successives grâce à la contribution de particuliers qui subventionnent des lots de feuilles d'atlas. Au total, \emph{l'Atlas Général de la ville de Paris} comporte 54 feuilles traçant un plan de Paris au 1/2000\textsuperscript{e}\footnote{L'échelle idiquée sur le plan est de \emph{1 millimètre pour deux mètres}}. Les feuilles 53 et 54 présentent en outre un plan des principales opérations de triangulation ayant permi de construire l'atlas.
+
+\subsection{Contenu du plan}
+Tout comme l'atlas de Verniquet, Jacoubet crée un plan relativement épuré contenant principalement le tracé des rues et les plans des bâtiments publics. Toutefois, l'objectif de l'architecte est de faire de son atlas un outil de travail pour la préfecture de la Seine, mais aussi pour les propriétaires et entrepreneurs parisiens. Pour cette raison, il rajoute le tracé des alignements prévus par la préfecture en vertu de la loi du 16 septembre 1807 (cf. le paragraphe \ref{par:loi}), ainsi que les parcelles cadastrales numérotées. Enfin, les bâtiments à l'intérieur des boulevard sont dessinés en coupe; On peut d'ailleurs remarquer, par une étude fine des planches et de l'espace qu'elles représentent, que les échelles des bâtiments et des autres thèmes cartographiques ne sont pas toujours identiques. L'échelle des bâtiments est ainsi régulièrement plus grande que celle des rues et ilôts. Cela s'explique par le fait que les bâtiments figurés dans l'atlas proviennent très certainement des levés de l'atlas des 48 quartiers de Vasserot, différents de ceux de Verniquet. On a ici un exemple de réutilisation de différentes sources cartographiques générant des erreurs dans la carte ainsi consituée en \emph{patchwork}.
+L'atlas est donc globalement hétérogène. Tout d'abord, les bâtiments à l'exterieur des boulevards sont dessinés en masse, à l'inverse de paris intra-muros. Le dessin des parcelles est également très inégal. Dans l'extrême centre de Paris (autour de la place du Châtelet) et de l'exterieur de la ville, toutes les parcelles sont représentées et numérotées. Partout ailleurs, les parcelles sont seulement ébauchées et seuls leur numéro et leur amorce sur la rue est dessinés. 
+\\
+Tous ces éléments contribue à faire de l'atlas de Jacoubet un plan majeur du milieu du 19\textsuperscript{e} siècle mais dont les hétérogénéités appellent à le considérer avec prudence. Cet atlas et son auteur sont symptomatiques de la mutation que subit la gestion urbaine au 19\textsuperscript{e} siècle, entamée entre la Révolution et le Premier Empire et qui s'achèvera par l'arrivée du préfet Haussmann à la tête de la très centralisée préférecture de la Seine. Pour cette raison, nous proposons en section~\ref{section:jacoubetstory} d'explorer plus en profondeur le personnage de Jacoubet et la réalisation de son grand atlas, ce qui nous permet de mettre en évidence cette mutation.
+ 
+\section{Atlas municipal}
+\label{subsection:poubelle}
+Nous avons vu précédemment que les plans de Vasserot ont été utilisés au moins jusqu'en 1850, peut-être jusqu'à la réalisation d'un second cadastre sous l'impulsion de Haussmann.
+Les plans de Vasserot ne sont cependant pas des vues d'ensemble de la capitale et sont inadaptés pour la mise en place de projets de voirie globaux.
+Nous ne savons cependant pas quels plans ont rempli ce rôle de 1843 à 1854, si ce n'est l'énigmatique plan entamé sous Frochot et relancé en 1842 sous l'impulsion de Planson. L'atlas de Jacoubet n'a quant à lui sans doute pas été utilisé à grande échelle par la préfecture, les droits d'exploitation et les cuivres restant entièrement aux mains de son auteur.
+\subparagraph{}
+L'arrivée de Haussmann à la tête de la préfecture de la Seine en 1853 bouleversera le statut des plans topographiques de la ville, bien plus que ne l'avait fait la réorganisation du Service des Plans en 1843.
+En effet, chargé de mettre en {\oe}uvre le programme d'urbanisme élaboré depuis plusieurs années par l'empereur Napoléon III, le préfet Haussmann aura pour priorité la création de deux grands plans de Paris destinés à planifier et suivre les travaux de voirie aujourd'hui bien connus.
+Ainsi après avoir totalement réorganisé et agrandi le Service des Plans en 1856, renommé pour l'occasion Service du Plan de Paris, il place à sa tête l'ancien conservateur Eugène Deschamps (voir la figure~\ref{fig:orga_plans}). Haussmann ordonne alors le levé d'un nouveau plan topographique de Paris ainsi qu'un nivellement complet de la capitale.
+Nous nous intéresserons ici seulement au plan topographique au 1/5.000\up{e} qui sera réalisé à partir de 1856 sur la base d'une triangulation entièrement nouvelle effectuée entre 1856 et 1857, terminé en 1862 et publié pour la première fois en 1864.
+D'abord appelé \emph{Atlas administratif} puis à partir de 1868 \emph{Atlas municipal}, le grand plan de Haussmann sera publié à un rythme quasi-annuel jusqu'au XX\up{e} siècle\footnote{Sont portées à notre conaissances les éditions de 1864, 1866, 1868, 1876, 1878, 1880, 1882, 1885, 1886, 1887, 1888, 1893, 1894, 1895, 1898} sous la forme d'un atlas de 21 feuilles d'abord, puis 16 à partir de 1866.
+Il existe en outre des éditions du même atlas ramené à l'échelle du 1/10.000\up{e}.
+\paragraph{}
+Chaque édition est scrupuleusement mise à jour par le service du plan et représente la ville l'année de sa publication.
+Pour notre part, nous nous sommes servis uniquement de l'édition de 1888 intitulée \emph{Atlas municipal des vingt arrondissements de la ville de Paris. Dressé sous la direction de M. Alphand inspecteur général des ponts et chaussées, par les soins de M.L Fauve, géomètre en chef, avec le concours des géomètres du plan de Paris }\citep{MAPHaussmann1888} réalisé sous la direction du préfet Eugène Poubelle.
+
+\subsection{Structure du plan}
+\myparagraph{Triangulation}
+L'atlas municipal est la version publiée et compilée dans un ouvrage du grand plan réalisé sous la direction de Haussmann en 1856.
+Ce plan, également au 1/5.000\up{e} a été dessiné vers 1857 en deux exemplaires.
+Le premier, placé sur un grand tableau de bois, était disposé derrière le bureau du préfet et servait à reporter toutes les opérations de voirie réalisées ou projetées.
+Ce plan semble avoir aujourd'hui disparu, mais il a peut être survécu à l'incendie de l'Hôtel de Ville.
+En effet, on en trouve une dernière trace dans un rapport de Edgar Mareuse à la commission du Vieux Paris en 1925\citep{Mareuse1925}.
+Le second, parfois appelé aujourd'hui \emph{plan de Morizet} du nom de l'historien l'ayant redécouvert dans les années 1930, représentait tous les projets prévus par Napoléon III et avait été offert au roi de Prusse Guillaume I\up{er} en 1867.
+\paragraph{}
+Pour tracer ce plan, Haussmann indique dans ses mémoires \citep{Haussmann1893} qu'une nouvelle triangulation complète de Paris a été effectuée entre 1856 et 1857, sous la direction d'Eugène Deschamps\footnote{Il s'agit d'une opération d'une ampleur inédite.
+Dans tout Paris, des mâts de bois munis d'une plate-forme dépassant la hauteur des maisons sont plantés sur les points de triangulation définis dans les rues, sur les places, etc.
+Les géomètres peuvent alors monter au sommet pour mesurer les angles aux autres mâts et bâtiments et effectuer de nombreuses vérifications, tandis que des arpenteurs mesurent les distances entre les mâts \citep[p. 14]{Haussmann1893}}.
+Ainsi, ce plan constituerait la première triangulation complète effectuée depuis l'atlas de Verniquet, du moins si l'on conserve l'hypothèse d'une triangulation seulement partielle pour Jacoubet.
+Haussmann, affirmant qu'aucun grand plan de Paris n'existait lors de son arrivée à la préfecture renouvelle ainsi totalement les outils de l'administration.
+Il n'est cependant pas certain que les choses aient été si simples et la tendance du préfet à se placer en fondateur de la cartographie officielle en omettant volontairement des projets antérieurs a déjà été pointée par Pierre Casselle \citep{Casselle2000} (C'était alors la commission des embellissements du Comte Siméon qui était ignorée et son rôle auprès de l'empereur minimisé).
+En effet, le frontispice d'une édition réduite au 1/10.000\up{e} conservée à la Bibliothèque Nationale de France \citep{MAPhaussmann1868} indique que \emph{le grand plan en 21 feuilles dressé à l'échelle de 1/5000 résume les travaux des géomètres du Plan de Paris depuis 1842.}\footnote{Le cartouche complet indique~: \emph{Plan de Paris, réduit à l'échelle de 1/10000 d'après le grand plan en 21 feuilles. Le grand plan en 21 feuilles dressé à l'échelle de 1/5000 résume les travaux des géomètres du Plan de Paris depuis 1842. Il a été exécuté sous la direction de M. Eug. Deschamps chef du Service du plan de Paris, par les soins de MM. de Lucenay Ross et Chevigny géomètres triangulateurs Berger Montry Picard-Dobré et Pozier géomètres en chef des brigades topographiques et L. Fauve, géomètre en chef du Service intérieur chargé de la réduction. Il a été gravé sur pierre par MM. Avril frères entre 1866 et 1871.}}.
+Cette date coïncidant avec la reprise des travaux de levé et de dessin sur le plan en 48 parties de Frochot, on peut alors se demander si ce ne sont pas de ces travaux dont parle cette note, qui, ajoutés aux nombreux plans levés par les services de la voirie entre 1842 et 1856 ont pu servir aux géomètres sinon à dessiner le nouveau plan de Paris, du moins à guider les opérations de triangulation en aidant à définir les emplacements et le nombre de points de station nécessaires.
+
+\myparagraph{Structure}
+L'édition que nous utilisons est composée de 16 feuilles carroyées, couvrant l'intégralité du Paris de 1888, soit l'ancienne ville (décrite par les plans précédents) ainsi que les communes annexées en 1860.
+Le carroyage, fixé sur la méridienne de Paris et sa perpendiculaire forme des carreaux de 1.000 mètres de côté.
+Au même titre que les atlas de Verniquet et de Jacoubet, l'atlas de Haussmann vise la plus parfaite précision géométrique.
+
+\subsection{Contenu}
+Édité sous la direction d'Adolphe Alphand qui avait réalisé de nombreux jardins, parcs et promenades sous la direction de Haussmann, l'atlas de 1888 donne des représentations très précises des différents aménagements paysagers de la ville, en particulier des bois de Vincennes et Boulogne dont des plans individuels avaient été dressés dans les années 1860.
+C'est aussi le premier plan que nous utilisons qui figure les trottoirs et les chemins de fer de la ville, bien que ceux d'Austerlitz, d'Orsay et du Nord soient présents sur les éditions plus tardives de l'atlas de Jacoubet.
+Aucune parcelle n'est visible, l'atlas abandonnant les représentations hybrides figurant seulement l'amorce des parcelles, ici inutiles puisque la préfecture s'était doté également d'un nouveau plan parcellaire.
+Les numéros des maisons sont indiqués seulement à la fin des tronçons, et sur les bâtiment publiques.
+Enfin, aucune habitation particulière n'est représentée, mais tous les bâtiments public sont dessinés et nommés.
+\paragraph{}
+Le plan de Haussmann est donc le premier plan véritablement officiel de Paris, créé par l'administration de la Seine dans l'unique but de servir d'outil à l'aménagement de la ville.
+Il ne s'agit plus, comme pour l'atlas de Jacoubet, d'un produit destiné également à être vendu au grand public.
+Les versions publiées du plan de Haussmann représentent la ville uniquement sous l'angle de l'administration, seuls les éléments officiels de la ville étant dessinés.
+\paragraph{}
+Reste enfin la question de la filiation du plan de Haussmann.
+Nous avons vu que subsistaient quelques doutes sur le fait que ce plan soit à l'initiative unique de Haussmann.
+Il a cependant eu la volonté, la puissance financière et le pouvoir suffisants pour enfin dresser un plan qui était en projet au moins depuis 1842.
+Il s'agit d'une brisure dans l'utilisation des plans de Paris par la préfecture, faisant passer définitivement les grands plans de Paris dans le giron de la préfecture.
+D'ailleurs, l'atlas de Jacoubet sera le dernier plan détaillé de Paris d'initiative privée.
+
+% 
+% 
+% 
+% La décision de la nouvelle triangulation est l'arrêté du 31 janvier 1859, publié dans ``Recueil des actes administratifs de la Préfecture de la Seine, 1859''. A noter que c'est donc après des choses comme Delesse, ce qui tend à dire que Haussmann s'attribue assez largement un travail qui devait dater en fait d'avant..ou tout du moins la volonté de faire une nouvelle triangulation.
+% 
+% L'arrivée, en 1853, de Haussmann à la tête de la préfecture de la Seine s'accompagne d'une réorganisation des différents services de la voirie de Paris au sein d'un unique organe : le service du Plan de Paris. La planification des opérations d'urbanisme prévues par Haussmann nécessitent non seulement une parfaite connaissance de la topographie de la capitale qu'un service dédié explicitement à cette tâche peut fournir, mais toutes les étapes qui conditionnent le percement d'une nouvelle rue (étude du terrain, planification des expropriations et des dédommagements, suivi des travaux, etc.) se trouvent réunies en une seule entité, assurant une efficacité maximum. 
+% Cette réorganisation marque la fin de la lente transition des politiques de gestion de la voirie urbaine de Paris, que l'on suit depuis Verniquet, où l'intrication entre les politiques publiques et les projets privés se retrouvait jusque dans le fonctionnement du Bureau du Plan fait place à une gestion de l'urbanisme parisien majoritairement gérée par les instances de l'État.
+% 
+% Haussmann confie à ce nouveau service l'exécution d'un levé planimétrique, d'un levé altimétrique et du dessin d'un plan des 12 arrondissements que la ville compte alors. En effet, au moment où Haussmann prend les rênes du bureau du plan, l?expérience de Verniquet, 63 ans auparavant, reste la dernière opération de levé exhaustive sur la capitale. Les plans officiels qui lui succèderont, qu'il s'agisse de Vasserot ou de Jacoubet, s'appuyent toujours sur ce plan d'avant la Révolution. Haussmann nomme alors l'architecte Eugène Deschamps à la tête du Service du Plan de Paris et le charge de la réalisation de ces trois taches.
+% 
+% La première tâche qu'il confie à ce nouveau service est l'ex
+% 
+% Haussmann met alors à la tête de ce nouveau service l'architecte Eugène Deschamps
+% 
+% Haussmann nomme le géomètre Eugène Deschamps à la tête de ce nouveau service et le charge d'une tâche de grande ampleur 
+% 
+% effectuer un relevé planimétrique et altimétrique complet et nouveau de tout Paris 
+% 
+% Les opérations d'urbanisme de Haussmann demandent non seulement une parfaite connaissance de la topographie parisienne afin de po
+% 
+%  Les travaux d'urbanisme massifs prévus par Haussmann nécessitent en effet une connaissance parfaite de la topographie de Paris ainsi qu'une rapidité 
+% 
+% Lorsqu'en 1853 Eugène Haussmann arrive à la tête de la préfecture de la Seine,
+% 
+% Nom original du plan de Paris de Deschamps : ''Plan général de la ville de Paris et de ses environs comprenant les Bois de Boulogne et de Vincennes / dressé à l'échelle du 1 : 10.000, par la Direction des travaux de Paris ; gravé chez Avril frères ; et L. Wührer''
+% 
+% 
+% - Haussmann et le service du plan de Paris
+% - Deschamps
+% - Les plans municipaux et 
+% \subsubsection{Structure du plan}
+% Opérations de levé de Haussmann 
+% 
+% \subsubsection{Contenue du plan}
+% 
+% 
+% Atlas municipal des 20 arrondissements de la ville de Paris, dressé sous l'administration de M.E.Poubelle, Préfet. Sous la direction de M.Alphand, Inspécteur général des Ponts et Chaussées, Directeur des Travaux de Paris. Par les soins de M.L.Fauve, Géomètre en chef, avec le concours des géomètres du Plan de Paris.
+% Le plan dont nous disposons est daté de 1888.
+% C'est sans aucun doute une réédition mise à jour du plan de 1882 dressé également par Fauve pour Alphand. 
+% 
+% C'est avant 1890 car la Rue Chanzy est seulement en projet.
+% Mais c'est après 1879 car l'avenue Ledru Rollin s'est appelée comme ça à cette date.
+% Cependant il manque un bout de l'avenue de la république qui est censée être terminée en 1882.
+% L'avenue Gambetta était dans l'avenue de la république à partir de 1879 et est devenue Gambetta en 1893
+% Rue Faidherbe : nommée en 1890
+% Rue Bobillot : nommée en 1888. Elle est bien nommée sur le plan et son tracé n'est pas complètement dessiné.
+% Rue Boursingault : nommée en 1890 (Arr. 18 avril 1890), approuvée par decret 30 avr. 1890,
+% Rue Charles Fourier : nomméée en 1890 (Arr. 18 avril 1890)
+% Rue Sarette : nomméée en 1890 (Arr. 18 avril 1890)
+% Rue de la Convention : nommée en 1893 (Arr. 26 dec 1893)
+% Rue Balard : 7 dec 1900
+% Pont Mirabeau : construit de 1893 à 1896
+% 
+% La portion de Ledru-Rollin décretée en 1887 est notée comme terminée sur le plan.
+% Rue Fabre : décretée en 1888, notée comme terminée.
+% 
+% 
+% À Javel, la rue Balard, projettée ne sera réalisée qu'après 1910.*
+% Il y a pas mal de rues projettées qui n'ont jamais été faites en réalité.
+% 
+% Il y aurait donc 3 Atlas municipaux qui ont été réalisés en 1882, en 1888 et en 1895. Il y en a aussi vraisemblablement un en 1909.
+% Le premier est à l'INHA, le second est à la BHVP (c'est celui dont on dispose) et enfin le dernier est à la bibliothèque Sainte Geneviève.
+% 
+% Le plan est assez particulier car il dessine des rues dont les tracés ne sont pas terminés. C'est presque une photo de l'éta	t des rues en plein milieu des travaux.
+% Points particulier, le tronçon de l'avenue de la république n'est pas encore percé bien qu'un arreté ait été émis en 1888 et les travaux commencés sans doute pas longtemps apres. Pourtant, la petit rue Fabre est elle tracés alors que son percement a été décrété au même moment.
+% 
+% 
+% Résumé du percement de l'avenue de la République : 
+% Déc. du 29 août 1857, entre la place de la République et la rue de Malte (A). Partie entre la rue de Malte et le boulevard Richard Lenoir (B) ouverte en 1865. Déc. du 4 juillet 1887, entre le boulevard Richard Lenoir et la rue Saint-Maur (C). Déc. du 16 mai 1888, entre les rues Saint-Maur et Guillaume Bertrand (D). Déc. du 6 juillet 1882, entre la rue Guillaume Bertrand et le boulevard de Ménilmontant (E).
+% 
+% En 1892 l'avenue de la république est terminée, on le voit d'ailleurs sur le plan Hachette de 1892.
+% En 1890 elle est également terminée.
+% En 1889 elle n'est pas terminée
+% CCl : elle s'est finie courant 1889, ce qui est en décalage avec les décrets;
+% 
+% Figure aussi sur le plan le prolongement de la rue de Rennes en deux rues jusqu'à la Seine, projet qui n'a jamais été réalisé.
+% 
+% => Il y a plein d'éditions de ce plan : 1876, 1878, 1880, 1882, 1885, 1886, 1887, 1888, 1893,1894, 1895,1898, 1900, 1905, 1909, 1912,1920, 1925, 1929-1936, 
+% 
+% 
+% Notes Dans : La cartographie à l'exposition universelle de 1900 
+% L'atlas Municipal des vingt arrondissements de la ville de paris est tiré, pour sa première édition en 1876, du ''Plan général de Paris et de ses environs, comprenant les bois de Boulogne et de Vincennes, dressé à l'échelle de 1:5000 par les géomètres du service municipal du Plan de Parisé''. C'est un plan colorié à la main qui repose sur les levés du ''Plan de Paris'' en 16 planches à 1:5000. Ce plan comprend 2 éditions l'une portant le numéro des maisons aux angles des rues, l'autre indiquant les cotes d'altitude sur les voies publiques. Mais pas de courbes de niveaux. C'est lui le plan de 1866 qui a été fait par Deschamps (?-1880, architecte de l'école des Beaux-Arts). Une version est intitulée : ''de Deschamps, Euge?ne (18..-18..). Collaborateur; Lucenay, de (18..-18..). Auteur du texte; Ross, C. (18..-18..). Auteur du texte; Chevigny (18..-18..). Auteur du texte; Picard-Dobre? (18..-1... ; ge?ome?tre). Auteur du texte; Pozier, G. (18..-18.. ; ge?ome?tre). Auteur du texte; Fauve, L. (18..-18..). Auteur du texte; Wuhrer, L. (18..-18..? ; graveur). Graveur; Direction des travaux de Paris (Paris). Cartographe; Avril Fre?res (Paris). Graveur''. Il faut noter que DeLucenay est le mec qui a aidé à terminer Vasserot.
+% 
+% L.Fauve était là tout le temps
+% 
+% En 1856 Haussmann crée le service du plan de Paris : le 28 décembre 1856 exactement.
+% 
+% 
+% L'art des jardins sous le Second Empire: Jean-Pierre Barillet-Deschamps : En 1857 (ou 1856 ffs il faut savoir) est créé le Service du plan de Paris auquel est adjoint un service topographique chargé du levé du plan de la Ville. LE plan au 1/5000 est gravé et placé dans le bureau du préfet Haussmann.
+% 
+% Dans : ''Les administrateurs de la santé dans l'espace parisien au XIXe siècle'' de Anne Vitu : Pour mener à bien sa politique d?« agrandissements, d?assainissements et d?embellissements », Haussmann avait besoin de données fiables. Il crée, au sein de son administration, un service du plan de Paris et ordonne une nouvelle triangulation ainsi qu?un nivellement général à partir de 1859. En effet, il faut éviter toute erreur lors du percement des rues et prévoir la préservation des monuments anciens retenus. À la suite de ces opérations, un nouveau plan officiel de la ville est publié en 1868 par Edmé Andrivaux-Goujon : l?Atlas des vingt arrondissements de Paris.
+% 
+% Cartouche du plan Général de Paris au 1/10000 à la BNF: ''En un cartouche : "Plan de Paris, re?duit a? l'e?chelle de 1 : 10.000 d'apre?s le grand plan en 21 feuilles. Le grand plan en 21 feuilles dresse? a? l'e?chelle de 1 : 5.000 re?sume les travaux des ge?ome?tres du Plan de Paris depuis 1842. Il a e?te? exe?cute? sous la direction de M. Eug. Deschamps chef du Service du plan de Paris, par les soins de MM. de Lucenay Ross et Chevigny ge?ome?tres triangulateurs Berger Montry Picard-Dobre et Pozier ge?ome?tres en chef des brigades topographiques et L. Fauve, ge?ome?tre en chef du Service inte?rieur charge? de la re?duction. Il a e?te? grave? sur pierre par MM. Avril fre?res entre 1866 et 1871''
+
+\section{L'atlas de Jacoubet~: des architectes voyers à l'administration de la Seine}
+\label{section:jacoubetstory}
+Nous venons de présenter les cinq plans que nous allons utiliser pour construire la base de notre système d'information géographique. Notre choix était pratiquement obligé. Comme nous venons de dire, ils constituent la quasi totalité des bases utilisées comme référence pour la production des cartes parisiennes depuis la révolution à la fin du XIXe siècle. Or, malgré cette présentation schématique, nous avons aussi essayé de montrer comment, au delà d'une indéniable continuité formelle, d'ailleurs donnée par la nature même de l'objet représenté, chaque plan naît et se développe dans une configuration politique, technique et administrative, qui évolue incessamment au cours de cette période tourmentée. 
+D'une part le plan le plus ancien, conçu avant la révolution et fini de graver sous le Directoire, est produit par l'architecte privé Edmé Verniquet à destination d'une administration publique. D'autre part, l'Atlas municipal, est une \oe uvre conçue et développée totalement à l'intérieur de la nouvelle administration centrale mise en place par le préfet Haussmann. Ces deux plans constituent donc les points extrêmes du processus qui voit la centralisation progressive des services administratifs de la préfecture et de la ville de Paris et qui s'accompagne à la naissance de la figure du fonctionnaire technicien. 
+Si l'analyse de ces dynamiques pourrait sembler secondaire, voir même inutile, à l'intérieur d'une étude dédié à la construction d'un modèle de SIG historique, elle apparaît indispensable pour saisir correctement la nature et la validité des sources cartographiques utilisées. Car c'est bien dans la tension entre fonction publique et fonction privée, ou encore entre les emprunts et les réutilisation des uns sur les autres, que se produisent les représentations d'un espace qui change, lui aussi, d'ailleurs, de manière très conflictuelle. 
+\paragraph{}
+C'est donc dans cet horizon qu'il est indispensable de se pencher de manière plus approfondie sur la figure et l'{\oe}uvre d'un personnage comme Théodore Jacoubet qui condense, dans son parcours, l'ensemble de ces tensions et de ces dynamiques. Architecte privé, employé de la Seine, savant reconnu et farouche républicain, Jacoubet entame sa carrière au moment ou, avec la construction du cadastre, se pose la nécessité de construire un plan général de la ville en mesure de substituer les anciens levés de Verniquet sur lesquels s'était calé Vasserot. 
+Nous sommes au début de la Restauration et dans les 30 ans qui se sont écoulés depuis la révolution, des transformations majeures ont affecté la ville de Paris~: lotissements de grande ampleur, premiers grands percements, alignements généralisés... 
+Les plans de Verniquet et même celui de Vasserot sont rapidement obsolètes.
+Pourtant, entre 1821 et 1854, on ne connaît pas de plan général de la ville, alors même que Rambuteau s'affiche comme \emph{préfet voyer}. Théodore Jacoubet, son atlas et ses rapports avec la préfecture vont nous permettre de voir, au moins de loin, l'intérieur des bureaux de la préfecture et par là nous donner quelques éléments pour compléter l'histoire des grands plans de Paris pendant ce singulier vide (bien que partiel, n'oublions pas que les plans de Vasserot seront en production jusqu'en 1854).
+\subsection{De la servitude d'alignement à l'Atlas Général}
+\myparagraph{La loi du 16 septembre 1807 et ses effets}
+\label{par:loi}
+Avec le cadastre de Vasserot, nous avons vu comment s'est concrétisée, pour la ville de Paris, la traduction cartographique de la loi du 15 septembre 1807.
+Celle-ci est certainement la plus connue de la période puisqu'elle reprend et structure le cadre juridique d'un outil administratif dont le principe reste aujourd'hui relativement inchangé.
+Pourtant, une seconde loi, datée du 16 septembre 1807\footnote{Article 52 de la loi du 16 septembre 1807. \emph{[Les] alignements sont également donnés par les Maires; mais il faut qu'ils soient conformes aux plans qui doivent être arrêtés préalablement au conseil d'état, sur avis du préfet. Ainsi, dans les villes où il y aurait des routes nouvelles à ouvrir, ou d'anciennes à élargir, les Maires doivent faire dresser des plans d'alignements à déterminer, et envoyer ces plans au préfet avec leurs propositions motivées.}\citep{Merlin1827}.
+Rappelons que Paris étant privée de maire de 1794 à 1848, c'est la préfecture de la Seine qui est alors directement chargée des alignements.} est, à l'échelle de Paris au moins, d'une importance capitale.
+Ses effets sur la cartographie de la ville sont encore moins connus car ils ne se manifesteront que très graduellement au cours des vingt années suivantes.
+Reprenant les déclarations royales de 1783 portant sur la largeur des rues de Paris\footnote{Cf. la déclaration royale du 10 avril 1783, dans \citep{Jousselin1850}.}, cette loi fixe le cadre d'un outil d'aménagement urbain toujours existant~: la servitude d'alignement, qui permet aux maires (à Paris à la préfecture) de dresser des plans d'alignements des rues fixant les limites que les maisons ne peuvent pas dépasser, garantissant ainsi une largeur minimale des voies. 
+
+Elle complète également la législation sur l'expropriation pour cause d'utilité publique, dotant finalement les administrateurs de trois outils d'aménagement~:
+\begin{itemize}
+ \item L'alignement, qui consiste à définir des limites d'avancement que les maisons ne peuvent pas franchir, qui s'applique surtout aux nouvelles constructions.
+ \item Le reculement, lequel consiste à déplacer la façade d'un bâtiment pour qu'il respecte la largeur de rue officielle.
+Le reculement peut être fait spontanément par le propriétaire, mais la plupart du temps des accords sont passés au cas par cas entre les individus et la préfecture.
+La préfecture peut également appliquer des amendes aux contrevenants, les obligeant par là à reculer d'eux-mêmes leurs maisons, ou à passer un accord avec l'Hôtel de Ville.
+ \item L'expropriation, où la préfecture saisit tout ou partie d'une parcelle et indemnise le propriétaire en fonction de la surface enlevée et de l'ampleur des destructions.
+Là aussi les accords entre propriétaires et préfecture sont courants, celle-ci pouvant notamment autoriser la revente des matériaux issus de la démolition.
+\end{itemize}
+Tout comme le cadastre parcellaire qui était conçu par Napoléon pour être un outil et un appui du code civil, le plan général d'alignement accompagnera la loi du 16 septembre.
+Elle impose à toutes les villes de plus de 2000 habitants la mise en place d'un plan général d'alignement des rues, donnant pour chacune les lignes à leurs bords que les constructions ne peuvent dépasser sous peine d'amende et de démolition.
+\paragraph{}
+Malheureusement à Paris cette loi s'avère pratiquement inefficace en raison de son caractère passif.
+En effet, l'expropriation pour cause d'utilité publique, pourtant partie de la loi du 16 septembre, n'est que très peu utilisée par la préfecture tandis que la servitude d'alignement est appliquée à toute la ville.
+Chabrol en donnera trois raisons~: de nombreuses rues sont suffisamment spacieuses pour ne pas nécessiter l'intervention directe de la préfecture, d'autres sont de trop faible importance pour s'en occuper et, enfin, pour éviter les opérations de spéculation immobilière \citep[pp. 197-198]{Chabrol1823}.
+Sans expropriation, les maisons existantes ne respectant pas la largeur de rue prévue ne peuvent être détruites par la municipalité, alors que les nouvelles constructions sont érigées avec des écarts de profondeurs allant jusqu'à plusieurs mètres.
+Quant au reculement, s'il est utilisé, les négociations avec les propriétaires des maisons visées sont si longues que le préfet Chabrol prévoira en 1819 que plus d'une centaine d'années seraient nécessaires pour mettre en {\oe}uvre tous les alignements prévus. Pire encore, au lieu d'améliorer l'état des rues, la loi participe à sa dégradation.
+Les recoins entre deux maisons avancées différemment se remplissent d'ordures et d'eau stagnante.
+Adoptée dans l'optique d'apporter \emph{air et lumière} aux rues de Paris, la loi sur les alignements produira dans Paris les effets inverses.
+Le comte de Rambuteau, qui prendra la tête de la préfecture de la Seine en juin 1833, mettra en place une politique d'aménagement urbain bien plus agressive que ses prédécesseurs, recourant plus largement à l'expropriation pour faire appliquer le plan d'alignement de Paris.
+\subparagraph{}
+La mise en place des outils qui permettront les percées et les alignements de la première moitié du XIX\up{e} siècle, en particulier des plans d'alignements des rues et d'un plan général de Paris, sera cependant commencée avant Rambuteau, sous la direction du préfet Chabrol.
+
+\myparagraph{1820-1830~: Le projet de plan général de Paris du préfet Chabrol}
+Dans les premières années du 19\textsuperscript{e} siècle, Paris ne possède aucun plan cadastral global. Seuls quelques quartiers sont couverts par une première tentative réalisée en 1802~\citep[p. 86]{Pinon2004}.
+Le manque de documents cartographiques pour l'administration étant général pour toutes les villes françaises, le ministère de l'intérieur publie en 1808 un décret donnant aux maires deux ans pour réaliser les plans d'alignements des rues\footnote{Décret du 27 juillet 1808, article 1\up{er} : \emph{Les alignemens qui seront donnés par les maires dans les villes, après l'avis des ingénieurs, et sous l'approbation du préfet, seront exécutés, jusqu'à ce que les plans d'alignemens aient été arrêtés au Conseil d'État, et, au plus tard, pendant deux années à compter de ce jour}\citep[p. 297]{France1836}}.
+Dorénavant, le dessin de plans d'alignements est un préalable obligatoire à toute opération de voirie destinée à élargir, percer ou simplement maintenir l'état d'une rue.
+Paris n'échappe pas à la règle, mais la levée de plans d'alignements est, dans une ville de cette taille, une tâche de longue haleine (la superficie des terrains à retrancher est estimée à 506.000m\up{2}).
+Pour comparaison, le plan d'alignement de Poitiers (21.000 habitants environ en 1820, contre plus de 700.000 pour Paris à la même époque) occupera plusieurs personnes (un architecte, deux dessinateurs, au moins 2 arpenteurs) pendant 2 ans et demi \citep{PinonCFC1996}.
+Le renvoi du préfet Frochot en 1812 et les troubles de la fin de l'Empire n'ont sans doute pas favorisé l'accélération des travaux de levé et de dessin des rues.
+\paragraph{}
+Le préfet Chabrol, revenu à la tête de la préfecture en 1815, commence à développer une politique d'aménagement urbain à l'échelle de la ville entière fondée sur des préoccupations esthétiques mais surtout fonctionnalistes : rendre les rues rectilignes pour réduire l'insalubrité, développer les trottoirs et le dallage basaltique, améliorer l'approvisionnement en eau par la multiplication des fontaines, améliorer la communication entre quartiers par des avenues et des places, etc.
+Ainsi, dans un rapport au Conseil Général du département de la Seine daté de 1819 et reproduit dans le tome II de ses \emph{Recherches Statistiques sur la Ville de Paris et le département de la Seine} \citep[p. 206]{Chabrol1823}, il met en avant l'importance des travaux d'alignement dans la capitale et leur accélération depuis 1817.
+S'il n'évoque pas les plans, nul doute que leur production subit le même changement de cadence.
+Toujours dans le même rapport \citep[p. 195]{Chabrol1823}, il présente l'avancement des plans d'alignements~: sur 1294 éléments de voirie environ \footnote{On compte alors 1070 rues, 120 cul-de-sacs, 34 quais et 70 places.\citep[p. 195]{Chabrol1823}}, 1064 plans sont déjà levés, 220 restent à faire (les 10 plans manquants s'expliquent par le décompte approximatif du nombre des rues\footnote{Chabrol dit lui même que \emph{cette énumération diffère quelque peu de celle que l'on a faite pendant le cours de l'opération générale de dénombrement; mais la question traitée dans [le] mémoire n'exige pas une précision absolue.}}).
+\paragraph{}
+Les plans d'alignements constituent un outil de régulation puissant au service de la ville -tout propriétaire souhaitant construire un bâtiment doit consulter le plan de sa rue- mais un outil de gestion urbaine relativement mauvais.
+Très nombreux, chaque rue, place ou quai occupant une feuille, ils ne permettent pas une vision générale, pourtant essentielle pour une planification englobant tout Paris et ses faubourgs.
+C'était d'ailleurs déjà le constat de Verniquet lorsqu'il proposa au roi son projet de plan général.
+Un tel plan est le complémentaire essentiel des plans par rues~: il donne une vision globale, sert d'index et permet de reporter sur lui tous les projets d'alignement ou de percement.
+Chabrol, sans doute très conscient de cet état de fait, met à profit le rattachement du bureau des plans de Paris à la préfecture de la Seine au début de l'année 1823 et la récupération de la seconde livraison du plan général de Verniquet jusqu'ici stocké au bureau du cadastre\footnote{Une note dans le tome VIII des \emph{mémoires de la société de l'histoire de Paris et d'Île de France}, apporte quelques précisions~\citep[pp. 301-303]{SHPI1881}. D'après M\up{me} de Chavagnac, fille de Verniquet, le plan est rassemblé en une feuille unique. D'après Verniquet lui-même dans ses mémoires, ce plan est en 6 parties), le plan est tout à fait abîmé par son usage intensif par le cadastre et les déplacements successifs qu'il subira jusqu'en 1817. Notons également que, comme le suppose \citep{Pronteau1986}, la première livraison du plan en 72 feuilles, dessinées et non gravées, était sans doute également en possession de la préfecture, ses géomètres -notamment Jacoubet- déclarant régulièrement travailler avec ''le grand plan de Paris en 72 feuilles''.
+Ces deux livraisons ont aujourd'hui disparu.}
+ pour lancer en 1824 un projet de grande envergure~: la création d'un plan général d'alignements de la capitale en 48 parties, sur lequel devait être reportés tous les alignements existants ou en projet depuis Verniquet.
+C'est ce projet de grande ampleur qui sera à l'origine du dernier grand atlas de Paris réalisé à titre privé par un architecte~: Théodore Jacoubet
+\myparagraph{1825~: Théodore Jacoubet et son premier plan de Paris}
+On voit apparaître Théodore Jacoubet au bureau des plans de la ville en 1823, au moment où celui-ci est intégré dans les bureau de l'Hôtel de Ville.
+Architecte de formation, il {\oe}uvre en qualité de dessinateur attaché à la confection des plans d'alignements.
+C'est dans ce cadre qu'il conçoit le projet de reprendre le grand plan de Verniquet qu'il juge désuet mais qui continue pourtant à être utilisé au sein de la préfecture. En 1823, Jacoubet s'associe avec M\up{me} Gentil de Chavagnac, fille de Verniquet et qui détient la propriété intellectuelle de l'ouvrage. Ensemble, ils conçoivent d'abord le projet d'une nouvelle gravure avec mise à jour \emph{mise au net et actualisée} du grand plan de Verniquet en six planches,réduites à l'échelle de 1/5.300\up{e}.
+L'objectif est double~: pour Jacoubet il s'agit de gagner sa place parmi les éditeurs de cartes de l'époque en tant que successeur de l'illustre Edmé Verniquet, et pour M\up{me} Chavagnac de s'assurer la propriété d'une nouvelle version du plan de son père de haute qualité que la préfecture pourrait être amenée à utiliser pour remplacer l'ancien plan (étant à la préfecture, Jacoubet a accès à toutes les informations utiles).
+Réalisé avec l'aide de deux autres employés du bureau des plans de Paris, l'architecte Bailly et le commis dessinateur Mangot\footnote{Son nom est parfois orthographié Maingot, ou Manjon}, le plan est prêt à être publié en 1825.
+\paragraph{}
+Cependant, comme nous l'avons évoqué dans la section~\ref{subsection:verniquet} concernant l'atlas de Verniquet, la préfecture et Mme Gentil de Chavagnac sont à ce moment là en conflit, la propriété intellectuelle du plan revenant à cette dernière tandis qu'il est stocké à l'Hôtel de Ville qui en a l'usage.
+Puisqu'il est impossible de produire une nouvelle version de l'atlas de Verniquet sans l'aval de Mme Chavagnac, Jacoubet établit avec elle le 30 janvier 1825 un acte sous seing privé dans lequel il vend, pour 3000 francs, le plan gravé à Mme de Chavagnac qui se charge de le publier vers octobre 1825\footnote{On trouve l'annonce de publication dans \emph{Bibliographie de France, volume 14, 1825} daté du 28 octobre 1825.\citep[p. 728]{BiblioFrance1825}} sous le nom de \emph{Plan général de la ville et des faubourgs de Paris : Année 1825}\footnote{Le nom complet est~: \emph{Plan général de la ville et des faubourgs de Paris : Année 1825 / rapporté et dessiné par Mrs A. Mangot, attaché aux alignemens de Paris, Th. Jacoubet, architecte attaché aux mêmes alignemens, et Bailly, architecte. Basé d'après le grand plan trigonométrique de feu M. Verniquet, architecte conseiller du Roi ; publié par madame sa fille ; Dédié et présenté à Mr le comte de Chabrol de Volvic,... ; Ecrit par Martin ; gravé par Adam } \citep{MAPJacoubet1825}.
+Notons que le plan a été présenté au préfet de la Seine à qui il est dédié, montrant que Jacoubet avait sans doute l'intention de le faire utiliser par les services de la préfecture}.
+\paragraph{}
+L'acte comporte une clause qui aura des effets indésirables sur l'atlas général.
+En effet, dans la 5\up{e} clause Jacoubet s'engage à céder tous les droits de reproduction du plan et à ne pas \emph{publier tout ou partie de ce plan, directement ou indirectement} \citep[p. 1]{GazetteTribunaux18300310}.
+Ainsi donc fin 1825 le plan mis à jour est publié et présenté au préfet Chabrol, mais Jacoubet a perdu tous droits dessus.
+
+\subsection{Création et première datation}
+Malgré l'interdiction qui le frappe, Théodore Jacoubet entâme, dès 1825, la création d'un atlas de Paris au 1/2.000\up{e} qu'il veut être le successeur du grand atlas réalisé par Edmé Verniquet.
+Nous allons voir que cette réalisation n'est pas indépendante du plan introduit précédemment, mais aussi qu'elle va subir un grand nombre de contretemps qui feront de l'atlas général une source aussi incomparable que complexe d'utilisation.
+
+\myparagraph{Notes sur les sources documentaires}
+À partir d'ici, la majorité des informations dont nous disposons proviennent de témoignages de Jacoubet lui-même ou de ses collègues dans divers procès les impliquant entre 1825 et 1842, relatés dans diverses revues judiciaires, et sur lesquels nous reviendrons au fur et à mesure du propos.
+En particulier, il s'agit de la \emph{Gazette des Tribunaux}\footnote{\url{http://data.decalog.net/enap1/liens/Gazette}}, de \emph{Journal des débats politiques et littéraires}\footnote{\url{http://gallica.bnf.fr/ark:/12148/cb39294634r/date}} et de la \emph{Gazette judiciaire\footnote{\url{http://gallica.bnf.fr/ark:/12148/cb327812934/date.r=Gazette+Judiciaire.langEN}}}.
+\paragraph{}
+Il s'agit de journaux quotidiens dans lesquels les débats tenus au cours d'audiences judiciaires à la cour d'assises de la Seine sont retranscrits par des journalistes y assistant.
+Il ne s'agit donc pas de sources d'informations aussi fiables que l'on pourrait le souhaiter, parfois approximatives et souvent tronquées.
+Les trois gazettes précitées ont cependant l'avantage de rapporter les même faits et les même propos, tout en étant alimentées par des journalistes différents.
+En conséquence, si l'on peut difficilement donner foi à une seule gazette, le croisement de ces trois sources permet de réduire les doutes sur les informations relatées.
+Nous jugeons alors correcte une information dès lors qu'elle est présente dans au moins deux des trois journaux.
+
+\myparagraph{1825-1836~: Publication de l'atlas général}
+Dans le témoignage de Jacoubet à la cour d'assises de la Seine le 11 novembre 1842 (voir \ref{subsection:affairehourdequin}, il apparaît que \emph{le manuscrit\footnote{c'est à dire le plan minute} [de l'atlas] était terminé en 1825} et qu'un premier prospectus a paru \emph{en 1826} \citep[p. 2]{GazetteTribunaux18421111}.
+Le prospectus \footnote{Ce prospectus existe toujours, voir \cite{BNFProspectusJacoubet}} annonce la parution de l'atlas en ces termes~:
+\\
+\emph{
+Atlas général de Paris, de ses faubourgs et monumens. Par Th. Jacoubet, architecte.\\
+Cet atlas aura 54 feuilles, qui paraîtrons en 9 livraisons de 6 feuilles, de trois en trois mois.}.
+Le contenu annoncé est le suivant~:
+\emph{
+\begin{itemize}
+\item tous les monuments publics détaillés avec le plus grand soin;
+\item les maisons particulières avec leurs jambes-étrières et leurs numéros;
+\item tous les projets de percements, ainsi que les alignements arrêtés par ordonnance royale;
+\item la division intérieure des propriétés qui sont atteintes par les projets définitivement arrêtés ou qui les avoisinent immédiatement;
+\item de plus, les routes royales, les ruelles et les chemins vicinaux seront tracés dans toute l'étendue que contiendra le cadre qui environne le plan.
+\end{itemize}
+}
+Comme pour le plan des 48 quartiers de Vasserot et de nombreux autres plans de l'époque, il s'agit donc d'une vente par souscription, le vendeur faisant la publicité du plan avant sa gravure, puis livre par lots les parties du plan aux souscripteurs.
+Si la souplesse offerte par la souscription permet à l'auteur de vendre un plan en cours et de financer les nouvelles planches avec l'argent récolté, elle complique le suivi de la construction du plan, et met en danger sa cohérence~: un trop grand écart entre la réalisation de deux planches adjacentes va obliger à reprendre et mettre à jour la première.
+Ainsi, le manuscrit semblait déjà terminé en 1825, et le processus de gravure et de publication fut enclenché l'année suivante.
+Le plan d'assemblage de l'atlas, illustré dans la figure \ref{figure:assemblage_jacoubet}, donne l'index des différentes planches qui le constituent lorsqu'il paraît dans sa version finale.
+\begin{figure}
+	\centering
+		\includegraphics[width=1\textwidth]{assemblage_jacoubet.png} 
+	\caption{Index des planches de l'atlas général de Jacoubet, tracé sur le plan d'assemblage, qui en constitue les feuilles 8 et 9.}
+	\label{figure:assemblage_jacoubet}
+\end{figure}
+
+La gravure réalisée par Antony-Grégoire Niquet est efficace puisque le 13 janvier 1827 paraît la première livraison du nouvel atlas\footnote{En réalité, il s'agit de la seconde livraison prévue par Jacoubet, soient les feuilles 4, 5, 6, 13, 14 et 15, la première ayant pris du retard.
+Cette livraison est la seule qui soit parvenue jusqu'à nous dans son état originel.
+Elle se trouve actuellement à la Bibliothèque Historique de la Ville de Paris.
+\citep{BHVPFMAT12}}, suivie dans le courant de l'année par deux autres livraisons.
+Bien que nous n'ayons trouvé trace des autres livraisons, rien ne laisse croire que le rythme ait baissé jusqu'en fin d'année 1828.
+Avec un rythme de trois livraisons par an, à la fin de l'année 1828 six livraisons du plan auraient été gravées et publiées.
+\paragraph{}
+Pourtant, cette publication n'est pas sans incident.
+En effet, dès 1826 et l'apparition du prospectus, M\up{me} Chavagnac, soupçonnant Jacoubet de publier une nouvelle version du plan de Verniquet qu'il lui avait vendue l'année précédente, l'assigne devant le tribunal de première instance de la Seine pour non respect du contrat sur le plan de 1825.
+En effet, il n'échappe certainement pas à M\up{me} Chavagnac qu'il est difficilement envisageable qu'un nouveau plan de Paris, à une échelle aussi grande, ait put être entièrement réalisé en quelques mois là où 6 ans avaient été nécessaire à Verniquet et 14 ans à Vasserot, d'autant plus qu'il publie ce nouveau plan à la suite de celui qu'il lui a cédé.
+De plus, l'un des auteurs du plan, Mangot, avait entre temps vendu frauduleusement les 72 feuilles dessinées de l'atlas de Verniquet en possession du bureau des plans\footnote{Fort heureusement, la préfecture récupérera les plans avant qu'ils soient vendus et Mangot sera limogé en 1831.}, jetant ainsi quelques doutes sur les pratiques des géomètres et architectes du bureau.
+\paragraph{}
+Le 20 décembre 1828 M\up{me} Chavagnac obtient gain de cause et Jacoubet se voit condamné à la cessation de la publication et à la destruction des minutes et des cuivres.
+Faisant appel, une commission d'enquête est nommée le 7 août 1829 pour étudier le plan et décider s'il s'agit d'une {\oe}uvre originale ou d'une nouvelle publication du plan de 1825, mais, en attendant son rapport, l'interdiction de publication est maintenue.
+Finalement, le 8 mars 1830 la commission conclut que~:
+\begin{itemize}
+ \item L'atlas n'est pas une version à une autre échelle du plan de Verniquet.
+ \item Ce n'est pas non plus une nouvelle version du plan réduit publié en 1825.
+ \item L'atlas a été effectué sur une nouvelle triangulation et, par conséquent, il est totalement original.
+\end{itemize}
+Jacoubet sort donc vainqueur de ce procès et reprend aussitôt la publication de son atlas.
+Il ne rencontrera plus de problèmes majeurs, hormis une soustraction momentanée des cuivres par son graveur Niquet en 1833, ce qui l'incitera à changer de graveur et à choisir Louis-Marin Bonnet pour le remplacer \citep[p. 4]{GazetteTribunaux18330724}.
+La gravure de toutes les planches semble avoir été terminée autour de 1834, Jacoubet affirmant lui-même qu'a cette date son atlas \emph{était terminé, 
+ou presque} \citep[p. 2]{GazetteTribunaux18421111}.
+Finalement, il publiera courant 1836 la totalité de son plan sous la forme d'un grand livre, auquel il ajoutera les éléments suivants~:
+\begin{itemize}
+ \item Les plans de Paris à diverses époques, très inexacts~: \emph{sous la domination Romaine}, \emph{sous le règne de François I\up{er}}, \emph{sous le règne de Louis XIII}, \emph{sous le règne de Philippe Auguste} et \emph{sous Louis Philippe I\up{er}}.
+\item Les plans des cimetières de Paris (incorporés au plan).
+\item Le plan résumant la triangulation ayant permis le levé de l'atlas.
+\end{itemize}
+
+\myparagraph{1836~: publication de l'atlas et critique de la datation}
+Ainsi donc, l'atlas de Jacoubet semble, tout du moins dans sa phase de levé et de gravure, plus ancien que ce qui est généralement avancé (1827-1840 pour Jeanne Pronteau \citep{Pronteau1986}, 1827-1839 pour Pierre Pinon \citep[p. 94]{Pinon2004}).
+Le relevé du plan daterait donc de la période 1824-1826, et sa gravure s'échelonnerait principalement entre 1827 et 1834.
+Finalement, le plan sera publié sous forme d'atlas -c'est à dire d'un livre relié contenant toutes les planches-  en 1836, tel que l'indiquent effectivement les planches 1 et 2 \footnote{Jeanne Pronteau note cependant que cette date est sans doute fictive, les armoiries dessinées sur la même planche étant celles de la Restauration.} et comme en témoigne également Jacoubet \citep[p. 2]{GazetteTribunaux18421111}.
+\paragraph{}
+Cependant, la datation que nous avons établie amène une seconde question~: si le plan a effectivement été tracé vers 1825, le rythme des transformations de Paris le rendent déjà obsolète à sa publication en 1836.
+Il paraît peu vraisemblable que Jacoubet, qui voulait faire de son atlas le nouveau \emph{Grand Plan de Paris} dans lequel tous les projets de voirie figureraient, ait publié le plan daté de 10 ans sans l'avoir jamais mis à jour, y avoir reporté les nouveaux projets et percements.
+Il publiera d'ailleurs plusieurs fois son plan dans les années suivantes en grand format (1838,1841) ou en réduction au 1/10.000\up{e} dès 1836.
+Il en fera une mise à jour complète en 1841.
+On trouve une version gravée des trois premières livraisons en 1833, soit 6 ans après leur première parution \citep{MAPPartialJacoubet1833}\footnote{Cette version, conservée à la BNF \citep{MAPPartialJacoubet1833}, ne contient cependant que les planches 3 à 7, 10 à 12 et 16 à 18.
+Il manque donc les planches 1,2, 8, 9 ,13, 14 et 15.}.
+Si l'atlas a été modifié en cours même de publication, la chronologie établie jusqu'ici est alors tout à fait insuffisante pour connaître le véritable temps de réalisation du plan.
+Plus encore, il nous faut déterminer si le plan a subi des mises à jours globales, où si chaque planche a suivi une trajectoire différente.
+Seule une seconde analyse fondée sur le contenu de l'atlas peut répondre à ces questions.
+
+
+\subsection{Datation fine}
+\myparagraph{Datation par planches}
+Afin de déterminer l'intervalle pendant lequel chaque planche a été dessinée puis gravée et ainsi vérifier si les livraisons sont cohérentes ou s'il y a eu des mises à jour ponctuelles entre 1827 et 1836, nous avons analysé le contenu de chacune des planches de la première édition de l'atlas datée de 1836.
+La méthodologie adoptée pour fixer les bornes de chaque intervalle est la suivante~: 
+\begin{itemize}
+ \item La borne inférieure peut être approchée en connaissant les dates de création des éléments représentés.
+Par exemple, si un alignement est tracé sur une planche alors elle a été gravée après la date de l'ordonnance d'alignement.
+ \item La borne supérieure est trouvée de la façon inverse.
+Ainsi, lorsqu'une décision de voirie est prise et non représentée sur la planche, cela signifie que cette dernière est antérieure.
+Cette étape est cependant plus fragile car elle est sensible aux éventuels oublis de l'auteur, mais aussi car certains percements sont omis car réalisés sans autorisation officielle (C'est le cas en particulier à l'est de Paris avec les rues Gambrey et Pierre Levée, mais aussi parfois à l'ouest comme pour la rue de Milan).
+\end{itemize}
+Il est aussi nécessaire de choisir quelles informations sont suffisamment fiables pour guider la fixation des bornes temporelles.
+Ici, nous nous sommes appuyé sur le prospectus de Jacoubet qui donnait une importance particulière à la représentation des ordonnances de voirie.
+Ainsi, à partir des objectifs du plan d'origine, nous avons choisi de nous appuyer sur les éléments présentés dans le tableau ci-dessous.
+\begin{table}[ht!]
+\begin{tabular}{|p{3.6cm}|p{10.5cm}|}
+\hline
+ Alignements et percements & Rappelons que le plan rapporte \emph{tous les projets de percements, ainsi que les alignements arrêtés par ordonnance royale}.
+Ainsi, tous les élargissements, projets de percements et d'ouvertures sont représentés sur le plan dès lors qu'ils sont décidés par ordonnance royale ou décret, dont les dates exactes peuvent être retrouvées.\\
+\hline
+Dénominations & Les changements de noms des rues et bâtiments, lorsqu'ils résultent de décisions royales ou préfectorales, sont reportés sur le plan.
+Cette indication est précieuse pour un atlas qui a traversé une révolution ayant amené divers changements de dénominations des rues (Lafayette, place du Panthéon, etc.)\\
+\hline
+Bâtiments publics & Les bâtiments publics représentés sur le plan sont soit existants, soit parties de projets officiels dont la date de décision peut également être retrouvée.\\
+\hline
+\end{tabular}
+\caption{Types d'événements affectant Paris ayant permis de dater les planches de l'atlas de Jacoubet, triés par ordre décroissant de fiabilité.}
+\label{table:types_evts_datation_fine_jacoubet}
+\end{table}
+
+Notons que, puisque le plan rapporte les projets officiels et non ce qui est déjà effectué, il peut nous induire en erreur.
+Par exemple, les plans de l'Hôtel de Ville et de la Bibliothèque de Roi sont tracés bien qu'ils n'aient jamais été réalisés en l'état.
+De même, certaines rues telle celle de Munich, partie du lotissement de l'Europe, sont dessinées mais n'ont jamais été ouvertes.
+\\
+Nous avons choisi, pour dater les rues, projets et ordonnances, de nous appuyer uniquement sur des sources officielles~:
+\begin{itemize}
+ \item Les \emph{Dictionnaires Historiques des Rues de Paris} par les frères Lazare, datés de 1844 et 1855 \citep{Lazare1844, Lazare1855}.
+ \item Le \emph{Recueil général des lois et des arrêts} contenant les ordonnances royales
+ \item La nomenclature des rues de Paris diffusée en 2012 par la Mairie de Paris\footnote{\url{http://parisdata.opendatasoft.com/explore/dataset/voiesactuellesparis2012}}.
+\end{itemize}
+Nous avons en outre décidé de ne pas nous appuyer sur d'autres plans contemporains qui, par comparaison, auraient permis de préciser les dates des rues.
+En effet, la plupart des autres plans de l'époque sont très peu fiables, parce que, face au rythme de transformation de Paris et pour éviter une trop rapide obsolescence, ils représentent en avance de nombreux percements.
+Il est courant qu'un plan contienne le tracé de rues ayant été créées plusieurs années après sa parution, ou bien même de rues jamais percées.
+C'est le cas des plans de Girard \citep{MAPGirard1830}, Achin \citep{MAPAchin1825} ou Tardieu \citep{MAPTardieu1838}.
+Seule la seconde édition de l'atlas de Jacoubet, publiée vers 1839, a été utilisée pour discriminer les projets de voirie décidés avant 1836 mais pas encore effectués en 1839.
+\paragraph{}
+Le résultat de cette analyse est présenté au sein du tableau \ref{table:datation_jacoubet_fin}, qui fait apparaître pour chaque planche l'intervalle temporel de son dessin, que nous obtenons à partir d'une somme d'indices temporels rassemblés dans l'annexe \ref{annexe:detailsJacoubet}.
+
+Pour chaque planche, l'intervalle temporel \colorbox{possibilite}{\protect\phantom{aa}} décrivant la période de son possible dessin est déduit d'une somme d'événements datés concernant l'urbanisme parisien~:percement de rues, alignements, construction,etc.
+Les types d'événements sont décrits dans le tableau \ref{table:types_evts_datation_fine_jacoubet}, et la liste complète est fournie dans l'annexe \ref{annexe:detailsJacoubet}.
+Ces événements sont de deux types.
+Les premiers notés \textcolor{arrow}{$\blacktriangleright$} sont dessinés sur la planche et sont donc considérés comme antérieurs au dessin.
+Les seconds, notés \textcolor{arrowleft}{$\blacktriangleleft$}, ne sont pas représentés sur la planche et sont donc considérés postérieurs au dessin.
+Ces deux catégories d'événements permettent de définir les bornes inférieures et supérieures de l'intervalle temporel pendant lequel la planche a pu être dessinée puis gravée.
+L'écart temporel entre un événement, généralement daté au jour près, et son report sur la carte nous est inconnu, produisant une incertitude sur la position des bornes au sein d'une année.
+Cette incertitude est représentée dans le tableau par le couleur \colorbox{incertitude}{\protect\phantom{aa}}.
+Enfin, certains événements se contredisent, ce qui peut arriver dans le cas de corrections partielles d'une planche ou d'oublis.
+Ils se trouvent indiqués par la couleur \colorbox{incoherence}{\protect\phantom{aa}}.
+Les bornes de certaines planches n'ayant pas pu être déterminées par manque d'informations, en particulier dans les zones périphériques, nous avons arbitrairement fixé un minimum et un maximum, respectivement 1825 et 1836, la première date correspondant au début de la réalisation du grand atlas et la seconde à son année de publication.
+Seules les planches ayant un contenu cartographique sont représentées.
+
+\begin{longtable}{|c|c c c c c c c c c c c c|}
+\caption{Datation des planches de l'atlas de Jacoubet commencé en 1825 et publié en 1836, rassemblées par livraison.}\label{table:datation_jacoubet_fin}\\
+\hline
+\multicolumn{1}{|c}{ }&\multicolumn{12}{|c|}{Années}\\
+Planches&1825&26&27&28&29&30&31&32&33&34&35&36 \\
+\hline
+\endfirsthead
+\hline
+\multicolumn{1}{|c}{ }&\multicolumn{12}{|c|}{Années}\\
+Planches&1825&26&27&28&29&30&31&32&33&34&35&36 \\
+\hline
+\endhead
+
+3 &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} & \cellcolor{possibilite}{} & \cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+10 &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+11 &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+12 &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+\hline\hline
+4 &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+5 &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+6 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+13 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+14 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }}&\cellcolor{impossibilite}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }}&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+15 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} & \cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{}&\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }}&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+\hline\hline
+
+7 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+
+16 &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+17 &\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+18 &\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+\hline\hline
+
+19 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+20 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+21 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{incoherence}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} & \cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+28 &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+29 &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+
+30 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+\hline\hline
+
+
+22&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+23&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+24&\cellcolor{impossibilite}{} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }}& \cellcolor{incoherence}{} & \cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{incoherence}{} &\cellcolor{incoherence}{} &\cellcolor{incoherence}{} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}\textbf{\textcolor{arrow}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+31&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+32&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} \\
+
+33&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+\hline\hline
+
+25&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} \\
+
+26&\cellcolor{incertitude}{\textcolor{arrow}{$ \blacktriangleright$} } &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+27&\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+34&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} & \cellcolor{incoherence}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incoherence}{} &\cellcolor{incoherence}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{incoherence}{} &\cellcolor{incoherence}{} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+35&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{incoherence}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} & \cellcolor{incoherence}{} &\cellcolor{incoherence}{} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+36&\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+\hline\hline
+
+37&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+38&\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+39&\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+48&\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+\hline\hline
+
+40 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{incertitude}{}{\textcolor{arrow}{$\blacktriangleright$}} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} \\
+
+41 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{}{\textcolor{arrow}{$\blacktriangleright$}} & \cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+42 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+49 &\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+50 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+51 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+\hline\hline
+
+43 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+44 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+45 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+52 &\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{}
+\\\hline
+\end{longtable}
+
+
+
+\myparagraph{Commentaires sur la datation effectuée}
+La première chose que l'on remarque est l'extrême hétérogénéité des intervalles temporels, remettant en cause le déroulement des livraisons annoncées par Jacoubet.
+Si les bornes supérieures sont  peu intéressantes, la plupart n'ayant pu être placées qu'en 1836 ou plus tard, les bornes inférieures fournissent de précieuses informations.
+Si l'on élimine momentanément les planches muettes et les datations incohérentes, on constate que les livraisons ne suivent pas le programme prévu en 1826.
+Les bornes moyennes des deux premières livraisons sont en effet cohérentes (1826 et 1827), mais elles possèdent chacune une planche dont la borne temporelle est bien plus tardive (respectivement 1829 et 1830).
+Quant à la troisième livraison qui devait être datée de 1827, les deux seules planches renseignées contiennent des informations datant au moins de 1830.
+\paragraph{}
+Si l'on enlève la problématique planche 21, la quatrième livraison est cohérente et se situe autour de 1830.
+Le grand nombre de renseignements disponibles sur la cinquième livraison permet de réduire les intervalles temporels, qui se concentrent autour de l'année 1833, à l'inverse de la sixième livraison qui présente plusieurs incohérences.
+Les dernières livraisons (7, 8 et 9) sont peu fournies en indices, mais ceux-ci permettent tout de même de les considérer comme postérieures à 1830.
+\paragraph{}
+La situation n'est donc véritablement chaotique que pour les quatre premières livraisons et la sixième.
+Les autres livraisons suivent une trajectoire certes décalée de plusieurs années par rapport au programme de Jacoubet, mais qui reste cohérente.
+Notons cependant qu'entre 1827 et l'édition de 1836, 9 ans se sont écoulés pendant lesquels l'architecte publiait les livraisons indépendamment les unes des autres et non rassemblées dans un atlas.
+Neuf années durant lesquelles les opérations de voirie se sont poursuivies.
+Ces livraisons, destinées surtout à financer l'atlas en cours de préparation, étaient donc constituées de planches appelant rapidement des mises à jour, en particulier pour être rassemblées dans un ouvrage synthétique.\\
+Nous posons donc l'hypothèse de mises à jour successives plutôt que la publication d'un atlas issu d'un levé unique.
+Au cycle unique levé-dessin-gravure se substituerait donc un enchaînement de ces cycles à l'échelle d'une livraison ou de quelques planches.
+De plus, cette hypothèse permet de donner une explication aux diverses planches présentant une incohérence temporelle.
+En effet, cette incohérence peut être le fruit d'une mise à jour partielle d'une planche, par exemple avec l'ajout ponctuel d'un projet de voirie.
+\paragraph{}
+Deux éléments nous permettent d'appuyer cette hypothèse.
+Tout d'abord, on a constaté que certaines planches des quatre premières livraisons étaient postérieures aux autres planches de la même livraison.
+Il faut ici se rappeler que ces livraisons (sauf la quatrième) datent du début de la publication en 1827, et se situent avant le procès avec M\up{me} Chavagnac, avant la révolution de 1830 et avant la réorganisation du bureau des plans en 1831.
+Elles étaient donc largement obsolètes à la publication des dernières livraisons, celles-ci étant alors plus proches du Paris de 1835.
+Il n'est donc pas absurde de penser que Jacoubet ait repris ces planches et les aient corrigées.
+La figure  \ref{figure:datation_jacoubet_fin_1} fait apparaître un second phénomène significatif.
+On constate dans cette figure que les dates des bornes inférieures sont corrélées, en plus de la livraison, à la zone de Paris concernée.
+En effet, les planches du centre sont régulièrement plus tardives que les livraisons dont elles font partie~: Jacoubet aurait donc mis à jour les planches de son atlas dans les zones centrales, plus fortement soumises aux transformations (en particulier, aux alignements).
+Notons cependant que ces planches sont également les plus riches en indices et par conséquent les plus simples à dater, les périphéries étant alors essentiellement marquées par les grands projets de lotissement commencés en 1820-1825.
+
+\begin{figure}
+\centering
+	\includegraphics[width=0.8\textwidth]{bornes.png} 
+\caption{Bornes temporelles inférieures et supérieures reportées sur l'emprise de chaque planche de l'atlas général de Jacoubet.}
+\label{figure:datation_jacoubet_fin_1}
+ \end{figure}
+\myparagraph{Conséquences}
+%\begin{wrapfigure}{r}{60mm}
+\begin{figure}
+	\centering
+		\includegraphics[width=0.4\textwidth]{incoherence_jacoubet.png}
+	\caption{Un exemple d'incohérence entre quatre planches de l'atlas de Jacoubet, due à des périodes de dessin différentes.}
+	\label{figure:incoherence_jacoubet}
+\end{figure}
+%\end{wrapfigure}
+La conséquence première de ces constatations est la remise en question totale de l'atlas de Jacoubet comme un objet homogène qui pourrait être traité comme une représentation globale et fiable de Paris en 1836.
+Tout autant que les précédents plans, celui-ci n'est pas une ''tranche temporelle'' de Paris mais un mille-feuille qui accumule des fragments locaux d'une ville qui change sans cesse.
+Plus encore, l'hétérogénéité des mises à jours entraîne une décohérence des différentes parties du plan.
+Ainsi, plusieurs feuilles de l'atlas pourtant adjacentes ne sont pas cohérentes entre elles.
+Un des exemples les plus parlants est illustré dans la figure \ref{figure:incoherence_jacoubet}~: la place du Marais, qui contiendra à partir de 1833 l'entrepôt réel des douanes\footnote{Ordonnance royale du 28 juin 1833.
+Voir \cite{Guevel2004}}, présente sur 4 planches de l'atlas, possède à chaque fois une représentation différente.
+Datée de 1821 et entourée de trois rues, elle est dans son état d'origine sur les planches 15 et 16, mais sur la planche 24 elle est absente.
+Finalement, seule la planche 25 contient les tracés de parties de l'entrepôt, construit à partir de 1833.
+De telles incohérences se retrouvent régulièrement, en particulier dans les zones en pleine mutations au moment de la réalisation du plan (en particulier les quartiers Saint-Lazare, Europe, Poissonnière, Grenelle, canal Saint-Martin et Austerlitz).
+
+
+\subsection{Jacoubet et l'administration parisienne~: l'insertion de l'atlas général dans la gestion de la Ville}
+\label{subsection:affairehourdequin}
+%\myparagraph{Introduction}
+Dans la section précédente, nous sommes parvenus à reconstituer la genèse de l'atlas de Jacoubet, montrant ainsi qu'il s'agit d'un atlas particulier, non seulement en raison de son ambition et de ses dimensions, mais aussi par les liens que l'on voit se tisser entre l'atlas, son auteur et l'administration de la Seine.
+Contrairement à la plupart des plans de l'époque (la première moitié du XIX\up{e} siècle voit en effet proliférer les plans de Paris, plus ou moins exacts), celui de Jacoubet a été réalisé par un architecte qui travaillait à l'endroit même où la voirie parisienne était administrée.
+Étant donnée la précision et l'échelle du plan qui en font un concurrent sérieux du cadastre de Vasserot et de l'atlas de Verniquet, on peut se demander si ce n'est pas ce plan qui a servi à la préfecture jusqu'à l'arrivée de Haussmann, faisant de lui le ''plan officiel'' qui précède celui de Haussmann.
+Dans ce cas, le plan de Jacoubet constituerait un des ''chaînons manquants'' entre les plans de Vasserot et celui de Haussmann.
+Ainsi, nous manipulerions -à part pour Maire- uniquement des plans qui ont servi à modeler la ville de Paris, témoins privilégiés des projets et visions des administrateurs de la Seine.
+\paragraph{}
+Dans cette section, nous allons essayer de montrer que cet atlas n'est pas seulement une \oe uvre singulière, mais surtout qu'il est un révélateur du fonctionnement de la préfecture de la Seine de 1820 à 1842 et qu'il ouvre une fenêtre sur une ville où la frontière quasi-inexistante entre les fonctionnaires et les entrepreneurs privés profite largement aux intérêts des uns et des autres.
+Nous allons également pouvoir donner quelques pistes permettant de comprendre comment il est possible que Jacoubet ait construit un atlas au 1/2.000\up{e}, sur une nouvelle triangulation, alors même qu'il travaillait à la préfecture.
+\paragraph{}
+Afin d'explorer cette hypothèse, nous allons nous appuyer sur une affaire judiciaire datant de 1842, appelée par ses contemporains \emph{Affaire Hourdequin}, dans laquelle une partie des employés de la préfecture chargés de la réalisation des plans d'alignements se sont vu accusés de corruption et de vol de plans.
+Cette affaire est devenue un véritable scandale lorsqu'elle a mis au jour la profonde corruption qui frappait les bureaux chargés des alignements, précipitant rapidement la plupart des responsables de ces bureaux, dont Théodore Jacoubet, dans un procès qui durera 2 ans (18 novembre 1840-20 novembre 1842), demandera le témoignage de 132 personnes et aura d'importantes répercutions sur le fonctionnement de la préfecture et sur la réorganisation des services adoptée plus tard par Haussmann.
+\paragraph{}
+Notre objectif n'est pas de dérouler entièrement le récit des 13 jours de procès, du 7 novembre au 20 novembre 1842, qui constituent le c{\oe}ur du scandale et pendant lesquels seront faites la quasi-totalité des révélations sur les bureaux de la préfecture.
+Il s'agit plutôt d'en extraire les éléments qui nous permettront de reconstruire le contexte dans lequel le plan de Jacoubet a vu le jour, et d'entrevoir les raisons qui font de lui l'ancêtre des plans officiels de Paris.
+
+\myparagraph{Le bureau des plans de Paris}
+Afin de bien comprendre les relations entre les différents personnages de l'affaire, mais aussi le statut de Théodore Jacoubet au sein de la préfecture de la Seine, il faut savoir comment étaient organisés les services gérant la préparation et la réalisation des plans d'alignements et de percements, ainsi que ceux qui avaient pour charge l'application des amendes pour non respect des réglementations de voirie.
+Comme nous l'avons dit, l'affaire Hourdequin va causer une totale réorganisation des bureaux de la préfecture.
+Nous nous intéressons donc ici uniquement à la période qui précède, de 1823 - date d'arrivée de Jacoubet- à 1842.
+\paragraph{}
+La figure \ref{fig:orga_plans} donne les différentes organisations de la Grande Voirie de Paris, depuis le rattachement du bureau des plans jusqu'à la réorganisation de Haussmann.
+Un \emph{bureau} est une unité administrative qui correspond aujourd'hui à un \emph{service}; composé d'un chef, d'un sous-chef et d'un nombre variable d'employés, il se voit chargé d'une tâche précise.
+Ainsi, le \emph{bureau des plans} a en charge la création des plans d'alignements de Paris, leur communication au public, au préfet et au conseil municipal, ainsi que la création de tout plan nécessaire à l'établissement d'amendes, d'expropriations, etc.
+C'est enfin ce bureau qui se voit chargé par Chabrol de la confection du grand plan de Paris en 48 parties.
+Notons également que jusqu'en 1831, le bureau des plans était une annexe de la Grande Voirie et non directement une de ses composante, ce statut lui conférant une relative autonomie.
+\paragraph{}
+C'est dans ce bureau que Jacoubet entre en 1823 et bâtira toute sa carrière sous les ordres de Chabrol puis de Rambuteau, son statut évoluant en fonction des événements.
+Ainsi, entré comme simple architecte en 1823, il deviendra sous-chef adjoint en 1827, puis sous-chef en 1833.
+Il finira par devenir chef du bureau en 1839 avant de redevenir sous-chef en 1842.
+Il est de plus \emph{vérificateur} depuis 1827, ce qui signifie qu'il contrôle, vérifie les plans réalisés par les employés.
+Sans son visa et sa signature, le travail est rejeté.
+Jacoubet n'est donc pas un simple employé, mais il joue un rôle important dans ce service alors qu'au même moment paraît son atlas.
+\begin{figure}
+ \centering
+\includegraphics[width=0.8\textwidth]{org_bureau-plans.png} 
+	\caption{Organisation du Bureau des Plans de Paris, depuis son déplacement du ministère de l'intérieur à la préfecture de la Seine jusqu'à sa réorganisation complète par Haussmann.
+Chaque ligne rouge indique une phase de réorganisation majeure, ayant des conséquences sur la production et l'utilisation des plans de Paris à la préfecture.
+Les couleurs indiquent la filiation du bureau des plans.}
+	\label{fig:orga_plans}
+\end{figure}
+Nous avons dit que l'affaire Hourdequin permettait de replacer l'atlas de Jacoubet dans le contexte de la préfecture de la Seine, mais aussi plus largement dans celui des pratiques des ingénieurs cartographes de Paris durant la période précédant Haussmann.
+Pour reconstituer la matrice qui a permis la création de cet atlas, nous résumons le \emph{procès Hourdequin}.
+
+\myparagraph{Les causes de l'affaire}
+Le scandale du bureau des plans éclate le 18 novembre 1840 lorsque l'architecte Adolphe Morin, attaché au Cercle du Jeu de Paume du passage Sandrié, est arrêté pour avoir dérobé un billet de 1000 francs à un certain Nanteuil.
+Arrêté, l'enquête menée sur ses antécédents fait rapidement surgir plusieurs faits étranges~: ancien employé du bureau des plans à la préfecture de la Seine, il a été limogé en 1834 pour soustraction de plans\footnote{c'est à dire vol ou recel de feuilles ou minutes des plans produits à la préfecture.} et imitation des signatures de Auguste-Jean Hourdequin et Théodore Jacoubet, respectivement chef de la Grande Voirie et sous-chef du bureau des plans.
+Sur ces révélations, la cour d'assises de la Seine nommera une commission dirigée par Héricart de Thury chargée d'enquêter sur le bureau du plan.
+Pendant un an les experts de la commission vérifieront plus de 8000 pièces (plans, lettres, etc.), découvrant alors que de nombreux plans sont manquants, et que certains employés sont manifestement corrompus.
+En conséquence, le juge décide le 2 juillet 1842 de la mise en examen de 5 employés de la Grande Voirie pour les motifs suivants~:
+\begin{itemize}
+ \item Alexandre Philidor (employé)~: Accusé d'avoir soustrait des plans servant à mettre en place une contravention, rendant celle-ci inapplicable, et d'avoir reçu un ''pot-de-vin'' de la part du contrevenant.
+\item Nicolas Boutet (employé)~: Accusé d'avoir détruit des contraventions, ou délibérément ralenti leur application en échange de dons en nature ou en argent.
+\item Auguste-Jean Hourdequin~: Accusé d'avoir abusé de sa position pour spéculer à son avantage sur des terrains et des propriétés menacés de démolition pour percement ou reculement, d'avoir favorisé certains entrepreneurs lors d'appels d'offres publics et enfin d'avoir accepté des dons d'argent en échange de la disparition de contraventions.
+\item Étienne-Alexandre Solet~: Accusé de la soustraction de 5 plans, dont celui, officiel, d'une rue \emph{projetée du Louvre à la Bastille}\footnote{Il s'agit sans nul doute du projet de la rue Impériale, prévue dès le premier Empire, qui devait relier la place du Louvre à celle de la Bastille.
+Jamais réalisé, le projet sera finalement abandonné au profit du percement de la rue de Rivoli.}
+\item Adolphe Morin~: Accusé de faux en 1832 et 1834 et de la soustraction des plans-minutes\footnote{Le plan-minute d'un alignement ou de toute autre opération de voirie est un document sensible, puisqu'il est fait très en amont de son exécution et de sa publicité par ordonnance ou décret.} de la rue de la Verrerie et d'un terrain \emph{compris entre le Quai d'Orsay, les avenues de Suffren et de Lowendal, et le boulevard extérieur.}, ainsi que du plan officiel de la rue des Lombards.
+\end{itemize}
+Jacoubet n'est pas accusé, bien qu'il soit placé momentanément en prévention \emph{pour négligences}.
+Il comparaîtra cependant régulièrement en qualité de témoin et d'expert cartographe, puis il prendra activement part aux débats et répondra dans une lettre ouverte aux attaques de l'avocat Gustave Louis Chaix d'Est-Ange \citep{JacoubetReponseEstAnge1842}.
+Plutôt que de nous attarder sur chaque personnage, nous allons passer en revue les éléments d'accusation qui forment le canevas de l'entreprise de Jacoubet.
+Ces éléments, au nombre de 3, ne font pas nécessairement partie des faits incriminés lors du procès, soit parce qu'ils sont anciens, le tribunal décidant alors de les ignorer, soit parce qu'il s'agit d'accusations morales que la justice ne saurait traiter.
+Il s'agit des éléments suivants, qui feront l'objet de points détaillés car ils permettent de mieux comprendre le rôle joué par Jacoubet:
+\begin{itemize}
+ \item Les travaux personnels effectués par les agents du bureau sur leur temps de travail, et l'utilisation de prête-noms pour le financement de ceux-ci.
+ \item Le vol de plans, la redondance de travaux (parfois faits par la même personne).
+ \item Les actions spéculatives menées en association avec des entrepreneurs privés.
+\end{itemize}
+
+\myparagraph{Les travaux privés au sein du bureau des plans de Paris.}
+Jusqu'en 1831, il existait trois groupes d'employés.
+Les premiers, dont Jacoubet fait partie, étaient des salariés à plein temps percevant un appointement.
+Les seconds étaient attachés temporairement au bureau et recevaient également un salaire fixe.
+Enfin, les derniers étaient payés à la tâche.
+Bien que les postes fixes offrent une plus grande sécurité, ils présentent l'inconvénient de gêner les travaux privés d'employés qui exercent également en parallèle un métier d'architecte ou de géomètre puisqu'il leur est interdit d'y travailler pendant les heures dues à la préfecture.
+Ainsi donc, la pratique courante \citep[p.2-3]{GazetteTribunaux18421107} consistait à s'entendre avec les employés payés à la tâche, qui servaient de prête-noms.
+Tolérée pendant un temps, cette pratique sera massivement utilisée par Jacoubet pour réaliser son atlas.
+En effet, il apparaît dans le cours du procès que l'accusé Solet, qui jusqu'en 1832 sera dessinateur pour le bureau des plans, avait prêté son nom pour certaines tâches réalisées en fait par Jacoubet.
+En particulier, il a travaillé comme dessinateur sur l'atlas au moins jusqu'en 1829 et dessinera, d'après Jacoubet, près des deux tiers du plan \citep{GazetteTribunaux18421111} qu'il effectuera dans son atelier privé et non à l'Hôtel de Ville.
+\\
+Jacoubet, dans son témoignage le 11 novembre 1842~\citep{GazetteTribunaux18421111}, annonce ainsi qu'il a fait travailler sur son plan deux personnes extérieures à la préfecture, dont on ne connaît pas les noms, recrutées pour l'occasion, ainsi que deux employés~: Solet et un ingénieur civil nommé Cannot-Tissier.
+Ces pratiques, si elles semblent tolérées par Chabrol, vont disparaître en 1831 sous la direction du préfet de Bondy.
+Celui-ci, pour faire stopper ces agissements qui nuisent grandement à la réalisation du grand plan voulu par Chabrol, nomme en 1831 Hourdequin à la tête de la Grande Voirie, lequel s'empresse d'interdire le démarrage de nouveaux travaux privés, mais il autorise la poursuite de ceux en cours.
+Un témoignage de l'accusé Morin indique d'ailleurs que Jacoubet a continué à utiliser cette pratique après 1830.
+Si la fiabilité des propos de Morin, renvoyé de la préfecture par Jacoubet en 1834, est presque nulle, il est tout de même possible que Jacoubet a continué a faire dessiner son plan puisqu'il était déjà en cours et réalisé \emph{sous les bonnes auspices} de l'ancien préfet.
+
+
+\myparagraph{La soustraction de plans ou l'échec du projet de Chabrol.}
+Le projet de grand plan de Paris, initié par Chabrol en 1824, avait rapidement été divisé en 48 parties pour accélérer sa réalisation.
+Chacune des 48 parties avait été subdivisée en 24 plus petites, un nombre variable de ces parties, au 1/144\up{ème}\footnote{Il s'agit de la même échelle que les plans des rues de Verniquet, signifiant peut-être qu'il s'agissait d'une mise à jour de ces plans, dans le but de suivre le même procédé que celui qui avait été adopté en 1783} étant alors assigné à chaque membre du bureau des plans.
+Sur le même modèle que les cadastres de Vasserot, Chabrol avait ajouté un niveau entre le grand plan et ceux des rues.
+Ainsi, un plan d'ensemble de chacune des 48 parties devait être réalisé en parallèle des plans des rues.
+\paragraph{}
+Les ordres de Chabrol ne sont suivis d'aucun effet puisque, le 12 juillet 1833, le nouveau préfet Rambuteau, constatant que le plan est à peine commencé, crée le poste de \emph{chef de bureau des plans} qui se voit chargé de faire exécuter le plan et de répartir les crédits alloués au bureau dans ce but.
+Pourtant, cette mesure n'a aucun effet~: si l'atlas de Jacoubet progresse à grands pas, le plan officiel de l'Hôtel de Ville reste au point mort.
+Plusieurs témoins de la préfecture rapporteront que le bureau des plans se trouvait alors \emph{dans un état de désordre tel} que tous les travaux menés étaient inutilisables ou jamais effectués~\citep{GazetteTribunaux18421108}.
+On peut cerner quelques unes des causes de ce désordre.
+\paragraph{}
+Premièrement, le travail à la tâche encourage largement les géomètres et dessinateurs à privilégier la quantité sur la qualité.
+Les plans sont alors inexacts, incomplets ou faux, voire produits plusieurs fois.
+Le bureau met en place très tôt (peut-être dès 1823) un système de vérification censé empêcher ces malfaçons.
+Ainsi, lorsqu'un employé réalise un travail, il le présente à deux agents vérificateurs qui le contrôlent et, s'il est correct, le signent.
+Il suffit ensuite d'aller voir le responsable des paiements pour obtenir son dû en échange du plan.
+En 1827, Jacoubet devient vérificateur en même temps que sous-chef, rejoint quelques années après par Hourdequin.
+Nul plan ne peut être payé sans leurs accords.
+Si ce système semble efficace, il échouera tout de même~: en 1832, Morin imitera les signatures de Jacoubet et Hourdequin obtiendra un paiement de 1512 francs.
+Il ne sera démasqué qu'en 1834 lorsqu'il tentera de nouveau d'obtenir paiement d'un travail déjà effectué pour la somme de 1883 francs.
+\paragraph{}
+Deuxièmement, plusieurs employés (Solet, Morin et Boutet) emportent chez eux plusieurs plans entre 1833 et 1838.
+Arguant qu'ils leurs servent à dessiner le plan d'alignement, certains les conserveront même après leur départ de la préfecture.
+Ainsi Solet, qui démissionne en 1836, conservera les plans du Champs de Mars, de la rue de la Verrerie et des Lombards que les enquêteurs retrouveront à son domicile en 1842.
+Les soustractions sont telles qu'entre 1823 et 1841, dates de deux inventaires des plans possédés par le bureau \footnote{Un troisième est fait en 1834, mais les enquêteurs le jugent inutilisable car très incomplet}, plus de 500 plans - soit plus de 4\% du total des plans possédés- disparaissent.
+\\
+Le travail est si inefficace qu'en 1841, un seul 48\up{ème} du plan général d'alignements est terminé, montré lors du procès sous la forme d'un \emph{grand plan de 6 pieds carrés}\footnote{Soit environ 2 mètres carrés.} sur lequel sont tracés en jaune tous les projets d'alignements et de percements.
+\\
+On peut se demander alors quel statut occupe l'atlas de Jacoubet, qui est alors le seul plan détaillé et général de Paris, le plan en 48 parties étant un échec.
+La réponse est donnée par Jacoubet lui même, qui dans son interrogatoire précise que son plan était utilisé par les employés du bureau qui en faisaient des calques.
+Cela signifie que, pour réaliser les plans de chacune des 48 parties, les dessinateurs prenaient appui sur le tracé de l'atlas de Jacoubet.
+Celui-ci se justifie d'ailleurs d'avoir employé le personnel de la préfecture pour son propre atlas en invoquant l'utilité qu'il avait pour elle.
+Ainsi, bien que le l'atlas général n'ait jamais eu le titre de plan officiel, il sera de fait utilisé comme tel par le bureau des plans de Paris.
+Finalement, Jacoubet sera parvenu à la fois à faire de son travail une référence dans la sphère des géographes privés, mais également au sein même de l'Hôtel de Ville.
+
+\myparagraph{Le bureau des plans et la spéculation immobilière}
+Le dernier point du procès sur lequel nous allons nous attarder est celui des relations entretenues par certains employés de la préfecture et des entrepreneurs et agents d'affaires privés.
+L'essentiel des opérations spéculatives menées au sein du bureau des plans reposent sur une mécanique simple.
+En effet, lorsqu'un projet d'alignement ou de percement doit mener à la destruction de maisons et au retranchement de terrains, la Ville rachète ces terrains à l'issue de négociations avec chaque propriétaire.
+Le plus souvent, la transaction est très avantageuse pour le propriétaire. Bien conscient des enjeux, celui-ci revend le terrain à un prix supérieur à sa valeur réelle.
+Si le terrain est construit, il peut également obtenir le droit de revendre les matériaux issus de la démolition.
+Pour se prémunir d'une trop forte spéculation sur les terrains, la préfecture ne publie les plans d'expropriation que peu de temps avant le début des négociations et des travaux.
+De plus, ces plans ne sont pas diffusés publiquement mais consultables par les propriétaires au bureau des plans.
+Il s'agit alors pour les employés du bureau des plans, qui sont informés avant le grand public des différents projets, d'acheter à bas prix aux propriétaires ignorants les différents terrains expropriés ou reculés, puis de revendre ces mêmes terrains à la préfecture à l'aide de prête-noms conciliants ou intéressés.
+\paragraph{}
+Il s'agit cependant d'actes isolés, et non d'une corruption qui atteindrait l'ensemble de la préfecture.
+En particulier, nous nous attarderons sur les agissements de Hourdequin, alors chef de la Grande Voirie de Paris, à l'origine en 1843 d'une réorganisation du bureau des plans annonciatrice des changements adoptés par Haussmann 10 ans plus tard.
+Sur les 13 faits de corruption reprochés au chef de la Grande Voirie, 9 seront effectivement retenus\citep[pp. 3-4]{GazetteTribunaux18421107}.
+Nous ne rapporterons ici que les 3 plus importants d'entre eux, qui suffisent à donner un aperçu révélateur du fonctionnement d'un des organes les plus importants de la préfecture de la Seine.
+\paragraph{}
+La première affaire renseigne sur la relation entretenue par Hourdequin avec l'entrepreneur en travaux publics Dubrugeaud dans un objectif d'enrichissement personnel.
+En juillet 1836, le conseil municipal adopte le projet de la rue d'Arcole qui devait être créée grâce à l'alignement des rues Chevet Saint-Landry et Saint-Pierre aux B{\oe}ufs.
+La concession est donnée à l'entrepreneur Dubrugeaud, qui se voit allouer la somme de 460.000 francs -payée après travaux- pour l'ensemble des opérations ainsi que le droit de revente des matériaux issus de la démolition, à la condition que les travaux soient réalisés en un an seulement.
+Terminé dans les temps, le percement de la rue d'Arcole permet à Dubrugeaud de dégager un bénéfice de 279 204 francs grâce à la vente des matériaux et à plusieurs opérations de spéculation immobilière dans la rue voisine de Constantine.
+L'extrême rentabilité de cette opération n'aura été pourtant possible que grâce à Hourdequin, alors associé de l'entrepreneur.
+Sur la rue d'Arcole elle-même, le tribunal ne relèvera que le zèle étonnant avec lequel il soutiendra la candidature de Dubrugeaud, puis un acompte de 10.000 francs qui permettront de terminer les travaux à temps.
+Surtout, les opérations menées sur l'île de la Cité seront l'occasion pour eux d'acheter plusieurs propriétés dans la future rue de Constantine avant même que le projet ne soit rendu public.
+Ignorant la démolition future de leurs maisons, plusieurs propriétaires les vendirent à bas prix à l'entrepreneur qui, informé des alignements et démolitions prévus par Hourdequin, pu les revendre à la ville avec une marge importante.
+En remerciement des services rendus par Hourdequin, son associé lui offrira finalement la somme de 17.000 francs.
+\paragraph{}
+La seconde affaire dévoile une corruption encore plus flagrante.
+En 1840, le baron Millin de Grandmaison, propriétaire de plusieurs immeubles sur la place de la Madeleine, avait prévu d'aligner ceux-ci, mais également de faire percer une nouvelle rue entre la place et la rue d'Anjou dans le but de revendre les terrains ainsi dégagés.
+Il soumet alors le projet au conseil municipal, ajoutant également l'abandon d'une maison d'une valeur de 40.000 francs se trouvant sur le tracé de la rue, en échange de l'aquisition d'une maison située au \no16 rue de la Madeleine appartenant à la Ville et de la remise d'une soulte de 150.000 francs\footnote{Dans un contrat d'échange, la soulte désigne une somme d'argent qu'une des partie remet à l'autre pour compenser un déséquilibre entre la valeur des objets échangés.}.
+Le conseil municipal puis le préfet refusant de céder plus de 100.000 francs\footnote{Une note du préfet Rambuteau le 7 juin 1841 indique ainsi~: \emph{Borner à 100 000 francs; et s'il s'y refuse, ajourner l'affaire}}, le dossier reste bloqué à la préfecture jusqu'à ce que M. de Grandmaison ne prenne contact avec Hourdequin.
+Grâce à un rapport élogieux remis au conseil municipal le 28 juillet 1841, ce dernier obtient l'accord de la Ville pour une somme réduite à 125.000 francs et réclame à Grandmaison la somme de 25.000 francs pour ses bons services.
+La lettre suivante, daté du 20 juin 1841, témoigne de l'accord entre eux~: 
+\\
+\emph{Je vous envoie ma demande au préfet , mon cher Hourdequin, en vous priant de vous occuper de suite de cette affaire; je prends l'engagement, si l'on m'accorde les 125 000 francs de soulte que je demande, de vous remettre sur cette somme 25 000 francs. Tout à vous d'amitié. Signé~: baron de Grandmaison.}
+\paragraph{}
+Le dernier exemple donne cette fois un aperçu d'actes de spéculation orchestrés directement par Hourdequin et rendus possibles par sa situation à la préfecture.
+Ainsi en 1833 il existait un projet d'allongement de la rue de l'Aiguillerie (aujourd'hui remplacée par la partie de la rue des Lombards entre la rue Sainte-Opportune et la rue Saint-Denis) jusqu'à la rue des Fourreurs (aujourd'hui rue des Halles).
+Connaissant le projet à l'avance, Hourdequin achète en août 1834 pour 36.100 francs la propriété située au \no6 rue des Fourreurs\footnote{Il s'agit d'une propriété ayant issue \emph{sur l'une et sur l'autre}.
+Ici le cadastre de Vasserot et l'atlas de Jacoubet se contredisent, la seule maison correspondant à la description, correctement numérotée sur Vasserot, est numérotée 8 sur l'atlas général.} sous le nom de \emph{Laurent Huet}.
+Le 12 février 1835, Hourdequin -sous le nom de Huet- et son voisin possédant les maisons 14 et 22 rue des Fourreurs \footnote{Le \no22, visible sur Vasserot, correspond à la maison dont l'issue est sur la rue de l'Aiguillerie, opposée à celle de Hourdequin.
+Le numéro 14 n'est pas indiqué, et se trouve à l'opposé de la rue sur Vasserot.}, soumettent tous deux l'achat de leurs maisons à la Ville.
+Cette fois, le chef de la Grande Voirie use de sa position officielle et appuie fortement les deux demandes qui se trouvent acceptées par le conseil municipal dès le 6 mars 1835.
+La vente est consentie le 8 mai et finalement les maisons sont vendues le 4 septembre.
+Ainsi, les deux propriétaires auront atteint leurs objectifs en moins d'un an.
+La vente de la maison et des matériaux rapporteront 48.274 francs, formant donc un bénéfice de 12.174 francs.
+Son voisin, nommé Cady, obtiendra 80.000 francs pour la vente de sa maison, et 6.000 francs pour les matériaux.
+En remerciement, il versera 10.000 francs à Hourdequin.
+\paragraph{}
+Ainsi donc, Hourdequin profitera sa situation privilégiée à l'Hôtel de Ville pour s'associer avec divers acteurs privés, agents d'affaires mais aussi simples propriétaires profitant de l'occasion.
+Des trois affaires présentées, il retirera un bénéfice de 64.174 francs dont plus de 80\% seront formés de ''pots-de-vins''.
+Pourtant, le jury ne le déclarera coupable que de l'opération menée avec Millin de Grandmaison, jugeant la plupart des autres affaires \emph{peu morales} mais toutefois légales.
+Quant à Jacoubet, il apparaît totalement étranger aux diverses corruptions qui agitent le bureau des plans, bien qu'il connaisse plusieurs agents d'affaires mêlés au scandale \footnote{Notamment Denis-Laurent-Aubin Jaloureau, agent d'affaire de Hourdequin.}.
+Pourtant, lorsque Eugène Deschamps, conservateur du plan et futur chef du service des plans sous Haussmann, est interrogé par le procureur sur l'éventuelle utilité de l'atlas de Jacoubet -qui indique tous les projets de voirie- pour les spéculateurs parisien, celui-ci répondra~: \emph{Du jour où l'administration a autorisé un pareil plan, les spéculateurs ont pu avoir tous les renseignements possibles sans venir à nos bureaux. Cet Atlas leur offre même des renseignements plus complets, puisqu'il contient le plan de tous les îlots réunis}.
+\\
+Si Jacoubet semble s'être tenu à l'écart de ces pratiques, il aura tout du moins créé un outil dont l'utilité pour les spéculateurs immobiliers ne semble pas avoir échappé au tribunal.
+
+\subsection{Notes et remarques}
+\myparagraph{Sur l'atlas Général de Jacoubet et son devenir au bureau des plans}
+Si l'{\oe}uvre de Jacoubet n'atteindra jamais la renommée de l'atlas de Verniquet, il n'en restera pas moins l'un des plans les plus importants de la première moitié du XIX\up{e} siècle pour sa précision et sa richesse d'informations.
+Il permettra à son auteur de remporter la médaille d'argent à l'exposition des produits de l'industrie française en 1834, de se voir proposer une place à la chambre des Pairs et finalement d'obtenir une telle notoriété publique qu'il deviendra un expert reconnu de la topographie parisienne.
+\paragraph{}
+Il est difficile de savoir si l'atlas a été largement utilisé par la préfecture de la Seine.
+En effet, si un plan d'alignements du quartier des Halles daté de 1848 est basé sur l'atlas de Jacoubet - il en est d'ailleurs un des auteurs -, rien ne permet d'affirmer qu'il soit directement lié à la Grande Voirie.
+En effet, le projet de réorganisation des Halles avait alors fait naître divers projets émanant d'architectes et géographes privés.
+En novembre 1842, le chef de la division de la Voirie Planson annonce que le plan de Chabrol, dont seul un quarante-huitième était fait en 1841, avait été \emph{repris avec ardeur} en juillet 1842 et qu'il était désormais \emph{fort avancé}.
+Cependant, lorsque Haussmann lancera la production du nouveau plan de Paris en 1856, la préfecture ne semble pas disposer d'un plan d'ensemble de Paris.
+Sans doute la réalisation du plan général annoncée par Planson n'était-elle pas aussi rapide qu'il le souhaitait.
+\paragraph{}
+De plus, le plan de Verniquet avait été utilisé par les services officiels au début du XIX\up{e} siècle car aucun autre plan n'était aussi géométriquement exact.
+Au contraire, lorsque Jacoubet publie son atlas le cadastre parisien est en grande partie terminé, le plan en 48 quartiers de Vasserot a été fini en 1821, celui par îlots est bien avancé et les plans des maisons seront terminées en 1836.
+Ainsi l'atlas n'est-il pas le seul plan général en lice.
+Les plans de percements des rues contemporains de l'atlas de Jacoubet sont d'ailleurs tracés sur le plan parcellaire de Vasserot, bien plus adapté à des opérations impliquant expropriations et reculements.
+Jacoubet n'atteindra donc qu'en partie son objectif~: si son atlas est un vrai produit de l'administration de la Seine, sans laquelle il n'aurait jamais pu voir le jour, il ne sera jamais adopté officiellement par la préfecture, et s'il a aidé à la création du plan de Chabrol il ne semble ne l'avoir jamais remplacé.
+
+\myparagraph{Sur le bureau des plans}
+Au travers de l'affaire Hourdequin, nous avons pu avoir un aperçu des dysfonctionnement des services officiels destinés à gérer la voirie parisienne.
+Cependant la corruption à l'{\oe}uvre au bureau des plans n'y est pas circonscrite et d'autres affaires éclabousseront la préfecture.
+Ainsi le 7 décembre 1843, Trémery, ingénieur des Ponts-et-Chaussées et inspecteur général des carrières sous la Seine est contraint à la démission lorsque la justice découvre l'existence de 16 employés fictifs supposés travailler dans les carrières et dont les salaires sont détournés pour l'enrichissement personnel des dirigeants des carrières\footnote{En plus de Trémery, le chef Poirier-Saint-Brice sera placé en retraite.}.
+Pourtant la justice se montrera étonnamment clémente~: Trémery ne sera jamais poursuivi.
+Quant aux protagonistes de l'affaire Hourdequin seuls trois d'entre eux seront condamnés, Solet et Boutet étant acquittés.
+Si Hourdequin et Philidor se voient sanctionnés de quatre et trois ans de prison pour corruption, la plupart des faits de corruption pourtant jugés vrais par le tribunal ne seront pas retenus.
+Ainsi, sur neuf faits qui lui sont imputés, Hourdequin ne se verra condamné que pour ses rapports avec Millin de Grandmaison.
+Quant à Morin, il sera finalement puni de trois ans de prison pour faux et usage de faux.
+Pour tous les accusés, le jury ne considérera pas la soustraction de plans.
+Pour conclure sur l'affaire Hourdequin, laissons le mot de la fin au journaliste de la \emph{Gazette des Tribunaux} qui nous a permis de retracer l'histoire du plan de Jacoubet~:
+\paragraph{}
+\emph{Nous n'avons pas à nous expliquer sur la décision qui vient d'être rendue}  (Le jugement final du 19 novembre 1842).
+\emph{Mais il y a dans ce procès une autre question que celle soumise au jury, et il ne faut pas que tout se termine avec son verdict. Nous ne voulons rien exagérer, rien amoindrir; nous ne voulons pas rechercher si les condamnés sont les seuls coupables, ou s'il n'en manquait pas d'autres à côté d'eux sur les bancs de la Cour d'assises~: ce sont là des questions qu'il ne nous appartient pas de résoudre, mais que les révélations du débat commandent à la justice d'étudier sérieusement.\vspace{11pt}
+\[...\] Un tel état de chose appelle à un remède énergique et prompt~: il faut que l'opinion publique soit rassurée; il faut que l'administration elle-même soit mise à l'abri de cette espèce de suspicion légitime sous le coup de laquelle elle est placée. Car, c'est là une des tendances de l'opinion, d'exagérer le mal et de le généraliser.\vspace{11pt}
+Sans doute de telles questions sont graves et difficiles. Mais sans toucher imprudemment à l'ensemble du mécanisme administratif, on peut se demander si le contrôle et la surveillance sont ce qu'ils doivent être; si les garanties de savoir et de moralité sont toujours sérieusement consultées à l'entrée de chacun dans la carrière administrative; si enfin la question des salaires est tranchée de façon à placer le fonctionnaire au-dessus du besoin et de la corruption, ou si au contraire elle n'est pas dominée par ce besoin de créer incessamment des emplois inutiles et de pourvoir aux nécessités de la faveur.}
+\paragraph{}
+Il semble que la Gazette ait été entendue puisque cette affaire causera la première grande réorganisation de la voirie parisienne, précédant celle opérée par Haussmann quelques années plus tard.
+En effet, le préfet Rambuteau, après avoir supprimé momentanément le bureau des plans, mettra en place une nouvelle hiérarchie avec l'objectif clair d'empêcher toute perte de plan et toute corruption.
+Ainsi le bureau sera désormais soumis à l'autorité directe de la Grande Voirie, divisé en quatre sections elles-mêmes placées sous l'autorité d'un géomètre en chef.
+Le poste de conservateur des plans, occupé depuis 1834 par Eugène Deschamps sera également profondément modifié.
+Indépendant des sections et placé directement sous l'autorité du géomètre en chef, le conservateur est désormais le gardien des plans d'alignements, dont l'accès n'est plus autorisé que sur dérogation du préfet.
+Cette organisation, visible dans la figure~\ref{fig:orga_plans}, restera la même jusqu'en 1857.
+
+\myparagraph{Sur Jacoubet}
+Jacoubet quant à lui continuera à éditer son atlas, d'abord en grand format puis sous sa forme réduite au 1/10.000\up{e} et finalement l'étendra dans ses nouvelles limites en 1860 \citep{MAPJacoubet1860}.
+Nous ne savons pas s'il a conservé son poste au bureau des plans après la réorganisation de 1842 mais il est certain qu'il n'était plus à la préfecture après 1852.
+En effet, après avoir participé à la révolution de 1848 et s'être opposé au coup d'état de Napoléon III, il sera condamné à l'exil à Londres le 7 mars 1852\footnote{On lit en effet dans La Presse du 7 mars 1852 qu'\emph{il vient d'être délivré des passeports aux personnes [] qui se sont engagées à quitter Paris dans les 24 heures. Pour Londres : Jacoubet, architecte.}}.
+Cette peine sera pourtant annulée et il se verra interné\footnote{Assigné à résidence} dans la propriété de sa famille à Montesquieu-Volvestre près de Toulouse.
+Pourtant, c'est sans hésitation que le comte Siméon fera appel à lui en 1853 lorsqu'il formera la commission des embellissements de Paris voulue par Napoléon III.
+C'est en tant que cartographe et spécialiste de Paris que Siméon louera Jacoubet dans une lettre qu'il adresse à Persigny le 2 septembre 1853 \citep{Casselle2000}.
+Celle-ci renseigne d'ailleurs aussi bien que le procès sur un personnage dont le talent de commerçant n'avait rien à envier à celui de cartographe~: non seulement Napoléon III \emph{connaît Jacoubet}, pourtant républicain et condamné à l'internement, mais surtout celui-ci tente de vendre à l'empereur la gravure de son plan pour chaque rue à percer pour 1200 francs par rue, soit 4800 francs au total \footnote{\emph{M. Jacoubet, architecte, chargé autrefois du bureau des plans de la ville, possède tous les éléments de ce travail. Il s'engagerait, moyennant un  prix à forfait de 1200 francs par rue à ouvrir, à fournir, en un mois, ces documens à la Commission. Pour quatre rues, ce serait une dépense de 4800 francs, qu'il vous serait facile d'imputer sur les fonds du ministère.}\citep{Casselle2000}}.
+
+
+\myparagraph{Hypothèse de travail }
+On remarquera que dans l'ensemble de nos développements autour de l'atlas général, nous n'avons jamais séparé clairement les phases de levé topographique des planches des phases de gravure.
+À l'inverse même nous avons considéré, tout comme Jacoubet l'annonce en 1842, que les minutes de son atlas étaient terminées en 1825.
+Notre choix s'explique pour deux raisons.
+\paragraph{}
+D'abord, nous avons montré que la version originale de l'atlas publiée en 1836 comportait de nombreuses corrections effectuées depuis la gravure des premières planches  en 1827.
+Contrairement à l'atlas de Verniquet où le plan a d'abord été entièrement levé puis gravé une fois terminé, cette fois ce processus a été appliqué plusieurs fois sur des parties de l'atlas, à divers moments.
+\paragraph{}
+Ensuite, nous devons rappeler que la réalisation de l'atlas de Jacoubet suit l'édition de la version réduite et mise au net du plan de Verniquet en 1825, puisque le prospectus annonçant les premières livraisons date de 1826.
+Nous avons également fait remarquer précédemment que malgré les conclusions du procès intenté par M\up{me} de Chavagnac à Jacoubet, il paraît difficile qu'un plan de l'ampleur de celui-ci ait été entièrement levé et dessiné par une seule personne (les quatre autres n'interviendront qu'après 1825) en une année.
+Notons également que le tribunal conclura non pas que l'atlas est entièrement nouveau, mais qu'il est suffisamment différent du plan de 1825 par son contenu et sa triangulation pour être considéré comme une oeuvre originale, laissant ouverte l'hypothèse d'une filiation entre les deux atlas.
+\paragraph{}
+Nous posons donc l'hypothèse d'une filiation directe entre l'atlas général et le plan de Verniquet.
+En effet, la mise à jour du plan de Verniquet en 1825 a nécessité d'effectuer les relevés topographiques relatifs au rajout des nouvelles rues et places de la ville.
+Nous supposons donc que la triangulation effectuée par Jacoubet n'est pas tout à fait nouvelle, mais complète celle plus ancienne de Verniquet.
+Il utilisera en effet plusieurs fois d'autres plans pour compléter les informations de son atlas.
+Par exemples, les bâtiments en coupe qu'il représente sont issus de l'atlas des 48 quartiers de Vasserot.
+Si cette hypothèse se vérifie nous pourrons alors considérer l'atlas de Jacoubet comme l'héritier direct du plan de Verniquet pour le XIX\up{e} siècle.
+\newpage
+\section{Conclusion}
+Au cours de ce chapitre, nous avons présenté les différents plans que nous utilisons dans leur contexte, à la fois pour montrer les spécificités de chacun et pour donner l'intuition des liens de filiation les unissent, ainsi que pour identifier les temps valides de chacun.
+En effet, il apparaît que ces différents plans et atlas, pourtant d'origines et de formes très variées, sont tous liés les uns aux autres.
+Ce lien peut être direct comme entre le plan de Maire, celui de Delagrive et l'atlas de Verniquet, ou encore entre celui des 48 quartiers de Vasserot et celui de Verniquet, où les plans les plus anciens sont utilisés comme fonds de cartes ou sont simplement mis à jour.
+Il peut être également indirect, parce qu'un même contexte les lie ou que la réalisation d'un plan découle de l'existence -ou plutôt de l'obsolescence- d'un autre, comme c'est le cas pour le plan de Haussmann avec celui de Jacoubet ou bien encore celui de Jacoubet avec Verniquet et Vasserot.
+\paragraph{}
+Lorsqu'elle est directe, la filiation entre deux plans est intéressante à considérer pour leur utilisation au sein d'un SIG.
+En particulier, les éléments suivants sont à considérer~:
+\begin{itemize}
+\item Lorsque deux plans sont liés, les déformations géométriques du premier peuvent être corrélées à celles du second.
+Dès lors, il peut être préférable d'utiliser le premier comme référentiel pour référencer le second, plutôt qu'un référentiel absolu -souvent un plan récent-.
+\item Un lien direct peut permettre d'expliquer d'éventuelles incohérences dans le second plan, soit parce qu'il s'agit d'oublis, soit en raison du choix de son auteur (Maire par exemple figure des bâtiments pourtant détruits après 1803).
+\item Concernant le contenu des plans, un héritage direct entre deux plans indique une proximité sur les spécifications de saisie des objets géographiques et leur représentation cartographique lorsqu'ils sont communs (c'est par exemple le cas des bâtiments de l'atlas de Jacoubet, provenant du plan des 48 quartiers de Vasserot).
+Par conséquent, les spécifications des données extraites de ces plans par vectorisation doivent également être communes.
+\end{itemize}
+Lorsqu'elles sont indirectes, les filiations entre plans permettent de mieux comprendre les particularités d'un plan ou bien sa création.
+C'est par exemple le cas de l'atlas de Jacoubet qui n'aurait sans doute pas vu le jour sans l'absence de mise en place d'un remplaçant du plan de Verniquet par la préfecture.
+la puissance financière
+Au travers de ce chapitre, nous avons ainsi recomposé les filiations, résumées dans la figure \ref{fig:filiations}.
+On voit donc que les plans sont largement liés entre eux, en particulier jusqu'au milieu du XIX\up{e} siècle et qu'ils sont majoritairement affiliés à l'atlas de Verniquet.
+De plus, en cent ans, seules deux nouvelles triangulations véritables ont été effectuées, si l'on considère que celle de Jacoubet est au mieux partielle.
+Ceci renseigne d'autant plus sur le caractère exceptionnel du travail de Verniquet~: la seule triangulation qui suivra sera l'{\oe}uvre d'un service entier de la préfecture de la Seine.
+\begin{figure}
+	\centering
+		\includegraphics[width=0.7\textwidth]{filiations_entre_plans.png} 
+	\caption{Filiations identifiées entre les plans de Paris utilisés dans la thèse.
+Certains plans non utilisés mais cités dans le chapitre sont également inclus car ils font partie de cette généalogie}
+	\label{fig:filiations}
+\end{figure}
+
+
+% 
+% \subsection{Objets géohistoriques considérés}
+% %1p max
+% \myparagraph{Rues}
+% Rue de Sourdis = batiments de l'hotel de sourdis entierement reconstruits en 1840. Pas d'alignemen
+% 
+% \myparagraph{Les parcelles}
+% C'est le lieu des propriétaires
+% \clearpage
+% 
+% \subsection{Lieux d'étude?}
+% %1p max
+% \myparagraph{Ile de la Cité}
+% Particularités du tissu urbain de Saint Martin des champs
+% s
+% \myparagraph{Saint Martin des Champs}
+% Particularités du tissu urbain de Saint martin des champs
+% \clearpage
+% 
+% 
+% 
+% \subsection{La transformation de la gestion de la ville par le prisme des plans}*
+% Jean-Philippe Dumas, dans \citep{Dumas1999}
+% free  lien Représentation et description des propriétés à Paris au XIXe siècle. Cadastre et plan parcellaire 
+% 
+% 
+% \subsection{Conclusion}
+% %1p max
+% 
+% \myparagraph{Le plan de Verniquet comme référentiel ancien}
+% 
+% \myparagraph{Ouvrir vers le modèle}
+
+
+
+% %@book{bonnardot1851,
+%   title={Études archéologiques sur les anciens plans de Paris des XVIe, XVIIe et XVIIIe siècles},
+%   author={Bonnardot, A.},
+%   lccn={07002479},
+%  url={http://books.google.fr/books?id=\_G6kQHL0vNwC},
+%   year={1851},
+%   publisher={Deflorenne}
+% }
+% 
+% %@article{Dumas1999,
+% title =  {Représentation et description des propriétés à Paris au XIXe siècle. Cadastre et plan parcellaire},
+%   author={Dumas},
+% year = {1999}
+% }

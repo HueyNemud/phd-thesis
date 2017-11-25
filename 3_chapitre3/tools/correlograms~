@@ -1,0 +1,80 @@
+library("pgirmess")
+%RESIDUAL Y
+data=read.csv('/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/3_chapitre3/data/bati_vs_grid.csv')
+datam=data$YRESIDUAL
+correlog=correlog(cbind(data$X,data$Y), datam)
+
+
+data2=read.csv('/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/3_chapitre3/data/rues_vs_grid.csv')
+datam2=data2$YRESIDUAL
+correlog2=correlog(cbind(data2$X,data2$Y), datam2)
+
+mat1=as.data.frame(correlog)
+mat2=as.data.frame(correlog2)
+
+plot(mat1$dist.class,mat1$coef, type="n", xlab="Distance (mètres)" ,ylab="Indice de Moran")
+lines(mat1$dist.class,mat1$coef, col="chartreuse4")
+points(mat1, col = ifelse(mat1$p.value<0.05,'red','chartreuse'), pch = 19 )
+
+lines(mat2$dist.class,mat2$coef, col="darkgoldenrod4")
+points(mat2, col = ifelse(mat2$p.value<0.05,'red','darkgoldenrod'), pch = 19 )
+
+
+plot(correlog1, type="n")
+lines(correlog1)
+mat=as.data.frame(correlog2)
+points(correlog2, col = ifelse(mat$p.value<0.05,'red','black'), pch = 19 )
+
+%RESIDUAL X
+data=read.csv('/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/data/bati_vs_grid.csv')
+datam=data$XRESIDUAL
+correlog=correlog(cbind(data$X,data$Y), datam)
+
+
+data2=read.csv('/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/data/rues_vs_grid.csv')
+datam2=data2$XRESIDUAL
+correlog2=correlog(cbind(data2$X,data2$Y), datam2)
+
+mat1=as.data.frame(correlog)
+mat2=as.data.frame(correlog2)
+
+plot(mat1$dist.class,mat1$coef, type="n", xlab="Distance (mètres)" ,ylab="Indice de Moran")
+lines(mat1$dist.class,mat1$coef, col="chartreuse4")
+points(mat1, col = ifelse(mat$p.value<0.05,'red','chartreuse'), pch = 19 )
+
+lines(mat2$dist.class,mat2$coef, col="darkgoldenrod4")
+points(mat2, col = ifelse(mat2$p.value<0.05,'red','darkgoldenrod'), pch = 19 )
+
+
+plot(correlog1, type="n")
+lines(correlog1)
+mat=as.data.frame(correlog2)
+points(correlog2, col = ifelse(mat$p.value<0.05,'red','darkgoldenrod'), pch = 19 )
+
+
+%ORIENTATION 
+data=read.csv('/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/data/bati_vs_grid.csv')
+datam=data$ORI
+correlog=correlog(cbind(data$X,data$Y), datam)
+
+
+data2=read.csv('/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/3_chapitre3/data/rues_vs_grid.csv')
+datam2=data2$ORI
+correlog2=correlog(cbind(data2$X,data2$Y), datam2)
+
+mat1=as.data.frame(correlog)
+mat2=as.data.frame(correlog2)
+
+plot(mat1$dist.class,mat1$coef, type="n", xlab="Distance (mètres)" ,ylab="Indice de Moran")
+lines(mat1$dist.class,mat1$coef, col="chartreuse4")
+points(mat1, col = ifelse(mat$p.value<0.05,'red','chartreuse'), pch = 19 )
+
+lines(mat2$dist.class,mat2$coef, col="darkgoldenrod4")
+points(mat2, col = ifelse(mat2$p.value<0.05,'red','darkgoldenrod'), pch = 19 )
+
+
+plot(correlog1, type="n")
+lines(correlog1)
+mat=as.data.frame(correlog2)
+points(correlog2, col = ifelse(mat$p.value<0.05,'red','black'), pch = 19 )
+

@@ -1,0 +1,1414 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="comm_carto.svg">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective7139" />
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;">
+      <path
+         id="path4640"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lstart"
+       style="overflow:visible">
+      <path
+         id="path4637"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+    <linearGradient
+       id="linearGradient4374">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="0"
+         id="stop4376" />
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="1"
+         id="stop4378" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4366">
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1;"
+         offset="0"
+         id="stop4368" />
+      <stop
+         style="stop-color:#ff0000;stop-opacity:0;"
+         offset="1"
+         id="stop4370" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4374"
+       id="linearGradient4380"
+       x1="244"
+       y1="330.36218"
+       x2="454.5"
+       y2="301.86218"
+       gradientUnits="userSpaceOnUse" />
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-7"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4640-9"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-1"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4640-1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-8"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4640-5"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4163"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4165"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4167"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4169"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <linearGradient
+       id="linearGradient4374-4">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="0"
+         id="stop4376-6" />
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="1"
+         id="stop4378-9" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart-0"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4637-6"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-5"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4640-2"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart-9"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4637-5"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart-2"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4637-53"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart-1"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4637-4"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.5"
+     inkscape:cx="312.34116"
+     inkscape:cy="-25.103376"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1280"
+     inkscape:window-height="940"
+     inkscape:window-x="0"
+     inkscape:window-y="31"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;fill-opacity:1"
+       id="rect7128"
+       width="792.50092"
+       height="655.32227"
+       x="-51.182373"
+       y="-1.4976059"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <g
+       id="g3824"
+       transform="translate(32.282829,-42.253092)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <path
+         transform="translate(-103.57142,-210.00001)"
+         d="m 434.28572,287.36218 c 0,12.22916 -69.07607,22.14286 -154.28572,22.14286 -85.20965,0 -154.28572,-9.9137 -154.28572,-22.14286 0,-12.22916 69.07607,-22.14285 154.28572,-22.14285 85.20965,0 154.28572,9.91369 154.28572,22.14285 z"
+         sodipodi:ry="22.142857"
+         sodipodi:rx="154.28572"
+         sodipodi:cy="287.36218"
+         sodipodi:cx="280"
+         id="path2985"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-103.57142,137.85713)"
+         style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+         d="m 434.28572,287.36218 c 0,12.22916 -69.07607,22.14286 -154.28572,22.14286 -85.20965,0 -154.28572,-9.9137 -154.28572,-22.14286"
+         id="path2985-4"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="csc" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3775"
+         d="m 22.143065,77.199085 0,347.823985"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3775-6"
+         d="m 330.71814,77.199084 0,325.416186 0,22.40781"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:nodetypes="ccc" />
+    </g>
+    <g
+       id="g4563"
+       style="stroke:#ff3400;stroke-opacity:1"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <path
+         transform="matrix(0.52252931,0,0,0.52252931,109.4102,150.80031)"
+         d="m 434.28572,287.36218 a 154.28572,22.142857 0 1 1 -308.57144,0 154.28572,22.142857 0 1 1 308.57144,0 z"
+         sodipodi:ry="22.142857"
+         sodipodi:rx="154.28572"
+         sodipodi:cy="287.36218"
+         sodipodi:cx="280"
+         id="path2985-9"
+         style="fill:#ffffff;fill-opacity:1;stroke:#ff3400;stroke-width:1.91376816999999999;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3775-9"
+         d="m 175.09971,301.06327 0,40.76058"
+         style="fill:none;stroke:#ff3400;stroke-width:0.99999994000000003px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+      <path
+         transform="matrix(0.52252931,0,0,0.52252931,109.40819,191.69126)"
+         d="m 434.28572,287.36218 a 154.28572,22.142857 0 1 1 -308.57144,0 154.28572,22.142857 0 1 1 308.57144,0 z"
+         sodipodi:ry="22.142857"
+         sodipodi:rx="154.28572"
+         sodipodi:cy="287.36218"
+         sodipodi:cx="280"
+         id="path2985-9-3"
+         style="fill:#ffffff;fill-opacity:1;stroke:#ff3400;stroke-width:1.91376816999999999;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3775-9-6"
+         d="m 336.33842,300.91295 0,40.76058"
+         style="fill:none;stroke:#ff3400;stroke-width:0.99999994000000003px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4237"
+       y="325.31372"
+       x="471.18634"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         style="font-size:14px;text-align:center;text-anchor:middle;font-weight:bold;-inkscape-font-specification:Sans Bold"
+         y="325.31372"
+         x="473.41486"
+         id="tspan4239"
+         sodipodi:role="line">Information </tspan><tspan
+         style="font-size:14px;text-align:center;text-anchor:middle;font-weight:bold;-inkscape-font-specification:Sans Bold"
+         y="342.81372"
+         x="471.18634"
+         sodipodi:role="line"
+         id="tspan4382">cartographique</tspan><tspan
+         id="tspan4241"
+         style="font-size:14px;text-align:center;text-anchor:middle;font-weight:bold;-inkscape-font-specification:Sans Bold"
+         y="360.31372"
+         x="471.18634"
+         sodipodi:role="line"> préparée</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 24.237362,395.95665 c 0,-122.90189 0.825364,-243.94135 0,-366.705681"
+       id="path4163"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       d="m 18.491838,40.962812 5.765405,-17.703318 6.092472,17.703318 -6.092472,-6.00612 z"
+       id="rect4175"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:19.51690674px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-223.21037"
+       y="16.724289"
+       id="text4178"
+       sodipodi:linespacing="125%"
+       transform="matrix(0,-1,1,0,0,0)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4180"
+         x="-223.21037"
+         y="16.724289"
+         style="font-size:14px">Temps</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path4253"
+       sodipodi:cx="462.09427"
+       sodipodi:cy="296.11148"
+       sodipodi:rx="6.0104074"
+       sodipodi:ry="6.0104074"
+       d="m 468.10468,296.11148 a 6.0104074,6.0104074 0 1 1 -12.02082,0 6.0104074,6.0104074 0 1 1 12.02082,0 z"
+       transform="translate(-0.35355339,5.0381358)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:0.99999994000000003px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:none;marker-start:url(#Arrow1Lstart)"
+       d="M 608.625,288.65346 468.07341,300.46169"
+       id="path3775-6-8-92"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path4253-0"
+       sodipodi:cx="462.09427"
+       sodipodi:cy="296.11148"
+       sodipodi:rx="6.0104074"
+       sodipodi:ry="6.0104074"
+       d="m 468.10468,296.11148 a 6.0104074,6.0104074 0 1 1 -12.02082,0 6.0104074,6.0104074 0 1 1 12.02082,0 z"
+       transform="translate(152.60495,-7.645593)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4237-0"
+       y="309.47449"
+       x="614.68555"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         id="tspan4241-7"
+         style="font-size:14px;text-align:center;text-anchor:middle;font-weight:bold;-inkscape-font-specification:Sans Bold"
+         y="309.47449"
+         x="614.68555"
+         sodipodi:role="line">Carte</tspan></text>
+    <path
+       style="fill:url(#linearGradient4380);fill-opacity:1;fill-rule:evenodd;stroke:none"
+       d="m 335.83224,300.80852 120.17581,0.13258 -120.17581,41.12867 z"
+       id="rect4355"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path4253-0-3"
+       sodipodi:cx="462.09427"
+       sodipodi:cy="296.11148"
+       sodipodi:rx="6.0104074"
+       sodipodi:ry="6.0104074"
+       d="m 468.10468,296.11148 a 6.0104074,6.0104074 0 1 1 -12.02082,0 6.0104074,6.0104074 0 1 1 12.02082,0 z"
+       transform="translate(152.60495,-200.6675)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-dashoffset:0;marker-end:url(#Arrow1Lend)"
+       d="m 614.69922,282.23718 0,-180.84523"
+       id="path4402"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="333.06738"
+       y="449.58142"
+       id="text4404-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         x="333.06738"
+         y="449.58142"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4431">Étude de la réalité (acquisition et traitement de l'information)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="370"
+       y="295.36218"
+       id="text4435"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4437"
+         x="370"
+         y="295.36218"
+         style="font-size:20px">(1)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="84.845215"
+       y="448.63171"
+       id="text4435-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4437-9"
+         x="84.845215"
+         y="448.63171"
+         style="font-size:20px">(1)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="524.64056"
+       y="286.47113"
+       id="text4435-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4437-6"
+         x="524.64056"
+         y="286.47113"
+         style="font-size:20px">(2)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="581.20917"
+       y="198.78987"
+       id="text4435-1-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4437-6-2"
+         x="581.20917"
+         y="198.78987"
+         style="font-size:20px">(3)</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 608.42119,95.646705 -129.00279,0"
+       id="path4522"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path4253-05"
+       sodipodi:cx="462.09427"
+       sodipodi:cy="296.11148"
+       sodipodi:rx="6.0104074"
+       sodipodi:ry="6.0104074"
+       d="m 468.10468,296.11148 a 6.0104074,6.0104074 0 1 1 -12.02082,0 6.0104074,6.0104074 0 1 1 12.02082,0 z"
+       transform="translate(10.936579,-200.41789)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="529.8252"
+       y="113.63171"
+       id="text4435-1-5-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4437-6-2-8"
+         x="529.8252"
+         y="113.63171"
+         style="font-size:20px">(4)</tspan></text>
+    <g
+       transform="translate(-73.99156,0.51992975)"
+       id="g4563-7"
+       style="fill:none;stroke:#0200ff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 2;stroke-dashoffset:0"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <path
+         transform="matrix(0.52252931,0,0,0.52252931,109.4102,150.80031)"
+         d="m 434.28572,287.36218 c 0,12.22916 -69.07607,22.14286 -154.28572,22.14286 -85.20965,0 -154.28572,-9.9137 -154.28572,-22.14286 0,-12.22916 69.07607,-22.14285 154.28572,-22.14285 85.20965,0 154.28572,9.91369 154.28572,22.14285 z"
+         sodipodi:ry="22.142857"
+         sodipodi:rx="154.28572"
+         sodipodi:cy="287.36218"
+         sodipodi:cx="280"
+         id="path2985-9-1"
+         style="fill:none;stroke:#0200ff;stroke-width:1.91376828999999993;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.82753648999999996, 3.82753648999999996;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3775-9-4"
+         d="m 175.09971,301.06327 0,40.76058"
+         style="fill:none;stroke:#0200ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 2;stroke-dashoffset:0"
+         sodipodi:nodetypes="cc" />
+      <path
+         transform="matrix(0.52252931,0,0,0.52252931,109.40819,191.69126)"
+         d="m 434.28572,287.36218 c 0,12.22916 -69.07607,22.14286 -154.28572,22.14286 -85.20965,0 -154.28572,-9.9137 -154.28572,-22.14286 0,-12.22916 69.07607,-22.14285 154.28572,-22.14285 85.20965,0 154.28572,9.91369 154.28572,22.14285 z"
+         sodipodi:ry="22.142857"
+         sodipodi:rx="154.28572"
+         sodipodi:cy="287.36218"
+         sodipodi:cx="280"
+         id="path2985-9-3-3"
+         style="fill:none;stroke:#0200ff;stroke-width:1.91376828999999993;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.82753648999999996, 3.82753648999999996;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3775-9-6-6"
+         d="m 336.33842,300.91295 0,40.76058"
+         style="fill:none;stroke:#0200ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 2;stroke-dashoffset:0"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <g
+       transform="translate(-93.083443,1.2270367)"
+       id="g4563-7-5"
+       style="fill:none;stroke:#0016ff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 2;stroke-dashoffset:0"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <path
+         transform="matrix(0.52252931,0,0,0.52252931,109.4102,150.80031)"
+         d="m 434.28572,287.36218 c 0,12.22916 -69.07607,22.14286 -154.28572,22.14286 -85.20965,0 -154.28572,-9.9137 -154.28572,-22.14286 0,-12.22916 69.07607,-22.14285 154.28572,-22.14285 85.20965,0 154.28572,9.91369 154.28572,22.14285 z"
+         sodipodi:ry="22.142857"
+         sodipodi:rx="154.28572"
+         sodipodi:cy="287.36218"
+         sodipodi:cx="280"
+         id="path2985-9-1-3"
+         style="fill:none;stroke:#0016ff;stroke-width:1.91376828999999993;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.82753648999999996, 3.82753648999999996;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3775-9-4-4"
+         d="m 175.09971,301.06327 0,40.76058"
+         style="fill:none;stroke:#0016ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 2;stroke-dashoffset:0"
+         sodipodi:nodetypes="cc" />
+      <path
+         transform="matrix(0.52252931,0,0,0.52252931,109.40819,191.69126)"
+         d="m 434.28572,287.36218 c 0,12.22916 -69.07607,22.14286 -154.28572,22.14286 -85.20965,0 -154.28572,-9.9137 -154.28572,-22.14286 0,-12.22916 69.07607,-22.14285 154.28572,-22.14285 85.20965,0 154.28572,9.91369 154.28572,22.14285 z"
+         sodipodi:ry="22.142857"
+         sodipodi:rx="154.28572"
+         sodipodi:cy="287.36218"
+         sodipodi:cx="280"
+         id="path2985-9-3-3-7"
+         style="fill:none;stroke:#0016ff;stroke-width:1.91376828999999993;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.82753648999999996, 3.82753648999999996;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3775-9-6-6-8"
+         d="m 336.33842,300.91295 0,40.76058"
+         style="fill:none;stroke:#0016ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 2;stroke-dashoffset:0"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="M 466.89138,96.362183 167.59197,302.42315"
+       id="path4522-4"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="322.64023"
+       y="213.98047"
+       id="text4435-1-5-5-6"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4437-6-2-8-5"
+         x="322.64023"
+         y="213.98047"
+         style="font-size:20px">(5)</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4237-0-0"
+       y="65.458374"
+       x="471.98633"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         id="tspan4241-7-9"
+         style="font-size:14px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
+         y="65.458374"
+         x="474.41992"
+         sodipodi:role="line">Information extraite </tspan><tspan
+         style="font-size:14px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
+         y="82.958374"
+         x="471.98633"
+         sodipodi:role="line"
+         id="tspan6631">de la carte</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4237-0-3"
+       y="79.236801"
+       x="615.91949"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         id="tspan4241-7-2"
+         style="font-size:14px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
+         y="79.236801"
+         x="615.91949"
+         sodipodi:role="line">Carte</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="309.33301"
+       y="480.15808"
+       id="text4404-1-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         x="309.33301"
+         y="480.15808"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4431-3">Encodage de l'information (symboles cartographiques)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="84.845215"
+       y="478.38171"
+       id="text4435-3-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4437-9-7"
+         x="84.845215"
+         y="478.38171"
+         style="font-size:20px">(2)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="160.66504"
+       y="511.29529"
+       id="text4404-1-0-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         x="160.66504"
+         y="511.29529"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4431-3-0">Préservation</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="84.845215"
+       y="508.13171"
+       id="text4435-3-7-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4437-9-7-6"
+         x="84.845215"
+         y="508.13171"
+         style="font-size:20px">(3)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="182.75879"
+       y="539.15808"
+       id="text4404-1-0-2-6"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         x="182.75879"
+         y="539.15808"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4431-3-0-7">Lecture de la carte</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="84.845215"
+       y="537.88171"
+       id="text4435-3-7-1-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4437-9-7-6-9"
+         x="84.845215"
+         y="537.88171"
+         style="font-size:20px">(4)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="409.97168"
+       y="567.58142"
+       id="text4404-1-0-2-6-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         x="409.97168"
+         y="567.58142"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4431-3-0-7-4">Interprétation de l'information et formation de nouvelles conaissances sur la réalité</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="84.845215"
+       y="567.63171"
+       id="text4435-3-7-1-0-3-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4437-9-7-6-9-8-4"
+         x="84.845215"
+         y="567.63171"
+         style="font-size:20px">(5)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:19.51690674px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="168.40475"
+       y="393.44629"
+       id="text4178-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4180-4"
+         x="168.40475"
+         y="393.44629">Réalité</tspan></text>
+    <rect
+       style="fill:none;stroke:#ff3400;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect7018"
+       width="32"
+       height="17"
+       x="86"
+       y="586.36218"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       style="fill:none;stroke:#0700ff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0"
+       id="rect7018-8"
+       width="32"
+       height="17"
+       x="86"
+       y="613.86218"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="224.68555"
+       y="599.86169"
+       id="text4404-1-0-2-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         x="224.68555"
+         y="599.86169"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4431-3-0-6">Part de réalité cartographiée</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="201.33398"
+       y="628.50476"
+       id="text4404-1-0-2-5-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         x="201.33398"
+         y="628.50476"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4431-3-0-6-2">Part de réalité connue</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 16.06066,92.4783 16.681024,0"
+       id="path7082"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:19.51690674px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-43.385376"
+       y="97.666008"
+       id="text4178-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4180-0"
+         x="-43.385376"
+         y="97.666008"
+         style="font-size:14px">Présent</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.64230704;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect7128-4"
+       width="792.85858"
+       height="441.67996"
+       x="-34.390614"
+       y="882.91412"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="562.30359"
+       y="976.74866"
+       id="text4404-1-0-6"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         x="562.30359"
+         y="976.74866"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4431-3-9">Encodage de l'information (symboles cartographiques)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="337.81583"
+       y="978.97229"
+       id="text4435-3-7-18"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4437-9-7-7"
+         x="337.81583"
+         y="978.97229"
+         style="font-size:20px">(2)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="337.81583"
+       y="1008.7223"
+       id="text4435-3-7-1-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4437-9-7-6-8"
+         x="337.81583"
+         y="1008.7223"
+         style="font-size:20px">(3)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="435.7294"
+       y="1007.7488"
+       id="text4404-1-0-2-6-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         x="435.7294"
+         y="1007.7488"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4431-3-0-7-2">Lecture de la carte</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="370.60724"
+       y="1034.172"
+       id="text4404-1-0-2-6-0-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         x="370.60724"
+         y="1034.172"
+         style="font-size:14px;text-align:start;text-anchor:start"
+         id="tspan4431-3-0-7-4-0">Interprétation de l'information et formation de</tspan><tspan
+         sodipodi:role="line"
+         x="370.60724"
+         y="1051.672"
+         style="font-size:14px;text-align:start;text-anchor:start"
+         id="tspan5310"> nouvelles conaissances sur la réalité</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="337.81583"
+       y="1036.2223"
+       id="text4435-3-7-1-0-3-9-6"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4437-9-7-6-9-8-4-0"
+         x="337.81583"
+         y="1036.2223"
+         style="font-size:20px">(4)</tspan></text>
+    <rect
+       style="fill:none;stroke:#ff3400;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect7018-4"
+       width="32"
+       height="17"
+       x="338.97058"
+       y="1065.9528"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       style="fill:none;stroke:#0700ff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0"
+       id="rect7018-8-6"
+       width="32"
+       height="17"
+       x="338.97058"
+       y="1093.4528"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="477.65616"
+       y="1079.4523"
+       id="text4404-1-0-2-5-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         x="477.65616"
+         y="1079.4523"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4431-3-0-6-1">Part de réalité cartographiée</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="454.3046"
+       y="1108.0953"
+       id="text4404-1-0-2-5-9-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         x="454.3046"
+         y="1108.0953"
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="tspan4431-3-0-6-2-0">Part de réalité connue</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path4466"
+       sodipodi:cx="-404"
+       sodipodi:cy="1118.3622"
+       sodipodi:rx="218"
+       sodipodi:ry="218"
+       d="m -186,1118.3622 a 218,218 0 1 1 -436,0 218,218 0 1 1 436,0 z"
+       transform="matrix(0.70435907,0,0,0.68024943,439.72849,280.21596)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#0016ff;stroke-width:7.98507452;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:23.95522417, 7.98507472;stroke-dashoffset:0"
+       id="path4466-6"
+       sodipodi:cx="-404"
+       sodipodi:cy="1118.3622"
+       sodipodi:rx="218"
+       sodipodi:ry="218"
+       d="m -186,1118.3622 a 218,218 0 1 1 -436,0 218,218 0 1 1 436,0 z"
+       transform="matrix(0.26462836,0,0,0.25557034,279.66256,759.94561)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#0016ff;stroke-width:7.98507452;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:23.95522417, 7.98507472;stroke-dashoffset:0"
+       id="path4466-5"
+       sodipodi:cx="-404"
+       sodipodi:cy="1118.3622"
+       sodipodi:rx="218"
+       sodipodi:ry="218"
+       d="m -186,1118.3622 a 218,218 0 1 1 -436,0 218,218 0 1 1 436,0 z"
+       transform="matrix(0.26462836,0,0,0.25557034,278.30123,737.65124)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#ff3400;stroke-width:7.98507452;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path4466-5-8"
+       sodipodi:cx="-404"
+       sodipodi:cy="1118.3622"
+       sodipodi:rx="218"
+       sodipodi:ry="218"
+       d="m -186,1118.3622 a 218,218 0 1 1 -436,0 218,218 0 1 1 436,0 z"
+       transform="matrix(0.26462836,0,0,0.25557034,212.77215,752.43999)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.69219929px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="M 85.893485,1056.6063 25.812102,1221.2681"
+       id="path4522-4-0-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:27.68797112px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="16.696594"
+       y="1190.9724"
+       id="text4435-33-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       transform="scale(1.0175669,0.98273637)"><tspan
+         sodipodi:role="line"
+         id="tspan4437-7-7"
+         x="16.696594"
+         y="1190.9724"
+         style="font-size:13.84398556px">(1)</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4237-2-8"
+       y="1271.5813"
+       x="9.095562"
+       style="font-size:27.68797112px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       transform="scale(1.0175669,0.98273637)"><tspan
+         style="font-size:9.69079018px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
+         y="1271.5813"
+         x="10.780094"
+         id="tspan4239-1-9"
+         sodipodi:role="line">Information </tspan><tspan
+         style="font-size:9.69079018px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
+         y="1283.6948"
+         x="9.095562"
+         sodipodi:role="line"
+         id="tspan4382-8-0">cartographique</tspan><tspan
+         id="tspan4241-3-3"
+         style="font-size:9.69079018px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
+         y="1295.8082"
+         x="9.095562"
+         sodipodi:role="line"> préparée</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path4253-7-6"
+       sodipodi:cx="462.09427"
+       sodipodi:cy="296.11148"
+       sodipodi:rx="6.0104074"
+       sodipodi:ry="6.0104074"
+       d="m 468.10468,296.11148 a 6.0104074,6.0104074 0 1 1 -12.02082,0 6.0104074,6.0104074 0 1 1 12.02082,0 z"
+       transform="matrix(0.70435907,0,0,0.68024943,-301.18034,1024.7444)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:0.69219923px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart);marker-end:none"
+       d="M 132.19174,1296.7818 28.760502,1225.7062"
+       id="path3775-6-8-92-9-2"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path4253-0-2-6"
+       sodipodi:cx="462.09427"
+       sodipodi:cy="296.11148"
+       sodipodi:rx="6.0104074"
+       sodipodi:ry="6.0104074"
+       d="m 468.10468,296.11148 a 6.0104074,6.0104074 0 1 1 -12.02082,0 6.0104074,6.0104074 0 1 1 12.02082,0 z"
+       transform="matrix(0.70435907,0,0,0.68024943,-189.21644,1097.066)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4237-0-7-7"
+       y="1335.8483"
+       x="133.90195"
+       style="font-size:27.68797112px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       transform="scale(1.0175669,0.98273637)"><tspan
+         id="tspan4241-7-6-4"
+         style="font-size:9.69079018px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
+         y="1335.8483"
+         x="133.90195"
+         sodipodi:role="line">Carte</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:27.68797112px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="91.892639"
+       y="1284.5417"
+       id="text4435-1-6-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       transform="scale(1.0175669,0.98273637)"><tspan
+         sodipodi:role="line"
+         id="tspan4437-6-6-1"
+         x="91.892639"
+         y="1284.5417"
+         style="font-size:13.84398556px">(2)</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path4253-05-5-8"
+       sodipodi:cx="462.09427"
+       sodipodi:cy="296.11148"
+       sodipodi:rx="6.0104074"
+       sodipodi:ry="6.0104074"
+       d="m 468.10468,296.11148 a 6.0104074,6.0104074 0 1 1 -12.02082,0 6.0104074,6.0104074 0 1 1 12.02082,0 z"
+       transform="matrix(0.70435907,0,0,0.68024943,-102.56287,1023.7585)"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:27.68797112px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="186.46286"
+       y="1290.5226"
+       id="text4435-1-5-5-1-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       transform="scale(1.0175669,0.98273637)"><tspan
+         sodipodi:role="line"
+         id="tspan4437-6-2-8-0-0"
+         x="186.46286"
+         y="1290.5226"
+         style="font-size:13.84398556px">(3)</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4237-0-0-6-9"
+       y="1274.4845"
+       x="271.26813"
+       style="font-size:27.68797112px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       transform="scale(1.0175669,0.98273637)"><tspan
+         id="tspan4241-7-9-2-0"
+         style="font-size:9.69079018px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
+         y="1274.4845"
+         x="272.95267"
+         sodipodi:role="line">Information extraite </tspan><tspan
+         style="font-size:9.69079018px;font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans Bold"
+         y="1286.598"
+         x="271.26813"
+         sodipodi:role="line"
+         id="tspan6631-1-7">de la carte</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:0.69219923px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart);marker-end:none"
+       d="m 218.98008,1227.9475 -79.13085,70.4163"
+       id="path3775-6-8-92-9-2-2"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:0.69219923px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart);marker-end:none"
+       d="m 191.61715,1051.3982 29.94365,170.9472"
+       id="path3775-6-8-92-9-2-2-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:27.68797112px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="211.89679"
+       y="1142.5186"
+       id="text4435-1-5-5-1-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       transform="scale(1.0175669,0.98273637)"><tspan
+         sodipodi:role="line"
+         id="tspan4437-6-2-8-0-03"
+         x="211.89679"
+         y="1142.5186"
+         style="font-size:13.84398556px">(4)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.5095892px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="134.68759"
+       y="941.64862"
+       id="text4178-3-3-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       transform="scale(1.0175669,0.98273637)"><tspan
+         sodipodi:role="line"
+         id="tspan4180-4-4-8"
+         x="134.68759"
+         y="941.64862">Réalité</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="371.41675"
+       y="938.96887"
+       id="text4404-1-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         x="371.41675"
+         y="938.96887"
+         style="font-size:14px;text-align:start;text-anchor:start"
+         id="tspan4431-7">Étude de la réalité (acquisition et traitement </tspan><tspan
+         sodipodi:role="line"
+         x="371.41675"
+         y="956.46887"
+         style="font-size:14px;text-align:start;text-anchor:start"
+         id="tspan5339">de l'information)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="339.51733"
+       y="942.01917"
+       id="text4435-3-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/2_chapitre2/images/comm_carto_salitchev.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4437-9-9"
+         x="339.51733"
+         y="942.01917"
+         style="font-size:20px">(1)</tspan></text>
+  </g>
+</svg>

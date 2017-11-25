@@ -1,0 +1,103 @@
+library('spatstat')
+library('maptools')
+#MESURE LES RESIDUS D'UN ENSEMBLE DE POINTS DE MESURE TRANSFORMES PAR des GPCSs
+xv <- vector()
+yv <- vector()
+resx <- vector()
+resy <- vector()
+orientation <- vector()
+sheetDistToOrigin = vector()
+sheetID <- vector()
+sheetRMSEx <- vector()
+sheetRMSEy <- vector()
+
+for (i in 1:72 ) {
+        tryCatch({
+
+        str = ""
+        if(i<10){
+                str = paste0('0',i)        
+        }else{
+                str=toString(i)        
+        }       
+        path = paste0("/media/New_Data/THESE/PLANS/GEOREFERENCES/Verniquet_1785_1799/GCP/GRID/",str,".points")
+        pathCP = paste0("/media/New_Data/THESE/PLANS/GEOREFERENCES/Verniquet_1785_1799/GCP/MERGE/",str,"_merge.points")
+        message(path)
+        output=  paste0("/media/New_Data/THESE/",str,"_residuals")
+        message(output)
+        data = read.csv(path,sep=",", dec=".")
+        pix = data$pixelX
+        line = -data$pixelY
+
+        x<-data$mapX
+        y<-data$mapY
+        geopts = cbind(x,y)
+
+        datacp = read.csv(pathCP,sep=",", dec=".")
+        pixcp = datacp$pixelX
+        linecp = -datacp$pixelY
+        xcp<-datacp$mapX
+        ycp<-datacp$mapY
+        #POLY 1
+        #xp2 = lm(x ~ pix+line+pix)
+        #yp2 = lm(y ~ pix+line+pix)
+        n=3
+
+        #POLY 2
+        #xp2 = lm(x ~ pix+line+pix*pix+pix*line+line*line)
+        #yp2 = lm(y ~ pix+line+pix*pix+pix*line+line*line)
+        n=16
+
+        #POLY 3
+        #a00+a10*x1+a11*y1+a20*x2+a21*x1*y1+a22*y2+a30*x3+a31*x2*y1+a32*x1*y2+a33*y3
+        #xp2 = lm(x ~ pix+line+pix*pix+pix*line+line*line+pix*pix*pix+pix*pix*line+pix*line*line+line*line*line)
+        #yp2 = lm(y ~ pix+line+pix*pix+pix*line+line*line+pix*pix*pix+pix*pix*line+pix*line*line+line*line*line)
+        n=10        
+        #POLY 4
+        #a00+a10*x1+a11*y1+a20*x2+a21*x1*y1+a22*y2+a30*x3+a31*x2*y1+a32*x1*y2+a33*y3+a40*x4+a41*x3*y1+a42*x2*y2+a43*x1*y3+a44*y4
+        xp2 = lm(x ~ pix+line+pix*pix+pix*line+line*line+pix*pix*pix+pix*pix*line+pix*line*line+line*line*line+pix*pix*pix*pix+pix*pix*pix*line+pix*pix*line*line+pix*line*line*line+line*line*line*line)
+        yp2 = lm(y ~ pix+line+pix*pix+pix*line+line*line+pix*pix*pix+pix*pix*line+pix*line*line+line*line*line+pix*pix*pix*pix+pix*pix*pix*line+pix*pix*line*line+pix*line*line*line+line*line*line*line)
+        n=15
+
+        newdata = data.frame(pixcp,linecp)
+        colnames(newdata) = c("pix","line")
+        px = predict(xp2,newdata)
+        py = predict(yp2,newdata)
+
+        attr = data.frame(px-xcp,py-ycp)
+        colnames(attr) = c("dx","dy")
+        pts = SpatialPointsDataFrame(data.frame(xcp,ycp),attr)
+
+        xv  = c(xv,xcp)
+        yv  = c(yv,ycp)
+        resx  = c(resx,attr$dx)
+        resy  = c(resy,attr$dy)
+        orientation = c(orientation,atan2(py-ycp, px-xcp))
+
+        rmseX = sqrt(sum(resx*resx)/(length(resx)))
+        rmseY = sqrt(sum(resy*resy)/(length(resy)))
+        sheetRMSEx = c(sheetRMSEx, rmseX)
+        sheetRMSEy = c(sheetRMSEy, rmseY)
+        sheetID  = c(sheetID, i)
+        meand =  sqrt((mean(xcp)-600000)*(mean(xcp)-600000)+(mean(ycp)-126209.34)*(mean(ycp)-126209.34))
+        sheetDistToOrigin = c(sheetDistToOrigin,meand)
+        #sheetID = c(sheetID, array(i,dim = length(xcp)))
+        },error = function(e){
+              print(e)
+        }
+        )
+}
+
+plot(resx,resy)
+abline(v=0)
+abline(h=0)
+plot(abs(xv-600000),sqrt(resx*resx+resy*resy),col="blue")
+plot(sqrt((xv-600000) *(xv-600000) +(yv-126209.34)*(yv-126209.34)),sqrt(resx*resx+resy*resy),col="blue")
+plot(rmseID,sheetRMSEx,type="l")
+
+sheetDistToOrigin[sort(order(sheetDistToOrigin)[sheetID])]
+
+
+pts = SpatialPointsDataFrame(data.frame(xv,yv),data.frame(resx,resy,orientation))
+writeSpatialShape(pts,"/media/New_Data/THESE/all_batis_vs_rues_residuals")
+

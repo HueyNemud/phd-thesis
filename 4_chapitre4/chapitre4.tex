@@ -1,0 +1,744 @@
+\chapter{Modèle de données spatial et temporel}
+\label{chap:modeleSplusT}
+\renewcommand{\labelitemi}{\tiny$\blacksquare$}
+\large \begin{mybox} \normalsize
+\textbf{Objectifs~:} 
+\vspace{11pt}
+\begin{itemize}
+\item  Proposer un modèle de base de données spatiale et temporelle s'appuyant sur les standard de l'information géographique et permettant de structurer les sources géohistoriques et les données vectorielles qui en sont extraites.
+\vspace{11pt}
+\item  Déterminer la localisation temporelle des sources et des données et en proposer une représentation formelle prenant en compte les incertitudes sur cette localisation.
+\vspace{11pt}
+\item  Proposer une méthode de tri temporel adaptée aux particularités des données manipulées.
+\end{itemize}
+\end{mybox}
+\renewcommand\labelitemi{\textbullet}% bullet
+\newpage
+\minitoc
+\newpage
+
+
+Ce chapitre construit une première structure de données spatiale et temporelle visant à organiser et stocker les objets vectorisés dans le chapitre 3 à partir des plans anciens de façon à les rendre utilisables dans un processus de reconstruction des transformations entre eux. Nous suivons finalement la 'montée en niveau' dans l'expressivité spatio-temporelle que nous avions abordée au début du premier chapitre.
+\\
+Nous introduisons ici un schéma de base de données dans lequel la dépendance forte des objets vectoriels à la carte de laquelle ils sont extraits est conservée. Ainsi, nous adoptons une approche prudente des informations que l'on manipule~: elles ne sont pas  directement issues de l'observation du monde réel mais extraites d'une première étape d'observation et de restitution cartographique avec toutes les erreurs, filtrages et distorsions de la réalité que cela implique. Nous proposons d'asseoir l'implémentation de cette base de données sur les standards de l'information géographique.
+\\
+Nous proposons ensuite un façon de modéliser des temporalités incertaines de façon à pouvoir localiser les objets vectorisés et leurs sources cartographiques dans le temps.
+\\
+Enfin, nous choisissons deux méthodes visant à ordonner et comparer ces temporalités incertaines.
+
+%
+%C'est aussi l'occasion de reprendre quelque chose que l'on avait décrit dans le premier chapitre Également : c'est la notion de trace, puisque dans notre modèle les éléments vectorisés ne sont pas indépendant de leur source, en particulier temporellement. Il faudra par contre détailler les implications d'un tel choix de modélisation.
+%\\
+%Pour construire des données spatio-temporelles à partir d'objets géographiques, il faut donc disposer d'une façon de représenter le temps, ainsi que des outils permettant d'exprimer des relations temporelles entre les différents objets. Ces outils doivent à la fois pouvoir répondre à des questions qualitatives, tels que 'Est-ce que A précède B?', mais aussi quantitatives, du type 'Combien de temps sépare A et B?'.
+
+
+\section{Modélisation de la base de données spatiale et temporelle}
+Dans cette section, nous présentons le modèle de données spatial et temporel que nous avons adopté pour stocker les informations vectorisées à partir des plans anciens. Celui-ci s'appuie sur un modèle plus général des notions de ''source géohistorique'' et ''d'observation géohistorique'' qu'il spécialise au cas des sources cartographiques historiques et de leur représentation sous forme de données vectorielles. Enfin, nous décrivons comment ce modèle s'intègre aux standards de l'information géographique et les étend afin de manipuler des temporalités incertaines.
+%
+%PARTIE FEATURES--:\\
+%À partir des plans géoréférencés, la vectorisation permet d'extraire un ensemble d'objets liés à des thèmes urbains différents, tels que les rues, les parcelles, etc.
+%Ces objets sont représentés numériquement selon les standards définis par le \emph{technical committee} 211 de l'ISO dédié aux données géographiques vectorielles. Cela signifie donc, comme vu au chapitre~\ref{chap:georef}, que tous les objets vectorisés sont décrits par une primitive géométrique (ou une agrégation de primitives), ainsi qu'un ensemble de valeurs attributaires ou sémantiques détaillant les propriétés non-spatiales de ces objets. 
+%--PARTIE FEATURES\\
+%
+%Les informations que nous avons représentées sous forme vectorielle ont également la particularité d'être des informations secondaires, construites à partir de sources d'informations multiples décrivant l'espace urbain à diverses périodes de l'histoire. Cette situation pose des problèmes en termes de confiance dans la source, aggravé par le fait que les informations qu'elles contiennent sont souvent difficiles à vérifier, l'espace qu'elles représentent ayant disparu au moins en partie. Nous explorons également dans cette section comment ces problèmes peuvent être gérés , et nous proposerons une modélisation des données géohistoriques permettant de prendre en compte les particularités des sources et de ces données sur la ville.
+%\\
+%Les informations contenues dans une carte forment un ensemble dont la source cartographique est un contexte commun. Pour une carte, l'ensemble des objets vectorisés qui en ont été extraits forment une unité, située dans l'espace, mais également dans le temps. Retrouver les transformations urbaines à partir de cet ensemble d'objets, c'est être capable de retrouver, pour chaque objet, si un autre se trouvait ''avant lui'' ou ''après lui'', faisant de lui son ''ancêtre'' ou son ''successeur''. Pour ce faire, il faut pouvoir situer chacun d'entre eux sur la ligne du temps, de façon à savoir où il se trouve par rapport aux autres objets et quelles éventuelles relations de filiations il entretient avec eux. 
+%\\
+%Nous présentons ici une structuration des sources et des données extraites qui permettent d'expliciter et de conserver le lien de dépendance forte qui existe entre la carte et son contenu.
+
+
+\subsection{La source, l'observation et l'entité géohistorique}
+
+
+Dans cette section, nous présentons un modèle de données simple permettant de représenter les données géohistoriques issues des plans topographiques tout en conservant deux caractéristiques qui leur sont spécifiques~: leur forte dépendance à la source, à conserver, et leur statut de \emph{traces}. 
+
+\myparagraph{Un double biais d'observation}
+L'OGC\footnote{Open Geospatial Consortium~: \url{www.opengeospatial.org}} fournit un modèle général des opérations de modélisation et de saisie nécessaires à la représentation des phénomènes du monde réel au sein d'une base de données géographique vectorielle. Ce modèle repose sur l'hypothèse que les données sont directement produites par l'observation\footnote{La notion d'observation étant définie par l'OGC dans le standard \emph{Observations and Measurements}~\citep{OGCMeasure} comme l'acte de mesurer une propriété d'un phénomène du monde réel.} des phénomènes du monde réel. Or, dans notre cas, les phénomènes du monde que nous souhaitons étudier ne sont plus directement accessibles et ne peuvent être appréhendés qu'au travers de traces au sein de sources géohistoriques. Elles-mêmes fournissent une représentation des phénomènes du monde réel issue d'une observation pendant une période donnée. Elles sont donc produites par un processus d'acquisition de données comparable à celui décrit par le modèle général de l'OGC. Leur vectorisation s'apparente donc à une seconde observation succédant à la première et conduisant à une représentation différée et indirecte des phénomènes du monde réel vus à travers le filtre de la source géohistorique. La figure~\ref{figure:adaptation_OGC} adapte le modèle de référence de l'OGC pour modéliser cet enchaînement pour le cas précis des plans de Paris. Les structures urbaines de la ville de Paris sont retranscrites au sein d'un plan de ville à la suite de levés topographiques. Leur représentation cartographique est organisée en thèmes de légende (rues, bâtiments, etc.). Le plan résultant de ces opérations est le fruit d'une observation effectuée sur une période  plus ou moins longue. Il est donc représentatif des structures de la ville pendant cette période uniquement, dans le meilleur des cas. 
+\\
+La vectorisation du plan s'apparente à une seconde observation qui retranscrit, au sein d'une base de données géographique vectorielle, les traces des structures urbaines de Paris qui apparaissent sur le plan. Ces traces sont stockées sous la forme d'objets vectoriels, appelés \emph{features} dans le modèle de l'OGC et catégorisés par \emph{feature types}. Cette base de données géographique vise alors à représenter les structures urbaines pour la même période que le plan. Cependant, elles ne saisissent que les traces de ces structures, inévitablement déformées et abstraites au moment de la première observation. En outre, elle se rapproche d'un \emph{snapshot} au sens des bases de données spatio-temporelles (voir le chapitre 5), mais s'en détache par le fait qu'elle décrit l'espace non plus à un instant donné mais pendant une certaine durée.
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.45\textwidth]{ogc_ref_model_adapte.png} 
+	\caption{Adaptation du modèle de référence de l'OGC pour les sources et observations géohistoriques.}
+\label{figure:adaptation_OGC}
+ \end{figure}
+ 
+\myparagraph{L'entité géohistorique et sa trace}
+Nous souhaitons retracer les transformations des entités géohistoriques qui peuplent l'espace urbain. Nous avons vu qu'il était impossible d'observer directement ces entités. Leurs traces sont en revanche accessibles à travers différentes sources géohistoriques, comme par exemple des plans de ville. Il est alors possible de recomposer les transformations des traces des entités géohistoriques au sein d'une succession de sources.
+\\
+Dans cette thèse, nous formulons l'hypothèse que ces traces capturent l'état des entités qu'elles représentent lors de la création d'un plan. Reconstituer les transformations entre traces reviendrait alors à reconstituer celles des entités géohistoriques sous-jacentes. Plus le nombre de plans et donc d'états différents des entités sont disponibles, plus l'approximation de leurs véritables transformations se rapprochera de la réalité. Disposer d'un grand nombre de plans successifs pour une période donnée revient donc à s'approcher d'une cartographie dynamique des entités géohistoriques et de leurs transformations.
+
+\myparagraph{La source géohistorique}
+Étudier les traces des entités géohistoriques suppose de disposer de sources d'informations au sein desquelles les retrouver. Dans notre cas, ces sources géohistoriques sont des plans topographiques de Paris. Elles sont le fruit d'un premier processus d'observation des structures urbaines et le support de la vectorisation des traces géohistoriques qu'elles contiennent. En outre, les traces des structures urbaines qu'elles contiennent ne sont représentatives de leurs états réels que pour une période à déterminer. Chacune ne peut être considérée comme une source d'informations fiable que pour cette période. Chaque source de donnée géohistorique permet de créer un \emph{snapshot} contenant une représentation des traces.
+
+\myparagraph{L'observation géohistorique}
+Dans cette thèse, nous utilisons le terme d'observation géohistorique pour désigner la représentation des traces des entités géohistoriques contenues dans les sources géohistoriques au sein d'un \emph{snapshot}. Les observations géohistoriques sont donc le produit des deux processus d'observation illustrés en figure~\ref{figure:adaptation_OGC}. 
+\\
+La figure~\ref{figure:modele_obs_trace} présente le schéma général décrivant les différentes notions abordées dans cette section.
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=1\textwidth]{modele_obs_trace.png} 
+	\caption{Des traces aux observations géohistoriques}
+\label{figure:modele_obs_trace}
+ \end{figure}
+%
+\myparagraph{Généalogie des données géohistoriques}
+La reconstitution des transformations des entités géohistoriques à partir de leurs traces dans des cartes demande de considérer ces traces avec prudence. Leur fiabilité est liée à celle de la source géohistorique qui les représente. Or, nous avons vu que ces sources étaient imparfaites. Le risque est alors d'aboutir à des reconstructions fausses, et donc inutilisables pour tout travail ultérieur. Pour pallier ce problème, une première possibilité serait de vérifier, par l'intermédiaire d'experts historiens, chaque information avant de l'intégrer dans le \emph{snapshot}. Une telle solution est envisageable pour des~\emph{snapshots} de petite taille, mais devient difficile dès lors le nombre des observations augmente, ou que les mises à jour sont fréquentes. Ce modèle prévaut pourtant dans nombre des SIG historiques existants évoqués dans le chapitre~\ref{chap:positionnement}. La seconde possibilité consiste à intégrer les observations sans expertise, tout en adoptant une stratégie prudente permettant en particulier de conserver un lien fort entre l'observation et la source géohistorique qui a permis sa création. Dans les bases de données géographiques, cette préoccupation est également présente au travers de ce que l'on nomme \emph{généalogie des données}\citep{Bucher2005}, décrite en particulier dans la norme ISO 19115 \citep{ISO19115}. Cette norme propose un schéma conceptuel permettant, pour un ensemble de données, de conserver une trace des processus ayant permis sa création. Les sources historiques sous forme d'archives étant au coeur de tout travail d'histoire, il est crucial de pouvoir, à tout moment et pour toute observation, retrouver sa source. C'est pourquoi le schéma que nous proposons en figure~\ref{figure:modele_obs_trace} conserve une dépendance forte entre observations et sources.
+
+\subsection{Modélisation d'une source géohistorique}
+Conserver un lien entre observations et sources géohistoriques implique de disposer d'un modèle de représentation de ces sources. Nos uniques sources géohistoriques sur l'espace parisien sont les atlas et plans topographiques anciens de la ville. Les observations  correspondent quant à elles à des objets géographiques vectoriels, ou \emph{features}, stockés dans une base de données. La figure~\ref{figure:schema_cartes_vecteurs} l'application du schéma présenté en figure~\ref{figure:modele_obs_trace} au cas de la vectorisation de plans. Chacun de ces objets est lié au~\emph{snapshot} vecteur auquel il appartient, qui lui-même pointe vers une description de la source cartographique utilisée pour la vectorisation. Cette description suit le schéma conceptuel présenté dans la figure~\ref{figure:schema_source_carto}.
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=1\textwidth]{schema_cartes_vecteurs.png} 
+	\caption{Application du schéma observation-source aux plans vectorisés.}
+\label{figure:schema_cartes_vecteurs}
+ \end{figure}
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=1\textwidth]{modele_sources.png} 
+	\caption{Schéma des sources cartographiques.}
+\label{figure:schema_source_carto}
+ \end{figure}
+\myparagraph{Source géohistorique}
+Dans notre schéma, une source géohistorique est une classe abstraite correspond à la description d'un document. Il existe des standard de métadonnées pour les sources documentaires, dont le \emph{Dublin Core} \citep{DublinCore2008}, utilisé pour plusieurs bibliothèques et SIG historiques existants\footnote{Par exemple par la Bibliothèque Nationale de France, le \emph{gazetteer Great Britain Historical GIS} et la \emph{New York Public Library}.}. Nous avons choisi de réutiliser des éléments de vocabulaire de ce standard pour notre schéma de description des sources cartographiques. Notons qu'une proposition d'extension de la norme de ISO 19115 a été proposée par~\cite{Grosso2009} afin de stocker des métadonnées propres aux sources cartographiques anciennes\footnote{Cette extension propose notamment un stockage des information de qualité du géoréférencement~: erreurs résiduelles, précision des points d'amer, processus utilisé. Il serait donc intéressant, dans un second temps, d'intégrer cette extension à notre proposition.}.
+La classe \textbf{source géohistorique} présente les attributs \textbf{Titre} et \textbf{Créateur} détaillés ci-dessous. 
+\begin{itemize}
+\item[--] \textbf{Titre}~: l'intitulé complet de la source. Pour un plan, celui-ci est généralement situé dans le cartouche. Ce titre peut être relativement long, et n'est pas nécessairement un nom d'usage.
+\item[--] \textbf{Créateur}~: l'auteur de la source, s'il est connu. Pour un plan, il peut s'agir du géomètre l'ayant levé, par exemple Edmé Verniquet, ou bien du responsable de sa réalisation, comme Eugène Deschamps pour l'atlas municipal.
+\end{itemize}  
+Les traces décrites par une source géohistorique doivent être situées dans le temps si l'on veut pouvoir reconstituer leurs transformations à l'aide d'autres traces issues de sources différentes. C'est pourquoi on associe à chaque source géohistorique une temporalité correspondant à la période pour laquelle on peut considérer qu'elle représente une portion de l'espace de façon fiable. On appelle cette temporalité \textbf{temps valide} de la source. Par exemple, le \emph{plan archéologique de Paris} réalisé par Adolphe Berty et Robert Lenoir~\footnote{Dont les feuilles ont été éditées séparément. Par exemple, voir~\citep{MAPBerty}}, créé à la fin du XIX\textsuperscript{e} siècle, reconstitue les maisons et parcelles de la ville médiévale. Le temps valide que nous lui associerions dans notre base serait centré sur la période médiévale. Le temps valide associé à chaque source est donc intrinsèquement lié à celle-ci et doit par conséquent être étudié au cas par cas. La fiabilité de cette temporalité dépend des connaissances dont on dispose sur la source et sur les informations ayant permis sa création. Pour les plans parisiens, nous verrons dans la section \ref{section:temps_valide} comment il est possible de déterminer ces temps valides.
+ 
+\myparagraph{Source cartographique}
+Une source cartographique est une spécialisation de la notion de source géohistorique. Elle est également décrite par des attributs en partie issus du modèle Dublin Core, détaillés ici.
+\begin{itemize}
+\item[--]\textbf{Couverture}~: dans le Dublin Core, la couverture (\emph{coverage}) est une variable qualitative englobant l'étendue spatiale (l'île de la cité, Paris, Union Européenne, etc.) et temporelle (la période 1840-1850 par exemple). Dans notre cas, nous conservons uniquement la composante spatiale, le temps étant géré par une variable quantitative, le temps valide.
+\item[--]\textbf{Éditeur}~: Cet attribut désigne la personne ou l'organisation ayant gravé le plan, la plupart du temps différente du créateur. Par exemple, les plans de Paris créés par l'administration de Haussmann sont, pour la plupart, gravés par l'éditeur privé Wuhrer.
+\item[--]\textbf{Commanditaire}~: en plus de l'auteur et du graveur, il est utile de conserver le commanditaire du plan, en particulier pour pouvoir produire une critique de la source. Déterminer le commanditaire n'est pas trivial car il est rarement écrit sur la source elle-même ou car il n'en existe pas de clairement défini. Enfin, il peut également y avoir plusieurs commanditaires lorsque la création du plan est complexe ou longue. C'est le cas de l'atlas de Verniquet, d'abord effectué au compte du roi Louis XVI, et terminé sous le Directoire.
+\item[--]\textbf{Ressource}~: la ressource désigne un moyen d'accès vers le plan scanné et géoréférencé. Pour nous le plan est une métadonnée permettant de conserver la généalogie des features vectorisées. De plus, ce n'est pas la ressource documentaire (le scan par exemple) que nous souhaitons référencer mais sa version géoréférencée car elle correpond au canevas sur lequel les features ont été vectorisées.
+\item[--]\textbf{Titre d'usage}~: les plans topographiques anciens ont souvent des noms longs, ou très semblables (\emph{plan de la ville de Paris} par exemple). Pour cette raison, ils possèdent également souvent un nom d'usage, plus spécifique et court. C'est par exemple le cas lorsque l'on fait référence à l'\emph{atlas de Verniquet} plutôt qu'à son libellé complet. Ce nom étant simplement une convention d'usage, il peut en exister plusieurs (l'atlas de Verniquet est par exemple également dénommé \emph{Grand Plan de Paris} par les auteurs du XIX\textsuperscript{e} siècle). Cet attribut n'est pas issu du Dublin Core.
+\end{itemize}
+Une information importante à conserver concernant les sources cartographiques concerne leur géoréférencement. En effet, elle permet d'inscrire cette source cartographique dans système de coordonnées de référence. De plus, cela permet de conserver des métadonnées sur la qualité géométrique de la carte et des features vectorisées sur cette carte. La classe \textbf{Géoréférencement} porte ces informations au travers des attributs suivants~:
+\begin{itemize}
+\item[--]\textbf{Emprise}~: l'emprise correspond à la ''boite englobante'' de la source géoréférencée. Il s'agit d'une géométrie polygonale décrivant les limites de la source dans l'espace géographique.
+\item[--]\textbf{SRID}~: le SRID, \emph{Spatial Reference System Identifier}, est l'identifiant du système de coordonnées de référence dans lequel a été géoréférencé la source. Dans notre cas, il s'agit du code EPSG 27561 qui correspond à la projection Lambert zone I NTF.
+\item[--]\textbf{Distorsions}~: la prise en compte des distorsions des plans peut permettre un paramétrage plus fin du processus de reconstitution des transformations entre observations. Ceci nécessite de disposer d'un modèle de distorsions. Nous avons vu au chapitre 3 qu'il était possible d'approximer ce modèle à partir d'un ensemble de points de mesure. Nous proposons ici de le stocker sous la forme d'un raster.
+\item[--]\textbf{Précision planimétrique}~: l'étape de géoréférencement fournit une estimation de la précision planimétrique du plan géoréférencé. Cumulée à la précision planimétrique du référentiel géographique utilisé pour le géoréférencement, elle peut également être mise à profit dans le processus de reconstruction des transformations. Cette précision est représentée ici par un raster car elle peut varier sur l'étendue du plan.
+\end{itemize}
+
+\myparagraph{Plan et atlas}
+Compte tenu de leur échelle, certains plans topographiques de la ville ont été découpés en feuilles et rassemblés en atlas de façon à pouvoir être édités. Pour un même plan ainsi décomposé, des graveurs différents peuvent avoir réalisés différentes feuilles. Dans le cas de la carte de Cassini, les commanditaires et les auteurs diffèrent suivant les feuilles. Le géoréférencement, et donc les distorsions et la précision planimétrique peuvent également varier d'une feuille à l'autre. C'est pourquoi nous effctuons une distinction entre l'atlas -ici receuil de parties de plan- et le plan topographique en un seule feuille, qui est homogène pour l'ensemble des propriétés héritées de la notion de source cartographique.
+
+
+\subsection{Schéma général de la base de données spatiale et temporelle}
+
+\myparagraph{Implémentation fondée sur des standards}
+Afin d'implémenter notre base de données spatiale et temporelle, nous avons choisi de nous appuyer sur le modèle de référence de l'OGC dédié à la modélisation de bases de données géographiques~\citep{OGCReferenceModel}. Celui-ci impose de regrouper les objets géographiques (\emph{features}) au sein de catégories d'objets de même nature, appelées \emph{feature types}. Chaque \emph{feature types} est décrit par un ensemble de propriétés représentées par des attributs de natures variées~\citep{ISO19109}. Ces attributs permettent de décrire la forme et la localisation des \emph{features} sous la forme de géométries vectorielles (\emph{SpatialAttributeType}, cf. norme \cite{ISO19107}) et leur temporalité à l'aide d'attributs dédiés à la représentation du temps (\emph{SpatialAttributeType}, cf. norme \cite{ISO19108})).
+\\
+Ces standards sont, pour la partie spatiale, suffisants pour représenter les observations géohistoriques. Toutefois, le standard  ISO 19108 ne permet pas de modéliser des temporalités incertaines. C'est pourquoi, dans la suite de ce chapitre, nous choisirons une façon de modéliser de telles temporalités. La figure~\ref{figure:schema_standard_spatial} illustre notre schéma de base de données spatiale et temporelle. Nous avons provisoirement nommé le type de l'attribut temporel ''temporalité'', mais il sera précisé dans la suite de ce chapitre.
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=1\textwidth]{schema_standard_spatial.png} 
+	\caption{Appui sur les standards de l'information géographique.}
+\label{figure:schema_standard_spatial}
+ \end{figure}
+
+
+\myparagraph{Instanciation à partir de plans}
+Notre base est instanciée par vectorisation des sources cartographiques anciennes. Celles-ci présentent des traces d'entités géohistoriques sous forme d'objets cartographiques. Ceux-ci sont organisés selon une légende composée de thèmes cartographiques associés à diverses symbolisations. La figure~\ref{figure:schema_carto} complète la figure précédente en lui ajoutant un modèle de description simplifié des objets cartographiques. Seule la partie grisée du schéma concerne des classes pouvant être implémentées et instanciées dans notre base de données. La partie bleutée décrit le standard ISO 19109 pour la modélisation d'objets géographiques que nous réutilisons. Enfin, la partie en vert correspond à un modèle de description du contenu des sources cartographiques. Cette partie du modèle demeure abstraite dans la mesure où les traces sur un plan ne sont pas des objets instanciables dans une base de données. Les classes modélisant les traces d'entités géographiques sont ajoutées ici pour faciliter la compréhension du modèle.
+ \begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{schema_carto.png} 
+	\caption{Représentation des traces d'entitités géohistoriques par des objets cartographiques.}
+\label{figure:schema_carto}
+ \end{figure}
+
+\myparagraph{Comment les traces contraignent les observations}
+L'instanciation de notre base de données spatiale et temporelle est contrainte par les propriétés des sources cartographiques qu'elle représente. En particulier, le choix des types des \emph{featuretypes} est contraint par les thèmes cartographiques disponibles dans les sources (cf chapitre 3). De plus, le choix des primitives géométriques utilisées pour décrire chaque \emph{featuretype} dépend également des symboles utilisés. Enfin, la temporalité associée à chaque \emph{features} doit être représentative de celle de l'objet cartographique à partir duquel il a été vectorisé. De même, la temporalité d'un \emph{snapshot} vecteur est intrinsèquement liée à celle de la source cartographique qu'il représente.  
+
+\myparagraph{Contraintes temporelles observation-source}
+La trace d'une entité géohistorique est dépendante de la source dans laquelle elle apparaît. Elle correspond à l'observation d'une entité du monde réel pendant le temps valide de la source. Par conséquent, la trace ne peut posséder une temporalité extérieure au temps valide de sa source. Il y a donc une contrainte d'inclusion du temps valide de la trace dans celle de sa source. Cette contrainte se traduit dans notre modèle par une inclusion du temps valide des observations dans celui du \emph{snapshot}.
+\\
+Finalement, le schéma~\ref{figure:schema_total} résume la totalité de notre modèle, incluant les différentes contraintes énoncées ci-dessus.
+ 
+\myparagraph{Exemple d'instanciation du schéma}
+Nous présentons en figure~\ref{figure:diagramme_objet_verniquet} une exemple d'instianciation de l'observation de la trace d'une portion de rue dans l'atlas de Verniquet modélisée comme un tronçon de rue dans le graphe viaire de Paris. Par souci de simplicité, nous présentons ici le cas où le \emph{snapshot} est défini au niveau de l'atlas complet et non de sa décomposition en feuilles. Le schéma conceptuel de données présenté dans la partie grisée de la figure~\ref{figure:schema_carto} a été implémenté dans le SGBD PostgreSQL muni de son extension spatiale Postgis. Nous avons de plus utilisé une extension permettant de modéliser des temporalités incertaines et leurs relations sous la forme de sous-ensembles flous (voir la section suivante) proposée par~\cite{VanDaele2014}.
+ \begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{schema_total.png} 
+	\caption{Schéma complet d'une base de données spatiale et temporelle.}
+\label{figure:schema_total}
+ \end{figure}
+\begin{landscape}
+ \begin{figure}[ht!]
+	\centering
+	\includegraphics[width=1.5\textwidth]{diagramme_objet_verniquet.png} 
+	\caption{Diagramme d'objet illustrant la représentation d'un tronçon de la rue Sainte-Opportune dans la base de données spatiale et temporelle perçue comme une observation d'une trace dans l'atlas de Verniquet.}
+\label{figure:diagramme_objet_verniquet}
+ \end{figure}
+\end{landscape}
+
+
+\section{Représentation du temps dans les bases de données temporelles}
+Dans cette section, nous présentons et justifions les choix de modélisation du temps adaptés aux données vectorielles extraites de plans anciens. Pour cela, nous présentons en premier lieu les représentations et modèles de raisonnement sur le temps tels qu'ils existent dans le domaine de l'information géographique, et, plus largement, dans celui des bases de données. Nous présenterons également comment ces modèles peuvent être adaptés à des informations temporelles incertaines, nous permettant d'avoir un mode de représentation et des outils de raisonnement adaptés à des objets géographiques difficiles à situer temporellement.
+\\
+L'objectif de cette section est de délimiter le plus précisément possible le cadre théorique et méthodologique nous permettant de sélectionner un mode de représentation et de raisonnement sur le temps adapté aux données historiques traitées.
+
+\myparagraph{Types de temps}
+Pour modéliser les transformations d'objets géographiques, il faut ajouter à la représentation de l'espace celle du temps. Le temps est souvent construit par analogie à l'espace, en le ramenant à une seule dimension \citep{Klein1994}. Sous sa représentation la plus simple, il s'agit donc d'une courbe. 
+Dans le domaine des bases de données, la même analogie est à l'origine des modèles de représentation du temps \citep{Frank1998, Peuquet1994, Peuquet2002}.
+Topologiquement, cette courbe peut être fermée, ou non, ce qui détermine deux visions différentes du temps \citep{Frank1998}. Lorsqu'elle est ouverte, il s'agit d'un temps linéaire, qui se déroule inéluctablement du passé vers le futur. À partir de cette conception linéaire, il est possible de définir des temporalités multiples, d'explorer plusieurs hypothèses (on parle alors de temps ramifié)\citep{Worboys1990}. Fermée, la courbe détermine un temps cyclique, comme celui des saisons qui se succèdent, ou celui des anciennes civilisations amérindiennes. Il est assez clair que le temps historique, qui décrit les transformations de l'espace, est au moins à notre échelle temporelle linéaire~: les événements se déroulent et se succèdent les uns après les autres, sans se répéter. Notons d'ailleurs que la vision cyclique du temps pose problème pour décrire des suites de transformations, puisqu'elle peut aboutir à des situations où le principe de causalité n'est pas respecté. Le temps est associé à deux primitives~: l'instant et l'intervalle. Un instant est l'interstice entre le passé et le futur; dans une vision générale et continue du temps, il est donc de durée nulle. L'intervalle exprime quant à lui une période de temps. L'établissement d'une logique de raisonnement sur le temps dépend du choix d'une primitive temporelle (instant ou intervalle)~\citep{Stock1998}.
+\\
+En parallèle de ces deux visions conceptuelles, on distingue trois natures du temps dans de nombreux travaux sur les bases de données temporelles \citep{Jensen1996}~: les temps \emph{valides}, \emph{de transaction} et \emph{utilisateur}. Le temps valide correspond au temps de la réalité, i.e le moment où un événement se produit. Le moment où l'événement est stocké dans la base de données est un temps de transaction. Le temps utilisateur englobe toutes les autres visions du temps, en particulier le temps perçu, fondamentalement différent du temps physique\footnote{Voir pour cela les travaux de \cite{Klein1994} et \cite{Fraisse1967} en particulier qui distinguent temps physique et psychologique. Le premier est celui de la mesure, qui se déroule à un rythme constant, et le second est un temps subjectif dont le rythme varie.}. La distinction entre temps de validité et de transaction est essentielle pour créer des bases de données \emph{versionnées}, c'est à dire qui conservent les changements qui affectent les données. Cette préoccupation a abouti à des modèles de bases bi-temporelles gérant les deux temps à la fois \citep{Worboys1998}. Les deux lignes de temps, orthogonales, permettent de décrire un plan dans lequel s'organisent les données temporelles. \cite{Snodgrass1992} enfin a proposé deux temps supplémentaires, plus spécifiquement dédiés aux données géographiques~: un temps \emph{d'acquisition} (le moment où le phénomène est mesuré) et un temps \emph{cartographique} (le moment où les données sont consultables).
+\\
+On pourra remarquer que nos plans topographiques peuvent être eux-mêmes interprétés comme des bases de données, mais sans distinction possible entre temps valide et transactionnel. En effet, lorsqu'une entité géographique est décrite sur une carte dont on connaît la période de levé, on ne peut pas savoir, sans informations supplémentaires, si la période pendant laquelle la carte est construite correspond effectivement à une période pendant laquelle cette entité existe. Le temps construction d'une carte peut en effet être plus long que la durée d'existence de l'entité représentée. Il est également possible qu'une carte représente des entités disparues au moment du levé, où bien même n'ayant jamais existé (c'est par exemple le cas des projets de voirie).
+
+%Articles sur le sujet~:
+%\begin{enumerate}
+%\item[] On peut parler d'Etienne Klein pour aborder la notion de temps de façon vraiment générale.
+%\item La thèse de Stefani.
+%\item Hornsby 1999 : Modeling cyclic changes.
+%\item Hazelton 1992 : branchiong time
+%\item Peuquet 1999 : Time in GIS and geographical databases. Ca résume un peu tout. Dedans, il y a des refs vers Langran1993 et Lester 1990 sur le branching time.
+%\item Worboys 1990 : Temps cyclique, linéaire ou parallele.
+%\end{enumerate}
+
+%\begin{enumerate}
+%\item Snodgrass et Ahn, 1986,
+%\item Barrera et al., 1991
+%\item Jensen et al., 1994
+%\item[] Frank 1998; Figures dans  \url{http://www.oagis.com/time-gis/timegistestchapter.pdf} %"Different Types of 'Times' in GIS".
+%\end{enumerate}
+
+
+\myparagraph{La flèche du temps}
+Qu'il soit conceptualisé comme linéaire ou cyclique, le temps possède deux propriétés fondamentales.
+Premièrement, il est continu, tout comme la courbe qui le représente, les points qui la compose devenant un ensemble d'instants de durée nulle. Il est également infini, vers le passé tout comme vers le futur. Deuxièmement, il est orienté~: c'est ce que l'on appelle la \emph{flèche du temps}. Dans le temps, il n'est en effet  possible d'aller que du passé vers le futur. Si la première propriété renforce l'analogie temps/espace, la seconde la stoppe.  En effet, dans l'espace il est possible de se déplacer dans toutes les directions et de revenir sur ses pas, à l'inverse du temps pour lequel le sens de la marche est imposé.
+
+%\myparagraph{Granularité temporelle}
+%
+%\myparagraph{Raisonnement temporel}
+%\textbf{TODO} : Finir cet état de l'art.\\
+%Instants et intervalles sont les deux primitives temporelles les plus naturelles pour représenter des événements situés sur la ligne du temps \cite{Hamblin1972}. On l'a dit, le premier est un point sans durée, tandis que le second est une période d'une durée non nulle. Les logiques de raisonnement temporelles s'organisent donc autour de ces primitives. Si les modèles fondés sur les instants \citep{Mcdermott1982, VanBenthem1991}, ont mené à des logiques permettant de manipuler d.
+%Le dernier c'est \cite{Freska1992}, déjà dans le bibtex.
+%
+% 
+
+%\myparagraph{Relations temporelles}
+%Quantitatives : Allen
+%Qualitatives : Egenhofer et autres?
+%\begin{enumerate}
+%\item Allen, 1984 : c'est la base avec la liste des relations de base.
+%\item La thèse de Del Mondo.
+
+
+\section{Représentation floue du temps}
+Puisque les informations dont on dispose sur les temps valides des observations et des sources sont incertaines, la chaîne de transformation entre les observations est elle-même incertaine.  Il faut donc être capable de modéliser l'incertitude des temps valides des observations et des sources géohistoriques. Pour cela, nous nous appuyons sur la théorie des sous-ensembles flous.
+%\\
+%Raisonnement temporel flou : 
+%\cite{Ligozat2013}, "Qualitative Spatial and Temporal Reasoning"
+
+\subsection{Théorie des sous-ensembles flous}
+Le concept de sous-ensemble flou (ou plus simplement \emph{ensemble flou}), créé par \cite{Zadeh1965}, est la pierre angulaire de la représentation formelle des connaissances imprécises. La théorie des sous-ensembles flous permet, en assouplissant la notion d'ensemble classique, de traduire des situations dans lesquelles un élément n'appartient pas complètement à l'ensemble. L'inconvénient des ensembles classiques est de définir des limites abruptes souvent inadaptées pour traduire des propositions en langage naturel, ou provenant d'instruments de mesure. Par exemple, on peut associer à la proposition "Jean est grand" l'ensemble des tailles supérieurs à 1m90. La classe "grand" possède une limite nette, et Jean n'est pas grand s'il mesure 1m88. Or, il serait plus juste de le considérer comme thès proche de la notion de ''grande taille''. Cette idée de gradation dans l'appartenance à une classe constitue le fondement de la notion d'ensemble flou.
+\\
+Nous présentons ici la définition, ainsi que quelques propriétés des sous-ensembles flous. Nous spécialiserons cette représentation pour la représentation du temps à l'aide d'ensembles flous. Les éléments présentés ici sont principalement issus de \citep{BouchonMeunier1995}.
+
+\myparagraph{Des sous-ensembles classiques aux sous-ensembles flous}
+Soit un ensemble $X$ quelconque. Un sous-ensemble $A$ de $X$ est défini par une fonction caractéristique $\chi$ valant 0 pour tout élément n'appartenant pas à A, et 1 pour les autres. Pour qu'un élément soit imprécis et n'appartient pas totalement à $A$, il faut que $\chi$ puisse prendre des valeurs intermédiaires.
+\paragraph*{}
+Un sous-ensemble flou $\widetilde{A}$ généralise l'ensemble en définissant à la place de la fonction binaire $\chi$ une fonction d'appartenance $\mu_{\widetilde{A}}$ qui associe à chaque élément $x$ de $X$ un degré d'appartenance compris dans l'intervalle $[0,1]$. Si $\mu_{\widetilde{A}}$ prend seulement les valeurs 0 ou 1, on revient à un ensemble classique. On note Prop$(A)$ la propriété qu'exprime l'ensemble $A$, par exemple "Jean est garnd".
+\paragraph*{}
+Il faut ajouter à cette définition quelques caractéristiques des sous-ensembles flous qui sont à la base de l'arithmétique floue~:
+\begin{enumerate}
+\item Le \textbf{noyau} d'un sous-ensemble flou $\widetilde{A}$ est un ensemble $n(\widetilde{A})$ contenant tous les éléments de $X$ qui appartiennent totalement à $\widetilde{A}$~:
+\begin{equation*}
+ n(\widetilde{A}) = \{x \in X | \mu_{\widetilde{A}}(x)=1\}
+\end{equation*} 
+
+\item Le \textbf{support} de $\widetilde{A}$ désigne l'ensemble des éléments de $X$ appartenant à $\widetilde{A}$~:
+\begin{equation*}
+ supp(\widetilde{A}) = \{x \in X | \mu_{\widetilde{A}}(x)>0\}
+\end{equation*} 
+\item Enfin, la \textbf{hauteur} de $\widetilde{A}$ est le plus grand degré d'appartenance pris par un de ses éléments. On dit en particulier que l'ensemble est \textbf{normalisé} si sa hauteur est de 1, donc qu'il existe au moins un élément $x$ de $X$ qui appartienne totalement à l'ensemble.
+\begin{equation*}
+ h(\widetilde{A}) = sup\{\mu_{\widetilde{A}}(x)| x\in X\}
+\end{equation*} 
+\end{enumerate}
+La figure \ref{fig:ensflou} montre une représentation floue possible de la propriété "Jean est grand", avec ses noyau, support et hauteur. Comme nous n'utilisons pas dans ce mémoire d'ensembles classiques, nous noterons l'ensemble flou  $\widetilde{A}$ simplement $A$, et sa fonction d'appartenance $\mu_A$.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{ens_flou.png} 
+	\caption{Un exemple de sous-ensemble flou associé à la propriété "Jean est grand"}
+\label{fig:ensflou}
+ \end{figure}
+\paragraph*{}
+On définit également quelques relations sur les sous-ensembles flous qui nous seront utiles pour la suite du mémoire. Soit deux sous-ensembles flous $A$ et $B$ de $X$.
+\begin{enumerate}
+\item \textbf{Égalité} : Deux sous-ensembles flous sont égaux si leurs fonctions d'appartenances sont égales pour tout élément de $X$~:
+\begin{equation*}
+\forall x\in X \mu_A(x)=\mu_B(x)
+\end{equation*} 
+\item \textbf{Inclusion} : L'inclusion $A \subseteq B$ signifie que tout élément $x$ appartenant à $A$ appartient au moins autant à $B$~:
+\begin{equation*}
+\forall x \in X \mu_A(x) \le \mu_B(x)
+\end{equation*} 
+\item \textbf{Union} : 
+L'union $A \cup B$ est un sous-ensemble flou $C$ tel que~:
+\begin{equation*}
+\forall x \ X \mu_C(x) = max(\mu_A(x), \mu_B(x))
+\end{equation*} 
+L'union exprime le fait qu'au moins une des deux propriétés Prop(A) ou Prop(B) est satisfaite; il s'agit d'un "ou" inclusif. Le degré de satisfaction de Prop($A \cup B$) est donc égal pour tout élément à la propriété la mieux satisfaite.
+\item \textbf{Intersection} : L'intersection $A \cap B$ est un sous-ensemble flou $C$ tel que~:
+\begin{equation*}
+\forall x \ X \mu_C(x) = min(\mu_A(x), \mu_B(x))
+\end{equation*}  
+La propriété Prop($A \cap B$) est satisfaite lorsque Prop(A) et Prop(B) sont satisfaites simultanément. Le degré de satisfaction de cette nouvelle propriété est donc logiquement celui de la propriété la moins bien satisfaite.
+\end{enumerate}
+\myparagraph{$\boldsymbol{\alpha}$-coupes d'un sous-ensemble flou}
+Une façon de manipuler un sous-ensemble flou est de considérer uniquement la partie de ce sous-ensemble satisfaisant un certain degré d'appartenance $\alpha$. Par exemple, on peut considérer qu'à partir d'un degré de 0.5, Jean est considéré grand. Ce paramètre $\alpha \in [0,1]$ définit, pour un ensemble flou $A$, un sous-ensemble $A_\alpha$ nommé \textbf{$\boldsymbol{\alpha}$-coupe} de $A$. Ce sous-ensemble est un ensemble classique, défini par sa fonction caractéristique $\mu_{A_\alpha}$~:
+\begin{equation*}
+\mu_{A_\alpha} (x) = \{x \in X | \mu_A(x) \ge \alpha\}
+\end{equation*} 
+
+\myparagraph{Sous-ensemble flous convexes et quantités floues}
+Un sous-ensemble flou $A$ de $X$ est dit \textbf{convexe} lorsque pour toute paire d'éléments $a,b$ de $X$ et pour tout réel $\lambda \in [0,1]$, sa fonction d'appartenance $\mu_{A}$ respecte la contrainte~:
+\begin{equation*}
+\mu_{A} (\lambda a+(1-\lambda b)) \ge min(\mu_A(a),\mu_A(b))
+\end{equation*} 
+En découlent deux propriétés essentielles~:
+\begin{enumerate}
+\item Le sous-ensemble flou $A$ de $X$ est convexe si toutes ses $\alpha$-coupes sont également des sous-ensembles convexes de $X$.
+\item L'intersection de deux sous-ensembles flous convexes est convexe.
+\end{enumerate}
+Lorsque le sous-ensemble flou est normalisé et défini sur l'ensemble des réels, on parle de \textbf{quantité floue}. C'est habituellement le cas des mesures imprécises~: distance mal estimée, poids imprécis, durée mal connue, etc.  De la même façon que sur $\mathbb{R}$ existent des nombres et des intervalles de valeurs, leurs équivalents flous sont nommés \textbf{nombres flous} et \textbf{intervalles flous}. La figure \ref{fig:LR1} illustre les cas simples d'un nombre flou (à gauche) et d'un intervalle flou (à droite).
+
+
+\myparagraph{Quantités floues Left-Right}
+Dans les cas les plus simples, les nombres ou intervalles flous à considérer ne sont rien de plus que des ensembles classiques dont les bornes sont définies non plus par une valeur unique mais par deux fonctions, l'une à gauche et l'autre à droite et notées usuellement L et R. Elles sont toutes deux définies sur $\mathbb{R}^+$, à valeur dans $[0,1]$, symétriques, respectivement non décroissante et non croissante, et respectent $L(0) = R(0) =1$. Le plus souvent, les fonctions choisies sont de types exponentielles ou linéaires qui permettent aisément de créer des fonctions triangulaires, trapézoïdales et gaussiennes\citep{Masson2005}.
+\\
+On désigne de façon usuelle ces quantités floues par un triplet $(a,b,c)_{LR}$ pour un nombre flou et $(a,b,c,d)_{LR}$ où $[a,d]$ est le support de l'ensemble flou et $[b,c]$ son noyau. Leurs fonctions d'appartenances, illustrées dans les figures~\ref{fig:LR1} et~\ref{fig:LR2}, se défissent par~:\\
+Pour un intervalle flou~:
+\begin{equation}
+\mu_{A}(x) = \begin{cases}
+	L \left(\frac{x-a}{b-a}\right) & \text{ si } x \in [a,b]\\
+	1 & \text{ si } x \in [b,c]\\
+	R \left(\frac{d-x}{d-c}\right) & \text{ si } x \in [c,d]\\
+            \end{cases}
+\end{equation}
+Pour un nombre flou~:
+\begin{equation}
+\mu_{A}(x) = \begin{cases}
+	L \left(\frac{x-a}{b-a}\right) & \text{ si } x \in [a,b]\\
+	R \left(\frac{c-x}{c-b}\right) & \text{ si } x \in [b,c]\\
+            \end{cases}
+\end{equation}
+
+\begin{figure}[ht]
+  \centering
+        \begin{subfigure}[b]{0.4\textwidth}
+                \includegraphics[width=\textwidth]{LR_nombre.png}
+                \caption{Fonction d'appartenance du nombre flou $(a,b,c)_{LR}$}
+                \label{fig:LR1}
+        \end{subfigure}%
+~
+	\begin{subfigure}[b]{0.4\textwidth}
+                \includegraphics[width=\textwidth]{LR_intervalle.png}
+                \caption{Fonction d'appartenance de l'intervalle flou $(a,b,c,d)_{LR}$}
+                \label{fig:LR2}
+        \end{subfigure}%
+         \caption{Représentation LR d'intervalles et nombres flous.}
+	\label{fig:LR}
+\end{figure}
+
+Cette représentation présente l'avantage d'être facilement représentable informatiquement, tout en facilitant les principales opérations arithmétiques sur les sous-ensembles flous.
+\vspace{11pt}
+
+\myparagraph{Principe d'extension de Zadeh et maximum d'un sous-ensemble flou}
+Le principe d'extension de Zadeh est un principe fondamental de la théorie des sous-ensembles flous car il permet de redéfinir dans le monde flou des relations existantes entre deux ensembles non flous.
+Si l'on considère deux ensembles $X$ et $Y$, le principe d'extension définit une fonction $\Phi$ qui, à un sous-ensemble $A$ de $X$, lui associe une image $B$ qui est un sous ensemble de $Y$. Ce principe général est au fondement de toutes les relations entre sous-ensembles flous, et en particulier l'arithmétique floue.
+Le principe d'extension est défini comme suit~:
+\begin{equation}
+\mu_B(y) = \sup\{\min(\mu_\Phi(x,y), \mu_A(x) | x \in X\}
+\end{equation}
+Le principe d'extension de Zadeh permet notamment de définir le sous-ensemble maximum $\widetilde{\max}$, utilisé notamment dans les méthodes de tri de nombres flous que l'on utilise dans ce mémoire. Soient $\{A_1,A_2,....A_n\}$ un ensemble de sous-ensembles flous de $X$.
+La fonction d'appartenance $\mu_{\widetilde{\max}(A_1,A_2,....A_n)}$ est définie par~:
+\begin{equation}
+\forall w, \mu_{\widetilde{\max}(A_1,A_2,...,A_n)}(w) = \sup\limits_{\begin{gathered} x_1,...x_n\\ w = \max(x_1,...x_n)\end{gathered}} \min\limits_{i=1,...n} \mu_{A_i}(x_i)
+\end{equation}
+Le maximum d'un grand nombre de sous-ensembles flous étant coûteux à calculer, on peut réécrire ce calcul sous une forme ensembliste plus simple :
+\begin{equation}
+\widetilde{\max}(A_1,A_2,...,A_n) = \bigcup\limits_{i=1}^{n}\left[\left(\bigcap\limits_{j \neq i}[A_j,+\infty)\right)\cap A_i]\right]
+\end{equation}
+où $[A, \infty)$ est l'ensemble des nombres possiblement supérieurs ou égaux à $x$, pour tout $x$ appartenant à $A$. Pour une quantité floue $A$, $[A, \infty)$ est le sous-ensemble flou défini par $[A, \infty) = \sup\limits_{y\leq x} \mu_A(y)$. Il existe de la même façon $(-\infty, A] = \sup\limits_{y\geq x} \mu_A(y)$. Dans la suite du document, on notera plus simplement ces deux ensembles respectivement $\underline{A}$ et $\overline{A}$. 
+\\
+Notons que la relation duale $\widetilde{min}$ peut se définir de la même façon à partir de  $\overline{A}$. La figure \ref{fig:minmax} donne l'exemple du maximum et du minimum de deux quantités floues. Le maximum et minimum de deux sous-ensembles flous sont particulièrement interessants lorsqu'il s'agit de comparer ces deux sous-ensembles. En effet, il renseignent sur la dominance d'un sous-ensemble sur l'autre. Nous verrons que cette relation de dominance est largement utilisée dans le cadre de la comparaison de sous-ensembles flous.
+\begin{figure}[ht]
+  \centering
+  	\includegraphics[width=0.8\textwidth]{fuzzy_max_min.png} 
+  	\caption{$\widetilde{max}$ et $\widetilde{min}$ de deux quantités floues.}
+  	\label{fig:minmax}
+\end{figure}
+
+
+\subsection{Définitions et notations sur le temps flou}
+\label{section:chap4domainetemporel}
+Nous introduisons ici quelques définitions et notations utiles pour les prochaines sections et le reste du mémoire.
+
+\subsubsection{Domaine temporel}
+Considérant une représentation linéaire du temps, le  domaine temporel est noté~:
+\begin{equation}
+\langle T, \le \rangle
+\end{equation}
+Le domaine temporel est un ensemble dénombrable d'instants $\{t_1,...,t_n\}$ muni de la relation d'ordre $\le$ équivalente à la relation $\le$ sur $\mathbb{R}$.\\
+Ainsi, $t_i \le t_j$ signifie que l'instant $t_i$ \textbf{précède} $t_j$.
+
+\subsubsection{Domaine temporel flou}
+
+Lorsqu'il y a une incertitude ou une imprécision sur une information temporelle, on peut la représenter au moyen d'une quantité floue, qu'il s'agisse d'un instant (par exemple 19h30 à une granularité d'une minute) ou d'une durée (48 heures). Plus exactement~:
+\begin{enumerate}
+\item[--] Chaque instant $t$ de $T$ peut s'exprimer sous la forme d'un nombre flou.
+\item[--] Chaque durée $[t_1,t_2]$ de $T$ peut s'exprimer sous la forme d'un intervalle flou.
+\item[--] La propriété $Prop(A)$ associée à un sous-ensemble flou $A$ de $T$ est un \textbf{événement}. Par exemple, "Jean prend le train" est un événement associé à l'ensemble flou $A= (19h50,20h,20h10)_{LR}$ si son train part "environ à 20 heures".
+\end{enumerate}
+\myparagraph{Relations d'antécédence et d'inclusion}
+En prenant en compte des informations incertaines, le domaine temporel devient alors~:
+\begin{equation}
+\langle T, \preceq, \subseteq \rangle
+\end{equation}
+Comme nous l'avons défini, $T$ est un homéomorphisme de $\mathbb{R}$, et, par abus de langage, nous utilisons le terme de quantité floue pour désigner un nombre ou un intervalle flou de $T$. On a alors~:
+\begin{enumerate}
+\item La relation $\preceq$ est un ordre partiel exprimant \textbf{l'antécédence}. Pour $A$ et $B$ deux quantités floues de $T$, $A \preceq B$ signifie que l'événement associé à $A$ se déroule avant celui associé à $B$. Si on associe "Jean arrive à destination" à $B$, on a \emph{a priori} $A \preceq B$. $\preceq$. Si on considère seulement l'ordre strict $\prec$, il est équivalent à la relation \emph{is before} de l'algèbre de Allen. L'égalité entre deux temporalités floues $A, B$ est notée $ A \sim B$
+\item $\subseteq$ exprime l'inclusion de deux intervalles temporels flous.
+\end{enumerate}
+\myparagraph{}
+On note finalement $\widetilde{\mathcal{T}}$ l'ensemble des quantités floues existantes sur $T$.
+
+\subsection{Modélisation des temporalités valides des sources et observations géohistoriques}
+\label{section:temps_valide}
+\myparagraph{Quelle temporalité choisir?}
+Pour pouvoir situer les objets géographiques tracés dans un plan sur la ligne du temps, il faut d'abord être capable d'y placer le plan lui-même. En effet, de la même manière qu'il délimite une portion de l'espace, il ne capte la réalité physique que pendant un laps de temps. Le plan se comporte en quelque sorte comme une prise de vue en pose longue~: de la même manière que l'appareil photo accumule et superpose les images des objets de la scène, la carte capture des entités à différents moments \footnote{Toutefois, à la différence de la photo, la phase d'acquisition d'un plan topographique fait intervenir des facteurs humains qui déforment le message. Voir le paragraphe \ref{paragraph:comm_caro_differee} sur la communication cartographique différée}.
+\\
+Cette période de temps est particulièrement intéressante, puisqu'elle correspond à moment où le message cartographique est le plus proche d'une représentation de l'espace réel~: il y a une forme de synchronisation entre les deux.
+Cependant, contrairement à une photographie, cette synchronisation peut avoir lieu plusieurs fois. En effet, il est courant qu'un plan, surtout un grand atlas, soit corrigé et mis à jour plusieurs fois. Chaque mise à jour, généralement concrétisée par de nouveaux levés, correspond à une nouvelle synchronisation. Entre deux mises à jour le plan est dans une phase de conservation, la représentation que fournit le plan s'écarte petit à petit de la forme réelle de la ville, au fur et à mesure que celle-ci change. 
+\\
+La succession de conservations et de mises à jours constitue la ligne de vie d'une source cartographique. La figure \ref{fig:realite_plan} représente cette ligne de vie dans le cas d'un plan levé puis mis à jour plusieurs fois.
+Les différentes phases qui forment cette ligne de vie sont illustrés dans la partie supérieure de la figure. Chaque phase de levé topographique, qu'il s'agisse du levé originel ou d'une mise à jour, est suivie d'une phase de gravure. L'indication du type de temps décrit la catégorie de temps de chaque phase lorsque l'on considère la source comme une base de données contenant des représentations d'objets géographiques. La partie inférieure illustre l'évolution de l'écart entre la représentation de l'espace dans la source et celle que l'on peut avoir de l'espace réel. Dans un premier temps, celui du levé, les deux sont très proches. Une fois cette première phase terminée, le plan continue pendant un temps à décrire correctement la ville, celle-ci se transformant relativement lentement. Petit à petit, le plan s'écarte de l'espace réel, jusqu'à ce qu'une phase de mise à jour ne le resynchronise avec la réalité. Plus le temps sans mise à jour est important, plus la désynchronisation est importante~: au bout d'un certain moment, certaines zones décrites par la carte n'existent plus dans la ville réelle. Dans le cas de cartes historiques, on se trouve souvent dans ce dernier cas et, comme indiqué à l'extrémité droite de la ligne du temps dans la figure \ref{fig:realite_plan}, les données extraites de la carte présentent une différence importante avec la ville d'aujourd'hui.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{realite_plan.png} 
+	\caption{Les différentes phases d'existence d'un plan topographique.}
+\label{fig:realite_plan}
+\end{figure}
+Puisque l'on cherche à retracer les transformations de l'espace urbain, la période la plus intéressante est celle où le plan représente le plus fidèlement possible la réalité. Le choix se porte donc sur une des phase de levé topographique. Si le plan a subi plusieurs mises à jour, il faut alors considérer que l'on a affaire à des versions successives du plan. Cette suite s'inscrit alors dans un temps de transaction et nécessite donc une base gestion bitemporelle des sources géohistoriques. Nous nous limitons cependant ici au seul temps valide, ce qui impose de choisir une des période de levé cartographique comme temps valide. Les plans dont nous disposons n'ont pas subi a priori de mise à jour notable (à l'exception du plan de Maire, que nous ne traitons pas, qui est lui-même une mise à jour d'un plan plus ancien).
+\\
+\textbf{Le temps valide de nos plans est donc défini comme leur période de levé topographique}.
+%
+%le type de temps correspondant et la désynchronisation progressive entre l'espace qu'il représente (en bleu) et celui de la ville réelle (en orange). L'écart entre les deux courbes décrit le décalage progressif qui se crée entre les deux représentations, au fur et à mesure que l'espace réel se transforme pendant que le plan reste figé. Le décalage n'apparaît pas immédiatement après la phase de levé, il y a une certaine inertie. Les phases de mises à jour, presque systématiques pour les grands atlas de Paris, annulent momentanément cette désynchronisation.
+%Ce qui nous intéresse, c'est de temporaliser le plan avec cette période car c'est le moment où l'espace qu'il représente est le plus proche de l'espace réel. Autrement dit, c'est le moment où les espace du plan et la réalité sont synchrones. Le fait est que cette période n'est pas aisée à déterminer et dépend des phases d'existence du plan. La figure \ref{figure:phase_vie_plan} permet de mieux expliquer la chose. Les phases principales d'existence d'un plan sont figurées dans la partie supérieure de la figure et se répartissent dans le temps. Le plan se décompose en deux phases principales~: celle du levé topo., et celle de la gravure. La première, figurée par des hachures, est généralement nettement plus longue que la seconde (en blanc). Mais, il est courant dans nos grand plans, qu'il y ait des reprises ultérieures, auquel cas le processus recommence. Il peut s'agir d'un nouveau levé, ou bien simplement de corrections (comme c'est le cas du plan de Maire).
+\myparagraph{Notation floue du temps valide d'un plan}
+On exprime, pour chaque plan $p$ , son temps valide par un intervalle flou trapézoidal $T_p=(a,b,\alpha, \beta)$ dont la fonction d'appartenance $\mu_{T_p}$ est définie par~:
+\begin{equation}
+\mu_{T_p}(t) = \begin{cases}
+					1-(a-t)/\alpha & \text{ si } a-\alpha \leq t \leq a\\
+					1 & \text{ si } a \leq t \leq b \\
+					1-(t-b)/\beta &\text{ si } a \leq t \leq b+\beta\\
+					0	& \text{sinon.}
+            \end{cases}
+\end{equation}
+Le noyau $[a,b]$ correspond à la période de levé topographique, durant laquelle le contenu du plan est considéré comme une représentation fiable de l'espace réel (modulo les inévitables erreurs de levé, etc.). $\alpha$ et $\beta$ expriment l'incertitude temporelle sur les bornes de cet intervalle résultant~:
+\begin{itemize}
+\item de l'imprécision ou de l'incomplétude de l'information temporelle.
+\item de la tolérance sur la proximité plan/espace réel. $\beta$ en particulier permet de prendre en compte la période qui suit immédiatement la fin des levés.
+\end{itemize}
+Les valeurs de $a$ et $b$ sont propres à chaque plan et sont déterminées d'après les connaissances historiques disponibles. La période de levé est parfois inconnue, soit car le plan est trop ancien, soit car il n'est pas bien documenté. On peut alors s'appuyer sur une analyse historique du plan, comme on l'a fait précédemment pour les planches de l'atlas de Jacoubet, ou utiliser la date de gravure et publication du plan.
+\\
+La figure \ref{figure:temps_flou_plan} présente un exemple de temporalisation défini pour un plan dont la phase de levé est représentée par une bande hachurée et celle de gravure en gris. Les valeurs $a,b,\alpha$ et $\beta$ indiquées doivent être choisies à partir des connaissances historiques sur la source. Par exemple, dans le cas de l'atlas de Verniquet, le temps valide correspondant aux connaissances rassemblées dans le second chapitre nous ammène à définir le temps valide $(1783,1785,1791,1799)_{LR}$. Nous avions en effet vu que le tracé du grand atlas s'était étalé de 1785 à 1791, en notant cependant que des premières mesures avaient été effectuées dès 1783. On choisit ici de plus de considérer le plan encore valide jusqu'à la fin de sa gravure, en 1799.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{temps_flou_plan.png} 
+	\caption{Le plan est temporalisé par sous-ensemble flou $(a,b,\alpha,\beta)$, choisi pour correspondre à la période de levé topographique durant laquelle les formes urbaines tracées sur le plan sont considérées comme des représentations fiables des structures réelles. Les paramètres $\alpha$ et $\beta$ sont des valeurs d'incertitude temporelle autour des bornes de validité du plan.}
+\label{figure:temps_flou_plan}
+ \end{figure}
+
+
+\myparagraph{Temps valide des sources utilisées}
+Le tableau \ref{table:tempsplans} présente les temporalités floues assignées aux différentes sources géohistoriques utilisées dans cette thèse. Les bornes de ces intervalles temporels ont été définis à partir des informations collectées au chapitre 2.
+
+\begin{table}
+\caption{Temporalités valides des plans utilisés dans la thèse.}
+\label{table:tempsplans}
+\begin{tabular}{|l|c|l|}
+\hline
+Nom d'usage & Temps valide & Représentation graphique \\
+\hline
+Atlas de Verniquet & \footnotesize{$(1783,1785,1791,1799)$} & \includegraphics[width=7cm]{ftime_verniquet.png} \\
+\hline
+Atlas Vasserot & \footnotesize{$(1807,1810,1836,1854)$} &\includegraphics[width=7cm]{ftime_vasserot.png} \\
+\hline
+Atlas de Jacoubet & \footnotesize{$(1825,1827,1836,1837)$} &\includegraphics[width=7cm]{ftime_jacoubet.png} \\
+\hline
+Atlas Municipal & \footnotesize{$(1887,1888,1889)$} &\includegraphics[width=7cm]{ftime_poubelle.png}\\
+\hline
+\end{tabular}
+\end{table}
+
+\myparagraph{Temporalité des observations}
+Nous avions vu dans le premier chapitre que le contenu des plans ne doit pas être considéré comme un ensemble d'objets géographiques classiques, mais comme des \emph{traces} laissées, à un moment donné, par une entité géohistorique dans une source. Prenons par exemple le cas d'une rue dessinée dans un plan et possédant donc une certaine représentation, une forme et peut être quelques attributs tel qu'un nom ou une date de percement. Sa vectorisation intègre inévitablement les choix de représentation du plan, en particulier ceux de généralisation, mais aussi d'éventuelles erreurs. De plus, le temps valide du plan ne couvre souvent qu'une petite portion de la période où la rue existe. Il est peu prudent, historiquement, de considérer que la forme qu'elle possède sur le plan est correcte pour des périodes où le plan ne représente plus l'espace réel de manière fiable. 
+\\
+De la même façon qu'une observation est dépendante d'une source, sa temporalité est également dépendante de celle de la source. En effet, s'il s'agit d'une trace d'un objet géographique, celle-ci ne peut exister qu'en même temps que le plan.
+\\
+La sémantique de cette temporalité diffère cependant de celle de la source. En effet, nous considérions jusqu'ici une période de validité, pendant laquelle l'opération de levé cartographique est effectuée. La temporalité d'une observation doit, quand à elle, exprimer une période pendant laquelle l'objet géographique dont elle est la trace a pu être observé. Il s'agit d'une \textbf{possibilité d'observation}.
+\\
+A priori, l'observation d'un objet géographique est possible pendant toute la durée valide d'un plan. Pour cette raison, la temporalité des observations contenues dans une source est considérée par défaut comme état celle de cette source. Cependant, il est possible que des connaissances supplémentaires permettent de spécifier cette temporalité. C'est par exemple le cas si l'on sait que la rue observée a été détruite au cours du levé du plan, la possibilité de l'observation étant dès lors nulle.
+\\
+Il est donc intéressant de permettre aux temps des observations d'être plus restreints que celui de leur plan. Du fait de leur statut de trace, il n'est cependant pas possible que cette temporalité soit plus large que celle de la source. Ainsi, cette relation est exprimée dans le schéma en figure~\ref{figure:schema_total} par la contrainte d'inclusion entre la temporalité de l'observation et celle de sa source. En effet, la première est nécessairement un sous-ensemble du temps valide de la source, il s'agit donc d'une inclusion entre sous-ensembles flous.
+
+%
+%\myparagraph{Dépendance temporelle}
+%\label{paragraph:inclusion_temporelle_plans}
+%L'extension temporelle des sources cartographiques est renseignée sous la forme d'un sous-ensemble flou. A expliquer : le temps valide des feuilles peut être différent de celui de l'atlas, mais il doit être inclus. On aurait pu faire le choix de créer le temps de l'atlas à partir de l'union des temps de ses feuilles, mais en fait il est plutôt rare de connaître ces temps 'détaillé'. Il est donc plus prudent de pouvoir préciser directement la temporalité de l'atlas et de placer une contrainte d'inclusion sur ses composantes.
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=1\textwidth]{schema_plan.png} 
+%	\caption{Chaque source cartographique est située sur la ligne du temps par un ensemble flou, le \emph{temps valide} du plan. La temporalisation des atlas peut être affinée en assignant des temporalités à ses feuilles, les écarts pouvant être conséquents lorsque l'atlas est réalisé sur une longue période.}
+%\label{figure:schema_plan}
+%\end{figure}
+
+
+\section{Tri temporel}
+\label{subsection:tri}
+Une requête de base lorsque l'on manipule un ensemble d'informations temporelles consiste à les ordonner sur la ligne du temps. Dans notre base de données, il est nécessaire de pouvoir ordonner les sources géohistoriques dans le temps. Dans le cas d'instants, la solution est triviale, mais si elles sont représentées par des intervalles il n'existe plus d'ordre total. Lorsque ces informations sont précises et donc modélisées par des intervalles classiques, la relation \emph{is before} de l'algèbre temporel de \cite{Allen1983} définit ainsi un ordre partiel sur $T$ \citep{Donnelly2012}.
+Si elles sont imprécises, deux solutions s'offrent à nous~: soit on modélise l'imprécision directement dans l'information, soit on l'exprime à travers les relations définies dans le raisonnement temporel. Dans le premier cas, une façon de faire consiste à exprimer les connaissances temporelles sous la forme de quantités floues puis de redéfinir l'algèbre temporel dans le cas flou. \cite{Dubois2003} en ont ainsi proposé une formalisation possibiliste \footnote{La théorie des possibilités est une approche de l'incertain élargissant la théorie des probabilités en permettant d'exprimer des incertitudes sur un événement. Elle définit en particulier les notions de possibilité et de nécessité~: un événement peut être possible même si la probabilité qu'il se produise est faible (ou inconnue). La nécessité est la mesure duale de la possibilité et exprime quant à elle la certitude que l'événement se produise. Gagner au loto est un événement très peu probable, tout à fait possible mais -en principe- non nécessaire (et parfaitement incertain).} permettant de raisonner sur des informations temporelles incertaines et imprécises.
+ Dans le second cas, les intervalles restent classiques, mais ce sont les relations elles-mêmes qui sont rendues floues. \cite{Schockaert2008} en particulier a proposé des formalisations de ce type.
+
+\paragraph{Degré d'antécédence entre périodes temporelles floues}
+Ordonner des événements décrits par des quantités floues revient à définir la relation d'antécédence $\preceq$. Cependant, le simple tri ne suffit généralement pas lorsque l'on traite avec des événements situés dans le temps long, mais il est intéressant de pouvoir quantifier la relation d'antécédence. Autrement dit, il est non seulement utile de savoir si un événement se déroule avant un second, mais également de "combien" il le précède. Ce \textbf{degré d'antécédence} ajoute une information à un ordonnancement temporel et peut servir d'aide à la décision, lorsqu'il s'agit de trier par exemple des connaissances archéologiques \citep{DeRunz2008,Kauppinen2010}.
+\\
+On note $ant$ la fonction définie sur $\widetilde{\mathcal{T}}\up{2}$ mesurant un degré d'antécédence entre deux temps flous. Ce degré d'antécédence est pris dans un intervalle $[0,a_{max}],a_{max}>0$. Pour deux temps flous $A$ et $B$ pris dans $\widetilde{\mathcal{T}}$, on a~:
+\begin{itemize}
+\item[--] $ant(A,B) > ant(B,A)$ lorsque $A$ précède $B$,  
+\item[--] $ant(A,B) = ant(B,A)$ si $A$ et $B$ sont égaux ou si $A$ précède autant $B$ qu'il lui succède (leurs centres de gravité sont égaux),
+\item[--] $ant(A,B) < ant(B,A)$ lorsque $A$ succède à $B$,
+\end{itemize} 
+\begin{figure}[ht]
+  \centering
+  	\includegraphics[width=1\textwidth]{ex_ant.png} 
+  	\caption{Quelques exemples de positions relatives entre temps flous.}
+  	\label{fig:positions}
+\end{figure}
+
+\paragraph{}
+Une possibilité pour définir la relation d'antécédence $\preceq$ consiste à utiliser l'une des nombreuses méthodes de tri de nombres flous existantes. Le degré d'antécédence $ant$ peut également être exprimé par certaines de ces méthodes. Nous proposons ici d'explorer les principales mesures existantes pour, une fois la modélisation temporelle de nos données exposée, en choisir une satisfaisante pour notre cas d'étude.
+
+\subsection{Rangement de nombre flous}
+\myparagraph{Classification des méthodes de tri}
+\cite{WangKerre2001} classent les méthodes de tri de quantités floues en trois catégories principales~:
+\begin{enumerate}
+\item Les méthodes qui projettent les nombres flous sur $\mathbb{R}$ en convertissant chaque nombre flou en un nombre réel, et qui effectuent le tri parmi les nombres réels ainsi calculés.
+\item Les méthodes qui comparent chaque nombre flou avec un sous-ensemble flou de référence, puis qui trient les nombres en fonction du résultat de cette comparaison.
+\item Enfin, les méthodes qui comparent les sous-ensembles deux à deux et traduisent une relation de dominance. Il faut alors disposer d'une méthode de décision pour trier finalement ces nombres.
+\end{enumerate}
+Chaque catégorie a des inconvénients. Pour la première, on perd la notion de flou et donc une quantité importante d'information, ce qui est un problème puisque \emph{a priori}, l'imprécision est au centre des informations traitées \citep{Freeling1980}. Pour la seconde, le problème vient de la signifiance de l'ensemble de référence~: s'il n'a pas un sens aisément compréhensible, on risque d'avoir des résultats contre-intuitifs. Enfin, pour la troisième classe de méthodes, \cite{Wang1995} remarquent qu'elles ne sont généralement pas transitives et empêchent de définir un ordre total sur les ensembles considérés.
+Le rangement de quantités floues est complexe car la préférence d'une alternative imprécise à une autre est une question subjective. Pour cette raison, il n'existe pas de consensus sur une méthode dans la mesure où elles donnent toutes des résultats allant parfois à l'encontre d'un classement "naturel". Un autre problème vient du fait qu'elles peuvent donner un ordre strict dans des situations complexes pour lesquelles il n'existe pas de choix clair. Pour cette raison, il existe une littérature extrêmement abondante sur le sujet depuis la fin des années 1970. En 2001, \cite{WangKerre2001} comptent plus de 35 propositions majeures, et nous en avons dénombré au moins 11 nouvelles dans les revues spécialisées sur le sujet. Souvent, il s'agit de nouvelles propositions qui visent à corriger certains résultats jugés contre-intuitifs par une méthode antérieure. Quelques auteurs ont proposé des synthèses comparatives de ces différentes méthodes ainsi que des \emph{benchmarks}, en particulier \cite{Bortolan1985}, \cite{Chen2001} et \cite{Tang2010}, dans lesquels le lecteur trouvera un étude approfondie de la plupart des méthodes existantes. Nous ne citerons ici que les méthodes principales issues de ces articles de synthèse, ainsi que les méthodes récentes qu'ils ne considèrent pas. Nous préférons ici les présenter selon les liaisons qu'elles entretiennent (généralisation, correction, équivalence)\footnote{De nombreuses méthodes de tri d'ensembles flous ont été proposées, avec l'objectif de produire des rangements proches de l'intuition humaine. Or, aucune d'atteint cet objectif dans tous les cas possibles. De plus, la notion même d'un rangement intuitif est parfois complexe à définir, notamment lorsque les nombres flous sont très proches. En conséquence, de nombreuses méthodes ont été proposées pour corriger les résultats contre-intuitifs de propositions antérieures.} plutôt que simplement selon les trois catégories énoncées. Un code couleur indiquera cependant la catégorie à laquelle appartient la méthode, puisqu'une partie des limites des méthodes sont communes à la classe entière. Les catégories auxquelles appartiennent les méthodes sont cependant indiquées par un code couleur~: \textcolor{RedViolet}{violet} pour les méthodes transformant les sous-ensembles en réels, \textcolor{NavyBlue}{bleu} pour celle s'appuyant sur un ensemble de référence et enfin \textcolor{LimeGreen}{vert} pour les méthodes fondées sur la dominance entre nombres.
+%Yager : 1981 OK
+%Chang 1981 OK
+%Adamo 1980 OK
+%Bass Kwakernaak 1977 OK
+%Baldwin 1979 OK
+%Kerre 1982 
+%Jain 1977 OK
+%Dubois-Prade 1983 OK
+%Kim Park 1990 
+%Liou Wang 1992
+%Chen Lu 2001
+%Magnitude 2009
+%Sign Distance 
+%Fortemps 1996
+%Deviation Degree 2009
+%Sign Distance 2013
+%Choobineh 1993
+%Bajaras 2008
+%De Runz 2008
+%Tseng and Klein 1989
+%nakamura 1986
+%Kolodz 1990
+%Chen 1985
+%Minimization 2007
+\myparagraph{Méthodes de tri existantes}
+Parmi les premières, la proposition de \textcolor{NavyBlue}{\cite{Jain1977}} consiste à comparer chaque quantité floue avec un sous-ensemble maximal de référence correspondant à la notion d'un "nombre aussi grand que possible" pour fournir un indice de rang. \textcolor{NavyBlue}{\cite{Chen1985}} étend par la suite la méthode de Jain pour les quantités floues négatives, et \textcolor{NavyBlue}{\cite{KimPark1990}} ajoute une seconde mesure avec cette fois le sous-ensemble minimal. \textcolor{LimeGreen}{\cite{Kerre1982}} reprends l'idée de Jain en calculant la distance de Hamming entre les quantités floues et le sous-ensemble $\widetilde{max}$. Cependant, comme l'ont montré \cite{Baldwin1979-2}, l'ensemble $\widetilde{max}$ est souvent trop peu discriminant et génère des résultats parfois incohérents.
+\paragraph{}
+%\cite{Baldwin1979} puis \cite{Dubois1983} ont montré que l'indice Jain fournit des résultats contre-intuitifs 
+Parallèlement, \textcolor{LimeGreen}{\cite{Baas1977}} décrivent une relation de préférence entre deux quantités floues. \textcolor{LimeGreen}{\cite{Baldwin1979}} remarque cependant un comportement trop optimiste et propose une relation similaire pouvant être modulée par un "degré de prise de risque". Parmi les méthodes effectuant une transformation des quantités floues en réels et régulièrement reprises, on retrouve notamment \textcolor{RedViolet}{\cite{Adamo1980}}, \textcolor{RedViolet}{\cite{Yager1981}}, \textcolor{RedViolet}{\cite{Chang1981}}, \textcolor{RedViolet}{\cite{Liou1992}},\textcolor{RedViolet}{\cite{Choobineh1993}} et \textcolor{RedViolet}{\cite{Fortemps1996}}. Simple, la méthode de \textcolor{RedViolet}{\cite{Adamo1980}} assigne à chaque quantité floue un indice défini comme la borne supérieure d'une  $\alpha$-coupe d'un niveau quelconque choisi préalablement. \textcolor{RedViolet}{\cite{Yager1981}} définit quatre indices comparant pour trois d'entre eux les valeurs de $\mu(x)$ et la valeur de $x$, considérant que plus $x$ est grand, plus il est important et doit influencer le rang, idée reprise par \textcolor{RedViolet}{\cite{Chang1981}}. Le dernier indice prend quant à lui en compte l'aire entre l'axe des ordonnées et l'axe moyen de la quantité floue. \textcolor{RedViolet}{\cite{Liou1992}} considère le cas de quantités floues L-R et propose de comparer les fonctions gauche et droite.
+\paragraph{}
+Pour comparer deux quantités floues, \textcolor{LimeGreen}{\cite{Tseng1989}} introduit en plus des dominances à droite et à gauche la notion d'indifférence qui permet une comparaison plus fine, en particulier lorsque les deux quantités se recouvrent. La même idée se retrouve chez \textcolor{LimeGreen}{\cite{Kolodziejczyk1986}} qui propose trois relations de dominances dont l'une prend également en compte une zone d'indifférence entre les quantités floues, définies par la zone d'intersection entre elles.
+\textcolor{LimeGreen}{\cite{ChenLu2001}} ont proposé de mesurer la dominance d'une quantité sur l'autre en s'appuyant sur l'écart entre les bornes de leurs $\alpha$-coupes. 
+\textcolor{LimeGreen}{\cite{Dubois1983}} ont décrit une approche possibiliste fondée sur quatre indices exprimant des possibilités et nécessités de dominance entre deux quantités floues (à droite et à gauche). Le choix d'une priorité dans les indices pour déterminer un ordre final est laissé libre, et \cite{Bortolan1985}  ont montré qu'ils sont, dans le pire des cas, trop peu discriminants. D'autres théories des connaissances imparfaites ont été utilisées, celle des probabilités par \textcolor{RedViolet}{\cite{Lee1988}} dont la mesure a été corrigée par \textcolor{RedViolet}{\cite{Cheng1998}}, ou encore la théorie des fonctions de croyance par \textcolor{LimeGreen}{\cite{Sevastianov2007}}. Dans le but de comparer des sous-ensembles flous représentant des intervalles de temps,~\textcolor{LimeGreen}{\cite{DeRunz2008}} propose une adaptation de Kerre, fondée sur la relation de dominances entre quantités floue. Il introduit ainsi un indice d'antécédence entrs sous-ensembles temporels flous. Ces méthodes, outre le fait de s'appuyer sur des bases mathématiques solides, présentent l'avantage de permettre une comparaison fine et souple de deux quantités floues, mais aussi de fournir des mesures sur la qualité (selon le paradigme utilisé : possibilité, probabilité, croyance) de cette comparaison.
+\paragraph{}
+Plus récemment, une nouvelle série d'indices visant à corriger certains cas de rangements est apparue, fondée cette fois sur des mesures de distances entre quantités floues. Ainsi, \textcolor{NavyBlue}{\citep{Abbasbandy2006}}, puis  \textcolor{NavyBlue}{\citep{Abbasbandy2013}} rangent les nombres flous selon leur distance à un nombre flou servant d'origine. Cette distance est finalement rendue orientée pour permettre le classement de nombres négatifs. Cette méthode est une correction de celle de \textcolor{RedViolet}{\cite{Chu2002}} et \textcolor{RedViolet}{\cite{Wang2009}} qui s'appuie sur l'aire entre le centre de gravité de la quantité floue et le point d'origine $(0,0)$.
+Suivant une approche très similaire, \textcolor{RedViolet}{\cite{Asady2011}} montrent que le point qui minimise cette distance est le milieu de l'axe moyen de cette quantité, ce qui leur permet de rendre chaque quantité non floue\footnote{On parle de défuzzification} puis de les trier selon l'abscisse de ce point. On peut remarquer que cette mesure est équivalente au quatrième indice de Yager.
+Enfin, \textcolor{RedViolet}{\cite{Abbasbandy2009}} introduisent une valeur de \emph{magnitude} synthétisant une indication sur l'aire et la position d'une quantité floue.
+
+\myparagraph{Remarques}
+Bien qu'il existe une grande quantités de méthodes de tri de quantités floues, elles produisent parfois des résultats équivalents. Ainsi, les méthodes de \cite{Fortemps1996}, \cite{Liou1992}\footnote{Si le paramètre $\gamma=0.5$.}, \cite{Choobineh1993} \footnote{Si les sous-ensembles considérés sont convexes et normaux.} et le second indice de  \cite{Yager1981} donnent les mêmes ordonnancements. Sur les exemples fournis par \cite{Bortolan1985}, les mesures de \cite{Asady2011} et \cite{Fortemps1996} donnent les mêmes valeurs dès lors que les nombres flous sont positifs. De même, \cite{Kolodziejczyk1986} et \cite{Tseng1989} fournissent des résultats équivalents (voir pour cela \citep{ChenLu2001}).
+
+\myparagraph{Propriétés raisonnables d'un tri}
+L'évaluation de méthodes de tri est classiquement fait à partir d'un ensemble de cas dont l'ordre "naturel" est établi. Cette justification par l'exemple ne prouve cependant pas la cohérence de la méthode évaluée, ce qui en fait sans doute une des causes de l'accumulation de mesures visant à corriger les cas incohérents des précédentes. Pour pallier ce problème, \citep{WangKerre2001} ont dressé une liste de sept propriétés d'ordre \emph{raisonnables} traduisant ce que l'on peut considérer comme un ordre naturel. Le principe est simple~: plus une mesure vérifie de propriétés, plus elle est jugée satisfaisante. 
+\\
+Les trois premières proriétés portent sur les propriétés d'ordre classiques~: réflexivité, antisymétrie, transitivité. La quatrième assure que la méthode se comporte comme un tri classique dans les cas où les quantités sont séparées~: si $supp(A) < supp(B)$, alors $A \preceq B$. La cinquième stipule que la relation d'ordre entre deux quantités floues est indépendante des autres quantités du problème. La sixième assure la conservation de la relation d'ordre par l'addition. Enfin, la septième propriété conserve la relation d'ordre par la multiplication de quantités floues positives\footnote{Plus précisément, si $A$,$B$, $AC$, $BC$ sont 4 quantités floues avec $C\geq 0$ alors $A \succsim B$ implique que $AC \succsim BC$, où $A \succsim B$ désigne le fait que $A$ a un rang au moins égal à $B$.}
+Les auteurs ont évalué la majorité des mesures antérieures à 2001 et ont remarqué que seule la méthode de \cite{Adamo1980} respectait toutes les propriétés. Le second indice de \cite{Yager1981}, la méthode de \cite{Kerre1982} et de \cite{Chen1985} échouent dès la règle quatre. Étant donné leur nature, fondée sur des comparaisons deux à deux, la majorité des méthodes de la troisième catégorie ne respectent pas la propriété 5, à l'exception notable de la proposition de \cite{Kolodziejczyk1986}.
+
+
+\myparagraph{Conclusion sur les méthodes de tri}
+Nous avons dressé ici une liste non exhaustive des méthodes de rangement de quantités floues. Pour chacune, il existe des cas dans lesquels elles créent des rangements contraires à l'intuition humaine. Toutefois, ces cas problématiques ne se rencontrent pas nécessairement dans le cas spécifique du rangement d'instants et de durées floues. En outre, on peut constater que les méthodes de la troisième catégorie offrent la possibilité de quantifier la relation de précédence. En effet, la notion de dominance est une grandeur qui peut être assimilée à un degré d'antécédence, comme cela a déjà été effectué par \cite{DeRunz2010}.
+\\
+Le choix d'une méthode de tri dépend donc du cas d'étude, et des quantités floues mises en jeu. Nous allons donc commencer par présenter la modélisation des temporalités des objets manipulés, ce qui nous permettra d'effectuer ce choix.
+
+%\end{itemize}
+%L'état de l'art le plus récent que je connaisse c'est : REVISION OF SIGN DISTANCE METHOD FOR RANKING OF
+%FUZZY NUMBERS de S. Abbasbandy
+%Suzanna Dragicevic : c'est un des principaux travaux sur des SIG spatio-temporels qui utilise de la logique flou pour représenter les datations, en particulier avec son article : "A fuzzy set approach for modeling time in GIS"
+%Ceci dit, le modèle de Dragicevic semble assez basique tout de  même. Il s'agit de donner des fonction d'appartenance à des occupations du sol qui ne sont pas juste '1 ' ou '0' selon la date, ce qui crée des transitions. DAns la carte finale, ce sont donc les états et en plus les transitions avec leur valeur floue qui sont cartographiées. Ainsi, ça donne une sorte de 'carto' intermédiaire.
+%Du coup, c'est tout en fait.
+%\\
+%Ensuite il y a le boulot de De Runz. Lui il a a la fois représenté les intervalles de temps de façon floue, mais il a aussi mis au point une méthode pour les trier. Le pb de cette méthode, c'est que dès qu'il y a une inclusion avec un 'meet' sur les bords des ensembles, alors la valeur vaut 1. 
+%\\
+%Il y a aussi le boulot de Kaupinnen. Sur le temps Flou, il fait un état de l'art qui peut être interessant dans "Methods for creating and using geospatial-temporal semantic  web", page 18.
+%\\
+%Un autre article de Kaupinnen est fondamental (il faut d'ailleurs le mettre en lien avec DE Runz). C'est 'Determining relevance of imprecise temporal intervals for cultural heritage information retreival'. Dedans, il présente une mesure dont l'objectif est de ranger des intervalles temporels flous en s'appuyant sur une mesure double : une proximité et une mesure floue des relations overlap/overlaped by.
+%\\
+%Pour les autres méthodes, on trouvera une classification dans : 
+%\begin{itemize}
+%\item \emph{A Discriminative Analysis of Approaches to Ranking Fuzzy Numbers in Fuzzy Decision Making }
+%\item \url{https://researchbank.rmit.edu.au/eserv/rmit:1486/n2006006317.pdf} 
+%\end{itemize}
+%
+%Il faut présenter le double choix : Yager F3 et l'autre.
+%Pourquoi on a besoin des deux? À ce stade là, on ne sait pas encore.
+
+%\section{Transformations de l'espace}
+%\textbf{TODO} : écrire.\\
+%Cette section vise à décrire les différentes transformations communes des objets topographiques.
+%\subsection{L'identité à travers le temps}
+%Cette section doit revenir sur le concept d'identité définie au chapitre 1, en particulier sur son rôle dans l'identification des transformations~: différencier les continuités des changements.
+%\subsection{Les transformations de l'espace}
+%Cette section explique quelles sont les types de transformations qui affectent les objets géographiques (à partir de Cheylan notamment), puis parle des modèles permettant de les représenter~: de manière formelle (Egenhofer, Yuan, Spéry, Claramunt, etc), et éventuellement graphiquement (Stefani, Renolen). Aborder les moving objects (et la time geography) est inévitable, mais ce n'est pas pertinent pour des objets qui se déforment et qui sont dans le temps long.
+%Il y a aussi des choses dans les articles suivants, notamment sur la notion d'événement, même s'ils s'agit plutot d'états de l'art sur les modèles de données spatio-temporelles.
+%\begin{enumerate}
+%\item Pelekis 2004.
+%\item Rainu Nandal 2013
+%\end{enumerate}
+%
+%\subsection{Relations spatio-temporelles liées à l'identité}
+%\textbf{TODO} : écrire.\\
+%La généalogie, c'est simplement les transformations mixées avec la notions d'identité. L'idée est simple~: une transformation avec conservation de l'identité, c'est une continuation, et une transformations sans identité, c'est une relation généalogiques (objet parent/ objet fils). Il y a donc deux catégories de transformations. 
+%
+
+
+
+%En découle~:
+%\begin{enumerate}
+%\item qu'elles sont délimitées temporellement par leur source
+%\item qu'elles n'existent pas en dehors de leur source
+%\item qu'elles ne sont que des aperçus de la ligne de vie d'un objet SpatioTemporel.
+%\end{enumerate}
+%Les objets géographiques que l'on a vectorisé ne sont pas indépendants de leur source. Pourquoi : parce qu'il y a un décalage entre la réalité et le contenu du plan. Si on voit le plan comme une base de données, c'est le même décalage qu'entre le real world time et le database time. De plus, cette base de données n'est pas éternelle~: quand le plan est fini de dessiner, il est figé et se décale graduellement de l'état réel de la ville. L'objet que l'on a vectorisé n'est donc valide que, si l'on est prudent, à l'intérieur de la source qui le contient.  Plus exactement, on peut voir ça comme le fait qu'une observation de l'état de la ville a été effectué puis stocké à l'interieur d'un plan. Pour noter cette différence de sémantique entre les objets géographiques (qui doivent représenter la réalité), et ces tracés dont, en plus, on est pas certain de la validité (puisque l'on a pas le référentiel), on va les nommer 'observations'.
+
+%
+%\paragraph{Objets géohistoriques et chemins spatio-temporels.}
+%Sans doute faut-il déplacer ça dans le chapitre suivant.
+%
+%\subsection{L'objet géohistorique}
+%\textbf{TODO} : écrire\\
+%C'est un chemin dans un graphe. C'est la transition vers le prochain chapitre.
+
+\subsection{Choix des méthodes de tri temporel et d'antécédence adaptées}
+\myparagraph{Comparer observations et sources par deux méthodes de tri flous complémentaires}
+Les temporalités des sources géohistoriques comme celles des observations sont des quantités floues normalisées qu'il faut pouvoir ordonner. En effet, la position temporelle des observations et des sources les unes par rapport aux autres est une information essentielle si l'on veut reconstituer des transformations qui suivent la flèche du temps. Avec notre modélisation, nous avons introduit une relation de dépendance entre la source et l'observation. Cette dépendance est également temporelle, puisque les observations ne sont valides que tant que leur source est également valide. Cette dépendance permet de répartir l'objectif de la comparaison temporelle entre observations en deux sous-objectifs complémentaires~:
+\begin{itemize}
+\item la création d'un ordre temporel total entre les différents \emph{snapshots} entre lesquels les transformations doivent être identifiées, ce qui revient à ordonner les sources géohistoriques,
+ \item la détermination d'une méthode de mesure du degré d'antécédance permettant de comparer plus finement la temporalité valide de deux observations issues de \emph{snapshots} différents;
+\end{itemize}
+Ainsi, un ordre total entre \emph{snapshots} permet de connaître, pour deux observations, s'il existe d'autre sources géohistoriques entre celles auxquelles elles appartiennent et donc s'il existe d'autres ressources contenant potentiellement des états intermédiaires entre ces deux observations. Le degré d'antécédance permet alors de quantifier l'écart temporel entre deux observations.
+\\
+Ainsi, la première méthode doit être capable de répondre à des questions telles que, pour deux observations $O_1$ et $O_2$ ~: "Combien existe-il d'autres descriptions de l'espace entre $O_1$ et $O_2$?". La seconde méthode doit permet quant à elle de répondre à des requêtes du type "A quel point $O_2$ a t-elle été observée après $O_1$?".
+\\
+Afin de distinguer les deux méthodes, la relation $\preceq$ est utilisée pour indiquer l'ordre entre intervalles temporels.\\
+La notation $ant(A,B)$ désigne quand à elle le degré d'antécédence du temps valide $A$ de $O_1$ sur le temps valide $B$ de $O_2$.
+
+\myparagraph{Règles sur tri de temps flous}
+La majorité des méthodes de tri que nous avons présenté sont adaptées à la comparaison de nombres flous, pour lesquels le problème revient à déterminer une relation de ''grandeur''. Or, dans le cas du temps, la sémantique associée au tri est quelque peu différente. Il s'agit cette fois d'une relation du type ''avant/après'', ce qui impose quelques nouvelles propriétés nécessaires pour une méthode de tri de temps flous. Par exemple, l'ordre de deux quantités floues $A=(0,1,2,3)_{LR}$ et $B=(1,1.5,2)_{LR}$ est, pour la plupart des méthodes, $B < A$. Or, si l'on parle de temps, $A$ est tout autant avant $B$ qu'il n'est après.
+\\
+Nous introduisons donc quelques règles supplémentaires sur la méthode de tri et la méthode de comparaison de deux temps flous afin qu'elles respectent un positionnement temporel intuitif. De plus, nous considérons qu'il est nécessaire que les méthodes choisies vérifient à minima les 5 premières propriétés raisonnables d'un ordre flou qui sont les plus importantes pour assurer un tri cohérent avec l'intuition humaine.
+
+\myparagraph{Règle $R_1$}
+La première règle est qualitative, et suit un principe de prudence.  En effet, il existe de nombreux cas pour lesquels l'intuition est mise en défaut (par exemple, lorsque les deux quantités floues à trier sont presques égales, ou lorsque leur sens réel est difficile à saisir). La définition d'un tri intuitif peut alors varier d'une personne à l'autre. Nous considérons, pour notre cas précis, qu'il vaut mieux en cas de doute conserver une égalité (c'est à dire la coexistance de deux \emph{snapshots}) plutôt que définir un ordre définitif. En effet, il est toujours possible de raffiner l'égalité au niveau des observations grâce au degré d'antécédence, ce qui n'est plus possible si un ordre est définitivement fixé.
+
+\myparagraph{Règle $R_2$}
+La seconde règle correspond à l'exemple donné précédemment et permet de traiter de temps flous avec une relation ''avant'' et ''après''. Pour deux temps flous $A,B \in \widetilde{\mathcal{T}} $
+\begin{equation*}
+(\overline{x}_A,\overline{y}_A)=(\overline{x}_B,\overline{y}_B) \implies ant(A,B)=ant(B,A) \land A \sim B
+\end{equation*}
+où $(\overline{x}_A,\overline{y}_A)$ désigne le centre de gravité de $A$.
+
+\myparagraph{Règle $R_3$}
+Cette règle est établie pour la mesure du degré d'antécédence.
+Pour ${A,B}$ deux temps flou sur $T$~:
+\begin{equation*}
+ant(A,B) = - ant(B,A) \in [0,a_{max}]
+\end{equation*}
+où $a_{max}>0$ est la valeur d'antécédence maximale possible entre deux temps flous. Nous considérons donc uniquement des mesures d'antécédences normalisées.
+
+\myparagraph{Règle $R_4$}
+La dernière règle découle directement de $R_2$ et définit un ''statut-quo'' temporel~: lorsque deux observations sont faites à la même période, aucune des deux n'est à priori antécédente à l'autre.
+\begin{equation*}
+A \sim B \implies ant(A,B) = ant(B,A)<a_{max}
+\end{equation*}
+
+\myparagraph{Choix d'une méthode de tri}
+Nous avons comparé les résultats de 33 méthodes abordées dans la section \ref{subsection:tri} avec un ordre temporel de référence créé manuellement et jugé intuituif, sur 26 exemples de configuration de nombres flous issus de \citep{ChenLu2001}. L'ensemble des résultats de ces mesures sont fournis dans l'annexe~\ref{annexe:detailsranking} Parmi ces méthodes, 4 ont donné des résultats cohérents avec le tri manuel~: le troisième indice de \cite{Yager1981} (Yager F3), la mesure \emph{d'intégrale totale} de \cite{KimPark1990}\footnote{Avec un paramètre $k=0.5$}, la méthode de~\cite{Fortemps1996} et le tri \emph{minimization distance} de \cite{Asady2011}.
+L'intégrale totale ne respecte cependant ni la cinquième propriété des relations d'ordre flou, ni la règle $R_1$. La méthode de~\cite{Fortemps1996} donne exactement le même tri et les mêmes valeurs que l'incide de Yager F3 (voir \citep{ChenLu2001}. Afin de choisir entre ces deux dernières méthodes et celle de~\cite{Asady2011}, nous avons adopté le principe du Rasoir d'Occam~: à résultats équivalents, la plus simple et aisément compréhensible des méthodes est conservé. Ainsi, nous avons choisi d'utiliser comme méthode de tri des temps flous l'indice F3 de Yager.
+\\
+Cet indice, que l'on note $Y_3$, se définit comme suit~:
+\begin{equation}
+Y_3(A) = \int_0^{h(A)} M(A_\alpha) \mathrm{d}\alpha
+\end{equation}
+où $M(A_\alpha)$ est la valeur moyenne des éléments de $A_\alpha$. Si $A$ est convexe, on a $A_\alpha = [a_\alpha, b_\alpha]$ et donc~:
+\begin{equation}
+Y_3(A) = \frac{1}{2}\int_0^{h(A)} a_\alpha+b_\alpha \mathrm{d}\alpha
+\end{equation}
+L'indice $Y_3$ consiste à comparer la position des centres de gravités de chaque $\alpha$-coupes de deux quantités floues. Il revient donc finalement simplement à trier les quantités floues selon le segment de droite passant par tous les centres de gravités de ses $\alpha$-coupes.
+$Y_3$ respecte toutes les propriétés d'ordres à l'exception de la septième. Il respecte également les différentes règles que nous nous sommes imposé. 
+
+\myparagraph{Choix d'une mesure d'antécédence}
+Dans le domaine des SIG historique et archéologique, \cite{DeRunz2008} a défini une relation d'antécédence fondée sur l'indice de Kerre. Il est également possible d'utiliser toutes les méthodes de tri fondées sur la notion de dominance.
+Nous avons évalue l'ensemble des méthodes de tri fondées sur la notion de dominance en regard des règles que nous nous sommes fixés. Plus précicément, nous avons évalué les méthodes de~\cite{DeRunz2008},\cite{Kolodziejczyk1986} ,\cite{ChenLu2001} et~\cite{Dubois1983}. Ces méthodes on été évalues à partir de 13 situations de dominance entre 2 quantités floues présentées dans~\citep{ChenLu2001}. L'annexe~\ref{annexe:detailsantecedence} présente quelques unes des situations critiques de la mesure d'antécédence, pour lesquelles au moins une mesure ne respecte pas les règles que nous nous sommes fixés. Seule la méthode de \cite{Kolodziejczyk1986} respecte l'ensemble de nos règles. La méthode de~\citep{DeRunz2008} échoue lorsque le maximum flou est égal à l'un des deux ensembles. Les autres méthodes ne respectent pas les règles $R_2, R_3 et R_4$. Nous choisissons donc finalement la méthode de Kolodziejczyk, dont l'auteur propose deux formes ($K_1,K_2$). Nous nous appuyons ici sur la mesure $K_1$. Pour deux temporalités floues $A_i$ et $A_j$, nous posons la mesure d'antécédence issue de \citep{Kolodziejczyk1986} comme suit~:
+\begin{equation}
+ant(A_i,A_j) = K_1(A_i,A_j)= \frac{d_H(\underline{A}_i, \widetilde{\mathrm{max}}(\underline{A}_i,\underline{A}_j)) + d_H(\overline{A}_i, \widetilde{\mathrm{max}}(\overline{A}_i,\overline{A}_j))}{d_H(\underline{A}_i,\underline{A}_j)+d_H(\overline{A}_i,\overline{A}_j)}
+\end{equation}
+%\begin{equation}
+%ant(A_i,A_j) = K_2(A_i,A_j)=\frac{d_H(\underline{A}_i, \widetilde{\mathrm{max}}(\underline{A}_i,\underline{A}_j)) + d_H(\overline{A}_i, \widetilde{\mathrm{max}}(\overline{A}_i,\overline{A}_j))+d_H(A_i\cap A_j, \emptyset)}{d_H(\underline{A}_i,\underline{A}_j)+d_H(\overline{A}_i,\overline{A}_j)+2d_H(A_i\cap A_j, \emptyset)}
+%\end{equation}
+où $d_H$ est la distance de Hamming entre deux sous-ensembles flous défini par~:
+\begin{equation}
+d_H(A,B) = \int_\mathbb{R} |\mu_A(x) - \mu_B(x)|dx
+\end{equation}
+
+\myparagraph{Cas d'exemple~: temps valides des sources parisiennes}
+La figure~\ref{figure:exemple_rank_plans} présente pour illustration de la méthode de tri et de la mesure d'antécédence leur application aux temps valides des sources géohistoriques sur Paris. 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{appli_rank_plans.png} 
+	\caption{Application des méthodes de comparaison de temps flous aux temporalités des sources parisiennes.}
+\label{figure:exemple_rank_plans}
+\end{figure}
+
+\newpage
+\section{Conclusion}
+Dans ce chapitre, nous avons introduit un schéma conceptuel général décrivant les relations entre les traces d'entités géohistoriques percues au sein de sources géohistoriques et retranscrites sous la forme d'observations au sein de \emph{snapshots} localisés dans le temps. 
+\subparagraph{}
+
+Nous avons spécialisé ce schéma pour le cas particulier de sources cartographiques vectorisées. Cette implémentation s'appuie sur les standards actuels de représentation de l'information géographique et permet en outre une représentation incertaine des temps valides des observations et des sources cartographiques par le biais de sous-ensembles flous.
+\subparagraph{}
+
+Enfin, nous avons réalisé un benchmark des méthodes de comparaison et de tri d'ensembles flous proposés dans la littératude scientifique afin de sélectionner une méthode d'ordonnancement et une mesure d'antécédence adaptées au cas de sous-ensembles flous représentant des temporalités incertaines. Ces deux méthodes seront mises à profit lors de la reconstitution des transformations entre observations.
+\subparagraph{}
+Nous disposons désormais d'un ensemble de \emph{snapshots} vecteurs  décrivant l'espace urbain à différentes temporalités. Il nous faut maintenant nous doter d'une structure permettant de décrire des transformations entre les observations peuplant ces \emph{snapshots}.

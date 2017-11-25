@@ -1,0 +1,1324 @@
+\chapter{Un graphe pour modéliser les transformations de l'espace}
+\label{chap:grapheST}
+
+\renewcommand{\labelitemi}{\tiny$\blacksquare$}
+\large \begin{mybox} \normalsize
+\textbf{Objectifs~:} 
+\vspace{11pt}
+\begin{itemize}
+\item  Adapter un modèle de graphe spatio-temporel de la littérature au cas de l'information géohistorique afin de modéliser les relations de filiation entre les observations stockées dans la base de données spatiale et temporelle et permettre d'analyser les transformations de l'espace que ces relations traduisent.
+\end{itemize}
+\end{mybox}
+\renewcommand\labelitemi{\textbullet}% bullet
+\newpage
+\minitoc
+\newpage
+
+
+
+Nous disposons maintenant d'une base de données spatiale et temporelle permettant de stocker un ensemble d'observations géohistoriques représentées par des \emph{features} vectorielles, structurées par sources géohistoriques et localisées dans le temps de façon imprécise. Cette base de données ne modélise toutefois pas les transformations de ces observations au cours du temps. De plus, pour qu'il soit possible d'analyser ces transformations, nous devons disposer d'un ensemble d'outils permettant d'effectuer des requêtes sur ces transformations. Nous devons donc passer d'un modèle de données spatiales et temporelles à  un modèle véritablement spatio-temporel. L'objectif de ce chapitre est donc de proposer une approche permettant de modéliser et de manipuler les transformations entre observations.
+\\
+Pour atteindre cet objectif, nous nous appuyons sur un modèle de graphe spatio-temporel proposé par~\cite{DelMondo2011}. La présentation de ce modèle occupe la section~\ref{section:modeledelmondo}. Nous proposons par la suite en section~\ref{section:adaptations_graphe_st} une adaptation de ce modèle au cas particulier des observations géohistoriques. Cette adaptation, nommée \textbf{graphe géohistorique}, permet de modéliser des observations structurées par sources et dont le temps valide est imprécis. Enfin, nous proposons une modélisation formelle d'un ensemble de processus spatio-temporels pertinents pour l'analyse des transformations de l'espace urbain pouvant être inférés depuis un graphe géohistorique. 
+
+%\section{État de l'art de la modélisation spatio-temporelle}
+%\subsection{Concepts spatio-temporels}
+%\subsubsection{États, événements, processus}
+%\subsubsection{Transformations de l'espace}
+%\subsubsection{histoire et ligne de vie}
+
+
+%\subsection{Modèles classiques à états et événements}
+%\subsection{Modèles de graphes}
+%\paragraph{Représentation graphiques en graphes}
+%\paragraph{Modèles formels et bases de données en graphes}
+
+
+%\myparagraph{Introduction (position temporaire)}
+
+
+\section{Modèle de graphe spatio-temporel de Del Mondo}
+\label{section:modeledelmondo}
+Dans cette section, nous présentons les éléments du modèle de graphe spatio-temporel de \cite{DelMondo2011} sur lesquels nous nous appuyons pour construire notre modèle de graphe adapté pour la représentation des transformations entre observations géohistoriques.
+\\
+Le modèle de graphe spatio-temporel est une structure abstraite permettant de  représenter les évolutions d'\emph{entités} localisées dans le temps. Dans ce but, Del Mondo introduit tout d'abord un ensemble d'axiomes permettant d'identifier différents types de relations entre entités  nécessaires à la description d'un modèle spatio-temporel. Sont également introduites un ensemble d'opérations ensemblistes permettant de manipuler un graphe spatio-temporel et de fonctions permettant de le parcourir.
+\\
+Le modèle de graphe spatio-temporel est ensuite instancié au sein d'une base de données relationnelle. La base de données spatio-temporelle qui en résulte, nommée \emph{modèle de données} par son auteur, permet de matérialiser un ensemble d'entités représentées selon le modèle de graphe spatio-temporel. Enfin, deux ensembles de contraintes sont définis sur cette base de données afin d'en assurer la cohérence. Le premier ensemble de contraintes impose certains choix de conception sur les entités stockées. Les autres contraintes sont propres au type de phénomène représenté dans la base de données et permettent de contraindre les types de transformations entre entités que la base peut représenter.
+\\
+Nous présentons ici les aspects principaux du modèle de graphe spatio-temporel général ainsi que la modélisation de celui-ci et des contraintes qui l'accompagnent au sein d'une base de données relationnelle. Certains aspects du modèle, en particulier les fonctions de jointure entre graphes, ne sont pas abordées. Nous réutilisons les notations d'origines autant que faire se peut.
+%Le modèle de graphe spatio-temporel s'appuie sur un ensemble réduit de fonctions fournissant un socle pour la représentation et la manipulation d'entités en évolution. En particulier, elles lient ces entités au temps pour former le \emph{dynamic set}, socle du modèle représentant un ensemble d'entités évoluant sur une ligne temporelle. Nos donnons ici les fonctions principales du modèle ainsi que les domaines de valeurs sur lesquels elles sont définies. Outre le domaine temporel, les entités, vues comme des objets géographiques, sont vu comme l'assemblage de composantes spatiales, attributaires et identitaires. Notons que nous présentons ici une version simplifiée du modèle, n'ayant conservé que les domaines nécessaires dans notre cas.
+%L'auteur établit une distinction entre le modèle de graphe spatio-temporel, générique, et son instanciation au sein d'une base de données, nommé modèle de données du graphe.
+
+\subsection{Notions préalables~: entité, identité et filiation}
+\myparagraph{Entité}
+L'entité est l'élément de base du modèle de graphe spatio-temporel. Une entité est un objet générique, possédant une étendue spatiale et localisé temporellement. Il faut toutefois distinguer l'entité du modèle d'un objet géographique ou d'une entité du monde réel. Il s'agit en effet d'une entité au sens des bases de données, c'est-à-dire un objet stocké dans une base de données et représenté par un ensemble d'attributs. Ici, l'entité désigne une représentation d'un état d'une entité du monde réel enregistré à un instant précis. Si l'entité du monde réel persiste pendant une certaine durée, plusieurs entités du modèle spatio-temporel peuvent la représenter\footnote{Dans la taxonomie des dynamiques de l'espace de~\citep{Grenon2004}, il peut s'agir tout autant d'entités \emph{SPAN}, que \emph{SNAP}, aussi appelées perdurantes et endurantes~\citep[p.32]{Sanders2014}. Il peut en effet s'agir de la représentation d'une entité n'ayant pas de composante temporelle et donc restant ''statique'' dans le temps, ou bien d'une entité perdurante représentée pendant une période de stabilité.}. Toute entité du graphe spatio-temporel possède une identité. Une entité est finalement dans le modèle spatio-temporel un objet formé d'un ensemble d'attributs et d'une identité, correspondant à l'état d'une entité du monde réel à un instant donné. L'entité du modèle de Del Mondo est donc celle des bases de données, à différencier de l'entité du monde réel au sens  géographique du terme. Dans ce chapitre, le terme d'\emph{entité} seul désignera toujours les objets manipulés par le graphe. Nous nommerons explicitement \emph{entité du monde réel} les objets du monde réel dont une ou plusieurs représentations sont stockées dans le graphe.
+
+\myparagraph{Identité}
+L'identité est un concept fondamental de toute approche traitant d'entités (au sens large, voir \citep[pp.20--21]{Sanders2014}) localisées dans le temps, évoluant et se transformant. L'identité d'une entité est \textbf{une caractéristique qui distingue l'entité de toutes les autres}\citep{Egenhofer2000}. L'identité est en général difficile à définir et est très dépendante de la nature de l'entité concernée. Dans le modèle de graphe spatio-temporel de Del Mondo, l'identité des entités est considérée comme connue a priori.
+
+\myparagraph{Filiation}
+Des entités sont affiliées lorsque leurs identités sont liées. Les entités du graphe pouvant représenter plusieurs états successifs d'une même entité du monde réel, il peut exister plusieurs entités du graphe avec la même identité mais représentant une entité du monde réel existant à des instants différents. Dans ce cas, il y a égalité entre les identités de ces différentes entités. Une autre catégorie de filiation concerne la généalogie, et exprime le fait qu'une entité est le ''parent'' ou ''l'enfant'' d'une autre. Cette relation dépend également de l'identité, et donc d'un certain point de vue. Par exemple, on peut considérer que l'actuel musée d'Orsay ''descend'' de l'ancienne gare de l'ouest si l'identité porte sur la structure du bâti. Il n'y a en revanche pas de filiation si l'identité concerne la fonction du bâti (gare et musée ne sont à priori pas des concepts sémantiquement proches).
+
+\subsection{Notations préalables}
+Le modèle de graphe spatio-temporel s'appuie sur la notion de \emph{Dynamic Set} introduite par~\cite{Stell2003}. Un~\emph{Dynamic Set} $X:T \rightarrow Rel$ décrit un ensemble de \textbf{relations} $Rel$ pouvant exister au sein d'un \textbf{ensemble d'entités} $\sigma$ localisées temporellement grâce à un \textbf{domaine temporel} $(T,\leq)$. Un \emph{Dynamic Set} décrit donc les relations entre des entités évoluant dans le temps. Il s'appuie en particulier sur une \textbf{relation support} générique représentant les relations pouvant exister entre entités localisées dans le temps. Nous précisons dans les paragraphes ci-dessous le domaine temporel, la relation support et deux fonctions définies sur un \emph{Dynamic Set} permettant de manipuler des entités localisées temporellement. Enfin, nous introduisons une fonction d'\textbf{identification d'une entité}, décrivant l'identité d'une entité, qui ne provient pas du modèle de Del Mondo mais nous permet d'écrire plus simplement certaines relations particulières dans la suite de ce document.
+
+% En plus de ces 4 éléments, le graphe spatio-temporel s'appuie sur un regroupement des entités en \textbf{\emph{snapshots} spatio-temporels} et définit des \textbf{relations spatiales entre entités}. Ces différents éléments sont présentés plus en détails dans les paragraphes qui suivent.
+
+\myparagraph{Domaine Temporel $(T,\leq)$}
+Le domaine temporel $(T,\leq)$ est défini de manière similaire à celui présenté dans le chapitre 4 (voir \ref{section:chap4domainetemporel}). Le modèle s'appuie sur une définition linéaire du temps, discrétisé selon une granularité quelconque. L'ensemble fini des instants $T=\{t_0,...,t_n\}$, où $n\in \mathbb{N}$, est associé à un ordre partiel $\leq$ recréant la flèche du temps. Le modèle n'impose aucune restriction sur la modélisation des instants (points, dates, etc.). Deux propriétés particulières sont définies sur le domaine temporel~:
+\begin{itemize}
+\item[--] $T$ étant fini, il y a donc un instant initial $t_0$ et un instant final $t_n$. Leur valeur dépend de l'application.
+\item[--] $\leq$ est un ordre discret~: deux instants $t_i$ et $t_j$ sont consécutifs si $j=i+1$.
+\end{itemize}
+
+\myparagraph{Relation support $X(t_i,t_j)$}
+Dans le \emph{Dynamic Set}, la relation support notée $X(t_i,t_j)$ définie pour tout couple d'instants $t_i,t_j$ tels que $t_i \leq t_j$ décrit toute relation pouvant être définie entre deux entités localisées temporellement. Il s'agit donc d'une relation générique à partir de laquelle on peut dériver des types de relations propres à un cadre applicatif. 
+
+\myparagraph{Localisation temporelle $f(a)=t$}
+La fonction $f : \sigma \rightarrow T$ décrit la localisation temporelle de chacune des entités du modèle. Elle permet de connaître l'instant d'existence \textbf{unique} de chacune de ces entités. L'entité du modèle de graphe spatio-temporel correspond donc à un instantané d'une entité du monde réel.
+
+\myparagraph{Snapshot spatio-temporel~$X(t) = \{a| f(a)=t\}$}
+\label{par:snapshotdelmondo}
+La fonction $X : T \rightarrow \sigma^k$ renvoie l'ensemble des $k$ entités existant à un instant $t$ donné. Cette fonction construit donc un snapshot au sens des modèles spatio-temporels éponymes, c'est-à-dire un ensemble d'entités décrivant un état de l'espace figé à un instant précis.
+
+\myparagraph{Identification d'une entité~$i(a)$}
+\label{par:identite}
+Toute entité $a \in \sigma$ possède une identité. Dans le modèle de graphe spatio-temporel, cette identité désigne un \textbf{ensemble de caractéristiques} qui distingue l'entité $a$ de toutes les autres entités \textbf{existant au même instant}.
+\\
+Plusieurs entités peuvent donc posséder la même identité si elles sont localisées à différents instants. Cela traduit le fait que l'entité du modèle n'est en réalité pas une représentation d'une entité du monde réelle évoluant dans le temps, mais un état de cette entité à un instant unique. Plusieurs états successifs de la même entité du monde réel aboutissent donc à l'existence de plusieurs entités ayant la même identité dans le graphe spatio-temporel.
+\\
+Nous introduisons ici une notation générale de l'identité qui nous est utile pour le reste de la présentation du modèle. 
+Sans le définir plus précisément, nous notons $\mathcal{I}$ l'ensemble des identités d'un ensemble d'entités $\sigma$. 
+\\
+Nous posons alors la \textbf{fonction d'identification d'une entité} $i: \sigma \rightarrow \mathcal{I}$ qui renvoie l'ensemble des caractéristiques définissant l'identité d'une entité.
+
+\subsection{Relations entre entités dans le modèle de graphe spatio-temporel}
+Dans le modèle de graphe spatio-temporel, la relation support générique $X(t_i,t_j)$ est spécialisée en un ensemble de relations $\rho$ pour représenter des \textbf{relations spatiales}, \textbf{spatio-temporelles} ou décrivant un lien de \textbf{filiation} entre entités. Ainsi, $\rho=\{\rho_s, \rho_{st}, \rho_f\}$ où $\rho_s$ désigne une relation spatiale, $\rho_{st}$ une relation spatio-temporelle et $\rho_f$ une relation de filiation.
+\\
+On note alors $a\mathrel{\mathsmaller{\rho}}b$ l'existence d'une relation entre deux entités $a$~et~$b$.
+\\
+Les sémantiques des trois types de relation définies pour tout couple d'entités $(a,b)$ tel que $f(a) \leq f(b)$ sont décrites ci-dessous. Chaque relation est accompagnée par une représentation graphique issue du modèle de graphe spatio-temporel et résume les contraintes sur l'existence de cette relation entre les deux entités $a $et $b$.
+
+\myparagraph{Relation spatiale~$a \mathrel{\mathsmaller{\rho_s}}b$}
+Il y a relation spatiale entre $a$ et $b$ lorsque les deux entités existent au même instant et qu'il y a \textbf{connexion spatiale} entre elles. Pour exprimer les différentes configurations de connexion spatiale possibles, Del Mondo s'appuie sur l'algèbre RCC8 (\emph{Region Connexion Calculus}) \cite{Randell1992} qui distingue sept cas de connexions possibles et un cas de déconnexion. Par exemple, la France et l'Allemagne sont deux pays connectés spatialement\footnote{Il s'agit de la relation EC \emph{externally connected} du RCC8.} car ils partagent une frontière commune. La connexion spatiale entre $a$ et $b$ étant également une relation, elle est notée $a\mathrel{\mathsmaller{s}}b$.
+\begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.22\textwidth]{rel_spat.png}
+\\
+$a \mathrel{\mathsmaller{\rho_s}} b \iff f(a) = f(b) \land a \mathrel{\mathsmaller{s}}b$
+\end{tabular}
+\end{figure}
+
+\myparagraph{Relation spatio-temporelle~$a\mathrel{\mathsmaller{\rho_{st}}}b$}
+Cette relation exprime l'évolution des relations spatiales entre deux entités. L'existence de l'entité $a$ précède donc celle de l'entité $b$. La relation spatiale est restreinte aux connexions spatiales. Or, une relation de connexion est souvent insuffisante pour décrire un processus spatio-temporel (le croisement de deux avions n'est par exemple pas régi par une relation de connexion spatiale). Comme l'auteur l'indique, rien n'interdit dans le modèle de considérer des types relations spatiales supplémentaires.
+\begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.22\textwidth]{rel_st.png}
+\\
+$a \mathrel{\mathsmaller{\rho_{st}}} b \iff f(a) < f(b) \land a\mathrel{\mathsmaller{s}} b$
+\end{tabular}
+\end{figure}
+
+
+\myparagraph{Relation de filiation~$a \text{ \small$\rho_f$ } b$ et spécialisations ($\delta, \gamma$) liées à l'identité}
+Il y a filiation si l'existence de l'entité $b$ dépend de l'existence de l'entité $a$, et que les deux entités ne coexistent pas. Dans le modèle, cela se traduit par le fait que l'identité de $b$ est liée à celle de $a$. 
+\\
+Deux cas peuvent alors se présenter~:
+\begin{itemize}
+\item[--] si une partie de l'identité de $b$ est héritée de celle de $a$, cela signifie qu'il existe une relation généalogique entre les deux entités (du type parent/enfant). Par exemple, la division d'une parcelle en deux peut être vue de cette façon~: les parcelles issues du découpage héritent d'une partie de l'identité de la parcelle d'origine (l'emprise spatiale notamment), mais ne sont pas pour autant des parcelles identiques à celle d'origine. Cette relation est nommée \textbf{dérivation} et est notée $a\mathrel{\mathsmaller{\delta}}b$,
+\item[--] si les identités de $a$ et $b$ sont identiques, cela signifie qu'il s'agit d'une même entité du monde réel. Celle-ci perdure pendant plusieurs instants, mais du fait de la modélisation du temps en instants elle se trouve représentée plusieurs fois. $a$ et $b$ entretiennent alors une relation de \textbf{continuation} notée $a\mathrel{\mathsmaller{\gamma}}b$.
+\end{itemize}
+\begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.22\textwidth]{rel_fil.png}
+\\
+$a \mathrel{\mathsmaller{\rho_f}} b \iff f(a) < f(b) \land i(a) = i(b) \lor i(b) \subseteq i(a)$
+\end{tabular}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\begin{tabular}{c c}
+\includegraphics[width=0.22\textwidth]{rel_deriv.png} &  \includegraphics[width=0.22\textwidth]{rel_cont.png}
+\\
+$a \mathrel{\mathsmaller{\delta}} b \iff f(a) < f(b) \land i(b) \subseteq i(a)$ & $a \mathrel{\mathsmaller{\gamma}}  b \iff f(a) < f(b) \land i(b)= i(a)$
+ \end{tabular}
+\end{figure}
+Finalement, la figure~\ref{figure:hierarchie_fil} résume l'ensemble des relations considérées dans le modèle de graphe spatio-temporel.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.3\textwidth]{tree_rel.png}
+\caption{Hiérarchie des relations considérées dans le modèle de graphe spatio-temporel.}
+\label{figure:hierarchie_fil}
+\end{figure}
+
+
+\myparagraph{Contraintes sur la transmission de l'identité}
+\label{par:transmission}
+La filiation de type continuation peut être vue comme un lien de transmission de l'identité. Or, dans le modèle, cette transmission fait l'objet de deux restrictions (voir la figure~\ref{figure:nopasaran})~:\begin{itemize}
+\item une entité $a$ doit être en relation de continuation avec au plus une autre entité. En effet, une telle possibilité poserait deux problèmes. D'une part, si $a$ est en relation de continuation avec $b$ et $c$ avec $f(b)=f(c)$, il y aurait alors $i(b)=i(c)$, ce qui est contraire à la définition de l'identité. D'autre part, ceci signifierait que la totalité de l'identité de $a$ est transférée à deux autres entités, situation non autorisée par le modèle. 
+\item s'il existe $a \mathrel{\mathsmaller{\gamma}} b$, alors $b$ ne peut être issue d'aucune autre entité. Le modèle considère en effet qu'un tel cas est incompatible avec l'idée de continuation. 
+\end{itemize}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.3\textwidth]{nopasaran.png}
+\caption{Situations interdites dans le graphe spatio-temporel. Figure d'après \cite{DelMondo2011}.}
+\label{figure:nopasaran}
+\end{figure}
+
+\subsection{Graphe spatio-temporel}
+\myparagraph{Définition}
+Les entités et les relations spatiales, spatio-temporelles et de filiation qui existent entre ces entités forment un graphe spatio-temporel $G_{ST} = (\sigma, E_{ST}, T)$, avec $E_{ST}= \{(a, b) | a\mathrel{\mathsmaller{\rho}}b\}$ et $a,b \in \sigma$. Ce graphe global peut être décomposé en trois sous-graphes~:
+\begin{enumerate}
+\item Un \textbf{sous-graphe spatial} $G_s = (\sigma, E_s, T)$ tel que $E_s = \{(a,b) | a \mathrel{\mathsmaller{\rho_s}} b \}$.
+\item Un \textbf{sous-graphe spatio-temporel} $G_{st} = (\sigma, E_{st}, T)$ tel que $E_{st} = \{(a,b) | a \mathrel{\mathsmaller{\rho_{st}}} b\}$.
+\item Un \textbf{sous-graphe de filation} $G_{f} = (\sigma, E_{f}, T)$ tel que $E_f = \{(a,b) | a \mathrel{\mathsmaller{\rho_f}}b\}$.
+\end{enumerate}
+Le graphe $G_{ST}$ s'écrit donc $(\sigma, E_s \bigcup E_{st} \bigcup E_{f}, T)$.
+\subparagraph{}
+Un exemple de graphe spatio-temporel est présenté en figure~\ref{figure:ex_graphe}. Il représente les transformations d'un ensemble de quelques parcelles cadastrales à Paris entre trois instants. Toutes les relations spatio-temporelles notées en rouge ne sont pas représentées pour des questions de lisibilité. En effet, toutes les relations de filiation devraient en réalité s'accompagner de relations spatio-temporelles, les parcelles successives étant superposés. L'identité des différentes parcelles cadastrales est connue a priori, ce qui permet d'inférer les relations de type ''continuation'' et ''dérivation''.
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{ex_graph.png} 
+	\caption{Un exemple de graphe spatio-temporel représentant les transformations de parcelles cadastrales à trois instants. Toutes les relations spatio-temporelles ne sont pas représentées.}
+\label{figure:ex_graphe}
+ \end{figure}
+ 
+%\myparagraph{Contrainte sur la succession temporelle des entités en relation}
+%Les relations spatio-temporelles et de filiation ont été définies entre deux entités localisées à des instants différents, mais non nécessairement successives. Autrement dit, une entité existant à $t_1$ peut être en relation de continuation avec une entité existant à $t_100$.
+%\\
+%Le modèle de graphe spatio-temporel proposé par Del Mondo impose des relations de \emph{snapshot} à \emph{snapshot}, c'est à dire entre instants successifs. Le 
+
+%Le modèle de graphe spatio-temporel impose quelques contraintes s'ajoutant aux deux préalablement définies pour la transmission de l'identité entre entités affiliées.
+
+%\myparagraph{Succession des entités liées}
+%\label{paragraph:succession}
+%Les relations du graphes spatio-temporelles ne s'expriment que pour des entités contenues dans des \emph{snapshots} successifs. Une relation spatio-temporelle ou de filiation entre deux entités temporalisées à $t_i$ et $t_j$ n'existe donc que s'il n'existe aucun $t_k$ tel que $t_i\leq t_k \leq t_j$
+
+\myparagraph{Fonctions de voisinage}
+Le modèle définit plusieurs fonctions de voisinage dans les sous-graphes formant $G_{ST}$ qui permettent de parcourir celui-ci. Le sens de ces fonctions dépend du sous-graphe de $G_{ST}$ sur lequel elles s'appliquent. Par exemple, une fonction de voisinage dans le sous-graphe de filiations $G_f$ décrit des relations de descendance et de succession. Cela revient donc à considérer les arêtes du graphe spatio-temporelle comme orientées.
+\\
+Tout comme les différentes relations du graphe qui sont des spécialisations de la relation générique $\rho$, les fonctions de voisinage ont une forme générale $\rho(a)^{+/-}, a \in \sigma$.
+\\
+ Les fonctions $\rho(a)^{+}$ et $\rho(a)^{-}$ renvoient respectivement les entités \textbf{succédant} et \textbf{précédant} $a$\footnote{$\rho(a)^{+}$ désigne donc les n\oe uds de $G_{ST}$ connectés à des arêtes sortantes de $a$ et $\rho(a)^{-}$ à des arêtes entrantes.}.\\
+Elles se trouvent définies pour tout couple d'entités $a,b \in \sigma$ par~:
+\begin{equation}
+\begin{split}
+\rho(a)^+ = \{b \in \sigma| a \text{ \small$\rho$ } b \}\\
+\rho(a)^- = \{b \in \sigma | b \text{ \small$\rho$ } a \}
+\end{split}
+\end{equation}
+Ces deux fonctions peuvent être appliquées de manière récursive pour extraire un voisinage à une distance $d \in \mathbb{N}$ donnée de $a$ dans le graphe.
+\begin{equation}
+\begin{split}
+\rho(a)^{+d} = \{b \in \sigma | a \text{ \small$\rho^d$ } b \}\\
+\rho(a)^{-d} = \{b \in \sigma | b \text{ \small$\rho^d$ } a \}
+\end{split}
+\end{equation}
+Où $\rho^d$ représente l'existence d'un chemin de longueur $d$ dans le graphe composé exclusivement d'arêtes d'un type parmi $\{\rho_s,\rho_{st},\rho_f\}$.
+\\
+Étant donné que $\rho(a)^+$  est un cas particulier de $\rho(a)^{+d}$ pour $d=1$, on ne précisera dans les prochaines définitions que le cas le plus général.
+
+\myparagraph{Voisinage spatial}
+Dans le domaine spatial, les notions de succession et de précédence perdent de leur sens. Cependant, les relations spatiales peuvent tout à fait être orientées; c'est notamment le cas de l'inclusion. Les fonctions de voisinage s'écrivent dans ce cas~:
+\begin{equation}
+\begin{split}
+\rho_s(a)^{+d} = \{b \in \sigma | a \text{ \small$\rho_s^d$ } b\} \\
+\rho_s(a)^{-d} = \{b \in \sigma | b \text{ \small$\rho_s^d$ } a\}
+\end{split}
+\end{equation}
+
+\myparagraph{Voisinage spatio-temporel}
+Lorsque le temps intervient, les entités succédant à une autre correspondent à ses \textbf{enfants}, tandis que celles la précédant sont ses \textbf{parents}.
+On écrit alors~:
+\begin{equation}
+\begin{split}
+\rho_{st}(a)^{+d} = \{b \in \sigma | a \text{ \small$\rho_{st}^d$ } b \}\\
+\rho_{st}(a)^{-d} = \{b \in \sigma | b \text{ \small$\rho_{st}^d$ } a \}
+\end{split}
+\end{equation}
+
+
+\myparagraph{Voisinage en filiations}
+De même que pour les relations spatio-temporelles, les relations de filiations permettent de naviguer dans l'histoire d'une entité. Cette fois, les entités lui succédant par des relations de filiation sont désignées comme ses \textbf{descendants}, et celles la précédant ses \textbf{ancêtres}.
+\begin{equation}
+\begin{split}
+\rho_{f}(a)^{+d} = \{b \in \sigma | a \text{ \small$\rho_{st}^d$ } b \}\\
+\rho_{f}(a)^{-d} = \{b \in \sigma | b \text{ \small$\rho_{st}^d$ } a \}
+\end{split}
+\end{equation}
+
+%\myparagraph{Routes}
+%Un des intérêts du graphe spatio-temporel réside dans la possibilité d'inférer des connaissances complexes sur l'évolution des entités qu'il contient par le parcours du graphe et l'analyse des chemins que l'on peut parcourir. Ces chemins, ou \textbf{routes spatio-temporelles}, peuvent être analysés entre deux entités  $a$ et $b$ au moyen d'une relation décrivant les routes partant de $a$ ou arrivant à $b$ et pouvant prendre les valeurs suivantes~:
+%\begin{itemize}
+%\item \emph{none} : aucune route passant par $a$ n'arrive à $b$,
+%\item \emph{some/some} : certaines routes passant par $a$ arrivent à $b$ et certaines routes arrivant à $b$ passent par $a$,
+%\item \emph{some/all} : certaines routes passant par $a$ arrivent à $b$ et toutes les routes arrivant à $b$ passent par $a$,
+%\item \emph{all/all} : toutes les routes passant par $a$ arrivent à $b$ et toutes les routes arrivant à $b$ passent par $a$,
+%\item \emph{all/some} : toutes les routes passant par $a$ arrivent à $b$ et certaines routes arrivant à $b$ passent par a.
+%\end{itemize}
+%On peut ainsi retrouver certains processus spatio-temporels. Par exemple, le processus de fusion des parcelles $b,c,d,e,f$ vers la parcelle $i$ qui apparaît dans la figure~\ref{figure:ex_graphe} peut être retrouvé par l'analyse des routes (ici, \emph{some/all} entre toute entité et $i$).
+
+\subsection{Instanciation du graphe spatio-temporel dans une base de données relationnelle}
+Le graphe spatio-temporel est une structure abstraite permettant d'inférer un certain nombre de connaissances sur l'évolution d'entités localisées dans l'espace et le temps grâce à un ensemble de fonctions prédéfinies. Pour que ces opérations soient possible, il est nécessaire de stocker les entités et d'instancier les différentes fonctions et prédicats constituant le modèle général dans une base de données. Dans la proposition de Del Mondo, le graphe spatio-temporel est instancié sous la forme d'un schéma de données relationnel décrivant l'organisation des entités stockées et nommé ''modèle de données''. Pour effectuer cette instanciation, certains éléments du modèle doivent être adaptés à un schéma relationnel. En particulier~:
+\begin{itemize}
+\item il faut disposer d'une définition de l'identité des entités stockées,
+\item les entités doivent respecter un certain nombre de contraintes d'intégrité afin qu'il soit possible d'extraire des connaissances sur leurs évolutions en utilisant les fonctions et prédicats définis dans le modèle de graphe spatio-temporel.
+\end{itemize}
+Les choix effectués pour répondre à ces deux contraintes sont rapidement présentés ici car ils conditionnent en partie l'adaptabilité du modèle de graphe spatio-temporel aux observations géohistoriques.
+\\
+Notons que dans les exemples donnés dans le reste de la présentation du modèle de Del Mondo, on ne considère dans un souci de simplicité d'écriture que des entités situées à des instants consécutifs. Ceci n'est cependant pas imposé par le modèle.
+
+\myparagraph{Représentation de l'identité}
+Pour inférer les relations présentées dans la section précédente, il faut disposer d'une représentation de l'identité des différentes entités stockées. Dans le modèle de données, les entités sont représentées par un prédicat $O(id, t, u_1, ...,u_n, g)$ où, sans entrer dans les détails~:
+\begin{itemize}
+\item $id$ est un attribut représentant l'identité,
+\item $t$ est l'instant d'existence de l'entité,
+\item $\{u_1,...u_n\}$ est un ensemble d'attributs quelconque dépendant de la nature de l'entité,
+\item $g$ est la composante spatiale de l'entité, représentée par sa géométrie.
+\end{itemize}
+Dans le modèle de données, l'identité est donc un attribut connu a priori pour chaque entité, ce qui permet directement d'extraire les relations de continuation. Par exemple, deux entités $O_1(i_1,t_1,\dots)$ et $O_2(i_1,t_2,\dots)$ se trouvent en relation de continuation, leurs identités étant égales et localisées à deux instants successifs.
+\\
+Il n'est cependant pas possible d'extraire les relations de dérivation. Dans leur cas, il est nécessaire de les représenter explicitement dans la base de données. Une relation de dérivation est exprimée par un prédicat $R(id_1,t_1,\delta, id_2, t_2)$ La figure~\ref{figure:ex_graphe_sel} présente un exemple de l'instanciation d'une partie du graphe illustré (pour les parcelles a,b,c,g et h) en figure~\ref{figure:ex_graphe}.
+\begin{figure}[ht]
+  \centering
+	  \begin{subfigure}[b]{0.5\textwidth}
+			\includegraphics[width=1\textwidth]{ex_graph_sel.png} 
+      \end{subfigure}%
+		~              
+      \begin{subfigure}[b]{0.45\textwidth}
+          \centering
+			\begin{tabular}{|cccc|}
+			\hline
+			\multicolumn{4}{|c|}{\emph{Parcelles}} \\
+			\hline
+			\emph{id} & $t$ & \emph{numero} & $g$ \\ \hline
+			a & $t_1$ & 66 & $g_1$ \\
+			b & $t_1$ & 64 & $g_2$ \\
+			c & $t_1$ & 62 & $g_3$ \\
+			g & $t_2$ & 66 & $g_4$ \\
+			h & $t_2$ & 64 & $g_5$ \\
+			c & $t_2$ & 62 & $g_3$ \\ \hline
+			\end{tabular}
+
+			\begin{tabular}{|ccccc|}
+			\hline
+			\multicolumn{5}{|c|}{\textbf{$R$}} \\
+			\hline
+			$id_1$ & $t$ & $\rho$ & $id_2$ & $t_2$ \\ \hline
+			a & $t_1$ & $\delta$ & g & $t_2$  \\
+			b & $t_1$ & $\delta$ & g & $t_2$  \\
+			a & $t_1$ & $\delta$ & h & $t_2$  \\
+			b & $t_1$ & $\delta$ & h & $t_2$ \\ \hline
+			\end{tabular}
+      \end{subfigure}%
+\caption{Exemple d'instanciation du modèle de graphe spatio-temporel (à gauche) en un schéma de base de données relationnel (à droite).}
+\label{figure:ex_graphe_sel}
+ \end{figure}
+
+\myparagraph{Contraintes d'intégrité sur la base de données spatio-temporelle}
+Pour qu'il soit possible d'inférer des connaissances sur les évolutions des entités stockées dans le modèle de données, il faut maintenir une base de données cohérente. Cette cohérence est assurée par un ensemble de contraintes d'intégrité posées sur la base de données. Ces contraintes sont de deux types~:
+\begin{itemize}
+\item des contraintes d'intégrité propres au modèle,
+\item des contraintes propres à un cas d'application, c'est-à-dire des contraintes métier.
+\end{itemize}
+Les premières sont les traductions des contraintes posées dans la partie générique, en particulier sur les relations de dérivation et de continuation. Les contraintes concernant la transmission de l'identité (voir le paragraphe~\ref{par:transmission}) sont transférées dans le modèle de données.
+\\
+Une contrainte particulière est posée sur l'identité, en plus de la succession temporelle définie par la relation de filiation~: \textbf{si deux entités ont la même identité, leurs attributs et leur géométries sont identiques}.
+\\
+Enfin, des contraintes propres au type de phénomène représenté par le modèle de données peuvent être ajoutées. Ces contraintes, nommées \textbf{contraintes sémantiques} correspondent à des processus spatio-temporels et permettent de contrôler les types d'évolutions entre entités que le modèle peut représenter. Del Mondo propose ainsi une modélisation sous forme de contrainte des processus de division, séparation, fusion et annexion que l'on retrouve dans~\cite{Claramunt1995} et~\cite{Galton2004}. Par exemple, la contrainte sémantique relative à la fusion de deux entités s'écrit (cf. figure~\ref{figure:delmondofusion})~:
+\begin{equation}
+\begin{gathered}
+\forall (O_1(id_1,t_1,...,g_1) \land O_2(id_2,t_2,...,g_2) \land O_3(id_3,t_3,...,g_3 ) \\
+\land R(id_1, t_1, \delta, id_3, t_3) \land R(id_2, t_2, \delta, id_3, t_3) \rightarrow g_3= g_1 \bigcup g_2
+\end{gathered}
+\end{equation}
+où $g1 \bigcup g2$ désigne l'union géométrique et $g= g'$ l'égalité entre deux géométries (forme, localisation).
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.3\textwidth]{ex_fusion.png} 
+	\caption{Contrainte sémantique décrivant une fusion.}
+\label{figure:delmondofusion}
+ \end{figure}
+ 
+\myparagraph{Conclusion sur le modèle de graphe spatio-temporel et son instanciation}
+Les divers prédicats du modèle que nous avons présentés permettent donc de construire un graphe spatio-temporel à partir d'une base de données relationnelle respectant un schéma et un certain nombre de contraintes d'intégrité. Les relations définies sur les routes du graphe offrent des outils intéressants pour analyser le graphe que l'on peut extraire d'une telle base de données. Un tel modèle est particulièrement adapté pour la représentation des transformations de l'espace et reste compatible avec l'organisation en \emph{snapshots} spatio-temporels que nous avons proposée dans le chapitre 4. Notre objectif est donc de construire une base de données à partir de laquelle un graphe spatio-temporel puisse être extrait.
+\\
+Dans notre cas, les entités sont des observations géohistoriques instanciées sous la forme de features et organisées par source géohistorique. Les observations présentent des particularités que les entités du graphe n'ont pas, et pour cette raison il est nécessaire d'adapter le modèle de graphe spatio-temporel au cas des observations géohistoriques. Cette adaptation est l'objet de la section suivante.
+
+
+\section{Adaptation du graphe spatio-temporel aux observations géohistoriques}
+\label{section:adaptations_graphe_st}
+Les observations géohistoriques sont compatibles avec la notion d'entité utilisée dans le modèle de graphe spatio-temporel puisqu'il s'agit de traces d'objets géographiques localisées dans le temps.
+Trois différences fondamentales existent cependant~:
+\begin{itemize}
+\item les observations géohistoriques sont localisées de manière imprécise dans le temps et sont valides pendant des périodes et non des instants,
+\item les observations sont organisées au sein de sources séparées~: il n'y a pas de représentation unique de l'espace qui regrouperait toutes les observations,
+\item l'identité des observations n'est pas connue par avance (sans prétraitement manuel important tout du moins).
+\end{itemize}
+Ces différences ont chacune des conséquences sur l'intégration des observations dans le graphe de Del Mondo. En particulier~:
+\begin{itemize}
+\item les temps valides étant des périodes floues, l'utilisation du  \emph{Dynamic Set} dans le modèle de graphe n'est pas compatible avec les observations géohistoriques,
+\item sans identité, l'identification des filiations est impossible. On ne peut donc pas extraire de graphe spatio-temporel facilement à partir des observations.
+\end{itemize}
+Pour cette raison, nous présentons dans cette section les adaptations nécessaires pour qu'il soit possible d'extraire un graphe spatio-temporel à partir d'un ensemble d'observations stockées dans une base de données spatiale et temporelle. L'identification des filiations entre les observations de cette base de données est un verrou majeur qui sera, quant à lui, abordé dans le chapitre 6. Dans ce chapitre, nous restons à un niveau abstrait où l'identité peut être utilisée sans être définie précisément. Afin de distinguer le modèle proposé par \cite{DelMondo2011} de nos adaptations, nous regroupons celles-ci sous le nom de \textbf{graphe géohistorique}.
+\\
+Enfin, notre objectif est de disposer d'un graphe géohistorique à partir duquel peuvent être extraits un certain nombre de processus de transformation propres à l'espace urbain. Nous introduisons donc ici également ces processus et les règles associées qui permettent de les détecter dans un graphe géohistorique existant.
+
+
+\subsection{Redéfinitions et nouvelles notations de base}
+Pour conserver le lien avec le modèle d'origine et faciliter la lecture, nous conservons autant que possible les mêmes notations. Dès lors, toutes les notations communes renverront à leur interprétation pour le graphe géohistorique\footnote{Sauf cas particuliers systématiquement précisés.}. Nous conservons ainsi l'ensemble $\sigma$ qui désigne cette fois l'ensemble des observations géohistoriques. 
+%Nous introduisons également une visant à identifier la nature d'une relation de filiation entre deux observations. Cette fonction est toutefois posée ici de façon très générale dans le but de faciliter la définition des relations entre observations. Elle est abordée en détails dans le chapitre 6.
+
+\myparagraph{\emph{Dynamic Set} pour le cas géohistorique}
+Le~\emph{Dynamic Set} est maintenant $X: \mathcal{T} \rightarrow Rel$ et décrit un ensemble de relations entre des observations géohistoriques valides pendant des périodes mal connues décrites dans un \textbf{domaine temporel flou} $\mathcal{T}$. Ces observations géohistoriques sont organisées selon les \textbf{sources géohistoriques} desquelles elles proviennent, ces sources possédant aussi un temps valide. La relation support possède toujours la même sémantique mais porte maintenant sur des temporalités floues. La fonction de \textbf{localisation temporelle} s'applique elle aussi sur des temps flous et doit être déclinée pour les sources géohistoriques.
+
+\myparagraph{Domaine temporel flou $\mathcal{T}$}
+Dans notre cas, la primitive temporelle n'est plus l'instant mais l'intervalle. En conséquence, le domaine temporel devient $(\mathcal{T}, \leq)$. $\mathcal{T}$ est l'ensemble des temporalités valides des observations constituant $\sigma$. De la même façon que $t$ désignait un instant dans le domaine temporel, on note $\widetilde{t}$ une temporalité valide\footnote{$\widetilde{t}$ est un sous-ensemble flou de $T$, associé à une fonction d'appartenance $\mu_{\widetilde{t}}$. Dans un souci de lisibilité, lorsque l'on donnera un temps flou, seul le sous-ensemble sera précisé. Leurs fonctions d'appartenance peuvent être déduites directement du sous-ensemble puisqu'il ne s'agit que de nombres et d'intervalles convexes dont les fonctions L et R sont linéaires.}. De plus, comme pour $T$, le domaine temporel flou doit être défini à une certaine granularité. Enfin, $\leq$ est un ordre partiel.
+
+\myparagraph{Ensemble des sources géohistoriques $S$}
+En plus des observations, nous traitons de sources géohistoriques. Nous ajoutons en plus de $\sigma$ l'ensemble $S$ des sources géohistoriques.
+
+\myparagraph{Source d'une observation géohistorique~$s$}
+Dans le cas des observations géohistoriques, le sens d'un snapshot diffère de celui du modèle de graphe spatio-temporel. Dans ce dernier, il s'agit de l'ensemble des entités existant à un instant donné (voir le paragraphe \ref{par:snapshotdelmondo}). Dans notre cas, un \emph{Snapshot} contient des observations qui se trouvent représentées dans une source. Le \emph{Snapshot} n'est qu'un conteneur d'observations, la dépendance véritablement importante se trouvant entre l'observation et sa source géohistorique. Nous introduisons une nouvelle fonction $s : \sigma \rightarrow  S$ qui renvoie la source géohistorique de laquelle provient une observation.
+
+\myparagraph{Localisations temporelles $F$ et $f$}
+La fonction de localisation temporelle doit être également redéfinie. En effet, observations et sources ne sont plus reliées à un instant unique. On introduit $F : S \rightarrow \mathcal{T}$ qui renvoie le temps valide d'une source géohistorique, et $f : \sigma \rightarrow \mathcal{T}$ devient une fonction renvoyant le temps valide d'une observation géohistorique.
+
+
+\myparagraph{Identification d'une observation~$i$}
+\label{par:pseudo-identity}
+La fonction d'identification d'une entité a été définie de façon suffisamment générale pour qu'elle s'applique également aux observations géohistoriques. Cependant, la sémantique de l'identité change~: \textbf{l'identité d'une observation géohistorique $a \in \sigma$ est un ensemble de caractéristiques qui la distinguent de toutes les autres observations présentes au sein de la même source géohistorique}. Contrairement aux entités du graphe spatio-temporel, plusieurs observations de même identité peuvent être valides au même instant ou à la même période dès lors qu'elles proviennent de sources différentes. En revanche, deux observations avec la même identité ne peuvent cohabiter au sein d'une même source, même si ces observations ont des temps valides différents\footnote{Cette décision peut être discutable~: on peut imaginer en effet une source décrivant plusieurs états d'une même entité du monde réel. Cependant, nous avons considéré jusqu'ici que les sources -les plans plus particulièrement- sont des vues de l'espace urbain et contiennent donc un seul état de cet espace. Certains plans présentant par exemple les projets d'alignement superposées aux rues doivent être traités comme deux versions du plan.}
+
+
+
+\subsection{Relations entre observations}
+\label{subsection:const_relations}
+Certaines composantes de \emph{Dynamic Set} ayant été modifiées, notamment l'identité et le domaine temporel, les relations $\rho=\{\rho_s,\rho_{st},\rho_f\}$ doivent être redéfinies.
+
+\myparagraph{Relation spatiale~$a \mathrel{\mathsmaller{\rho_s}} b$ }
+Nous conservons ici la même relation de connexion spatiale $s$ que pour le graphe spatio-temporel, c'est-à-dire limitée aux relations de connexion spatiale. 
+\\
+Une relation spatiale entre deux observations $a$ et $b$ prises dans $\sigma$ peut exister si elles sont en connexion spatiale, si elles peuvent avoir été effectuées au même moment et si elles proviennent de la même source géohistorique.
+
+\begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.22\textwidth]{rel_spat.png}
+\\
+$a \mathrel{\mathsmaller{\rho_s}} b \iff \underbrace{f(a) \bigcap f(b) \neq \emptyset}_\text{observation conjointe} \land \underbrace{s(a)=s(b)}_\text{source commune}\land \underbrace{a \mathrel{\mathsmaller{s}}b}_\text{connexion spatiale}$
+\end{tabular}
+\end{figure}
+
+\myparagraph{Relation spatio-temporelle~$a \mathrel{\mathsmaller{\rho_{st}}} b$ }
+La relation spatio-temporelle garde essentiellement la même forme, mais il ne peut y avoir de relation spatio-temporelle au sein d'une même source. De plus, il peut y avoir une telle relation dès que $a$ est antécédent à $b$ ($ant(a,b) >$0, cf. chapitre 4) Pour deux observations $a,b \in  \sigma$~:
+\begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.22\textwidth]{rel_st.png}
+\\
+$a \mathrel{\mathsmaller{\rho_{st}}} b \iff \underbrace{a \mathrel{\mathsmaller{s}}b}_\text{connexion spatiale} \land  \underbrace{ant(a,b)>0}_\text{$a$ peut être observée avant $b$} \land \underbrace{s(a)\neq s(b)}_\text{sources différentes} $
+\end{tabular}
+\end{figure}
+
+
+\myparagraph{Relation de filiation~$a \mathrel{\mathsmaller{\rho_f}} b$ }
+La filiation entre observations possède le même sens que dans le cas d'entités du graphe spatio-temporel. Deux observations $a$ et $b$ sont en relation de filiation si $a$ transmet une partie de son identité à $b$ ou si leurs identités sont égales. Cette relation ne peut toutefois exister qu'entre sources géohistoriques différentes et si $b$ peut être observée après $a$. Comme nous restons dans le cas général, les opérateurs $=$ et $\subseteq$ sur les identités sont considérés valides.
+\\
+On a alors~:
+\begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.22\textwidth]{rel_fil.png}
+\\
+$a \mathrel{\mathsmaller{\rho_f}} b \iff \underbrace{ant(a,b)>0}_\text{$a$ peut être observée avant $b$} \land \underbrace{s(a)\neq s(b)}_\text{sources différentes} \land \underbrace{i(a) = i(b) \lor i(a) \subseteq i(b)}_\text{identitées liées}$
+\end{tabular}
+\end{figure}
+Les relations de dérivation et de continuation peuvent être dérivées directement de la relation de filiation~: on a alors ($i(a) = i(b)$ pour une continuation et $i(a) \subseteq i(b)$ pour une dérivation.
+
+
+\subsection{Spécificités des relations entre observations}
+Dans cette section, nous présentons les spécificités des observations géohistoriques qui nécessitent de relâcher certaines contraintes du graphe spatio-temporel ou d'introduire de nouveaux mécanismes. Nous redéfinissons également quelques concepts existants avec le graphe spatio-temporel mais ayant une sémantique particulière dans notre cas.
+
+\myparagraph{Sauts temporels}
+\label{par:timejump}
+Les sources géohistoriques sont une vue filtrée, abstraite et déformée d'un état de l'espace urbain. Dans le cas des sources cartographiques, tous les constituants de cet espace ne sont pas représentés en raison de l'objectif de la carte, des choix de légende, de son échelle et des choix de généralisation cartographique. Pour ces différentes raisons, il peut arriver qu'une source cartographique ne présente aucune trace d'une entité du monde réel qui se trouve pourtant renseignée par une source antérieure et une autre postérieure. Il peut donc exister des ''trous'' dans la suite de traces d'une même entité du monde réel. Sur les rues de Paris, c'est le cas pour de nombreuses impasses ou petites rues (passages,etc.), qui ne figurent pas sur certains plans en raison de leur trop faible importance par rapport au niveau de détail de la carte.
+\\
+Le modèle de graphe spatio-temporel offre la possibilité d'extraire des relations de filiation et des relations spatio-temporelles entre des entités existant à des instants successifs mais non consécutifs. Dans notre cas, ceci se transpose dans la possibilité d'identifier de telles relations entre des sources non nécessairement consécutives dans le temps.
+
+\myparagraph{Sens rétro-temporel local}
+\label{par:retrotemp}
+Le graphe spatio-temporel est un graphe orienté suivant la flèche du temps. Or, l'utilisation de temps valides flous et par périodes pour les observations géohistoriques crée des chevauchements entre temps valides. Ces recouvrements correspondent à des périodes pendant lesquelles plusieurs observations peuvent être valides sans qu'il soit possible de les ordonner simplement dans le temps. Ceci est directement lié à la nature même des observations qui saisissent pendant une période mal connue l'état d'une entité du monde réel \footnote{Rappelons le, le temps valide d'une observation est en réalité une période pendant laquelle il est \textbf{possible} que la trace de l'entité du monde réel ait été enregistrée dans une source.}. Finalement, un chevauchement temporel entre deux observations $a$ et $b$ affiliées traduit le fait que pendant une certaine durée il est impossible de savoir si l'entité du monde réel correspondant à $a$ a été observée avant celle correspondant à $b$ ou l'inverse. Dans notre modèle, ceci signifie que l'antécédence temporelle n'est plus stricte avec $ant(a,b)>0$ et $ant(b,a)>0$. Les temps valides des observations et des sources étant flous, la détermination du sens temporel de $a$ et $b$ peut être complexe. Il est également possible qu'entre deux sources $s_1, s_2 \in S$ se chevauchant, certaines observations de $s_1$  précèdent celles de $s_2$ et que l'inverse se produise dans d'autres parties des sources.
+\\
+Prenons par exemple le cas des deux observations $a$ et $b$ et de leur temps valides $\widetilde{t}_1$ et $\widetilde{t}_2$ illustrés dans la figure \ref{fig:sens_relation}. Leurs fonctions d'appartenances sont respectivement $\widetilde{t}_1 = (9,10,20,21)$ et $\widetilde{t}_2 = (13,15,40,42)$. Dans l'intervalle $[9,13]$, seule $a$ peut être observée. Entre $t=13$ et $t=21$, les deux observations peuvent être faites. Enfin, entre $t=21$ et $t=42$, seule $b$ peut être observée.
+\\
+Dans l'intervalle $[13,21]$, rien ne permet de savoir, sans connaissance supplémentaire, quelle observation a été faite en premier~: il est possible que $a$ précède $b$ tout comme l'inverse. On a ainsi $ant(a,b) > 0 $ et $ant(b,a) >0$ qui traduisent cette situation. Il est donc possible qu'entre $a$ et $b$, le sens des relations soient $b \mathrel{\mathsmaller{\rho_f}} a$. Les deux ordres décrits dans la figure sont donc valides, la relation entre $b$ et $a$ dans l'ordre 2 est dans le \textbf{sens rétro-temporel}.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{antitemporel.png} 
+	\caption{Sens rétro-temporel ~: deux ordre possibles}
+	\label{fig:sens_relation}
+ \end{figure}
+\\
+Puisqu'il n'y a pas d'ordre total dans le cas des temps valides flous, nous devons relâcher toutes les contraintes fixant une succession entre instants dans le graphe spatio-temporel (déjà visible dans la définition des relations). Ce sens est appelé \textbf{local} car nous considérons qu'il peut s'appliquer uniquement à quelques relations entre deux sources, et non pas forcément aux deux sources entières\footnote{On pourrait aussi considérer que l'ordre temporel joue au niveau des sources uniquement. Ainsi, le sens rétro-temporel s'applique à toutes les observations liées de ces deux sources. Toutefois, rester au niveau des observations permet de conserver un plus grand niveau de généricité. De plus, le fait de rester au niveau des observations permet de prendre en compte l'hétérogénéité des périodes de levé des plans, où certaines parties peuvent être dans le sens de la flèche du temps, et d'autres inversées. Ce cas se présente en particulier lorsque les sources sont créées aux même périodes et que l'espace sous-jacent se transforme rapidement.}.
+
+
+\myparagraph{Continuations multiples~: le cas des sources à différents niveaux de détail}
+Les sources étant pour nous des cartes, elles peuvent se présenter sous diverses formes et en particulier, à des échelles et des niveaux de détails différents.
+Prenons le cas d'une parcelle cadastrale représentée dans trois sources géohistoriques $s_1,s_2,s_3$, illustré en figure \ref{figure:ex_multicont}. La première source présente une parcelle $a$, représentée également dans la seconde source ($a'$ et $a''$) mais cette fois à un niveau de détail plus élevé qui fait apparaître une petite voie traversante. Enfin, la dernière source montre que deux parties de $a''$ lui ont été retirées pour former deux nouvelles parcelles $b$ et $c$.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{ex_multicont.png} 
+	\caption{Exemple de sources décrivant des observations à différents niveaux de détail.}
+\label{figure:ex_multicont}
+ \end{figure}
+
+L'observation $a$ est exactement la même dans $s_1$ et $s_2$, puis perd deux portions de sa surface dans la sources $s_3$. Le graphe géohistorique résultant devrait donc être celui visible en figure~\ref{figure:graphe_invalide}. Or, toute la partie entourée en rouge est invalide dans le modèle de graphe géohistorique actuel. En effet, il viole les contraintes sur la transmission de l'identité (voir le paragraphe \ref{par:transmission}). En résultent deux observations de même identité dans une sources commune, ce qui est interdit par le graphe géohistorique. De plus, la suite des transformations est incohérente~:  $a'$ continue dans $s_3$ tandis que $a''$ est divisée.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.35\textwidth]{invalid_graph.png} 
+	\caption{Graphe géohistorique invalide résultant d'une différence de niveau de détail.}
+\label{figure:graphe_invalide}
+ \end{figure}
+La question du niveau de détail a été abordé par \cite{DelMondo2011} qui propose deux solutions~: utiliser des opérateurs d'amalgamation ou faire évoluer le graphe spatio-temporel vers un bigraphe (voir \cite{Stell2011} et \cite{Milner2008} de plus amples détails sur les bigraphes). L'utilisation de bigraphes pose un problème dans notre cas~: nous ne connaissons pas par avance ni les différents niveaux d'abstraction des sources ni les règles de passage d'un niveau à l'autre. Autrement dit, nous sommes dans une situation où l'on cherche plutôt à découvrir ces niveaux de détail et non les modéliser.
+\\
+Si l'on considère que le cas de figure illustré en figure \ref{figure:ex_multicont} se présente uniquement dans le cas de niveaux de détails hétérogènes, on peut amalgamer les observations $a',a''$ de la source $s_2$ vers le niveau de détail le plus grossier. Concrètement, cela signifie que l'on peut, dans ce cas précis, créer un graphe géohistorique de niveau de détail homogène (aligné sur le plus faible) en agrégeant les n\oe uds de même identité dans une source. La figure \ref{figure:graphe_revalide} donne en exemple le graphe de la figure~\ref{figure:graphe_invalide} une fois le niveau de détail réduit. Cette amalgamation doit être appliquée de façon récursive sur un graphe géohistorique pour résoudre tous les cas de continuations multiples.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{amalgamation.png} 
+	\caption{Amalgamation dans le cas d'une continuation multiple.}
+\label{figure:graphe_revalide}
+ \end{figure}
+
+\myparagraph{Enrichissement de l'identité}
+Dans le graphe spatio-temporel, une entité $a$ ne peut être une descendante d'une entité $b$ en même temps qu'être un enfant d'une troisième entité $c$ (voir la figure~\ref{figure:invalid_enrichissement}. Autrement dit, le processus d'annexion (un objet en absorbe un autre sans que cela change son identité) n'est pas représentable. Pour reprendre le cas des parcelles, cela signifie qu'il ne peut y avoir de parcelle ayant absorbé une part d'une parcelle adjacente. Or, ce type de situation existe couramment. Un cas est visible dans l'exemple de graphe en figure~\ref{figure:ex_graphe} avec les parcelles $a$ et $b$\footnote{Dont les évolutions avaient alors été considérées comme des dérivations.} Nous relâchons cette contrainte pour le graphe géohistorique.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.3\textwidth]{invalid_enrichissement.png} 
+	\caption{Situation interdite par le graphe spatio-temporel, autorisée dans le graphe géohistorique.}
+\label{figure:invalid_enrichissement}
+ \end{figure}
+
+
+\subsection{Graphe géohistorique}
+\myparagraph{Définition}
+L'ensemble des sources géohistoriques $S$, des observations $\sigma$ et des relations qui existent entre ces dernières forment un \textbf{graphe géohistorique} $G_H(\sigma,E_{H}, S, \mathcal{T})$ dont $\sigma$ est l'ensemble des noeuds et $E_H=\{(a,b)|a \mathrel{\mathsmaller{\rho}} b\}$ l'ensemble de ses arêtes.
+\\
+Tout comme le graphe spatio-temporel, le graphe géohistorique peut être décomposé en trois sous-graphes, suivant les types de relations auxquels correspondent ses arêtes. On a alors~:
+\begin{enumerate}
+\item $G_s(\sigma, E_s,S, \mathcal{T})$ le graphe relatif aux relations spatiales, avec $E_s=\{(a,b) | a \mathrel{\mathsmaller{\rho_s}} b \} \forall a, b \in \sigma$
+\item $G_{st}(\sigma, E_{st},S, \mathcal{T})$ le graphe relatif aux relations spatio-temporelles, où $E_{st}$ est défini de manière similaire à $E_s$.
+\item $G_{f}(\sigma, E_{f},S, \mathcal{T})$ le graphe relatif aux filiations, construit de la même manière que les deux autres.
+\end{enumerate}
+La figure~\ref{figure:graphe_geohisto} présente un graphe géohistorique reprenant le même exemple que pour le graphe spatio-temporel. Cette fois, les relations de filiation des deux plus grandes parcelles entre Jacoubet et Vasserot sont des continuations. 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{graphe_geohisto.png} 
+	\caption{Un exemple de graphe géohistorique.}
+\label{figure:graphe_geohisto}
+ \end{figure}
+
+
+\subsection{Contraintes sur le graphe géohistorique}
+Certains choix de modélisation, en particulier l'organisation par source et le temps flou peuvent créer des graphes géohistoriques décrivant des transformations contre-intuitives ou brisant le principe de causalité. Nous posons ici deux contraintes sur le graphe géohistorique dans le but d'interdire la création de graphes invalides. Ces contraintes doivent être prises en compte au moment de l'instanciation du modèle dans une base de données.
+
+\myparagraph{Acyclicité}
+L'existence de relations de filiation rétro-temporelles rend possible l'apparition de cycles dans le graphe géohistorique. Non seulement ces cycles sont incompatibles avec une vision linéaire du temps, mais ils rompent également le principe de causalité~: une observation peut être son propre ancêtre.
+\\
+Nous posons une contrainte sur le graphe interdisant les cycles sur les relations de filiation, quelle que soit leur longueur. Autrement dit, une observation $a$ du graphe géohistorique ne peut être son propre voisin en filiation~:
+\begin{equation}
+\forall a \in \sigma \forall d \in \mathbb{N},  a \not \in \rho_f^{+/-d}(a)
+\end{equation}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.4\textwidth]{no_cycles.png} 
+	\caption{Un exemple de graphe géohistorique cyclique.}
+ \end{figure}
+ 
+\myparagraph{Transformations multisources}
+Dans le graphe géohistorique, nous considérons que chaque source est une représentation de l'espace, même si elle est incomplète. Implicitement, ceci signifie que les sources sont mutuellement exclusives et qu'il en va de même pour leur contenu. Par conséquent, un processus spatio-temporel ne peut avoir lieu entre plus de deux sources. Par exemple, une observation $a$ dans une source $s_1$ ne peut pas être en relation de filiation avec une observation $b$ dans $s_2$ et $c$ dans $s_3$ (voir la figure~\ref{figure:nomultisource}). Tout comme l'acyclicité, cette contrainte doit être exprimée lors de l'instanciation. 
+\\
+Cette contrainte implique que~:
+\begin{equation}
+\begin{split}
+\forall a,b,c \in \sigma, a \mathrel{\mathsmaller{\rho_f}} b \land  a \mathrel{\mathsmaller{\rho_f}} c \implies s(b) = s(c)\\ 
+\forall a,b,c \in \sigma, b \mathrel{\mathsmaller{\rho_f}} a \land  c \mathrel{\mathsmaller{\rho_f}} a \implies s(b) = s(c)
+\end{split}
+\end{equation}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.3\textwidth]{no_multisource.png} 
+	\caption{Une transformation multisource.}
+\label{figure:nomultisource}
+ \end{figure}
+ 
+ 
+\section{Processus spatio-temporels}
+Le modèle de graphe spatio-temporel vise à extraire diverses connaissances sur les évolutions d'entités au cours du temps. Cependant, les processus spatio-temporel y sont essentiellement utilisés comme contraintes d'intégrité lors de l'instanciation du modèle. Ceci signifie que le modèle de données permet de créer une base de données stockant les évolutions entre entités (de manière directe avec la dérivation, ou indirecte par contraintes) en assurant que ce stockage respecte certaines règles propres au phénomène représenté.
+\\
+Notre problématique est différente~: nous disposons déjà d'une base de données spatiale et temporelle très peu contrainte à partir de laquelle nous souhaitons extraire un graphe géohistorique. Nous sommes dans une démarche inductive où nous cherchons à détecter certains processus spatio-temporels (restreints aux transformations de l'espace) au sein des observations géohistoriques disponibles dans la base de données spatiale et temporelle. 
+\\
+Dans cette section, nous introduisons l'ensemble des types de processus spatio-temporels pertinents pour l'espace urbain. Nous nous appuyons pour cela sur la typologie des processus spatio-temporels établie par ~\cite{Claramunt1996} Cette typologie organise les processus en trois grands groupes~:
+\begin{itemize}
+\item le premier concerne les évolutions individuelles des entités (pour nous observation) et en distingue deux types~: les changements simples (stabilité, mort, naissance) et les transformations (déformation, déplacement, etc.),
+\item le second contient les transformations impliquant plus d'une entité~: division, fusion, réallocation,
+\item le dernier traite des relations spatio-temporelles entre entités (diffusion, remplacement, etc.).
+\end{itemize}
+Nous avons choisi de représenter un certain nombre de processus spatio-temporels issus des deux premiers groupes de cette typologie que nous considérons pertinents pour modéliser les transformations d'observations d'un espace urbain. 
+\\
+Nous ajoutons également quelques processus que l'on trouve dans d'autres travaux \citep{Galton2004, Egenhofer2000,Stefani2010}, pertinents pour notre cas et s'intégrant aisément dans la typologie présentée. Tous les processus retenus se trouvent résumés en figure~\ref{figure:arbre_transfo}. Étant extraits d'un graphe géohistorique, \textbf{ces processus en sont des sous-graphes que l'on notera $G$}. La sémantique des différents processus ainsi que les règles permettant de les extraire d'un graphe géohistorique sont présentées dans la suite de cette section. 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{procST.png} 
+	\caption{Typologie des processus spatio-temporels représentés dans le graphe géohistorique}
+\label{figure:arbre_transfo}
+ \end{figure}
+
+%\myparagraph{Fonction d'identification d'un processus}
+%Soit un graphe géohistorique $G_H(\sigma, E_H, \mathcal{T})$. Une fonction d'identification est une fonction de la forme $F:P(V \subseteq \sigma, E \subseteq E_H ,\mathcal{T}) \rightarrow \{0,1\}$ renvoyant 1 si le sous-graphe répond à la définition du processus spatio-temporel et 0 sinon.
+
+%\myparagraph{Particularité des processus sur les observations}
+%Notons que le fait de poser des processus spatio-temporels sur des observations est un raccourci, puisque ce sont en fait les objets sous-jacents qui évoluent. Tous les écarts entre les observations et l'objet qu'elles représentent, vus au long du document, peuvent créer de fausses transformations. C'est par exemple le cas lorsque deux sources ont des granularités spatiales, et, par exemple, qu'une parcelle traversée par une voie publique pourra être une seule observation $a$ dans la première source (de faible granularité) et par deux observations $c$ et $d$ dans la seconde (de granularité élevée). Étant donné  qu'une observation ne peux entretenir deux liens de continuation, les tr
+
+\myparagraph{Évolutions~: Stabilité et transformation}
+Dans la typologie d'origine, la stabilité ne concerne que la composante spatiale des entités, tandis que la transformation implique un changement de cette composante. Ainsi, deux observations liées sont stables même si leurs autres attributs peuvent changer. Ici, nous confondons les notions de stabilité et de continuation du graphe spatio-temporel. \textbf{Un processus de stabilité décrit donc l'existence d'une continuation entre deux observations}. De la même façon, \textbf{un processus de transformation correspond à une dérivation} dans le graphe géohistorique. Les figures \ref{figure:stabilite} et  \ref{figure:transformation} présentent graphiquement ces deux cas et donnent les règles permettant de les détecter dans un sous-graphe de filiation. 
+ \begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.5\textwidth]{stabilite.png}
+\\
+$\forall G(\{a,b\},E,S,\mathcal{T})\subseteq G_f, a \mathrel{\mathsmaller{\gamma}} b \land \rho_f^{+1}(a) =\{b\} \land \rho_f^{-1}(b) =\{a\}$
+\end{tabular}
+\caption{Processus spatio-temporel de stabilité.}
+\label{figure:stabilite}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.5\textwidth]{transformation.png}
+\\
+$\forall G(\{a,b\},E,S,\mathcal{T})\subseteq G_f, a \mathrel{\mathsmaller{\delta}} b \land \rho_f^{+1}(a) =\{b\} \land \rho_f^{-1}(b) =\{a\}$
+\end{tabular}
+\caption{Processus spatio-temporel de transformation.}
+\label{figure:transformation}
+\end{figure}
+
+\myparagraph{Évolutions~: Apparition et Disparition}
+Les processus d'apparition et de disparition décrivent respectivement la première et la dernière observation faite d'une même entité du monde réel. Cela ne signifie pas nécessairement que cette entité a disparu ou est apparue à ce moment là, mais qu'elle est visible dans une source géohistorique pour la première (respectivement dernière) fois à ce moment là. Ces deux processus sont décrits dans les figure \ref{figure:apparition} et \ref{figure:disparition}.
+ \begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.5\textwidth]{naissance.png}
+\\
+$\forall G(\{a\},\emptyset,S,\mathcal{T})\subseteq G_H \forall d\in \mathbb{N}, \rho_f^{-d}(a) = \emptyset$
+\end{tabular}
+\caption{Processus spatio-temporel d'apparition.}
+\label{figure:apparition}
+\end{figure}
+
+ \begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.5\textwidth]{mort.png}
+\\
+$\forall G(\{a\},\emptyset,S,\mathcal{T})\subseteq G_H \forall d\in \mathbb{N}, \rho_f^{+d}(a) = \emptyset$
+\end{tabular}
+\caption{Processus spatio-temporel de disparition.}
+\label{figure:disparition}
+\end{figure}
+
+
+\myparagraph{Restructurations~: Fusion / Scission}
+Il y a fusion lorsque plusieurs observations s'assemblent pour en former une nouvelle. C'est par exemple le cas de plusieurs parcelles cadastrales parties d'un même lot, vendues puis assemblées pour former une unique parcelle. Le processus de fusion est explicité par la figure~\ref{figure:fusion}. Le processus de scission est symétrique~: une observation se trouve divisée en plusieurs autres (voir la figure\ref{figure:scission}).
+ \begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.5\textwidth]{fusion.png}
+\\
+$\forall G(\{a_1,...a_n, b\},E,S,\mathcal{T})\subseteq G_H \forall i=(1,\dots,n),$
+\\
+$a_i \mathrel{\mathsmaller{\delta}} b \land \rho_f^{+1}(a_i) =\{b\} \land \rho_f^{-1}(b) =\{a_1,\dots,a_n\} \land  n > 1$
+\end{tabular}
+\caption{Processus spatio-temporel de fusion.}
+\label{figure:fusion}
+\end{figure}
+
+ \begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.5\textwidth]{scission.png}
+\\
+$\forall G(\{a,b_1,...b_n\},E,S,\mathcal{T})\subseteq G_H \forall i=(1,\dots,n),$
+\\
+$a \mathrel{\mathsmaller{\delta}} b_i \land \rho_f^{+1}(a) =\{b_1,\dots,b_n\} \land \rho_f^{-1}(b_i) =\{a\}\land  n > 1 $
+\end{tabular}
+\caption{Processus spatio-temporel de scission.}
+\label{figure:scission}
+\end{figure}
+
+
+\myparagraph{Restructurations~: Annexion et Séparation}
+Les processus d'annexion et de séparation sont des cas particuliers de fusion et de scission pour lesquels une des observations conserve son identité. Le processus d'annexion décrit le cas où une observation ''absorbe'' une autre observation sans pour autant que cela remette en question son identité. Si l'on reprend l'exemple des parcelles, ce peut être le cas d'une parcelle s'étendant sur un fond de cour et intégrant une portion de cette cour. La séparation décrit le phénomène inverse~: une observation perd une partie d'elle-même trop peu importante pour que cela change son identité. Les différences entre ces deux processus et ceux de fusion/scission sont liées à une définition de l'identité et donc au cas d'application\footnote{Enlever une planche du bateau de Thésée est une séparation ou une scission?}.
+ \begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.5\textwidth]{annexion.png}
+\\
+$\forall G(\{a,a_1,...a_n, b\},E,S,\mathcal{T})\subseteq G_H \forall i=(1,\dots,n),$
+\\
+$a \mathrel{\mathsmaller{\gamma}} b \land a_i \mathrel{\mathsmaller{\delta}} b \land \rho_f^{+1}(a)=\rho_f^{+1}(a_i) = \{b\} \land \rho_f^{-1}(b) =\{a,a_1,\dots,a_n\}$
+\end{tabular}
+\caption{Processus spatio-temporel d'annexion.}
+\end{figure}
+
+ \begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.5\textwidth]{separation.png}
+\\
+$\forall G(\{a,b,b_1,\dots,b_n\},E,S,\mathcal{T})\subseteq G_H \forall i=(1,\dots,n),$
+\\
+$a \mathrel{\mathsmaller{\gamma}} b \land a \mathrel{\mathsmaller{\delta}} b_i \land \rho_f^{+1}(a)=\{b,b_1,\dots,b_n\} \land \rho_f^{-1}(b)= \rho_f^{-1}(b_i)=\{a\}$
+\end{tabular}
+\caption{Processus spatio-temporel de séparation.}
+\end{figure}
+ 
+\myparagraph{Restructurations~: Réallocation}
+La réallocation est un processus particulier car il décrit la réorganisation d'un ensemble d'observations en un autre ensemble. Un tel processus peut apparaître pour plusieurs raisons~:
+\begin{itemize}
+\item la granularité temporelle est trop faible~: certaines observations intermédiaires sont manquantes, ce qui empêche de décomposer la réallocation en une suite de processus plus précis (scission, fusion, etc.),
+\item la granularité spatiale est trop faible~: les observations ne sont pas assez détaillées pour qu'il soit possible d'identifier précisément le phénomène sous-jacent,
+\item il s'agit réellement d'une réallocation (redistribution de parcelles en nouvelles parcelles lors d'une vente importante, etc.).
+\end{itemize}
+Quelle que soit la situation expliquant sa présence, nous considérons la  réallocation comme un processus spatio-temporel à part entière. L'exemple fourni en figure~\ref{figure:reallocation} présente un cas ne contenant que des dérivations. Il est cependant tout à fait possible qu'une réallocation contienne également des continuations dès lors que celles-ci respectent les contraintes posées sur le graphe géohistorique.
+  \begin{figure}[ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=0.5\textwidth]{reallocation.png}
+\\
+$\forall G(\{a_1,\dots,a_k,b_1,\dots,b_n\},E,S,\mathcal{T})\subseteq G_H \forall i=(1,\dots,n)\forall j=(1,\dots,k),$
+\\
+$(a_i \mathrel{\mathsmaller{\gamma}} b_j \lor a_i \mathrel{\mathsmaller{\delta}} b_j) \land \rho_f^{+1}(a_i)\subseteq\{b_1,\dots,b_n\} \land \rho_f^{-1}(b_j)\subseteq\{a_1,\dots,a_k\}$
+\end{tabular}
+\caption{Processus spatio-temporel de réallocation.}
+\label{figure:reallocation}
+\end{figure}
+ 
+
+\myparagraph{Processus spatio-temporels élémentaires}
+Tous les processus que nous avons définis dans cette section sont spécifiés de façon à être mutuellement exclusifs. Chaque observation ne peut donc être impliquée que dans deux processus spatio-temporels\footnote{L'un aboutissant à cette observation et le second en partant.}. Il ne peut donc y avoir de hiérarchie de différents processus pour un même ensemble d'observations. Par exemple, une réallocation ne peut pas être décomposée en fusion, scissions, annexions,etc. Nous considérons en effet que tous les processus posés sont \textbf{élémentaires}. Ce choix est motivé par le fait que ces processus décrivent des transformations des structures urbaines avec le niveau de détail le plus fin pouvant être atteint à partir d'observations géohistoriques fondamentalement imparfaites. Tenter de détailler plus des phénomènes qui ne nous sont accessibles que de façon grossière augmente le risque de sur-interprétation. Il s'agit donc d'une règle de prudence sur l'utilisation des connaissances issues des observations géohistoriques.
+%
+%\section{Identité des observations géohistoriques}
+%
+%\myparagraph{Définition d'une observation dans le graphe géohistorique}
+%Dans le modèle de données spatio-temporel, les entités génériques sont modélisées sous la forme d'objets géographiques tels qu'ils ont été définis dans le chapitre \ref{chap:modeleST}. Elles sont donc constitués d'une géométrie et d'un ensemble d'attributs thématiques. En plus des domaines spatiaux et sémantiques, les entités s'inscrivent également dans le temps sont associées à un instant. Leur identité est quand à elle modélisée par un attribut spécifique. Ainsi, l'entité se définit comme le n-uplet~:
+%\begin{equation}
+%(i, t, \{u_1,...,u_k\},g)
+%\end{equation}
+%où~:
+%\begin{itemize}
+%\item L'identité $i$ est un attribut non-spatial.
+%\item  $t \in T$ est l'instant auquel l'entité existe.
+%\item  $\{u_1,...u_k\}$ est un ensemble d'attributs thématiques quelconque. Le nombre d'attributs dépend de la nature de l'entité.
+%\item  $g$ est une géométrie plane, $g \in \mathbb{R}^2$.
+%\end{itemize}
+%Les observation géohistoriques sont proches des entités en ceci qu'elles sont également des objets géographiques temporalisés. Nous reprenons la notation du modèle de données spatio-temporel pour définir une observation comme un n-uplet~:
+%\begin{equation}
+%(s,\widetilde{t}, \{u_1,...,u_k\},g)
+%\end{equation}
+%\begin{itemize}
+%\item $s \in S$ est la source géohistorique à laquelle appartient l'observation.
+%\item $\widetilde{t} \in \mathcal{T}$ est la temporalité floue de l'observation.
+%\item $\{u_1,...,u_k\}$ est un ensemble d'attributs thématiques.
+%\item $g$ est une géométrie plane.
+%\end{itemize}
+%
+%
+%\myparagraph{Vecteur d'identité}
+%On peut remarquer que l'identité n'est pas définie explicitement par l'observation. Nous faisons ce choix pour permettre une définition plus souple de l'identité. Nous partons de l'idée que l'identité d'un objet quelconque (observation géohistorique ou non) est une fonction de ses éléments constitutifs. Par exemple, un ballon peut être décrit par sa forme, sa couleur, son diamètre, son propriétaire, son type, sa marque, etc. "Le ballon de football vert de Tom" rassemble quatre propriétés du ballon et suffit à l'identifier dès lors qu'il n'y a pas plusieurs Tom et qu'il n'a pas plusieurs ballons de football vert.\\
+%Nous faisons le choix de considérer l'identité d'une observation comme un vecteur formé de certains de ses attributs thématiques ou spatiaux. L'identité d'une observation est donc le n-uplet~:
+%\begin{equation}
+%I = (x_1,...x_n)
+%\end{equation}
+%où $x$ est un attribut thématique ou une géométrie, et $\forall i, j, x_i \neq x_j$.
+%Ainsi, au ballon dont l'observation est $(g,'vert','football','22cm','Tom','Adadas')$, on peut faire correspondre le vecteur d'identité $('football','vert','Tom')$ correspondant à l'identité définie par la phrase "Le ballon de football vert de Tom"
+%
+%\myparagraph{Contrainte sur l'identité}
+%Le modèle de graphe spatio-temporel sur lequel on s'appuie ne spécifie pas de forme particulière pour l'identité puisque celle-ci dépend de la nature des entités étudiées. Il en va de même pour la distinction entre les filiations de continuation et de dérivation. Mais, dans le modèle de données, l'identité est matérialisée par un identifiant $id$ lié à chaque entité. Il y a alors continuation entre deux entités affiliées $a$ et $b$ si $id_a = id_b$, et continuation dans le cas contraire. De plus, une contrainte du modèle spécifique que deux entités de même identité possèdent la même géométrie et des attributs égaux.
+%\\
+%Cette contrainte a trois conséquences~:
+%\begin{enumerate}
+%\item L'identité est le vecteur constitué de tous les attributs de l'entité à l'exception du temps. Ainsi, le changement de tout attribut de l'entité modifie son identité.
+%\item L'identité est parfaitement définie et connue pour toute entité du système.
+%\item L'identité est indépendante du point de vue adopté, puisqu'elle ne dépend pas de l'usage qui est fait des données.
+%\end{enumerate}
+%\paragraph{}
+%Ces éléments sont problématiques dans notre cas en raison de la nature imparfaite des observations géohistoriques. En effet, ces imperfections, qui peuvent affecter tous les composants des observations, vont inévitablement modifier leur identité. Entre deux observations décrivant le même objet mais possédant quelques variations (dans l'orthographe d'un nom de rue, la précision des contours d'un bâtiment, etc.), la contrainte sur l'égalité des attributs empêchera de les lier par une relation de continuité. Une solution consiste à résoudre toutes ces variations avant de les ajouter au modèle, par exemple en choisissant une observation de référence. Cette méthode présente toutefois deux inconvénients. D'une part, l'information imparfaite est perdue, or, souvent, la variation par rapport à la référence est une information à part entière intéressante à conserver (par exemple une variation d'orthographe). On affaiblit par la même occasion le lien observation-source. Enfin, les sources géohistoriques étant hétérogènes, cette opération est à redéfinir pour chacune d'elle, ce qui nuit à la réutilisabilité du modèle. 
+%
+%\paragraph{}
+%Ainsi contrainte, l'identité est en effet indépendante du contexte d'utilisation. Or, cette notion est subjective et donc difficilement dissociable de ce contexte. Prenons le cas d'un être humain. Au sein de son espèce, il peut être identifié par son code génétique et est ainsi unique. Si le contexte devient celui de l'administration de son pays de résidence, cette identité pourra être son numéro de sécurité sociale. Dans le contexte familial, il peut cette fois être identifié selon son statut~: mère, père, enfant, oncle, etc. Dans le cas de structures spatiales urbaines, on retrouve la même problématique. Si on prend le cas des rues, leur géométrie suffira à les distinguer pour une analyse structurelle, tandis qu'un historien pourra s'appuyer sur son emplacement, son nom et la date de sa source.   
+%
+%\myparagraph{Choix de modélisation liée à l'identité des observations}
+%Étant donné ces particularités, nous fixons quelques objectifs en ce qui concerne l'expression de l'identité d'observations géohistoriques.
+%\\
+%Ainsi~:
+%\begin{enumerate}
+%\item Un vecteur d'identité est défini pour une classe d'observations, qui peut être différent de l'ensemble de ses attributs non temporels.
+%\item L'expression de ce vecteur d'identité dépend d'un point de vue. Concrètement, cela signifie
+% qu'il n'est pas défini \emph{a priori} mais seulement au moment de l'utilisation du graphe géohistorique.
+% \item Étant donné les imperfections des données historiques, l'égalité exacte des vecteurs d'identité n'est pas pertinente pour distinguer continuations et dérivations.
+%\end{enumerate}
+%
+%\myparagraph{Fonction de classification des filiations}
+%Afin d'atteindre ces objectifs, nous introduisons une nouvelle fonction permettant de spécialiser une relation de filiation entre deux observations d'une même nature, selon un contexte d'utilisation et un vecteur d'identité donné. Il s'agit donc d'identifier la nature de cette relation, i.e si c'est une continuation ($\gamma$) ou une dérivation ($\delta$). Nous notons cette fonction de classification $K : E_f \longrightarrow \{\gamma, \delta\}$. 
+%\\
+%Étant donné deux observations en relation de filiation, $K$ permet de connaître le type de filiation quelles entretiennent. Cette notation générique sera précisée par la suite.
+%
+%\myparagraph{Limites de la représentation par vecteur d'identité}
+%La représentation que l'on adopte ici possède deux limites importantes. 
+%\paragraph{}
+%Premièrement, cette modélisation impose la définition d'un vecteur d'identité pour toutes les classes d'observations. Or, la notion d'identité peut être trop complexe ou mal définie pour qu'il soit possible de l'exprimer comme un sous-ensemble des attributs de l'observation. Le risque est alors de créer artificiellement une définition stricte de cette identité en choisissant arbitrairement certains attributs, et ainsi d'obtenir une classification fausse des relations. Si l'identité est complexe, le choix des attributs effectivement liés à l'identité sera impossible, et elle couvrira alors tous les attributs de l'observation. Dans ce cas précis, on revient alors à l'expression de l'identité dans le modèle de données spatio-temporel.
+%\paragraph{}
+%Deuxièmement, si le vecteur d'identité n'est pas suffisamment discriminant, il est possible que plusieurs observations aient la même identité au sein d'une source. Une solution à ce problème consiste à préciser cette identité en ajoutant un autre attribut au vecteur. Si tous les attributs sont utilisés (thématique et spatiaux), une identité égale traduit une duplication des données. La définition du vecteur étant propre à une utilisation, un dialogue avec l'utilisateur est dans ce cas nécessaire.
+%
+%
+%\section{Processus de construction du graphe géohistorique}
+%Le graphe géohistorique fournit une structure de donnée permettant de représenter les transformations de l'espace vues au travers d'observations issues de sources d'informations géohistoriques hétérogènes. Notre objectif étant de reconstruire ces transformations, cela signifie donc de pouvoir créer ce graphe, et, en particulier, de pouvoir détecter l'existence des relations spatiales, spatio-temporelles et de filiation entre entité.\\
+%Un des objectif important de notre approche est de permettre un définition souple de l'identité des observations ainsi que de redéfinir cette identité pour un cas d'utilisation spécifique. Chaque définition de l'identité amène donc à reconstruire les relations de filiations. Dans l'optique d'une base de données spatio-temporelle, cette reconstruction doit pouvoir être faite à la demande. Pour cette raison, il est crucial de mettre en place des méthodes de construction automatique du graphe géohistorique.
+%\\
+%Dans ce but, nous proposons ici une décomposition du graphe géohistorique en trois processus distincts qui peuvent par la suite être automatisés. 
+%
+%\subsection{Un processus en quatre étapes}
+%Construire un graphe géohistorique à partir d'un ensemble d'observations est un processus complexe. En effet, cela consiste à identifier, pour chaque observation, toutes les relations spatiales, spatio-temporelles et de filiation qu'elle entretient avec les autres observations du graphe. Étant donné que des relations de filiation peuvent exister entre une observation et n'importe quelle autre qui apparaît plus tard, toutes les observations qui ne lui sont pas antécédentes sont des descendants potentiels. L'identification des relations de filiation est donc un problème complexe. Le graphe géohistorique pouvant être décomposé en sous-graphes spatiaux, spatio-temporels et de filiation, il est possible de décomposer également sa construction en celle de ses sous graphes. De plus, la relation de filiation est particulière en ceci qu'elle se spécialise selon l'identité des observations en liaison. Toutefois, cette spécialisation peut etre vu comme un processus venant dans un second temps et classifiant les filiation établies selon une définition de l'identité préalablement choisie. Cette modélisation présente l'avantage de dissocier la création du graphe géohistorique de la définition de l'identité~: il peut donc exister un graphe commun à plusieurs définitions de l'identité.
+%\\
+%Ainsi, nous pouvons décomposer le processus de construction du graphe géohistorique en quatre étapes successives ~:
+%\begin{enumerate}
+%\item Création du sous-graphe des relations spatiales
+%\item Création du sous-graphe des relations spatio-temporelles.
+%\item Création du sous graphe des filiations.
+%\item Classification des filiations selon une identité.
+%\end{enumerate}
+%
+%\subsubsection{Redéfinition de la classification d'une filiation}
+%Jusqu'ici, la fonction $K$ n'a été définie que de façon générale. Cette fonction s'applique sur les identités de deux observations liés par une relation de filiation et détermine la nature de la relation. Distinguer une continuation d'une dérivation revient à comparer les identités des deux observations pour déterminer à quel point elles sont similaires. Les identités étant formées de plusieurs composantes, et deux identités d'observations du même graphe ayant les mêmes éléments constitutifs, on peut estimer la similarité des composantes deux à deux. Le problème revient alors à déterminer des méthodes de comparaison adaptées à chaque composante, ainsi qu'une procédure de décision choisissant la spécialisation de la filiation à partir des résultats de la comparaison des vecteurs d'identités. 
+%
+%\paragraph{}
+%On peut donc écrire $K$ comme la composition d'une mesure de similarité $\Phi$ et d'une fonction de décision $\Delta$~:
+%\begin{equation}
+%\forall (a,b) \in E_f, K(a,b) = ( \Delta \circ \Phi) (a,b)
+%\end{equation}
+%Détaillons les fonctions composantes $\Delta$ et $\Phi$.
+%
+%\myparagraph{Similarité d'une filiation}
+%$\Phi : E_f \rightarrow [0,1]^n $ est une fonction mesurant la similarité entre deux observations liées par une filiation. On appelle celle-ci \textbf{fonction de similarité d'une filiation}. Pour deux observations $a,b \in \sigma$ liées par une arête de filiation et dont les vecteurs d'identité sont respectivement $I_a$ et $I_b$ de taille $n$, cette fonction renvoie un vecteur de similarités calculées entre les composantes de chaque vecteur d'identité. $\Phi$ est donc composé elle même d'un ensemble de fonctions de similarités propres à chaque composant de l'identité, que l'on notera $\phi_i~: x_i,y_i \rightarrow [0,1]$ pour tout $i \in n$ avec $x \in I_a$ et $y \in I_b$ (voir la figure \ref{fig:detail_sim_vecident}).
+%
+%
+%\begin{figure}
+%\[
+%\overbrace{
+%\left( \begin{array}{c}
+%x_1 \\
+%x_2 \\
+%\vdots \\
+%x_i \\
+%\vdots \\
+%x_n
+%\end{array} \right)}^{I_a}
+%,
+%\overbrace{\left( \begin{array}{c}
+%y_1 \\
+%y_2 \\
+%\vdots \\
+%y_i \\
+%\vdots \\
+%y_n
+%\end{array} \right)}^{I_b}
+%\xmapsto{\Phi}
+%\overbrace{\left( \begin{array}{c}
+%\phi_1(x_1,y_1) \\
+%\phi_2(x_2,y_2) \\
+%\vdots \\
+%\phi_i(x_i,y_i) \\
+%\vdots \\
+%\phi_n(x_n,y_n)
+%\end{array} \right)}^{\Phi(a,b)}
+% \]
+%\caption{Application de la fonction de similarité d'une filiation à l'arête (a,b) d'un graphe de filiation quelconque.}
+%\label{fig:detail_sim_vecident}
+%\end{figure}
+%
+%
+%\myparagraph{Classification d'une filiation}
+%$\Delta :[0,1]^n \rightarrow \{\gamma, \delta\}$  s'applique sur un vecteur de similarité de taille $n$ et renvoie s'il s'agit d'une continuation ou d'une dérivation. $\Delta $ est clairement une fonction de décision à partir d'un ensemble de critères de similarité. Nous verrons plus tard comment résoudre ce problème de décision.
+%
+%
+%\begin{tabular}{|c|c|}
+%
+%\end{tabular}
+%
+%%\myparagraph{Similarité et fonction de décision}
+%%Nous redéfinissons la fonction d'identité sous la forme suivante~:
+%%\begin{equation}
+%% I(a,b) =( I_d \circ I_s)(a,b)
+%%\end{equation}
+%%où $I_s$ est une fonction exprimant la similarité entre deux vecteurs d'identité, et $I_d$ est une fonction de décision choisissant un type de filiation parmi $\{\gamma, \delta, \emptyset\}$ à partir d'une similarité.
+%%\\
+%%Ainsi exposé, la classification des filiations est clairement un problème de décision multicritères. La fonction $I_s$ peut donc être redéfinie comme un ensemble de fonctions de similarités $I_{sx_1}(a,b)$, où chaque $I_{sx_i}(a,b) : \sigma \times \sigma \rightarrow [0,1]$ est une fonction s'appliquant à l'attribut $x_i i \in n$ du vecteur d'identité formé de $n$ éléments exprimant la similarité de l'identité relative à $x_i$ des observations a et b. Une similarité de 1 correspond à une même identité. À l'inverse, une similarité de 0 indique des identités strictement différentes. 
+%%\\
+%%La fonction $I_d : [0,1]^n \rightarrow \{\gamma, \delta, \emptyset\}$ est quand à elle une fonction de décision s'appliquant au vecteur de similarités.
+%\subsection{Un hypergraphe pour identifier les processus spatio-temporels}
+%Nous avons montré comment il était possible de construire une partition d'un sous-graphe de filiations dans un graphe géohistorique, où chaque partie correspond à un processus spatio-temporel. Chaque mise à jour du sous-graphe (ajout ou suppression d'une filiation) demande donc de recommencer l'étape de partionnement. Si cela ne pose pas de problèmes particuliers dans le cas où l'identification des processus est une requête sur le graphe \footnote{Il s'agit alors simplement de prédicats identiques au modèle de données spatio-temporel.}, cette opération devient critique dans le cas de la méthode de construction que nous proposons. En effet, nous allons exactement dans le sens inverse, en identifiant d'abord des processus, vus comme des 'boites noires' contenant des filiations non encore précisément connues. Ce sont donc les processus que l'on manipule, et il faut une structure de données les représentant facile à manipuler et à mettre à jour.
+%
+%\myparagraph{Un processus est un hyperarc}
+%Considérons les quatre processus spatio-temporels non spécialisés formant une partition d'un graphe de filiations $G_f$. Chaque partie est un sous-graphe $P(V ,E, \mathcal{T})$ que l'on peut écrire sous la forme d'un hyperarc dirigé. Prenons par exemple le cas du processus de fusion dont le sous-graphe est $P=(V=(\{a,b,c\},d), E=\{(a,d),(a,d),(d,d),(c,d)\},\{\widetilde{t}_a,\widetilde{t}_b,\widetilde{t}_c,\widetilde{t}_d\} )$, équivalent à l'hyperarc $h=({a,b,c},d)$. $\{a,b,c\}$ est la \textbf{queue} de l'hyperarc et $d$ sa \textbf{tête}.
+%%La figure \ref{fig:proctohyp} présente la même réécriture pour les processsus de filiation, fusion, scission et réallocation avec une représentation et un code couleur qui sera systématiquement repris par la suite.
+%
+%\myparagraph{Niveau d'abstraction d'un hyperarc}
+%La définition d'un hyperarc ne nécessite pas de connaître avec précision les filiations qui créent le processus qu'il représente, il suffit de savoir quels sont les observations concernées. On le voit particulièrement pour le cas des réallocation, où un seul hyperarc peut correspondre à plusieurs configurations internes. La représentation des processus sous forme d'hyperarc permet donc d'ajouter un niveau d'abstraction qui permet de manipuler un graphe de filiation sans nécessairement connaître toutes les filiations qui le compose.
+%
+%\myparagraph{Hypergraphe de filiation}
+%Soit un graphe géohistorique $G_H=(\sigma, E_H, \mathcal{T})$, $G_f=(\sigma,E_f,\mathcal{T})$ son graphe de filiations et $\mathcal{P}=\{P_1, P_2,...,P_n\}$ l'ensemble des $n$ sous-graphes de $G_f$ identifiés comme processus spatio-temporels. On a donc ${e_1,e_2,...,e_n}$ l'ensemble des hyperarcs correspondant aux sous-graphes $P1,..P_n$. $\mathcal{P}$ étant une partition de $G_f$, cet ensemble forme un hypergraphe dirigé que l'on nomme \textbf{hypergraphe de filiation} défini comme ceci~:
+%\begin{equation}
+%\begin{gathered}
+%H_f = (\sigma,E_{H_f} = \{e_1,e_2,...,e_n\},\mathcal{T}),
+%\end{gathered}
+%\end{equation}
+%
+%%\myparagraph{A}
+%% 
+%%
+%%\myparagraph{Mise à jour d'un processus}
+%%Modifier un processus revient simplement à modifier la queue ou la tête de l'hyperarc correspondant. 	Étendre un processus en lui ajoutant une relation de filation revient à ajouter l'observation de cette relation qui n'était pas déjà dans le processus soit dans la queue, soit dans la tête de l'hyperarc.  De même, retirer une filiation du graphe aboutira soit à supprimer une observation de la tête ou de la queue, ou bien mènera à la destruction de l'hyperarc. La mise à jour d'un ensemble de
+%
+%
+%
+%%\subsection{Construction du sous-graphe spatial}
+%%
+%%\myparagraph{Initialisation du graphe}
+%%Chargement des données depuis le modèle spatial+temporel, union de tous en un graphe spatial.
+%%
+%%\myparagraph{Détection du voisinage}
+%%Enoncer comment peut être construit le voisinage
+%%
+%%\myparagraph{Création des relations spatiales}
+%%Donner l'algorithme qui crée le graphe spatial.
+%%
+%%\subsection{Construction de l'hypergraphe de filiations}
+%%Chapitre 6?
+%%
+%%\subsection{Construction du graphe des filiations}
+\newpage
+\section{Conclusion}
+L'objectif de ce chapitre était de proposer une approche permettant d'extraire des transformations de l'espace urbain à partir d'une base de données spatiale et temporelle. Pour ce faire, il est nécessaire de s'appuyer sur un modèle de représentation de ces transformations. Nous avons choisi de nous appuyer sur un modèle spatio-temporel existant, proposé par \cite{DelMondo2011} qui permet de représenter les évolutions d'entités au sein d'une structure de graphe. Ce modèle, nommé \emph{graphe spatio-temporel} permet d'inférer un certain nombre de connaissances sur les évolutions des entités par des fonctions de parcours dans le graphe. Ce modèle est également instancié au sein d'une base de données relationnelle.
+\\
+Nous avons montré que l'approche de graphe spatio-temporel pouvait être adapté au cas des observations géohistoriques. Pour ce faire, nous avons modifié la proposition initiale afin, notamment, d'intégrer les temporalités floues des observations. Le modèle de graphe spatio-temporel ainsi modifié est nommé \textbf{graphe géohistorique}.
+\\
+Nous avons par la suite choisi neuf processus spatio-temporels pertinents pour la modélisation des transformations de l'espace urbain et nous avons proposé des règles permettant de les extraire d'un graphe géohistorique.
+\\
+Afin qu'un graphe géohistorique puisse être extrait d'une base de données spatiale et temporelle, il faut connaître l'identité des différentes observations qui la compose et les relations de filiations entre ces observations. Dans le modèle de graphe spatio-temporel, l'identité est considérée connue par avance et intégrée explicitement dans la base de données au moyen d'identifiants. Notre cas est toutefois très différent sur ce point. En effet, nous ne connaissons pas par avance ni l'identité des observations, ni les relations de filiation qu'elles entretiennent entre elles. Il faut donc disposer d'un mécanisme permettant d'extraire ces identités et d'identifier les liens de filiation entre observations.
+
+
+%\begin{table}[bH]
+%
+%\caption{Résumé des différences entre le modèle de graphe de \cite{DelMondo2011}(GST) et le notre (GH)}
+%\begin{tabular}{|p{0.32\textwidth}|p{0.32\textwidth}|p{0.32\textwidth}|}
+%\hline
+% & GST & GH \\
+%\hline
+%Statut du graphe dans le modèle de base de données & Inféré depuis une base de données relationnelle & Le graphe est une structure de données \\
+%\hline
+%Primitive ST & Entité : objet géographique générique existant à un instant & Observation géohistorique : objet géographique dépendant d'une source, situé imprécisément dans le temps. \\
+%\hline
+%Structuration des données & Snapshot spatio-temporels & Snaphsots par source \\
+%\hline
+%Identité & None définie dans GST. Identifiant unique dans MDST & Fonction d'identité exprimée sur un sous ensemble des attributs d'une observation. \\
+%\hline
+%Relations & Spatiales, Spatio-temporelles, de filiation (continuation/dérivation) &Spatiales, Spatio-temporelles, de filiation (continuation/dérivation) \\
+%\hline
+%Processus ST & Naissance, Mort, Réincarnation, Fusion, Scission. & Filiation, Scission, Fusion, Annexion, Séparation, Réallocation, Naissance, Mort. \\
+%\hline
+%Sens des relations & Strict, du passé vers le futur. & Du passé vers le futur. Inversions locales possibles. \\
+%\hline
+%Contraintes sur les relations & Transfert de l'identité fortement contraint. Relations uniquement entre deux instants successifs & Transfert de l'identité non contraint. Relations entre sources, dans le sens de la ligne du temps.\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+%Il faut adapter le graphe de DelMondo.
+%\subsubsection{Sur le modèle}
+%\paragraph{Domaine temporel}
+%Cette fois, la primitive temporelle n'est plus l'instant mais l'intervalle. Le domaine temporel est cette fois $(\mathcal{T},\subseteq, \preceq)$ où~:
+%\begin{itemize}
+%\item $\mathcal{T}$ est l'ensemble des intervalles temporels valides des sources et des observations.
+%\item $\preceq$ est une relation d'ordre entre quantités floues
+%\item $\subseteq$ est une relation d'inclusion entre quantités floues.
+%\end{itemize}
+%
+%\paragraph{Fonctions support}
+%Le modèle est structuré par sources géohistoriques. Il y a donc quelques changements.
+%\begin{itemize}
+%\item $X(t)$ renvoie la liste des observations existant à l'instant $t$ tel que $\mu(t)>0$
+%\item $f : O \rightarrow \mathcal{T}$ la fonction qui associe à chaque observation son intervalle temporel. Une observation peut donc exister à plusieurs instants, contrairement au modèle de Del Mondo.
+%\item On introduit $ obs : S \rightarrow O^k$ qui renvoie pour une source toutes les observations qu'elle contient.
+%\item Symétriquement, on introduit $ src : O \rightarrow S$ qui renvoie pour une observation la source à laquelle elle appartient.
+%\item Enfin on ajoute une fonction $I : O\times O \rightarrow {0,1}$ qui renvoie 1 si l'identité de deux observation est la même et 0 sinon.
+%\end{itemize}
+%
+%\subsubsection{Relations sur le graphe géohsitorique}
+%
+%\paragraph{Relations Spatiales}
+
+%\begin{equation}
+%\forall a,b \in O, a \text{ \small$\rho_{s}$ } b \implies  \text{src}(a)=\text{src}(b) \land f(a)\cap f(b) \ne \emptyset
+%\end{equation}
+%On relâche de plus la condition de connexion spatiale liée au RCC8. On considère à la place une relation de voisinage plus large qui n'implique pas forcément de relation topologique entre les objets en relation spatiale. Cette relation peut donc vouloir tout aussi bien dire "près de" que "touche".
+%
+%\paragraph{Relations spatio temporelles}
+%\begin{equation}
+%\forall a,b \in O, a \text{ \small$\rho_{st}$ } b \equiv  \text{src}(a)\ne\text{src}(b) \land a \preceq b \land a \text{ \small$\rho_{s}$ } b
+%\end{equation}
+%\textbf{ALERTE : il y a contradiction ici! la relation ST impose que les sources soient différentes alors que la relation S impose que les sources soient égales. Il y a un problème aussi chez Del Mondo, la différence entre relation spatiale et relation spatiale+temporelle n'est pas faite.}
+%
+%
+%\paragraph{Relations de filiation}
+%\begin{equation}
+%\forall a,b \in O, a \text{ \small$\rho_{f}$ } b \equiv  \text{ant}(a,b)>0 \land F(a,b) = 1
+%\end{equation}
+%Continuation : 
+%\begin{equation}
+%\forall a,b \in O, a \text{ \small$\rho_{\gamma}$ } b \equiv  a \text{ \small$\rho_{f}$ } \land I(a) = I(b)
+%\end{equation}
+%
+%\begin{equation}
+%\forall a,b \in O, a \text{ \small$\rho_{\delta}$ } b \equiv  a \text{ \small$\rho_{f}$ } \land I(a) \ne I(b)
+%\end{equation}
+%
+%\emph{Retours vers le passé}
+%
+%\emph{Sauts}
+%
+%
+%Cela a aussi un impact sur les relations de filiation.
+%
+%\subsubsection{Conclusion}
+%Implications sur les requêtes possibles sur le modèle.
+%
+%\section{Construction du graphe géohistorique}
+%Maintenant, on veut construire un tel graphe à partir de sources.
+%\subsection{Décomposition en processus distincts}
+%On décompose du graphe.
+%\subsubsection{Graphe spatial et temporel (S+T)}
+%\subsubsection{Hypergraphe des transformations}
+%TODO : vérifier pour les processus s'il est possible de les exprimer comme Del Mondo ou si on doit faire comme sur les notes et creer des prédicats. Dans ce cas, quelle notation?
+%\myparagraph{Filiation}
+%Un sous-graphe de filiation existe pour deux observations $a$ et $b$ si~:
+%\begin{equation}
+%\begin{split}
+%O_f = \{a\}\cup \{b | a \rho_f b \land \nexists c, a \rho_f c \land \nexists d, d \rho_f b\}\\
+%E_f = \{(a,b) | a \rho_f b \land \nexists c, a \rho_f c \land \nexists d, d \rho_f b\}
+%\end{split}
+%\end{equation} 
+%
+%\begin{equation}
+%a \rho_f b \land \nexists c, a \rho_f c \land \nexists d, d \rho_f b
+%\end{equation} 
+%\myparagraph{Division}
+%Un sous graphe de division est formé d'une observation qui possède des relations de filiations avec plusieurs autres.\\
+%Un sous-graphe de division existe pour une observation $a$ et pour tout $b \in O, b \ne a$.
+%$G_d =(O_d, E_d)$ où~:
+%\begin{equation}
+%\begin{split}
+%O_d = \{a\}\cup \{b | a \rho_f b \land \nexists c, c \rho_f b\}\\
+%E_d = \{(a,b) |  a \rho_f b \land \nexists c, c \rho_f b\}
+%\end{split}
+%\end{equation} 
+%
+%\myparagraph{Fusion}
+%Un sous graphe de fusion est formé d'une observation qui possède des relations de filiations avec plusieurs autres.\\
+%Un sous-graphe de fusion existe pour une observation $b$ et pour tout $a \in O, a \ne b$.
+%$G_u =(O_u, E_u)$ où~:
+%\begin{equation}
+%\begin{split}
+%O_u = \{ b \} \cup \{a | a \rho_f b \land \nexists c, a \rho_f c\} \\
+%E_u = \{(a,b) |  a \rho_f b \land \nexists c, a \rho_f c \}
+%\end{split}
+%\end{equation}
+%
+%
+%\myparagraph{Réaffectation}
+%$G_r =(O_r, E_r)$ où~:
+%\begin{equation}
+%\begin{split}
+%O_r = \{a,b | (\exists c, a \rho_f c \lor c \rho_f b)\land c \in O_r\}\\
+%E_r = \{(a,b) | (\exists c, a \rho_f c \lor c \rho_f b)\land c \in O_r\}
+%\end{split}
+%\end{equation} 
+%
+%
+%\myparagraph{Mort et Naissance}
+%Ce ne sont pas des sous-graphes, mais on peut les identifier quand meme.
+%\begin{enumerate}
+%\item Pour la naissance : Naissance$(a) \implies \nexists c, c \rho_f a$
+%\item Pour la mort : Mort$(a) \implies \nexists c, a \rho_f c$
+%\end{enumerate}
+%
+%\subsubsection{Hypergraphe spatio-temporel}
+%
+%
+%\subsection{Création des trois graphes}
+%On a 3 processus incrémentaux pour construire ces parties du graphe.
+%\subsubsection{Construction du graphe spatial et temporel}
+%\subsubsection{Construction du graphe des transformations}
+%\paragraph{Vraisemblance de la filiation}
+%\subsubsection{Construction finale}
+%\paragraph{Fusion des transformations}
+%\paragraph{Contraintes d'identité sur les transformations n-aires}
+
+%
+%\section{Granularité spatiale}
+%Deux possibilités~:
+%\begin{enumerate}
+%\item Relacher la contrainte sur les cycles de longueur 1, dans le cas où la relation est identifiée comme liée à la généralisatio et non pas à la filiation.
+%\item Fusionner les noeuds lorsqu'une relation de généralisation est détectée.
+%\end{enumerate}
+%Le problème, c'est que l'on ne peut pas, à l'avance, reconnaître les cas de généralisation des cas de transformations. L'objet de la méthode es d'ailleurs de les reconnaître en dernière étape, pour ne pas trop reposer sur la définition d'une identité.\\
+%Or, il existe un cas qui pose problème~:
+%Soient ${e_1,e_2, e_3, e_4}$ quatre entités.\\
+%Temporellement~:
+%\begin{itemize}
+%\item[] $e_1 \preceq e_2, e_1 \preceq e_3, e_1 \preceq e_4$
+%\item[] $e_2 \sim e_3$
+%\item[] $e_2 \preceq e_4$
+%\end{itemize}
+%Géométriquement~: 
+%\begin{itemize}
+%\item[] $dg(e_1,e_2) = 0.5. dg(e_1,e_3) = 0.8$
+%\item[] $dg(e_2,e_3) = 0.0$
+%\item[] $dg(e_2,e_4) = 0.2$
+%\item[] $dg(e_3,e_4) = 0.5$
+%\end{itemize}
+%$V(e_1,e_2,e_4) = 2dt(e_1,e_2)+2dt(e_2,e_4) +2dg(e_1,e_2)+2dg(e_2,e_4) = 2*0+2*0+2*0.5+2*0.2 = 1.4$\\
+%$V(e_1,e_2,e_3,e_4) = 2dt(e_1,e_2)+2dt(e_2,e_3)+2dt(e_2,e_3)+2dg(e_1,e_2)+2dg(e_2,e_3)+2dg(e_3,e_4) =
+%2*0+2*0.5+2*0+2*0.5+2*0+2*0.5=3$
+
+
+%
+%\myparagraph{Fonction de classification des filiation}
+%L'objectif de cette fonction est donc de classifier le type de filiation qu'il existe entre deux observations à partir de leurs vecteurs d'identité. Si l'on considère que chaque élément du vecteur d'identité exprime une partie de celle-ci, on peut ramener ce problème de classification à un problème de \textbf{décision multicritères}.
+%
+%\myparagraph{Fonction de classification des filiation}
+%
+%\section{conclusion}
+%Vers la construction automatique.
+%
+%\section{conclusion}
+%\subsection{Evolution d'objets dans le temps}
+%\subsubsection{Etat, evenements, processus}
+%%'Integrating time in Gepgraphic Information Systems' : 'Time may basically be thought of as temporal relationships between events and objects in space'
+%What+Where+When, Claramunt.
+%\begin{itemize}
+%\item[] \textbf{Worboys1994}
+%\item[] 1998, Max Egenhofer : \emph{Spatial and Temporal Reasoning in Geographic Information Systems}
+%\item[] 1998, Max Egenhofer : \emph{Modelling Changes and Events in Dynamic Spatial Systems With Reference to Socio-Economic Units}
+%\item[] 1999, Martin Erwig : \emph{Spatio-Temporal Data Types: An Approach to Modeling and Querying Moving Objects in Databases}
+%\item[]2004, Nikos Pelekis, Literature Review of Spatio Temporal Models.
+%\item[] 2014, Jiang et Worboys : \emph{Event?based topology for dynamic}.
+%planar areal objects
+%\end{itemize}
+%
+%\subsubsection{Représentation conceptuelle et raisonnement sur le changement}
+%Egenhofer, Hallot, etc.
+%\subsection{Modèles de données ST}
+%\subsubsection{Modèles classiques}
+%Le déroulement classique => toutes les propositions des années 90-2005?
+%\\
+%
+%Jusqu'en 1993, modèles ST sur des rasters, snapshots etc.
+%1993 : worboys et le premier modèle objet
+%1994-1996 : Peuquet pose les objectifs d'une vrai db ST et challenge les modèles existants.
+%Jusqu'en 2000-2003 : plein de modélisation des relations spatio temporelles suivant différents modèles, la plupart s'appuyant sur un mélange de relations spatiales (RCC8) et temporelles (ALLEN).
+%Pendant la meme période : considération pour les incertitudes.
+%2004+ : plutot sur des questions de granularité, et sur des moving objects. 
+%2010+ : plus de bases de données, mais des modèles formels de représentation des dynamiques spatio-temporelles.
+%S'interesse bcps plus à des outils méthodo, structurells et formels pour raisonner sur des évènements spatio-temporels.
+%\\
+%Il y a aussi un virage vers le web sémantique avec l'expression des transformation à l'aide d'ontologies.
+%\\
+%Etat de l'art déjà faits : 
+%\begin{enumerate}
+%\item Pelekis 2004.
+%\item Rainu Nandal 2013
+%\end{enumerate}
+%Peuquet et l'émergence des modèles d'évènements.
+%\subsubsection{Graphes ST}
+%Stell, Stefani, Worboys, Stiri, Del Mondo.\\
+%\myparagraph{Pour la visu}
+%\myparagraph{Pour la modélisation ST}
+%\myparagraph{Choix de Del Mondo}
+%
+%\section{Processus de construction d'un graphe ST en 3 étapes}
+%\subsection{Adaptation du modèle de Del Mondo aux informations géohistoriques}
+%\subsubsection{Prise en compte d'un temps flou}
+%\subsubsection{Relachement de contraintes}
+%\subsubsection{Gestion de l'identité : notion de vraisemblance}
+%
+%\subsection{Décomposition en trois étapes}
+%\subsubsection{Graphe des observations (S+T)}
+%
+%\subsubsection{Graphe des transformations (Processus)}
+%\myparagraph{Structure d'hypergraphe}
+%\myparagraph{Expression des transformations}
+%\myparagraph{Contraintes sur le graphe}
+%
+%\subsubsection{Graphe des objets géohistoriques (ST)}
+%
+%
+%\subsection*{Constitution de données spatio-temporelles}
+%GeoPenSim
+%OhFet
+%Sriti.
+%De Runz : dit simplement que l'appariement de données est une technique très adaptée pour 
+%Theodoros Tzouramanis, 2002, On the generation of Time-evolving Regional Data. => Ca concerne la génération de données spatio-temporelles (en fait, des moving objects) pour le benchmarking de modèles ST.
+%La cosnsitution est faite à la main quand il s'agit d'objets historiques (en gros, pas de trajectoires/moving objects).
+%Dans \emph{Developing a Spatio-temporal Cadastral Database Using Country Appraisal Data from Northern Florida} de Barnes et al., une base de données est construite par baccktracking  sur les snapshots des parcels. Mais ce bacjktracking est fait à la main.
+%Dans Geopensim, c'est de l'appariement de données qui est fait.
+%Dans Geopeuple c'est un mélange de 'a la main' et d'appariement,
+%
+%
+%
+%
+%
+%
+%\section{Modélisation des objets géo-historiques au travers de plans}
+%\subsection{}
+%ce qui est dans un plan ce n'est pas l'objet historique, ce n'en est qu'une trace. Un objet 
+%
+%\section{Un graphe pour les lier tous}
+%\section{Construire le graphe : vraisemblance}
+%Différence entre le matching classique et l'identification de transformations (yen a pas)
+%Le pb c'est que les méthodes sont très lourdes.
+%réseaux : topologie, géométrie
+%
+%La similarité doit respecter les propriétés suivantes : 
+%-
+%\subsection{Hétérogénéité des réseaux}	
+%Niveaux de généralisation => confondre généralisation et changements, d'où l'importance de se placer au même niveau de granularité spatiale.
+%Évidemment, le plan n'autorise aucun degré de liberté sur ce point. Cependant, sur Paris l'échelle est telle que le niveau de généralisation est relativement constant.
+%
+%\section{Construction automatique : métaheuristique}
+%\section{Etat de l'art sur les mesures spatiales}
+%% Sur la similarité sémantique http://geog.ucsb.edu/~jano/janowicz_etal_tgis_similarity_final_draft_2008.pdf
+%
+%EdA sur les courbes : Curve matching, time warping, and light fields: New algorithms for computing similarity between curves
+%Le même auteur mais en plus complet : %http://www.cs.uu.nl/docs/vakken/gmspr/veltkamp99stateart.pdf
+%\subsection{Distance de Haussdorff}
+%D'après (ci dessous en commentaire) Remco Veltkamp, la distance de Haussdorff est mal adaptée à estimer la dissimilarité entre courbes car elle 'rate' les trous.
+%\subsection{Distance de Fréchet}
+%Pour les contours convexes, Fréchet = Haussdorff
+%%http://www.staff.science.uu.nl/~kreve101/asci/smi2001.pdf
+%\subsection{Distance de Fréchet} 
+%
+%\section{Etat de l'art sur les mesures sémantiques}
+%
+%\section{Formulation du pb comme appariement}
+%
+%
+%\section{Modélisation du graphe de filiations}
+%Lorsque l'on dispose d'un ensemble $O$ d'observations géohistoriques, on peut tracer entre elles des liens de filiation qui transcrivent le fait qu'une observation a été transformée en une autre.
+%L'ensemble de ces liens forme un graphe de filiations $G(O,E)$ avec les propriétés suivantes~:
+%\begin{itemize}
+% \item c'est un graphe dirigé.
+% \item c'est un graphe acyclique.
+%\end{itemize}
+%
+%On place quelques contraintes sur les arcs~:
+%\begin{itemize}
+% \item Pas de liens entre des observations de la même source. $\forall a,b\in O, source_a=source_b, \nexists e=(a,b) $
+%\end{itemize}
+
+
+%\section{Similarité de forme des polygones}
+%%http://www8.cs.umu.se/kurser/TDBAfl/VT06/algorithms/BOOK/BOOK5/NODE196.HTM
+%\begin{itemize}
+% \item Distance de Hamming
+%\item Distance de Haussdorf
+%\item comparaison de squelettes
+%\item Réseaux de neurones
+%%http://www.cs.princeton.edu/courses/archive/spr00/cs598b/lectures/polygonsimilarity/polygonsimilarity.pdf
+%\item Turning function
+%\item Shape signature
+%\item Fourier
+%%Bel Hadj ALi
+%\item Distance surfacique
+%\end{itemize}
+%
+%
+%
+%
+%\section{Tests de Validation}
+%
+%\subsection{Méthode d'appariement sur les réseaux}
+%Comepraison avec Mustière
+%
+%
+%\section{Etat de l'art}
+%	\subsection{Stocker et structurer des sources de donn\'ees historiques}
+%		- Rappeler pourquoi c'est essentiel
+%		- Faire un rapide aper\c{c}u des m\'etadonn\'ees (genre Dublin Core)
+%		- Conclure sur l'utilisation dans le cadre de la th\`ese
+%	\subsection{Repr\'esenter le temps dans les bases de donn\'ees}
+%		- bitemporalit\'e
+%			- Temps valide et Temps de transaction, types de temporalit\'es, discret vs continu
+%			- Le temps des cartes.
+%		- Repr\'esentations du temps vague/impr\'ecis
+%			- Rappel sur les incertitudes temporelles qui entourent les cartes
+%			- Introduire la logique floue pour repr\'esenter les intervalles temporels	- Repr\'esenter les transformations et les \'ev\`enements
+%		-mod\`eles Egenhofer, Leyk etc
+%			- Pr\'esenter les mod\`eles
+%		- La question de l'identit\'e
+%			- Introduire la notion d'identit\'e.
+%	\subsection{Mod\`eles}
+%		- Framework what where When
+%			- Peuquet + son mod\`ele
+%		- Premi\`ere vague de mod\`eles
+%			- Mod\`eles objets, \'ev\`enements, raster et limites de ceux-ci
+%		- Mod\`eles en graphes 	
+%		- Introduire le travail de Del Mondo ici et dire que c'est particuli\`erement adapt\'e \`a notre probl\`eme.
+%		- Autres mod\`eles  tracking et simulation
+%
+%	\subsection{Int\'egration de donn\'ees dans des mod\`eles spatio-temporels}
+%		- Dire que c'est pas mal \`a la main 	
+%	- Pr\'esenter le travail notamment de Plumejeaud, De Runz.
+%\section{Structuration des sources}
+%	\subsection{Stockage source/georef/vectoris\'ees}
+%	\subsection{Informations de m\'etadonn\'ees}
+%	\subsection{Temporalisation des sources}
+%	
+%\section{Observations vs Objets}
+%	\subsection{Choix m\'ethodologique de repr\'esentation de l'identit\'e des objets et choix de mod\'elisation des donn\'ees g\'eographiques}
+%	\subsection{Expliciter la diff\'erence entre une observation et un objet}
+%	\subsection{Mod\'elisation de l'observation et de l'objet}
+%
+%\section{Mod\`ele spatio-temporel de graphe}
+%		\subsection{Justification du mod\`ele}
+%		\subsection{Formalisation du graphe}
+%		\subsection{R\`egles sur le graphe}
+%\section{Transformations spatiales}
+%	\subsection{Pourquoi repr\'esenter les transformations de l'espace?}
+%	\subsection{Quelles transformations spatiales choisit-on de repr\'esenter}
+%		- Au niveau de l'observation
+%		- Au niveau de l'objet
+%	\subsection{Mod\'elisation des transformations sur le graphe}
+%		- Formalisation et exemples
+%		- R\`egles sur les structures
+%\section{Conclusion}
+%C'est le moment de pointer le probl\`eme de la construction du graphe, mais aussi des avantages apport\'es par la structuration simple qui veut que l'on ``colle aux sources''.
+%
+%
+%
+%
+%\section{Graphlet degree}
+%Tijana Milenkovic1,2, Weng Leong Ng2, Wayne Haye

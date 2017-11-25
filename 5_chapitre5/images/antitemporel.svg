@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg7656"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="antitemporel.svg">
+  <defs
+     id="defs7658">
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Mend"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4448"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6,-0.6)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="491.18468"
+     inkscape:cy="401.53495"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="975"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7661">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       sodipodi:linespacing="125%"
+       id="text6189"
+       y="372.68298"
+       x="672.1579"
+       style="font-size:18.2675705px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:15.61435032px"
+         y="372.68298"
+         x="672.1579"
+         id="tspan6191"
+         sodipodi:role="line">t</tspan></text>
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path6193"
+       d="m 78.924863,383.74379 607.418997,0"
+       style="fill:none;stroke:#000000;stroke-width:2.43974233;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Mend)" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="path6447"
+       d="m 112.13307,382.5155 33.8157,-83.13721 158.12269,0 27.88622,85.40818"
+       style="opacity:0.98999999;fill:#0f00f5;fill-opacity:0.58174893;stroke:#0f00f5;stroke-width:3.90358758px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.89733839" />
+    <path
+       style="fill:#10ff2e;fill-opacity:0.29657796;stroke:#10ff2e;stroke-width:3.90358758px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.81368821"
+       d="m 190.5259,382.5155 33.8157,-83.13721 394.91327,0 27.88622,85.40818"
+       id="path6583"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:connector-curvature="0"
+       id="path6449"
+       d="m 144.69437,297.75521 0,94.44983"
+       style="fill:none;stroke:#000000;stroke-width:1.1710763;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.3421526, 2.3421526;stroke-dashoffset:0" />
+    <text
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       sodipodi:linespacing="125%"
+       id="text6482"
+       y="409.38403"
+       x="131.64247"
+       style="font-size:48.37543488px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:19.51793861px"
+         y="409.38403"
+         x="131.64247"
+         id="tspan6484"
+         sodipodi:role="line">10</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.95179379;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 79.150123,382.32445 0,-102.49579"
+       id="path4587"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.95179379;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 67.138113,298.99242 11.93564,0"
+       id="path4777"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:48.37543488px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="53.994976"
+       y="307.39688"
+       id="text4779"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4781"
+         x="53.994976"
+         y="307.39688"
+         style="font-size:19.51793861px">1</tspan></text>
+    <text
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       sodipodi:linespacing="125%"
+       id="text4795"
+       y="387.98883"
+       x="59.892056"
+       style="font-size:48.37543488px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:19.51793861px"
+         y="387.98883"
+         x="59.892056"
+         id="tspan4797"
+         sodipodi:role="line">0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:156.14350891px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="72.89901"
+       y="271.70102"
+       id="text39931"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan39933"
+         x="72.89901"
+         y="271.70102"
+         style="font-size:19.51793861px">µ<tspan
+   style="font-size:12.68683815px;baseline-shift:sub"
+   id="tspan7381" /></tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.1710763;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.3421526, 2.3421526;stroke-dashoffset:0"
+       d="m 220.91309,299.12826 -142.157817,0"
+       id="path6009"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.1710763;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.3421526, 2.3421526;stroke-dashoffset:0"
+       d="m 303.70398,297.75521 0,94.44983"
+       id="path6577"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:48.37543488px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="290.65213"
+       y="409.38403"
+       id="text6579"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan6581"
+         x="290.65213"
+         y="409.38403"
+         style="font-size:19.51793861px">20</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.1710763;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.3421526, 2.3421526;stroke-dashoffset:0"
+       d="m 224.19916,297.75521 0,94.44983"
+       id="path7359"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:48.37543488px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="211.14725"
+       y="409.38403"
+       id="text7361"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan7363"
+         x="211.14725"
+         y="409.38403"
+         style="font-size:19.51793861px">15</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:connector-curvature="0"
+       id="path7375"
+       d="m 619.78496,297.75521 0,94.44983"
+       style="fill:none;stroke:#000000;stroke-width:1.1710763;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.3421526, 2.3421526;stroke-dashoffset:0" />
+    <text
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       sodipodi:linespacing="125%"
+       id="text7377"
+       y="409.38403"
+       x="606.73297"
+       style="font-size:48.37543488px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:19.51793861px"
+         y="409.38403"
+         x="606.73297"
+         id="tspan7379"
+         sodipodi:role="line">40</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:23.03843498px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="438.14612"
+       y="292.89078"
+       id="text7415"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan7417"
+         x="438.14612"
+         y="292.89078">t<tspan
+   style="font-size:14.97519302px;baseline-shift:sub"
+   id="tspan9509">2</tspan></tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text7423"
+       y="277.03357"
+       x="434.79819"
+       style="font-size:16.14886665px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         y="277.03357"
+         x="434.79819"
+         id="tspan7425"
+         sodipodi:role="line">~</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.17122948;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 191.08437,199.10592 0,185.88878"
+       id="path7573"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:connector-curvature="0"
+       id="path7575"
+       d="m 330.4372,201.17817 0,167.72862 0,15.58778"
+       style="fill:none;stroke:#000000;stroke-width:1.17122948;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       xml:space="preserve"
+       style="font-size:17.28918839px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="259.08575"
+       y="205.23984"
+       id="text7583"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="261.83783"
+         y="205.23984"
+         id="tspan7591"
+         style="text-align:center;text-anchor:middle">ordre </tspan><tspan
+         sodipodi:role="line"
+         x="261.83783"
+         y="226.85132"
+         style="text-align:center;text-anchor:middle"
+         id="tspan7597">d'observation </tspan><tspan
+         sodipodi:role="line"
+         x="259.08575"
+         y="248.4628"
+         style="text-align:center;text-anchor:middle"
+         id="tspan7595">indifférencié</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.98999999;fill:#0f00f5;fill-opacity:0.58039216;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path7782"
+       sodipodi:cx="80.307129"
+       sodipodi:cy="427.58282"
+       sodipodi:rx="15.152288"
+       sodipodi:ry="15.152288"
+       d="m 95.459417,427.58282 a 15.152288,15.152288 0 1 1 -30.304577,0 15.152288,15.152288 0 1 1 30.304577,0 z"
+       transform="translate(213.71651,19.539529)"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       sodipodi:linespacing="125%"
+       id="text8298"
+       y="453.94202"
+       x="286.75256"
+       style="font-size:61.92597961px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:24.98514938px"
+         y="453.94202"
+         x="286.75256"
+         id="tspan8300"
+         sodipodi:role="line">a</tspan></text>
+    <path
+       transform="translate(426.35361,19.539529)"
+       d="m 95.459417,427.58282 a 15.152288,15.152288 0 1 1 -30.304577,0 15.152288,15.152288 0 1 1 30.304577,0 z"
+       sodipodi:ry="15.152288"
+       sodipodi:rx="15.152288"
+       sodipodi:cy="427.58282"
+       sodipodi:cx="80.307129"
+       id="path8302"
+       style="opacity:0.98999999;fill:#10ff2e;fill-opacity:0.29803922;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       sodipodi:type="arc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:61.92597961px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="498.27948"
+       y="456.43689"
+       id="text8304"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan8306"
+         x="498.27948"
+         y="456.43689"
+         style="font-size:24.98514938px">b</tspan></text>
+    <path
+       style="fill:none;stroke:#0700e1;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 6;stroke-dashoffset:0"
+       d="m 309.47377,447.36063 181,0"
+       id="path3833"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:13.96058464px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="381.38342"
+       y="437.60526"
+       id="text8344"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan8346"
+         x="381.38342"
+         y="437.60526"
+         style="fill:#0019ff;fill-opacity:1">ρ<tspan
+   style="font-size:9.07450771000000067px;baseline-shift:sub;fill:#0019ff;fill-opacity:1"
+   id="tspan8348">f</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="42.931484"
+       y="431.62344"
+       id="text8823"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8825"
+         x="42.931484"
+         y="431.62344" /></text>
+    <path
+       transform="translate(107.65049,19.539529)"
+       d="m 95.459417,427.58282 a 15.152288,15.152288 0 1 1 -30.304577,0 15.152288,15.152288 0 1 1 30.304577,0 z"
+       sodipodi:ry="15.152288"
+       sodipodi:rx="15.152288"
+       sodipodi:cy="427.58282"
+       sodipodi:cx="80.307129"
+       id="path8833"
+       style="opacity:0.98999999;fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       sodipodi:type="arc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path8835"
+       d="m 203.91283,447.36063 74.42891,0"
+       style="fill:none;stroke:#0700e1;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 6;stroke-dashoffset:0" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.98999999;fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path8837"
+       sodipodi:cx="80.307129"
+       sodipodi:cy="427.58282"
+       sodipodi:rx="15.152288"
+       sodipodi:ry="15.152288"
+       d="m 95.459417,427.58282 a 15.152288,15.152288 0 1 1 -30.304577,0 15.152288,15.152288 0 1 1 30.304577,0 z"
+       transform="translate(107.65049,19.539529)"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#0700e1;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 6;stroke-dashoffset:0"
+       d="m 522.61596,447.36063 74.42891,0"
+       id="path8841"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       transform="translate(531.40949,19.539529)"
+       d="m 95.459417,427.58282 a 15.152288,15.152288 0 1 1 -30.304577,0 15.152288,15.152288 0 1 1 30.304577,0 z"
+       sodipodi:ry="15.152288"
+       sodipodi:rx="15.152288"
+       sodipodi:cy="427.58282"
+       sodipodi:cx="80.307129"
+       id="path8843"
+       style="opacity:0.98999999;fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       sodipodi:type="arc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       transform="translate(425.14508,71.771593)"
+       d="m 95.459417,427.58282 a 15.152288,15.152288 0 1 1 -30.304577,0 15.152288,15.152288 0 1 1 30.304577,0 z"
+       sodipodi:ry="15.152288"
+       sodipodi:rx="15.152288"
+       sodipodi:cy="427.58282"
+       sodipodi:cx="80.307129"
+       id="path8855"
+       style="opacity:0.98999999;fill:#0f00f5;fill-opacity:0.58039216;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       sodipodi:type="arc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:61.92597961px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="498.18112"
+       y="506.17413"
+       id="text8857"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan8859"
+         x="498.18112"
+         y="506.17413"
+         style="font-size:24.98514938px">a</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.98999999;fill:#10ff2e;fill-opacity:0.29803922;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path8861"
+       sodipodi:cx="80.307129"
+       sodipodi:cy="427.58282"
+       sodipodi:rx="15.152288"
+       sodipodi:ry="15.152288"
+       d="m 95.459417,427.58282 a 15.152288,15.152288 0 1 1 -30.304577,0 15.152288,15.152288 0 1 1 30.304577,0 z"
+       transform="translate(213.49647,71.057309)"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       sodipodi:linespacing="125%"
+       id="text8863"
+       y="507.95468"
+       x="285.42233"
+       style="font-size:61.92597961px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:24.98514938px"
+         y="507.95468"
+         x="285.42233"
+         id="tspan8865"
+         sodipodi:role="line">b</tspan></text>
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path8867"
+       d="m 309.47377,498.87841 181,0"
+       style="fill:none;stroke:#0700e1;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 6;stroke-dashoffset:0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text8869"
+       y="489.12305"
+       x="381.38342"
+       style="font-size:13.96058464px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         y="489.12305"
+         x="381.38342"
+         id="tspan8871"
+         sodipodi:role="line"
+         style="fill:#0019ff;fill-opacity:1">ρ<tspan
+   id="tspan8873"
+   style="font-size:9.07450771000000067px;baseline-shift:sub;fill:#0019ff;fill-opacity:1">f</tspan></tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.98999999;fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path8877"
+       sodipodi:cx="80.307129"
+       sodipodi:cy="427.58282"
+       sodipodi:rx="15.152288"
+       sodipodi:ry="15.152288"
+       d="m 95.459417,427.58282 a 15.152288,15.152288 0 1 1 -30.304577,0 15.152288,15.152288 0 1 1 30.304577,0 z"
+       transform="translate(107.65049,71.057309)"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#0700e1;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 6;stroke-dashoffset:0"
+       d="m 203.91283,498.87841 74.42891,0"
+       id="path8879"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       transform="translate(107.65049,71.057309)"
+       d="m 95.459417,427.58282 a 15.152288,15.152288 0 1 1 -30.304577,0 15.152288,15.152288 0 1 1 30.304577,0 z"
+       sodipodi:ry="15.152288"
+       sodipodi:rx="15.152288"
+       sodipodi:cy="427.58282"
+       sodipodi:cx="80.307129"
+       id="path8881"
+       style="opacity:0.98999999;fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       sodipodi:type="arc"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path8883"
+       d="m 522.61596,498.87841 74.42891,0"
+       style="fill:none;stroke:#0700e1;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 6;stroke-dashoffset:0" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.98999999;fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path8885"
+       sodipodi:cx="80.307129"
+       sodipodi:cy="427.58282"
+       sodipodi:rx="15.152288"
+       sodipodi:ry="15.152288"
+       d="m 95.459417,427.58282 a 15.152288,15.152288 0 1 1 -30.304577,0 15.152288,15.152288 0 1 1 30.304577,0 z"
+       transform="translate(531.40949,71.057309)"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text8887"
+       y="437.60526"
+       x="230.312"
+       style="font-size:13.96058464px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         y="437.60526"
+         x="230.312"
+         id="tspan8889"
+         sodipodi:role="line"
+         style="fill:#0019ff;fill-opacity:1">ρ<tspan
+   id="tspan8891"
+   style="font-size:9.07450771000000067px;baseline-shift:sub;fill:#0019ff;fill-opacity:1">f</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.96058464px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="230.312"
+       y="489.30167"
+       id="text8895"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan8897"
+         x="230.312"
+         y="489.30167"
+         style="fill:#0019ff;fill-opacity:1">ρ<tspan
+   style="font-size:9.07450771000000067px;baseline-shift:sub;fill:#0019ff;fill-opacity:1"
+   id="tspan8899">f</tspan></tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text8903"
+       y="437.60526"
+       x="551.02631"
+       style="font-size:13.96058464px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         y="437.60526"
+         x="551.02631"
+         id="tspan8905"
+         sodipodi:role="line"
+         style="fill:#0019ff;fill-opacity:1">ρ<tspan
+   id="tspan8907"
+   style="font-size:9.07450771000000067px;baseline-shift:sub;fill:#0019ff;fill-opacity:1">f</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.96058464px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="551.02631"
+       y="489.12314"
+       id="text8911"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan8913"
+         x="551.02631"
+         y="489.12314"
+         style="fill:#0019ff;fill-opacity:1">ρ<tspan
+   style="font-size:9.07450771000000067px;baseline-shift:sub;fill:#0019ff;fill-opacity:1"
+   id="tspan8915">f</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:19.11629105px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="85.720909"
+       y="452.62729"
+       id="text8919"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan8921"
+         x="85.720909"
+         y="452.62729">Ordre 1</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text8923"
+       y="504.65015"
+       x="85.720909"
+       style="font-size:19.11629105px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         y="504.65015"
+         x="85.720909"
+         id="tspan8925"
+         sodipodi:role="line">Ordre 2</tspan></text>
+    <text
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       sodipodi:linespacing="125%"
+       id="text9511"
+       y="290.03363"
+       x="151.71754"
+       style="font-size:23.03843498px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         y="290.03363"
+         x="151.71754"
+         id="tspan9513"
+         sodipodi:role="line">t<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan9521">1</tspan></tspan></text>
+    <text
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/media/bdumenieu/data/workspace/trunk/documents/src/main/latex/theseBD/5_chapitre5/images/antitemporel.png"
+       xml:space="preserve"
+       style="font-size:16.14886665px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="148.36961"
+       y="274.17642"
+       id="text9517"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan9519"
+         x="148.36961"
+         y="274.17642">~</tspan></text>
+  </g>
+</svg>

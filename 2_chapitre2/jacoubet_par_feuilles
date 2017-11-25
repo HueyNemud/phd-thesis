@@ -1,0 +1,315 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{amssymb}
+\usepackage[table]{xcolor} %Couleurs dans les tableaux (cellules, colonnes, etc.)
+%opening
+\title{}
+\author{}
+
+
+\definecolor{possibilite}{HTML}{756bb1}
+\definecolor{impossibilite}{HTML}{efedf5}
+\definecolor{incertitude}{HTML}{bcbddc}
+\definecolor{incoherence}{HTML}{fec44f}
+\definecolor{arrow}{HTML}{114F8F}
+\definecolor{arrowleft}{HTML}{114F8F}
+\definecolor{bullet}{HTML}{114F8F}
+\begin{document}
+
+\maketitle
+
+
+\begin{longtable}{|c|c c c c c c c c c c c c |}
+\caption{Datation des planches de l'atlas de Jacoubet commencé en 1825 et publié en 1836, rassemblées par livraison.
+Chaque indice temporel est obtenu en comparant un événement réel connu issu du tableau \ref{table:types_evts_datation_fine_jacoubet} avec sa représentation graphique sur le plan. Ainsi, si un événement se trouve dessiné, la planche est considérée postérieure à son déroulement et il est noté \textcolor{possibilite}{$\blacktriangleright$}). À l'inverse si un événement n'est pas sur le plan, la planche est considérée antérieure et il est noté (\textcolor{possibilite}{$\blacktriangleleft$}). Enfin, il arrive que des événements longs soient représentés dans un état intermédiaire, par exemple une rue en cours de percement (\textcolor{possibilite}{$\blacktriangledown$}). Le plus récent des indices antérieurs et le plus ancien des indices postérieurs à chaque planche permettent de fixer respectivement les bornes inférieures et supérieures d'un intervalle pendant lequel la planche a pût être dessinée et gravée. Il est indiqué par la couleur \fcolorbox{black}{possibilite}{\protect\phantom{aa}}. L'écart temporel entre un événement et son rapport sur la carte nous est inconnu, produisant une incertitude sur la position des bornes au sein d'une année. Cette incertitude est représentée dans le tableau par le couleur \fcolorbox{black}{incertitude}{\protect\phantom{aa}}. Enfin, certains indices postérieurs et antérieurs entrent parfois en conflit, ce qui peut arriver dans le cas de correction partielle d'une planche ou d'oublis. Ils se trouvent indiqués par la couleur \fcolorbox{black}{incoherence}{\protect\phantom{aa}} Pour chaque planche, la liste complète de ses indices temporels est détaillée dans l'annexe \ref{annexe:detailsJacoubet}.}
+\\
+\hline
+\multicolumn{1}{|c}{ }&\multicolumn{12}{|c|}{Années}\\
+Planches&1825&26&27&28&29&30&31&32&33&34&35&36 \\
+\hline
+\endfirsthead
+\hline
+\multicolumn{1}{|c}{ }&\multicolumn{12}{|c|}{Années}\\
+Planches&1825&26&27&28&29&30&31&32&33&34&35&36 \\
+\hline
+\endhead
+
+3 &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} & \cellcolor{possibilite}{} & \cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+10 &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+11 &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+12 &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+\hline\hline
+4 &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+5 &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+6 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+13 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+14 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}\textcolor{bullet}{$\bullet$}} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }}&\cellcolor{impossibilite}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }}&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+15 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} & \cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{}&\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }}&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+\hline\hline
+
+7 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+
+16 &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+17 &\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+18 &\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+\hline\hline
+
+19 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+20 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+21 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{incoherence}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} & \cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+28 &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+29 &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+
+30 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+\hline\hline
+
+
+22&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+23&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+24&\cellcolor{impossibilite}{} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }}& \cellcolor{incoherence}{} & \cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{incoherence}{} &\cellcolor{incoherence}{} &\cellcolor{incoherence}{} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}\textbf{\textcolor{arrow}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+31&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+32&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{bullet}{$\bullet$}} &\cellcolor{possibilite}{} \\
+
+33&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+\hline\hline
+
+25&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} \\
+
+26&\cellcolor{incertitude}{\textcolor{arrow}{$ \blacktriangler$} } &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+27&\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+34&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} & \cellcolor{incoherence}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{incoherence}{} &\cellcolor{incoherence}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{incoherence}{} &\cellcolor{incoherence}{} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+35&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{incoherence}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} & \cellcolor{incoherence}{} &\cellcolor{incoherence}{} &\cellcolor{incoherence}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+36&\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} \\
+
+\hline\hline
+
+37&\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+38&\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+39&\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+48&\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+\hline\hline
+
+40 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{incertitude}{}{\textcolor{arrow}{$\blacktriangleright$}} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} &\cellcolor{impossibilite}{} \\
+
+41 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{}{\textcolor{arrow}{$\blacktriangleright$}} & \cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+42 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+49 &\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+50 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{incertitude}{\textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }} \\
+
+51 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+\hline\hline
+
+43 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+44 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+45 &\cellcolor{impossibilite}{} &\cellcolor{impossibilite}{}& \cellcolor{impossibilite}{} & \cellcolor{impossibilite}{} &\cellcolor{impossibilite}{} &\cellcolor{incertitude}{\textcolor{arrow}{$\blacktriangleright$}} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+
+52 &\cellcolor{possibilite}{} &\cellcolor{possibilite}{}& \cellcolor{possibilite}{} & \cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} &\cellcolor{possibilite}{} \\
+\hline
+\label{table:datation_jacoubet_fin}
+\end{longtable}
+
+\section{toto}
+
+\begin{longtable}{|l|l|p{12cm}|}
+\hline
+\multirow{4}{*}{I} & \multirow{2}{*}{3} &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1828~: Construction de l'église Sainte-Marie des Batignolles\\
+ & & \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1830~: Création de la commune Batignolles-Monceau.\\
+\cline{2-3}
+& 10 & \textcolor{arrow}{$\blacktriangleright$}~1825~: Projet de lotissement de la plaine de Passy\\
+\cline{2-3}
+ &  \multirow{3}{*}{11} &  \textcolor{arrow}{$\blacktriangleright$}~1825~: Percement des rues de Byron et de Châteaubriand\\
+ & & \textcolor{arrow}{$\blacktriangleright$}~4 novembre 1829~: Ordonnance de percement de la rue Fortin.\\
+& & \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~18 mars 1836~: Ordonnance de percement des rues de Newton et des Bassins.\\
+\cline{2-3}
+ &  \multirow{2}{*}{12} &  \textcolor{arrow}{$\blacktriangleright$}~2 février 1826~: Ordonnance de percement des rues du quartier Europe\\
+& & \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~27 septembre 1836~: Ordonnance d'alignement de la rue Duras, Petite rue Verte et Roquepine.\\
+\hline
+\multirow{4}{*}{II} & \multirow{2}{*}{4} &  \textcolor{arrow}{$\blacktriangleright$}~2 février 1826~: Ordonnance d'ouverture des rues du Quartier Europe et de la rue Fontaine.\\
+ & & \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1836~: Lotissement de la rue Fontaine\\
+\cline{2-3}
+ &  \multirow{2}{*}{5} &  \textcolor{arrow}{$\blacktriangleright$}~27 septembre 1826~: Ordonnance d'ouverture de la rue Frochot\\
+ &  &  \textcolor{arrow}{$\blacktriangleright$}~2 février et 16 août 1825~: Ordonnance d'ouverture et de nommage de la rue du Delta\\
+ &  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~23 août 1833~: ordonnance d'alignement de la ruelle Beauregard ou rue Beauregard des Martyrs.\\
+\cline{2-3}
+ &  \multirow{2}{*}{6} &  \textcolor{arrow}{$\blacktriangleright$}~27 septembre 1826~: Ordonnance d'ouverture de la rue Frochot\\
+ &  &  \textcolor{arrow}{$\blacktriangleright$}~21 janvier 1827~: Ordonnance d'ouverture de la rue d'Hauteville entre la rue du Chevet-de-l'Église et le boulevard extérieur.\\
+ &  &  \textcolor{arrow}{$\blacktriangleright$}~29 novembre 1826~: Ordonnance d'élargissement de la rue du Château Landon à 15 mètres.\\
+\cline{2-3}
+
+ &  \multirow{4}{*}{13} &  \textcolor{arrow}{$\blacktriangleright$}~27 septembre 1826~: Ordonnance d'ouverture de la rue Frochot\\
+ &  &  \textcolor{arrow}{$\blacktriangleright$}~21 janvier 1827~: Ordonnance d'ouverture de la rue d'Hauteville entre la rue du Chevet-de-l'Église et le boulevard extérieur.\\
+ &  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1831~: Ouverture sans autorisation de la rue de Milan.\\
+ & & \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1829-1830~: Construction de la cité d'Antin\\
+\cline{2-3}
+ &  \multirow{5}{*}{14} &  \textcolor{arrow}{$\blacktriangleright$}~27 septembre 1826~: Ordonnance d'ouverture de la rue Frochot\\
+ &  &  \textcolor{arrow}{$\blacktriangleright$}~7 octobre 1830~: Ordonnance d'ouverture de la rue Navarin.\\
+ &  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1831~: Ouverture sans autorisation de la rue de Milan.\\
+ & & \textcolor{bullet}{$\bullet$}~1830~:Percement de la rue Vivienne suivant l'ordonnance du 17 janvier 1830.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1832~: Ouverture sans autorisation du passage Laferrière.\\
+\cline{2-3}
+ &  \multirow{4}{*}{15} &  \textcolor{arrow}{$\blacktriangleright$}~16 décembre 1829 ~: Ordonnance autorisant la transformation du passage du Grand Saint-Michel en rue.\\
+ &  &  \textcolor{arrow}{$\blacktriangleright$}~1827~: Ouverture des rues environnant l'église Saint-Vincent-de-Paul.\\
+ &  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1836~: Fin de l'élargissement de l'impasse des Filles-Dieu à 8 mètres.\\
+ &  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1832~: Suppression de l'impasse des Babillards.\\
+\hline
+\multirow{4}{*}{III} &7 &  \textcolor{arrow}{$\blacktriangleright$}~1830~: La rue Lafayette est nommée comme telle suite à la révolution de 1830. De même pour les quai Jemmapes et de Valmy.\\
+\cline{2-3}
+ &  \multirow{5}{*}{16} &  \textcolor{arrow}{$\blacktriangleright$}~1 mars 1826~: Ordonnance autorisant le percement de la rue du Canal Saint Martin.\\
+  &  &  \textcolor{arrow}{$\blacktriangleright$}~6 juin 1825~: ordonnance d'ouverture des rues Claude Villefaux/Vellefosse/Villefosse et Châstillon.\\
+  &  &  \textcolor{arrow}{$\blacktriangleright$}~6 décembre 1827~: ordonnance d'élargissement de l'impasse Saint Louis (rue Alibert).\\
+  &  &  \textcolor{arrow}{$\blacktriangleright$}~1830~: Rue du corbeau nommée officiellement.\\
+ &  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1836~: Fin des travaux de l'avenue Richerand.\\
+\cline{2-3}
+ &  17 &  \\
+\cline{2-3}
+ &  18 &  \\
+\hline
+\multirow{6}{*}{IV}&  19 &  \textcolor{arrow}{$\blacktriangleright$}~6 avril 1832~: Ordonnance d'élargissement de la rue du chemin de Versailles à 13 mètres.\\
+\cline{2-3}
+&  \multirow{2}{*}{20} &  \textcolor{arrow}{$\blacktriangleright$}~1832~: Ouverture de la rue Malar de la rue de la Triperie au quai d'Orsay.\\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~1833~: Ouverture de la rue de la Vierge entre la rue de l'Université et le quai d'Orsay.\\
+\cline{2-3}
+&  \multirow{5}{*}{21} &  \textcolor{arrow}{$\blacktriangleright$}~1829~: Fin de la construction du pont des Invalides.\\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~1828~: Percement de la place de Bellechasse.\\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~1830~: Le pont de Louis XVI est renommé pont de la Concorde, de même pour la place homonyme\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~25 décembre 1836~: Installation de l'obélisque de la place de la Concorde.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~7 mars 1827~: ordonnance d'élargissement des rues de Bourgogne, de Coutry, Saint-Dominique .\\
+\cline{2-3}
+&  \multirow{2}{*}{28} &  \textcolor{arrow}{$\blacktriangleright$}~1826~: La gare fluviale de Grenelle est terminée.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~22 octobre 1830~: La commune de Grenelle est fondée et reçoit son nom officiel.\\
+\cline{2-3}
+& 29 &  \textcolor{arrow}{$\blacktriangleright$}~1825~: Projet de lotissement de Grenelle.\\
+\cline{2-3}
+&  \multirow{2}{*}{30} &  \textcolor{arrow}{$\blacktriangleright$}~1828~: La place Bellechasse et les rues Casimir Perier, de Champigny et Martignac sont ouvertes\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~18 mai 1838~: Ordonnance de percement de la rue Barbet de Jouy.\\
+\hline
+\multirow{6}{*}{V}&  \multirow{3}{*}{22} &  \textcolor{arrow}{$\blacktriangleright$}~1832~: La rue Louis-Philippe 1e est renommée rue d'Alger après son percement en 1830.\\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~1828~: Percement de la place de Bellechasse.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1834~: Fin de la construction du pont des Saint-Pères.\\
+\cline{2-3}
+&  \multirow{3}{*}{23} &   \textcolor{arrow}{$\blacktriangleright$}~2 juillet 1833~: Percement et nommage de la rue de la Bourse.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~6 mai 1836~: Ordonnance d'élargissement de la rue du Renard.\\
+&  & \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~20 mai 1836~: Ordonnance de percement de la rue Sainte-Opportune.\\
+\cline{2-3}
+&  \multirow{3}{*}{24} & \textcolor{arrow}{$\blacktriangleright$}~6 mars 1828~: Ordonnance d'élargissement à 13 mètres de la rue Neuve Saint-Nicolas.\\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~27 mai 1829~: Ordonnance de percement de la rue Neuve Bourg-l'Abbé.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~14 janvier 1829~: Ordonnance d'élargissement à 10 mètres des rues Transnonain et des Vertus.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~16 mai 1833~: Ordonnance d'élargissement à 12 mètres des ruee Aumaire, des Gravilliers, Jean-Robert, Pastourelle, Michel le Comte , des Vieilles Andriettes, du Maure, etc.\\
+&  &   \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~21 juin 1826~: Ordonnance d'alignement des rues Cléry, Saint-Apolline, Neuve Saint-Denis, Beauregard et Tracy\\
+\cline{2-3}
+&  \multirow{2}{*}{31} &  \textcolor{arrow}{$\blacktriangleright$}~1834~: Le pont des Saint-Pères est terminé\\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~1831~: l'hôtel Brochet de Saint Prest devient la direction des Mines et des Ponts et Chaussées.\\
+\cline{2-3}
+&  \multirow{3}{*}{32} &  \textcolor{arrow}{$\blacktriangleright$}~1831~: La rue de l'évêché de la Cité est supprimée.\\
+&  &  \textcolor{bullet}{$\bullet$}~1835~: La rue Racine est en cours de percement.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1837~: Ordonnances de percement de la rue d'Arcole et de Constantine.\\
+\cline{2-3}
+&  \multirow{4}{*}{33} &  \textcolor{arrow}{$\blacktriangleright$}~20 juillet 1830~: Ordonnance d'élargissement de la rue du Lion.\\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~1834~: Le pont Louis-Philippe est terminé.\\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~18 aout 1833~: ordonnance de percement de la rue du Pont Louis-Philippe.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1836~: Percement de la rue Lobau.\\
+\hline
+\multirow{6}{*}{VI}&  \multirow{3}{*}{25} &  \textcolor{arrow}{$\blacktriangleright$}~9 septembre 1829~: Construction du Marché de Popincourt.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~31 mars 1835~: Ordonnance d'alignement de la rue de Normandie.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1829~: Ouverture du passage Crussol.\\
+\cline{2-3}
+&  \multirow{2}{*}{26} &  \textcolor{arrow}{$\blacktriangleleft$}~1826: Projet de construction de la prison de la Grande Roquette\\
+& & \textcolor{arrowleft}{$\blacktriangleleft$}~1830~: Inauguration de la prison de la Grande Roquette.\\
+\cline{2-3}
+&  27 &  \\
+\cline{2-3}
+&  \multirow{7}{*}{34} &  \textcolor{arrow}{$\blacktriangleright$}~8 juin 1834~: Ordonnance d'alignement des rues des Douze-Portes, Neuve Saint-Pierre et Saint-Gilles\\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~15 juillet 1829~: Ordonnance de percement de la rue Neuve Lappe.\\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~25 février 1829~: Ordonnance de percement de la rue de l'Orme entre la Cour du Salpêtre et la rue Saint-Antoine.\\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~27 mai 1827~: Ordonnance de percement de la partie sud de la rue de la Planchette.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~6 mai 1827~: Ordonnance d'alignement des rues de Charonne et de la Roquette.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~27 janvier 1831~: La rue de Lappe est renommée rue Louis-Philippe.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1 mai 1828~: Ordonnance d'alignement des rues de Charenton, Terres-Fortes et Moreau.\\
+\cline{2-3}
+&  \multirow{2}{*}{35} &  \textcolor{arrow}{$\blacktriangleright$}~1830~: Début du projet de la prison de la Petite Roquette.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~6 mai 1827~: Ordonnance d'élargissement de la rue de la Muette à 13 mètres et de la rue des Murs de la Roquette.\\
+\cline{2-3}
+& 36 &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~6 mai 1827~: Ordonnance d'élargissement de la rue de Charonne et de l'avenue des Ormeaux.\\
+\cline{2-3}
+\multirow{4}{*}{VII}& 37&  \textcolor{arrow}{$\blacktriangleright$}~1829~: Construction de l'église de Grenelle.\\
+\cline{2-3}
+&  38 &  \textcolor{arrow}{$\blacktriangleright$}~1825~: Projet de lotissement de Grenell.\\
+\cline{2-3}
+&  39 &  \textcolor{arrowleft}{$\blacktriangleleft$}~18 mai 1838~: Ordonnance de percement du boulevard de Vaugirard entre la rue de Sèvre et la rue des Fourneaux. \\
+\cline{2-3}
+&  48 &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1838~: Ouverture de la rue Mouton-Duvernet.\\
+\hline
+\multirow{6}{*}{VIII}& 40 &  \textcolor{arrow}{$\blacktriangleright$}~21 septembre 1827~: Ordonnance d'élargissement à 12 mètres de la rue Campagne-Première.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1835~: Élargissement de la rue Campagne-Première suivant l'ordonnance du 21 septembre 1827.\\
+\cline{2-3}
+&  \multirow{3}{*}{41} &  \textcolor{arrow}{$\blacktriangleright$}~11 décembre 1830~: Loi rendant son nom et fonction au panthéon.\\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~9 aout 1828~: Ordonnance de percement de la rue Soufflot de la rue Saint-Jacques au palais du Luxembourg.\\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~6 mai 1827~: Ordonnance de percement de la rue Pascal.\\
+\cline{2-3}
+&  \multirow{2}{*}{42} &  \textcolor{arrow}{$\blacktriangleright$}~1832~: Construction de l'amphithéâtre d'anatomie de Clamart.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1838~: Construction de la place Saint-Victor.\\
+\cline{2-3}
+&  49 &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1838~: Ouverture de la rue Mouton-Duvernet.\\
+\cline{2-3}
+&  \multirow{2}{*}{50} & \textcolor{arrow}{$\blacktriangleright$}~1832~: Inauguration du dépôt de mendicité de Lourcine.\\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1836~:Inauguration de l'hôpital de Lourcine.\\
+\cline{2-3}
+&  51 & \textcolor{arrow}{$\blacktriangleright$}~2 décembre 1829~: Ordonnance d'élargissement à 23 mètres de la rue du Petit Gentilly.\\
+\hline
+\multirow{6}{*}{IX}& \multirow{2}{*}{43}&  \textcolor{arrow}{$\blacktriangleright$}~1 juin 1828~: Ordonnance d'alignement des rues des Charbonniers, de Bercy et Lacuée.\\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~9 aout 1832~: Construction du pont de la Gare (de Bercy). \\
+&  &  \textcolor{arrow}{$\blacktriangleright$}~1830~: Le pont du Roi reprend le nom de pont d'Austerlitz. \\
+&  &  \textbf{\textcolor{arrowleft}{$ \blacktriangleleft$} }~1839~:Construction de la première gare ferroviaire d'Austerlitz.\\
+\cline{2-3}
+&  44 &  \textcolor{arrow}{$\blacktriangleright$}~1830~: Élargissement de la rue des Quatre-Chemins.\\
+\cline{2-3}
+&  45 &  \textcolor{arrow}{$\blacktriangleright$}~1830~: Élargissement de la rue des Quatre-Chemins.\\
+\cline{2-3}
+&  52 &  \\
+\hline
+\end{longtable}
+
+\end{document}

@@ -1,0 +1,264 @@
+    /*
+     * Fuzzy sets from BORTOLAN AND DELGANI
+     */
+    FuzzySet a1 = new FuzzySet(new double[] {0,0.1,0.2}, new double[] { 0., 1.,
+        0. }, 3);
+    FuzzySet a2 = new FuzzySet(new double[] {0.8,0.9,1}, new double[] { 0., 1.,
+        0. }, 3);
+    FuzzySet b1 = new FuzzySet(new double[] {0.6,0.7,0.8}, new double[] { 0., 1.,
+        0. }, 3);
+    FuzzySet b2 = new FuzzySet(new double[] {0.8,0.9,1}, new double[] { 0., 1.,
+        0. }, 3);
+    FuzzySet c1 = new FuzzySet(new double[] {0.7,0.8,0.9}, new double[] { 0., 1.,
+        0. }, 3);
+    FuzzySet c2 = new FuzzySet(new double[] {0.9,0.95,1.0}, new double[] { 0., 1.,
+        0. }, 3);
+    FuzzySet d1 = new FuzzySet(new double[] {0.1,0.2,0.3}, new double[] { 0., 1.,
+        0. }, 3); // IMPORTANT
+    FuzzySet d2 = new FuzzySet(new double[] {0.3,0.4,0.5}, new double[] { 0., 1.,
+        0. }, 3); // IMPORTANT
+    FuzzySet d3 = new FuzzySet(new double[] {0.6,0.7,0.8}, new double[] { 0., 1.,
+        0. }, 3); // IMPORTANT
+    FuzzySet e1 = new FuzzySet(new double[] {0.0,0.0,0.1}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet e2 = new FuzzySet(new double[] {0.5,0.6,0.7}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet e3 = new FuzzySet(new double[] {0.9,1.,1.}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet f1 = new FuzzySet(new double[] {0.35,0.5,1.}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet f2 = new FuzzySet(new double[] {0.15,0.7,0.8}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet g1 = new FuzzySet(new double[] {0.0,0.1,0.5,1.}, new double[] {0.0,1.,1.,
+        0. }, 4);
+    FuzzySet g2 = new FuzzySet(new double[] {0.5,0.6,0.7}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet h1 = new FuzzySet(new double[] {0.0,0.1,0.5,1.}, new double[] {0.0,1.,1.,
+        0. }, 4);
+    FuzzySet h2 = new FuzzySet(new double[] {0.6,0.7,0.8}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet i1 = new FuzzySet(new double[] {0.4,0.9,1.}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet i2 = new FuzzySet(new double[] {0.4,0.7,1.}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet i3 = new FuzzySet(new double[] {0.4,0.5,1.}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet j1 = new FuzzySet(new double[] {0.5,0.7,0.9}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet j2 = new FuzzySet(new double[] {0.3,0.7,0.9}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet j3 = new FuzzySet(new double[] {0.3,0.4,0.7,0.9}, new double[] {0.0,1.,1.,
+        0. }, 4);
+    FuzzySet k1 = new FuzzySet(new double[] {0.3,0.5,0.8,0.9}, new double[] {0.0,1.,1.,
+        0. }, 4);
+    FuzzySet k2 = new FuzzySet(new double[] {0.3,0.5,0.9}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet k3 = new FuzzySet(new double[] {0.3,0.5,0.7}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet l1 = new FuzzySet(new double[] {0.2,0.5,0.8}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet l2 = new FuzzySet(new double[] {0.4,0.5,0.6}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet m1 = new FuzzySet(new double[] {0.0,0.4,0.6,0.8}, new double[] {0.0,1.,1.,
+        0. }, 4);
+    FuzzySet m2 = new FuzzySet(new double[] {0.2,0.5,0.9}, new double[] {0.0,1.,
+        0. }, 3);
+    FuzzySet m3 = new FuzzySet(new double[] {0.1,0.6,0.7,0.8}, new double[] {0.0,1.,1.,
+        0. }, 4);
+
+Test for Fuzzy Ranking VS Hand Made Ranking for Temporal Fuzzy Quantities
+BORTOLAN case (a)
+Yager F1 ranking =true
+Yager F2 ranking =true
+Yager F3 ranking =true
+Chang ranking =true
+Adamo 0.9 ranking =true
+Adamo 0.5 ranking =true
+Baas-Kwakernaak ranking =true
+Baldwin-Guild l.p. ranking =true
+Baldwin-Guild g. ranking =true
+Baldwin-Guild r.a. ranking =true
+Kerre ranking =true
+Jain k=1 ranking =true
+Jain k=2 ranking =true
+Jain k=0.5 ranking =true
+BORTOLAN case (b)
+Yager F1 ranking =true
+Yager F2 ranking =true
+Yager F3 ranking =true
+Chang ranking =true
+Adamo 0.9 ranking =true
+Adamo 0.5 ranking =true
+Baas-Kwakernaak ranking =true
+Baldwin-Guild l.p. ranking =true
+Baldwin-Guild g. ranking =true
+Baldwin-Guild r.a. ranking =true
+Kerre ranking =true
+Jain k=1 ranking =true
+Jain k=2 ranking =true
+Jain k=0.5 ranking =true
+BORTOLAN case (c)
+Yager F1 ranking =true
+Yager F2 ranking =true
+Yager F3 ranking =true
+Chang ranking =false
+Adamo 0.9 ranking =true
+Adamo 0.5 ranking =true
+Baas-Kwakernaak ranking =true
+Baldwin-Guild l.p. ranking =true
+Baldwin-Guild g. ranking =true
+Baldwin-Guild r.a. ranking =true
+Kerre ranking =true
+Jain k=1 ranking =true
+Jain k=2 ranking =true
+Jain k=0.5 ranking =true
+BORTOLAN case (d)
+Yager F1 ranking =true
+Yager F2 ranking =true
+Yager F3 ranking =true
+Chang ranking =true
+Adamo 0.9 ranking =true
+Adamo 0.5 ranking =true
+Baas-Kwakernaak ranking =true
+Baldwin-Guild l.p. ranking =true
+Baldwin-Guild g. ranking =true
+Baldwin-Guild r.a. ranking =true
+Kerre ranking =false
+Jain k=1 ranking =true
+Jain k=2 ranking =true
+Jain k=0.5 ranking =true
+BORTOLAN case (e)
+Yager F1 ranking =true
+Yager F2 ranking =true
+Yager F3 ranking =true
+Chang ranking =false
+Adamo 0.9 ranking =true
+Adamo 0.5 ranking =true
+Baas-Kwakernaak ranking =true
+Baldwin-Guild l.p. ranking =true
+Baldwin-Guild g. ranking =true
+Baldwin-Guild r.a. ranking =true
+Kerre ranking =false
+Jain k=1 ranking =true
+Jain k=2 ranking =true
+Jain k=0.5 ranking =true
+BORTOLAN case (f)
+Yager F1 ranking =true
+Yager F2 ranking =false
+Yager F3 ranking =true
+Chang ranking =true
+Adamo 0.9 ranking =false
+Adamo 0.5 ranking =false
+Baas-Kwakernaak ranking =false
+Baldwin-Guild l.p. ranking =true
+Baldwin-Guild g. ranking =true
+Baldwin-Guild r.a. ranking =true
+Kerre ranking =true
+Jain k=1 ranking =false
+Jain k=2 ranking =false
+Jain k=0.5 ranking =false
+BORTOLAN case (g)
+Yager F1 ranking =true
+Yager F2 ranking =false
+Yager F3 ranking =true
+Chang ranking =false
+Adamo 0.9 ranking =true
+Adamo 0.5 ranking =false
+Baas-Kwakernaak ranking =true
+Baldwin-Guild l.p. ranking =true
+Baldwin-Guild g. ranking =true
+Baldwin-Guild r.a. ranking =true
+Kerre ranking =true
+Jain k=1 ranking =false
+Jain k=2 ranking =false
+Jain k=0.5 ranking =true
+BORTOLAN case (h)
+Yager F1 ranking =true
+Yager F2 ranking =true
+Yager F3 ranking =true
+Chang ranking =false
+Adamo 0.9 ranking =true
+Adamo 0.5 ranking =true
+Baas-Kwakernaak ranking =true
+Baldwin-Guild l.p. ranking =true
+Baldwin-Guild g. ranking =true
+Baldwin-Guild r.a. ranking =true
+Kerre ranking =true
+Jain k=1 ranking =true
+Jain k=2 ranking =true
+Jain k=0.5 ranking =true
+BORTOLAN case (i)
+Yager F1 ranking =true
+Yager F2 ranking =true
+Yager F3 ranking =true
+Chang ranking =true
+Adamo 0.9 ranking =true
+Adamo 0.5 ranking =true
+Baas-Kwakernaak ranking =true
+Baldwin-Guild l.p. ranking =true
+Baldwin-Guild g. ranking =true
+Baldwin-Guild r.a. ranking =true
+Kerre ranking =true
+Jain k=1 ranking =true
+Jain k=2 ranking =true
+Jain k=0.5 ranking =true
+BORTOLAN case (j)
+Yager F1 ranking =true
+Yager F2 ranking =true
+Yager F3 ranking =true
+Chang ranking =false
+Adamo 0.9 ranking =false
+Adamo 0.5 ranking =false
+Baas-Kwakernaak ranking =false
+Baldwin-Guild l.p. ranking =false
+Baldwin-Guild g. ranking =false
+Baldwin-Guild r.a. ranking =false
+Kerre ranking =true
+Jain k=1 ranking =true
+Jain k=2 ranking =true
+Jain k=0.5 ranking =true
+BORTOLAN case (k)
+Yager F1 ranking =true
+Yager F2 ranking =true
+Yager F3 ranking =true
+Chang ranking =true
+Adamo 0.9 ranking =true
+Adamo 0.5 ranking =true
+Baas-Kwakernaak ranking =true
+Baldwin-Guild l.p. ranking =true
+Baldwin-Guild g. ranking =true
+Baldwin-Guild r.a. ranking =true
+Kerre ranking =true
+Jain k=1 ranking =true
+Jain k=2 ranking =true
+Jain k=0.5 ranking =true
+BORTOLAN case (l)
+Yager F1 ranking =false
+Yager F2 ranking =false
+Yager F3 ranking =false
+Chang ranking =false
+Adamo 0.9 ranking =false
+Adamo 0.5 ranking =false
+Baas-Kwakernaak ranking =false
+Baldwin-Guild l.p. ranking =false
+Baldwin-Guild g. ranking =false
+Baldwin-Guild r.a. ranking =true
+Kerre ranking =false
+Jain k=1 ranking =false
+Jain k=2 ranking =false
+Jain k=0.5 ranking =false
+BORTOLAN case (m)
+Yager F1 ranking =false
+Yager F2 ranking =false
+Yager F3 ranking =true
+Chang ranking =false
+Adamo 0.9 ranking =false
+Adamo 0.5 ranking =true
+Baas-Kwakernaak ranking =false
+Baldwin-Guild l.p. ranking =true
+Baldwin-Guild g. ranking =true
+Baldwin-Guild r.a. ranking =false
+Kerre ranking =true
+Jain k=1 ranking =false
+Jain k=2 ranking =false
+Jain k=0.5 ranking =false

@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="ens_flous_min_max.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="273.69862"
+     inkscape:cy="714.37874"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1680"
+     inkscape:window-height="967"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 13.747291,80.933611 0,124.285709 294.288429,0"
+       id="path2985"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;stroke:#0005ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 25.357151,205.21932 162.26796,82.338658 299.28571,205.21932"
+       id="path2987"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;stroke:#00ff12;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 89.285711,204.50504 0,-122.857144 109.285719,0 70,123.571424"
+       id="path2989"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;stroke:#ff0003;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 13.303571,205.21932 c 6.42704,0 6.48841,0 11.69643,0 l 64.16935,0.0947 0.26047,-57.29169 72.403419,-66.116477 36.59025,-0.425706 38.71239,68.332173 61.25698,55.49628 10.17857,-0.0893"
+       id="path2991"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccc"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-size:14.24069881px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7.573606"
+       y="75.934608"
+       id="text3761"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan3763"
+         x="7.573606"
+         y="75.934608">μ</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3765"
+       y="207.36317"
+       x="310.93851"
+       style="font-size:14.24069881px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         y="207.36317"
+         x="310.93851"
+         id="tspan3767"
+         sodipodi:role="line">X</tspan></text>
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path3769"
+       d="m 329.14214,83.076473 0,124.285697 297.76794,0"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path3771"
+       d="M 342.26723,207.36217 479.17804,84.481513 616.19579,207.36217"
+       style="fill:none;stroke:#0005ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3773"
+       d="m 406.19579,206.64789 0,-122.857137 109.28572,0 70,123.571417"
+       style="fill:none;stroke:#00ff12;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       sodipodi:nodetypes="cccccccc"
+       inkscape:connector-curvature="0"
+       id="path3775"
+       d="m 329.58865,207.36217 12.32143,0 64.42982,-57.70206 -0.13816,-65.863937 72.76634,-0.17317 75.07788,68.332167 31.7927,55.67485 42.49999,-0.625"
+       style="fill:none;stroke:#ff0003;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3777"
+       y="79.863182"
+       x="324.45575"
+       style="font-size:14.24069881px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         y="79.863182"
+         x="324.45575"
+         id="tspan3779"
+         sodipodi:role="line">μ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14.24069881px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="633.17865"
+       y="209.50604"
+       id="text3781"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan3783"
+         x="633.17865"
+         y="209.50604">X</tspan></text>
+    <path
+       inkscape:export-ydpi="150"
+       inkscape:export-xdpi="150"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path3862"
+       d="m 13.747291,80.933611 0,124.285709 294.288429,0"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="150"
+       inkscape:export-xdpi="150"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path3864"
+       d="M 25.357151,205.21932 162.26796,82.338658 299.28571,205.21932"
+       style="fill:none;stroke:#0005ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="150"
+       inkscape:export-xdpi="150"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:connector-curvature="0"
+       id="path3866"
+       d="m 89.285711,204.50504 0,-122.857144 109.285719,0 70,123.571424"
+       style="fill:none;stroke:#00ff12;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="150"
+       inkscape:export-xdpi="150"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       sodipodi:nodetypes="ccccccccc"
+       inkscape:connector-curvature="0"
+       id="path3868"
+       d="m 13.303571,205.21932 c 6.42704,0 6.48841,0 11.69643,0 l 64.16935,0.0947 0.26047,-57.29169 72.403419,-66.116477 36.59025,-0.425706 38.71239,68.332173 61.25698,55.49628 10.17857,-0.0893"
+       style="fill:none;stroke:#ff0003;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       inkscape:export-ydpi="150"
+       inkscape:export-xdpi="150"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       sodipodi:linespacing="125%"
+       id="text3870"
+       y="75.934608"
+       x="7.573606"
+       style="font-size:14.24069881px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         y="75.934608"
+         x="7.573606"
+         id="tspan3872"
+         sodipodi:role="line"
+         style="font-size:14px">μ</tspan></text>
+    <text
+       inkscape:export-ydpi="150"
+       inkscape:export-xdpi="150"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       xml:space="preserve"
+       style="font-size:14.24069881px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="310.93851"
+       y="207.36317"
+       id="text3874"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3876"
+         x="310.93851"
+         y="207.36317">X</tspan></text>
+    <path
+       style="fill:none;stroke:#ff0003;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 125.81668,62.55444 20.20307,0"
+       id="path3882"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="279.28571"
+       y="228.79076"
+       id="text3886"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3888"
+         x="279.28571"
+         y="228.79076" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16.36540413px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="148.89197"
+       y="63.908779"
+       id="text3890"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan3892"
+         x="148.89197"
+         y="63.908779"
+         style="font-size:14px">μ<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan3914">max</tspan></tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.83042389px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 158.12812,59.98076 c 0,0 2.93745,-2.114533 4.70208,-2.196248 3.16945,-0.146768 5.54789,2.244391 8.70757,2.633702 1.90791,0.235078 5.57284,-1.573876 5.57284,-1.573876"
+       id="path3894"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cssc"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3916"
+       d="m 440.1024,62.55444 20.20306,0"
+       style="fill:none;stroke:#ff0003;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3918"
+       y="63.908779"
+       x="463.1777"
+       style="font-size:16.36540413px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         style="font-size:14px"
+         y="63.908779"
+         x="463.1777"
+         id="tspan3920"
+         sodipodi:role="line">μ<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan3926">min</tspan></tspan></text>
+    <path
+       sodipodi:nodetypes="cssc"
+       inkscape:connector-curvature="0"
+       id="path3924"
+       d="m 472.41383,59.881938 c 0,0 2.53275,-1.897817 4.05427,-1.971157 2.73279,-0.131726 4.78355,2.014366 7.50791,2.363777 1.64506,0.210985 4.80506,-1.412571 4.80506,-1.412571"
+       style="fill:none;stroke:#000000;stroke-width:0.73051804px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3928"
+       d="m 292.24525,223.26873 20.20307,0"
+       style="fill:none;stroke:#00ff12;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;stroke:#0005ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 292.24525,241.13331 20.20307,0"
+       id="path3930"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       sodipodi:nodetypes="cssc"
+       inkscape:connector-curvature="0"
+       id="path3932"
+       d="m 158.12812,59.98076 c 0,0 2.93745,-2.114533 4.70208,-2.196248 3.16945,-0.146768 5.54789,2.244391 8.70757,2.633702 1.90791,0.235078 5.57284,-1.573876 5.57284,-1.573876"
+       style="fill:none;stroke:#000000;stroke-width:0.83042389px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-size:16.36540413px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="319.03479"
+       y="225.89571"
+       id="text3890-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan3892-4"
+         x="319.03479"
+         y="225.89571"
+         style="font-size:14px">μ<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan3966">A</tspan></tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3958"
+       y="244.07845"
+       x="319.79242"
+       style="font-size:16.36540413px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         style="font-size:14px"
+         y="244.07845"
+         x="319.79242"
+         id="tspan3960"
+         sodipodi:role="line">μ<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan3964">B</tspan></tspan></text>
+    <path
+       inkscape:export-ydpi="150"
+       inkscape:export-xdpi="150"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:connector-curvature="0"
+       id="path3972"
+       d="m 263.57143,432.36218 0,-122.85714 109.28571,0 70,123.57142"
+       style="fill:none;stroke:#00ff12;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 79.461581,308.79075 0,124.28571 587.145559,0"
+       id="path3984"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;stroke:#00ff12;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 263.57143,432.36218 0,-122.85714 109.28571,0 70,123.57142"
+       id="path3988"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-size:14.24069881px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="74.716454"
+       y="304.50604"
+       id="text3992"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         style="font-size:14px"
+         sodipodi:role="line"
+         id="tspan3994"
+         x="74.716454"
+         y="304.50604">μ</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3996"
+       y="434.50601"
+       x="667.36707"
+       style="font-size:14.24069881px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         y="434.50601"
+         x="667.36707"
+         id="tspan3998"
+         sodipodi:role="line">X</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:6,1;stroke-dashoffset:0"
+       d="m 78.737309,309.86218 294.108071,-0.39675 70.00581,123.59019 236.60041,-0.66964"
+       id="path4012"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       inkscape:export-ydpi="150"
+       inkscape:export-xdpi="150"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 316.53096,441.84016 20.20307,0"
+       id="path4018"
+       inkscape:connector-curvature="0" />
+    <text
+       inkscape:export-ydpi="150"
+       inkscape:export-xdpi="150"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       sodipodi:linespacing="125%"
+       id="text4020"
+       y="444.46713"
+       x="343.3205"
+       style="font-size:16.36540413px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:14px"
+         y="444.46713"
+         x="343.3205"
+         id="tspan4022"
+         sodipodi:role="line">μ<tspan
+   id="tspan4024"
+   style="font-size:65.00091553%;baseline-shift:sub">A</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16.36540413px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="145.1062"
+       y="301.60999"
+       id="text4026"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan4028"
+         x="145.1062"
+         y="301.60999"
+         style="font-size:14px">μ<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4032">A</tspan></tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 153.75,306.29075 6.96429,0"
+       id="path4034"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 80,433.07647 183.57143,0 0,-123.57143 404.28571,0"
+       id="path4044"
+       inkscape:connector-curvature="0" />
+    <text
+       inkscape:export-ydpi="150"
+       inkscape:export-xdpi="150"
+       inkscape:export-filename="/home/BDumenieu/ntfs_drive/workspace/geoxygene-cogit/documents/src/main/latex/theseBD/4_chapitre4/images/fuzzy_max_min.png"
+       sodipodi:linespacing="125%"
+       id="text4490"
+       y="301.60999"
+       x="508.67764"
+       style="font-size:16.36540413px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:14px"
+         y="301.60999"
+         x="508.67764"
+         id="tspan4492"
+         sodipodi:role="line">μ<tspan
+   id="tspan4494"
+   style="font-size:65.00091553%;baseline-shift:sub">A</tspan></tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path4496"
+       d="m 517.40492,295.93668 6.96429,0"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+  </g>
+</svg>

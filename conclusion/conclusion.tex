@@ -1,0 +1,203 @@
+\chapter*{Conclusion et perspectives}
+%Si les systèmes d'information géographiques sont de plus en plus utilisés en histoire pour intégrer et localiser des résultats d'études ou des données d'archives dans une portion d'espace délimitée, ils sont inadapté à l'analyse de phénomènes évoluant conjointement à l'espace dans lesquelles ils se déroulent. 
+\myparagraph{Rappel des objectifs}
+Dans ce travail de thèse, nous nous intéressons à la création de bases de données spatio-temporelles sur l'espace urbain ancien à partir de plans et cartes topographiques pouvant être utilisés dans le cadre de recherches en histoire urbaine.
+L'objectif principal de cette recherche est l'intégration des objets géographiques représentés par ces sources cartographiques au sein de graphes spatio-temporels permettant d'analyser les transformations des structures d'une ville.
+Les sources cartographiques anciennes, ou \emph{sources géohistoriques}, ont la particularité d'être fortement hétérogènes et imparfaites.
+De plus, leur fiabilité doit constamment être remise en question pour qu'elles soient utilisables au sein d'études historiques.
+Ces différentes imperfections ont des effets sur les \emph{informations géohistoriques} représentées par ces sources, augmentant notamment les incertitudes sur les formes urbaines et leurs évolutions.
+\\
+Étant donnés ces éléments, deux sous-objectifs sont visés plus particulièrement dans cette thèse~:
+\begin{enumerate}
+\item Une base de données spatio-temporelle dédiée à l'histoire n'est utilisable qu'à condition que les données qu'elle comporte soient bien connues et que leurs imperfections soient identifiées et modélisées.\\
+\fbox{\parbox{13.5cm}{\textbf{Le premier objectif consiste à identifier et modéliser les imperfections des sources géohistoriques et des objets géographiques qu'elles représentent}.}}
+\\\vspace{11pt}
+\item Les sources cartographiques anciennes présentent un état d'une ville pendant une période de temps plus ou moins bien connue.
+Elles forment des couches spatio-temporelles, ou \emph{snapshots}.
+Former des données spatio-temporelles à partir des objets géographiques qu'elles représentent implique d'identifier les transformations ou la persistance, au fil des couches, des entités du monde réel correspondant à ces objets.
+\\
+\fbox{\parbox{13.5cm}{\textbf{Le second objectif est donc de proposer une approche permettant de lier les objets géographiques représentés dans les sources géohistoriques afin de former des objets spatio-temporels décrivant les transformations de l'espace urbain ancien}.}} 
+\end{enumerate}
+Afin de proposer des réponses adaptées à des données réelles et dans le but de valider les solutions proposées, le cas applicatif des transformations de la ville de Paris du XVIII\up{e} au XIX\up{e} siècle sert de fil d'Ariane à l'ensemble du document.
+Pour cela, nous traitons 5 grands plans topographiques de Paris ayant eu des rôles centraux dans l'histoire de la cartographie parisienne.
+
+\myparagraph{Résumé des propositions}
+Afin d'atteindre les deux objectifs identifiés, nous présentons un ensemble de propositions que l'on peut organiser ainsi~:
+\begin{itemize}
+\item [--] \textbf{Identifier les imperfections spatiales et temporelles des sources géohistoriques}.
+Nous proposons tout d'abord une approche d'analyse fine des sources cartographiques anciennes s'appuyant à la fois sur une étude qualitative et historique des sources et sur une étude quantitative des distorsions géométriques des cartes et des objets géographiques qu'elles renferment.
+L'analyse qualitative permet de déterminer la période pendant laquelle les plans peuvent être supposés de façon fiable l'espace de la ville\footnote{En réalité, le temps valide des plans est difficile à déterminer avec précision. On se contente de l'approximer par la période de levé topographique.}, que l'on identifie comme la période de levé topographique.%attention à la formulation...
+Elle permet également de mettre en évidence des liens entre plans, tels que réutilisations, reprises, imitations, qui apportent des connaissances sur la fiabilité du contenu de ces sources.
+L'analyse quantitative s'appuie, quant à elle, sur le géoréférencement des différents plans, dans la lignée des travaux de~\cite{Jenny2011}.
+Nous montrons ainsi comment le géoréférencement des plans de Paris peut être utilisé pour analyser les distorsions géométriques des différents thèmes cartographiques d'un plan.
+Le couplage de ces deux analyses permet alors de connaître et de mesurer les incertitudes temporelles et les imperfections spatiales d'une source géohistorique.
+\item [--] \textbf{Modéliser des informations géohistoriques dans un SIG}~: 
+Après extraction par vectorisation manuelle\footnote{ Nousa vons fait le choix d'effectuer cette vectorisation de façon manuelle, mais on pourrait tout à fait envisager de reproduire ces travaux sur la base de données acquises de fa\c{c}on automatique voire semi-automatique} des réseaux viaires des rues de Paris sur les plans topographiques géoréférencés afin de constituer un ensemble de données géohistiques, nous proposons un modèle relationnel de base de données spatiale et temporelle visant à stocker ces données tout en conservant les imperfections identifiées dans l'étape précédente.%revoir la remarque entre parenthèses
+Ce modèle organise les données vectorisées, nommées \emph{observations géohistoriques}, en couches temporelles correspondant à une source géohistorique.
+Il s'appuie en outre sur les standards de l'information géographique ISO 19108, ISO 19109 et ISO 19107 qu'il étend pour leur intégrer les spécificités des données issues de sources géohistoriques.
+En particulier, nous proposons une modélisation des temporalités des sources et des observations fondés sur des sous-ensembles flous permettant de représenter l'incertitude sur la période durant laquelle ces observations représentent une entité du monde réel existante.%voir la formulation encore sur la période de temps...
+\item [--] \textbf{Modéliser et identifier les transformations de l'espace urbain}~:
+Nous proposons enfin un ensemble de solutions permettant de construire des données spatio-temporelles à partir des observations géohistoriques stockées dans la base de données spatiale et temporelle.
+Pour cela, nous introduisons tout d'abord un modèle de graphe spatio-temporel étendant un modèle de la littérature \citep{DelMondo2011} de manière à manipuler des informations imparfaites.
+Ce modèle de graphe représente des relations de filiation entre observations géohistoriques, permettant ainsi d'en déduire les transformations existant entre elles.
+Nous proposons ensuite une approche semi-automatique permettant de peupler un tel graphe à partir des observations stockées dans la base de données spatiale et temporelle.
+Cette approche consiste à identifier les relations de filiation entre les observations géohistoriques issues d'un ensemble de sources géohistoriques.
+Dans ce but, nous proposons une approche en deux temps, constituée d'un algorithme inspiré des méthodes d'appariement de données géographiques et d'un algorithme d'identification de la nature des relations entre deux observations préalablement appariées.
+Afin de modéliser les imperfections des observations et des connaissances historiques, ces deux algorithmes s'appuient sur la théorie des fonctions de croyance \citep{Shafer1976}.
+\end{itemize}
+
+\subsection*{Contributions}
+Nous décrivons ici les contributions de cette thèse selon le domaine principal qu'elles concernent.
+Nous présentons tout d'abord les contributions en histoire, ou situées à l'intersection entre la géomatique et l'histoire.
+Nous détaillons ensuite les contributions concernant les données et modèles spatio-temporels, pour finir par les apports en géomatique.
+
+\myparagraph{Une lecture de l'évolution de l'administration urbaine de Paris au travers des grands plans de la ville}
+Une première contribution de cette thèse porte sur la mise en lumière, par les plans topographiques, de la mutation qui affecte l'administration de Paris après la Révolution française.
+La centralisation progressive des outils de gestion de la ville, qui commence dès la création de la préfecture de la Seine et se termine avec l'arrivée du baron Haussmann est un processus déjà connu des historiens.
+Les grands plans de Paris utilisés au sein de la préfecture sont des fenêtres sur l'intérieur de l'administration qui ont été peu exploitées.
+La réalisation de l'atlas de Jacoubet aux environs de 1830, que nous explorons en détail dans cette thèse, révèle en partie les dessous de l'évolution de l'administration qui mèneront aux grands travaux des années 1860. 
+
+\myparagraph{Explorer et critiquer le contenu des sources cartographiques grâce au géoréférencement}
+L'existence de tracés géodésiques (méridienne, etc.) dans les plans topographiques de Paris offre la possibilité de géoréférencer ces plans sans utiliser de repères placés sur des objets géographiques inchangés comme cela est généralement fait.
+En utilisant de tels points sur deux thèmes cartographiques différents de l'atlas parisien réalisé par Edmé Verniquet à la fin du XVIII\up{e} siècle, nous pouvons analyser les distorsions géométriques de chacun de ces thèmes par rapport au reste de la carte.
+Ces mesures permettent alors d'explorer certaines hypothèses sur la phase de levé topographique de l'atlas posées lors d'une analyse qualitative.
+Elles nous permettent en particulier de faire apparaître les différentes phases de levé topographique de l'atlas.
+Plus généralement, nous montrons comment le géoréférencement peut être un outil d'analyse pertinent d'un plan et compléter une première étude historique.
+
+%\myparagraph{Un processus complet de création d'une base de données géohistorique}
+%Une contribution majeure de ce travail est la proposition d'un processus couvrant toutes les étapes permettant de construire une base de données spatio-temporelle en graphe à partir de sources cartographiques anciennes. 
+
+
+\myparagraph{Un modèle de graphe géohistorique adapté aux données imparfaites}
+Les observations géohistoriques sont imparfaites spatialement et temporellement~: leur localisation spatiale est erronée en raison des erreurs planimétriques des sources, leur forme modifiée par les choix de représentation et leur localisation temporelle est incertaine.
+Peu de modèles spatio-temporels formels permettent de prendre en compte ces diverses imperfections, et nous n'en connaissons pas qui soient adaptés à la modélisation d'objets géographiques imparfaits en transformation dans le temps.% il est toujours bon de relativiser :)
+L'extension proposée d'un modèle de graphe spatio-temporel de la littérature, proposé par \cite{DelMondo2011}, offre la possibilité d'intégrer de telles informations dans un modèle formel pouvant être instancié dans une base de données relationnelle.
+Le graphe étendu que nous proposons est nommé \emph{graphe géohistorique} afin de le distinguer plus aisément du modèle sur lequel il s'appuie.
+
+
+\myparagraph{Un processus d'intégration semi-automatique de données spatio-temporelles imparfaites}
+L'intégration de données dans un modèle spatio-temporel est rarement abordée, les données devant être préalablement traitées pour être représentables dans un modèle précis.
+L'approche d'appariement de données spatio-temporelles proposée dans cette thèse est un processus permettant d'intégrer des données géohistoriques dans un modèle de graphe spatio-temporel de façon semi-automatique.
+En outre, ce processus prend en compte certaines imperfections des données, inévitables lorsqu'il s'agit de données historiques.
+
+\myparagraph{Une modélisation de l'identité d'objets spatio-temporels dans le cas de connaissances incertaines}
+Les identités des objets spatio-temporels sont généralement considérées comme connues \emph{a priori} au sein des modèles existants.
+Or, cela implique une connaissance fine des objets spatio-temporels que nous ne possédons pas dans notre cas, ces objets étant formés d'une chaîne d'observations géohistoriques.
+L'expression de l'identité sous la forme d'un ensemble d'attributs communs à ces observations et d'un ensemble de mesures de similarités entre attributs permet de traiter l'identité des objets au sein même de la base et non en amont.
+Cela permet d'alléger sensiblement la phase de collecte des données pour déplacer celle de détection des observations de même identité après le stockage des données dans la base.
+De plus, cela augmente la robustesse de la base de données à des données hétérogènes.
+
+
+%\myparagraph{Une approche d'intégration prudente}
+
+\myparagraph{Une base de données spatio-temporelle extensible et adaptable à différents points de vue}
+L'approche adoptée pour le peuplement d'un graphe géohistorique à partir d'observations est divisée en deux phases, une première permettant de découvrir les observations dont les identités sont liées, et une seconde raffinant le résultat de la première pour identifier finement le type de relation selon que les observations décrivent la même entité ou des entités liées par un processus de transformation.
+La première phase est coûteuse en temps de calcul mais nécessite une définition de l'identité des observations moins précise que la seconde phase.
+Cette dernière peut être réalisée à la volée pour un usage donné, selon le point de vue d'un expert historien.
+Le graphe finalement produit peut donc varier d'un expert à l'autre.
+Ainsi, le modèle proposé est adaptable à plusieurs usages sans qu'il soit nécessaire de modifier la base de données. 
+
+\myparagraph{Une approche d'appariement de données géographiques générique et multisource}
+L'approche de peuplement d'un graphe géohistorique est fondée sur un processus d'appariement de données géographiques multicritère.
+Ce processus permet un appariement entre $N$ couches de données simultanément.
+L'approche, fondée sur la théorie des fonctions de croyances et étendant la proposition de \citep{Olteanu2008}, est entièrement générique et permet de modéliser des connaissances imparfaites.
+De plus, cette approche permet en une seule passe la détection de liens d'appariement de toutes cardinalités (1:0 à N:M).
+Il s'agit donc, au delà d'un processus de construction d'un graphe spatio-temporel, d'une méthode d'appariement de données géographiques étendant les propositions existant dans la littérature.
+
+%\myparagraph{Création d'une base de données spatio-temporelle sur les rues de Paris}
+%Les différentes propositions présentées dans cette thèse nous permet finalement d'appliquer l'approche complète aux cas des rues de la ville de Paris, de 1785 à 1888. Nous formons ainsi une base de données spa-io
+
+%types de contribution~:
+%1 - en histoire pure avec Jacoubet
+%2 - en histoire avec la démonstration de l'utilité d'outils géomatiques comme le géoref.
+%3 - en ST par la création de données spatio-temporelles à partir d'informations assez imparfaites
+%4 - en ST par la proposition d'un processus de création semi-auto. de données. 
+%5 - en SIg historique par la proposition d'un pipeline global de création de données spatio-temporelles 
+%6 - en appariement de données géographique par le fait de proposer une méthode N sources.
+
+\subsection*{Perspectives}
+Dans ce travail, nous avons tenté de couvrir l'intégralité d'un processus d'intégration de données historiques permettant de former des bases de données spatio-temporelles utilisables pour l'étude historique.
+Cependant, de nombreux points n'ont été abordés que partiellement et ouvrent des perspectives de recherche variées.
+Les perspectives concernant le cas précis du processus d'intégration semi-automatique d'observations géohistoriques sont abordées au cours de la conclusion du chapitre 6 (cf. section \ref{section:cclchap6}). % C'est vrai ça ?
+
+
+
+\myparagraph{Requêtes spatio-temporelles sur les graphes géohistoriques construits}
+Le travail que nous présentons s'arrête à la construction de graphes géohistoriques mais n'aborde pas l'analyse des transformations de l'espace que permettent ces graphes, ce qui constitue pourtant une des finalités d'un SIG spatio-temporel.
+Une première façon d'effectuer cette analyse consiste à donner la possibilité d'effectuer des requêtes spatio-temporelles sur la base de données produite.
+Le modèle de graphe de \cite{DelMondo2011} sur lequel s'appuie notre proposition est instanciable dans une base de données relationnelle et s'accompagne d'un ensemble de fonctionnalités permettant de parcourir ce graphes et d'effectuer des requêtes complexes.
+Bien que nous ayons proposé dans le chapitre 5 plusieurs prédicats permettant de détecter certains types de processus spatio-temporels propres aux données urbaines, nous n'apportons pas de réponse quant au stockage dans une base de données du modèle de graphe étendu proposé.
+Deux pistes en particulier nous semblent pertinentes pour permettre d'effectuer des requêtes sur le graphe produit.
+Tout d'abord, une possibilité est de transformer le graphe géohistorique vers un graphe spatio-temporel selon le modèle de \citep{DelMondo2011}.
+En effet, le modèle de graphe géohistorique est principalement nécessaire dans une optique de construction, lorsque les identités des entités géographiques sous-jacentes sont inconnues.
+Transformé, le graphe géohistorique peut être alors instancié dans une base de données relationnelle et devient compatible avec les outils d'analyse proposés par Del Mondo.
+Une thèse actuellement en cours au laboratoire COGIT \citep{Costes2015} propose une extension aux données imparfaites d'un modèle de graphe temporel agrégé \citep{George2006}.
+Ce graphe est une structure de données fusionnées permettant de représenter efficacement les transformations d'un réseau dans le temps.
+En outre, il est possible d'effectuer des requêtes sur ce graphe sous la forme d'expressions régulières afin de détecter des processus spatio-temporels.
+Ce type de graphe stockant des données fusionnées, il se place explicitement après une étape d'appariement des différents états des réseaux.
+Notre approche procédant à un tel appariement, une piste est donc d'intégrer nos résultats à ce graphe.
+Toutefois, cette intégration nécessite des opérations de fusion des observations géohistoriques.
+
+\myparagraph{Outils d'exploration visuelle de graphes spatio-temporels}
+Nous n'avons pas abordé les questions d'exploration visuelle des graphes spatio-temporels.
+Les observations géohistoriques sont des objets complexes dont plusieurs aspects sont imparfaitement connus (temporalité, localisation, etc.).
+Le graphe géohistorique est également une structure de données complexe, difficile à représenter visuellement.
+Les visualisations simples du chapitre 6 sont très peu intuitives et ne sont adaptées qu'à de petits graphes peu denses.
+Pourtant, un des intérêts des graphes construits est de permettre l'exploration des transformations de l'espace à partir d'une définition de l'identité des observations, mais également la découverte des cas de sauts temporels ou d'inversion dans l'ordre des sources géohistoriques.
+De plus, les graphes géohistoriques créés peuvent être de grande taille.
+\\
+L'exploration visuelle de ces graphes est cruciale pour qu'ils puissent être utilisés par des historiens pour analyser les transformations de l'espace urbain.
+De tels outils d'exploration sont encore à définir.
+Les propositions existantes de visualisation de données spatio-temporelles \citep{Kraak1999,Hagerstrand1970} sont en l'état peu adaptées à décrire les transformations d'objets géographiques autres que des \emph{moving objects}.
+Précisément sur ce type de données, \cite{Stefani2010} propose un outil d'exploration visuelle des transformations de parties de monuments archéologiques fondé sur une co-visualisation d'un graphe spatio-temporel et un modèle en trois dimensions.
+Ce type de modèle est toutefois adapté seulement dans le cas de graphes de faible densité et peu complexes.
+Plus globalement, l'exploration de données spatio-temporelles complexes est un problème encore ouvert qu'il serait intéressant d'aborder dans le cadre de la production de graphes géohistoriques. Sur ce thème, des travaux préliminaires réalisés au laboratoire COGIT lors d'un stage de master 2 ont permis d'explorer la cartographie de bâtis en transformation représentés par plusieurs états. Cette exploration a été réalisée à l'aide d'un modèle d'optimisation tentant de maximiser la lisibilité de la carte résultante à partir d'un jeu de règles de sémiologie graphique portant sur la couleur et la symbolisation du contour et du remplissage des bâtis. Bien que les pistes ouvertes par ce travail restent à approfondir, il a mis en évidence l'intérêt de la cartographie 2D pour l'exploration visuelle de données spatio-temporelles. Il a aussi pointé les limites de cette approche lorsque le nombre d'états successifs est important, ou que la configuration des transformations est complexe. %Et le stage de cécile remy ? :p
+
+%\subsection{Fusion de données pour la production de données spatio-temporelles}
+%Une des hypothèses fondamentale de l'approche proposée est la prudence quant à la modification des informations contenues dans les sources afin d'éviter la création de graphes géohistoriques faux. Ainsi, toutes nos propositions tentent de conserver la généalogie des données, mais également de ne pas altérer les observations géohistoriques manipulées. Par conséquent, nous ne procédons à aucune fusion des observations liées au sein d'un graphe. 
+
+\myparagraph{Mise à jour}
+Un graphe géohistorique a vocation à évoluer sur plusieurs niveaux.
+Tout d'abord, il doit être capable d'intégrer de nouvelles observations et de nouvelles sources géohistoriques.
+On peut également se poser la question de l'ajout d'informations par des experts et de la modification d'un graphe existant.
+Il peut s'agir de supprimer d'éventuelles erreurs, d'éditer manuellement le graphe ou encore de renforcer la fiabilité de certaines relations.
+Le processus de construction d'un graphe géohistorique devient collaboratif, l'approche semi-automatique devenant alors soit un support pour l'expertise, soit un expert comme un autre.
+Ceci pose un certain nombre de questions ouvertes~:
+\begin{itemize}
+\item comment intégrer et réconcilier des modifications concurrentes du graphe ? Quelles procédures de validation du graphes et de ses modifications adopter ?
+\item quel degré de fiabilité accorder aux différents utilisateurs d'un même graphe? De la même façon, quelle place donner à la méthode de construction semi-automatique ?
+\end{itemize}
+De la même manière se pose la question de la mise à jour uniquement par la méthode semi-automatique.
+Par exemple, comment intégrer des modifications d'un graphe par une exécution de la méthode avec des paramètres différents de ceux ayant servi à sa création initiale ?
+Les modifications sont-elles même compatibles ou s'agit-il en réalité d'un nouveau graphe avec une vision différente de l'identité ?
+\\
+Plus globalement, toutes ces questions dirigent la recherche vers la mise en place d'un modèle collaboratif de construction de graphes géohistoriques.
+La saisie et l'édition collaborative de bases de données historiques est actuellement au c\oe ur du travail du groupe GeoHistoricalData\footnote{\url{https://www.geohistoricaldata.org/}} rassemblant des chercheurs de différentes disciplines et établissements\footnote{EHESS, IGN, CEA, IFSTTAR, BnF notamment.}.
+Ce groupe de travail vise la vectorisation de cartes anciennes sur la France entière pour en étudier les dynamiques depuis les XVII-XVIII\textsuperscript{e} siècles.
+Actuellement, la majeure partie de la carte de Cassini a été vectorisée (cf.~\cite{Perret2015}). Notre travail devrait être intégré au sein de ce groupe de travail afin de créer une base de données spatio-temporelles en graphe sur le territoire français.
+Les questions que nous posons ici seront alors nécessairement abordées.%ça pose aussi la question de l'appariement multi-échelle cassini+état-major40k+état-major10k+données sur paris...
+
+\myparagraph{Intégration de sources de données hétérogènes}
+Dans cette thèse, nous nous sommes limité au cas des plans topographiques de Paris à une époque où la précision géométrique est au c\oe ur du travail de cartographe.
+De telles sources de données sont toutefois rares et ne constituent qu'une petite partie des sources géohistoriques utilisables pour analyser les transformations de l'espace ancien (voir à ce propos le chapitre 1 qui présente la diversité de sources utilisables).
+Dans un premier temps, d'autres types de sources cartographiques pourraient être considérés, notamment les plans plus anciens et moins exacts ou encore les plans en perspective.
+Cela soulève alors des questions de robustesse de notre approche.
+En effet, les données que nous utilisons sont de nature proche des données géographiques 2D actuelles et sont relativement homogènes.
+L'intégration de données d'autres natures - par exemple des bâtiments en perspective - nécessite d'étendre la proposition en ajoutant des étapes de prétraitement visant à harmoniser les données.
+Une approche plus souple serait d'intégrer au sein même du processus d'appariement spatio-temporel des méthodes d'harmonisation des données ou encore d'utiliser des mesures adaptées à des données de natures différentes.
+
+\myparagraph{Analyse quantitative des relations d'héritage entre plans topographiques de Paris}
+Dans le chapitre 3, nous montrons comment le géoréférencement peut être utilisé pour analyser en finesse le contenu d'un plan topographique.
+Dans le chapitre 2, nous posons un certain nombre d'hypothèses sur les relations d'héritage entre les différents plans de Paris, notamment entre les atlas de Jacoubet et de Verniquet.
+Cependant, nous ne parvenons pas à vérifier réellement ces hypothèses par manque de sources.
+Au delà de l'analyse de chaque plan indépendamment, les mesures de distorsions rendues possibles par le géoréferencement peuvent être utilisées pour comparer les plans entre eux.
+En particulier, la recherche de corrélations spatiales entre distorsions sur plusieurs plans peuvent donner des indices sur la réutilisation des relevés de triangulation.
+% à déplacer plus haut ? Je me demande si on ne pourrait pas trouver une logique plus naturelle dans l'ordre des perspectives
+% du genre :
+% améliorer l'analyse quantitative des plans
+% élargir à des sources plus diverses
+% améliorer l'appariement
+% améliorer l'analyse des transformations
+% analyse visuelle
+% mise à jour et interactivité...
+% je ne sais pas moi

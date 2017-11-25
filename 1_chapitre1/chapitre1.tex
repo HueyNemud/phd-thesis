@@ -1,0 +1,1489 @@
+
+%GLOSSARY ENTRIES
+%\newglossaryentry{SIG}{name={SIG}, description = {Système d'Informations Géographiques.
+%Le terme de SIG est polysémique et se rapporte à plusieurs éléments ayant en commun la manipulation, le stockage ou la représentation d'une information géographique.
+%Il peut s'agir d'un ensemble organisé de matériels informatiques, de logiciels, de données géographiques et de personnel capable de saisir, stocker, mettre à jour, manipuler, analyser et présenter toutes formes d'informations géographiquement référencées~\citep{Blomac1994}.
+%Le terme est par ailleurs utilisé pour désigner un ensemble de données repérées dans l'espace, structuré de façon à pouvoir en extraire commodément des synthèses utiles à la décision~\citep{Didier1990}}}
+
+\chapter{Positionnement du sujet}
+\renewcommand{\labelitemi}{\tiny$\blacksquare$}
+
+\large \begin{mybox} \normalsize
+\textbf{Objectifs~:} 
+\vspace{11pt}
+\begin{itemize}
+\item  Explorer l'adéquation entre l'utilisation de l'espace par les historiens et les fonctionnalités offertes par les SIG historiques existants.
+\vspace{11pt}
+\item  Identifier les complexités des données géohistoriques.
+\vspace{11pt}
+\item  Formaliser la problématique de la thèse et se positionner par rapport à elle.
+\end{itemize}
+\end{mybox}
+\renewcommand\labelitemi{\textbullet}% bullet
+\newpage
+\minitoc
+\newpage
+
+\label{chap:positionnement}
+\paragraph{}
+\begin{quotation}
+%\emph{J'aimerais qu'il existe des lieux stables, immobiles, intangibles, intouchés et presque intouchables, immuables, enracinés~; des lieux qui seraient des références, des points de départ, des sources : mon pays natal, le berceau de ma famille, la maison où je serais né, l'arbre que j'aurais vu grandir (que mon père aurait planté le jour de ma naissance), le grenier de mon enfance empli de souvenirs intacts. De tels lieux n'existent pas, et c'est parce qu'ils n'existent pas que l'espace devient question, cesse d'être évidence, cesse d'être incorporé, cesse d'être approprié. L'espace est un doute~: il me faut sans cesse le marquer, le désigner~; il n'est jamais à moi, il ne m'est jamais donné, il faut que j'en fasse la conquête.} Espèces d'Espaces, George Perec, 1974.
+\emph{Le passé ne se conserve pas, mais fait l'objet d'une reconstruction toujours recommencée.}\\
+ Carnets de croquis. Sur la connaissance historique , Bernard Lepetit, 1999.
+\end{quotation}
+\paragraph{}
+Ce chapitre propose d'explorer plus avant les raisons de l'inadéquation entre des outils informatiques, pourtant destinés à gérer des données spatiales, et la pratique historique d'un espace urbain.Après avoir formalisé et défini les particularités de l'information géographique utilisée en histoire -désignée alors par le terme \textit{géohistorique}- et exposé les différentes sources d'information géographiques utilisées dans le cadre de recherches historiques sur l'espace urbain,
+nous nous attacherons à décrire le processus d'intégration d'une information au sein d'un SIG historique afin d'identifier les différentes sources d'imperfections dans les sources et l'information utilisée. Enfin, nous présenterons différents travaux existants visant à manipuler une information géohistorique imparfaite dans le cadre des systèmes d'information géographiques.
+\subparagraph{}
+D'abord, nous regarderons du coté des utilisations de l'espace urbain en histoire afin d'identifier les besoins et attentes spécifiques des historiens.
+Pour ce faire, nous commencerons dans la section~\ref{section:usages} à mettre en lumière les pratiques des historiens et leurs problématiques grâce à l'analyse d'un espace urbain.
+Dans la section~\ref{subsection:sources}, nous présenterons une typologie des différentes ressources permettant de reconstruire une représentation d'un espace urbain ancien.
+Il s'agira non seulement d'explorer les différentes spécificités de ces ressources, mais également d'en identifier les complexités.
+Ainsi, nous pourrons expliciter clairement les objectifs des historiens quant aux usages de l'espace urbain au sein de leurs études, et par là identifier les demandes adressées par l'étude historique à des outils permettant de manipuler et représenter des données géographiques.
+\subparagraph{}
+Dans un second temps, nous nous intéresserons plus précisément aux systèmes d'informations géographiques et à leurs usages pour des études historiques.
+Nous aborderons dans la section~\ref{section:SIG} le regard des historiens sur les SIG historiques à partir de la littérature de façon à classifier les différents objectifs et problèmes posés à l'encontre des SIG par les chercheurs en histoire.
+Cette section permettra également de terminer la description du processus de reconstruction de l'espace et d'établir, dans la section~\ref{section:imperfections}, une typologie des différentes imperfections de la représentation obtenue liées aux sources, aux données et au traitement d'une information historique et spatiale - géohistorique- au sein d'un SIG.
+\subparagraph{}
+Finalement, nous croiserons ces deux regards pour analyser les systèmes d'informations géographiques destinés à l'histoire existants dans la littérature.
+Ainsi, dans la section~\ref{subsection:currgis}, les propositions existantes seront confrontées aux attentes et aux complexités identifiées dans les sections précédentes.
+De cette façon, nous montrerons les points d'adéquation, mais également les manques des propositions existantes.
+En particulier, nous nous positionnerons (section~\ref{section:positionnement}) par rapport aux problématiques d'intégration de l'information historique issue des représentations anciennes de l'espace urbain, et de modélisation des dynamiques des structures composant cet espace.
+
+\section{Analyser l'espace pour comprendre l'évolution d'une société urbaine}
+\label{section:usages}
+\subsection{Le choix de l'espace}
+\myparagraph{Éléments de définition}
+Dans le travail présenté ici, l'espace occupe une place prépondérante.
+Celui de la ville, dans son organisation et ses transformations au cours du temps constitue le vecteur d'intégration de l'information historique.
+Étant donné ce statut central, il nous paraît essentiel de fixer les frontières de ce terme dans le cadre d'un travail se situant quelque part entre géomatique et histoire.
+En effet, l'espace englobe des réalités variées, liées aux sensibilités des disciplines qui manipulent ce concept, allant de l'espace physique, isotrope et homogène à un espace totalement lié aux hommes, produit des sociétés qui le construisent \citep{Lefebvre2000}.
+L'espace est en premier lieu une notion géographique que Pumain et Saint-Julien \citep{Pumain1993,Pumain1997} déclinent sur deux axes~:
+\begin{itemize}
+ \item Soit il s'agit de l'espace physique, \emph{ensemble de lieux (ou objets localisés) muni d'une distance entre ces lieux}.
+Il est le \emph{simple contenant des objets} qui permet d'analyser leurs relations.
+ \item Soit il s'agit d'un \emph{ensemble de lieux et de relations entre eux, définies par les interactions entre des acteurs sociaux localisés. C'est le produit de l'organisation et de la nature, agent du maintien et du développement des sociétés sur leur territoire}.
+\end{itemize}
+On parle alors généralement d'espace \textbf{support} et d'espace \textbf{produit}, le premier étant vu comme le \textbf{socle immuable sur lequel se situent les faits sociaux}, le second étant pleinement \textbf{modelé par les activités des sociétés qui l'occupent}\citep{DiMeo1991}.
+Des nombreux travaux, tels ceux, fondateurs, de \cite{Roncayolo2011} et \cite{Lepetit1980}, abordent les relations entre histoire et géographie et dressent, pour les sciences sociales, le portrait d'un espace intrinsèquement lié aux sociétés, produit d'une construction constante et renouvelée \footnote{Le mouvement au sein des sciences humaines qui donne à l'espace une rôle majeur en l'utilisant comme outil de compréhension des phénomènes sociaux est désigné par l'expression \emph{spatial turn}.
+Les spécificités de cette tendance ont été abordée notamment par \cite{Cosgrove1984}, ou plus récemment \cite{Torre2008}.}.
+Partant de cet angle de vue, notre espace est donc bien physique, topographique, mais impliqué dans une relation avec les phénomènes sociaux qui l'inscrivent fortement dans la dimension temporelle.
+Dans tous le reste du document, le mot ''espace'' fera référence à cet espace produit.
+Quant à l'espace urbain, nous choisissons de le délimiter par la frontière administrative de la ville, élargie éventuellement à ses abords immédiats.
+Dans le Paris ancien, il s'agit de l'étendue à l'intérieur de l'enceinte des Fermiers Généraux, à laquelle s'ajoute les communes annexées en 1860\footnote{On dévie ici légèrement de la définition habituelle où l'espace urbain repose sur la continuité du bâti \citep{Moriconi1993}.
+Dans le Paris ancien, cette continuité n'existe que dans un espace central restreint, où elle est rapidement brisée par les espaces vides ou cultivés à l'intérieur même des enceintes.}.
+Cette articulation profonde entre espace géographique et temporalité se trouve notamment à la racine des travaux de Braudel \citep{Bataillon1950, Braudel1951}, qui plaide pour une étude des phénomènes sociaux inscrite dans un espace géographique en transformation (ce qu'il nommera la \emph{géohistoire}).
+Il considère trois couches imbriquées de temporalités qui constituent l'histoire~: la première est celle des individus, rapide et nerveuse, c'est \emph{une agitation de surface}.
+La seconde temporalité est plus lentement rythmée, c'est celle des groupements, des civilisations, de l'économie et des sociétés.
+La dernière, pratiquement figée, correspond aux rapports des Hommes avec le milieu qui les entourent, avec l'espace support de leur établissement.
+L'espace de l'histoire, produit des sociétés, est donc inscrit dans des temporalités aux rythmes multiples.
+S'il nous faut préciser les formes de l'espace urbain qui nous occupent ici, il nous faut dans le même temps définir les temporalités particulières que nous considérons.
+
+\myparagraph{Intégrer le temps pour étudier la ville}
+Pour Lepetit, reprenant Braudel \citep{Lepetit1986}, l'espace géographique est une dimension supplémentaire pour l'histoire , constitué de \emph{valeurs dormantes} (par exemple les axes de circulations marchands) s'offrant à l'analyse historique.
+La ville, au travers de ses structures, de son organisation, est alors un \emph{conservatoire temporel} \citep{Lepetit1986} offrant à l'historien des fragments de ses configurations passées.
+Cette idée d'une ville constituée d'une accumulation de temporalités passées, dans la lignée de Roger Dion \citep{Courville1995} \footnote{\emph{Tout paysage humanisé est le reflet d'une histoire, [...] un amalgame d'apports inégaux en âge.} Roger Dion, d'après \cite[p. 20]{Courville1995}} sera de nouveau exploitée par \cite{Lepetit1996}, pour qui l'histoire intègre par la dimension temporelle les considérations sociales, politiques, économiques sur la ville.
+L'étude de la ville en histoire -l'histoire urbaine- est alors un moyen de compréhension de l'évolution d'une société au travers de son étude sur le temps long \footnote{L'archéologie fait un large usage de ce terme pour désigner des périodes de plusieurs siècles ou millénaires \citep{Redman2003}.
+En histoire, les périodes d'étude sont souvent plus restreintes.
+Nous désignons par le terme ''temps long'' toute durée suffisamment grande pour que des changements sensibles dans l'organisation de l'espace se produisent.
+Dans l'espace parisien du XIX\up{e} siècle, quelques dizaines d'années suffisent pour modifier en profondeur les réseaux de rues et l'organisation du bâti}.
+\cite{Perrot1975} invoque également cette inscription de la ville dans le temps -pour l'Europe tout du moins-, arguant que la compréhension de l'urbanisation et de ses formes repose sur des processus de transformations urbaines dans la longue durée.
+L'histoire urbaine inscrit donc l'espace de la ville dans le temps pour en étudier les transformations et les mettre en rapport avec les phénomènes sociaux qui s'y sont déroulés.
+\subparagraph{}
+Pour Roncayolo (d'après \cite{Walter2005}), \emph{les pierres et les formes urbaines sont du temps et des pratiques consolidées}.
+Attaché à faire apparaître les divisions sociales au travers de ses \emph{lectures de villes}, il y décrypte les relations entretenues par les portions d'espace et les formations sociales.
+Ces relations se lisent alors dans la construction de l'espace urbain, c'est-à-dire son inscription dans différentes \emph{couches temporelles} aux rythmes variés~-le temps devient alors le \emph{tempo}-, aboutissant à des décalages, des ruptures qui se lisent dans cette construction urbaine.
+Son étude des limites de Marseille et Paris aux XIX et XXe siècles, d'abord matérialisées par des enceintes puis persistant au travers de limites symboliques, s'appuie à la fois sur l'organisation et les transformations des structures urbaines mais aussi sur des considérations sociales (contraintes militaires, opérations immobilières et financières, etc.) et symboliques (représentation mentales de la ville et de ses limites) \citep{Walter2005}.
+\subparagraph{}
+D'après ces historiens, il s'agit donc d'étudier les structures de la ville, son organisation, des réseaux de voies de communication aux transformations des structures bâties qui la composent.
+Pourtant, comme le fait remarquer \cite{Lemas2009}, le champ de l'histoire urbaine n'est pas homogène et l'importance prise par l'espace urbain dans l'étude varie largement.
+Cette hétérogénéité se traduit notamment par des degrés d'importance attribués aux dynamiques de l'espace dans l'étude historique, conditionnant alors la place prise par la dimension spatiale dans l'étude.
+Nous faisons ici l'hypothèse que ces différents usages vont conditionner les attentes des historiens, et donc les outils et les méthodes appropriés.
+Il est alors nécessaire d'identifier les différents usages de l'espace de la ville en histoire de façon à nous positionner efficacement par rapport aux différents besoins des historiens, et à pouvoir analyser l'adéquation des outils existants avec ces besoins.
+
+\subsection{Quels usages de l'espace urbain en histoire?}
+Dans le paragraphe précédent, nous avons expliqué que l'espace géographique en histoire était toujours traité comme un produit résultant des activités humaines.
+Pourtant, nous allons le voir, la place occupée par l'espace de la ville est très variable au sein de l'historiographie.
+Nous proposons alors d'explorer cette variété au travers de trois modalités fondées sur l'importance de la relation entre l'espace étudié et le temps.
+Nous choisissons volontairement de ne pas considérer les phénomènes sociaux étudiés comme variable de contrôle car leur variété et leur hétérogénéité empêcheraient tout regroupement.
+Les dynamiques spatiales se mêlent d'autant plus aux dynamiques sociales étudiées que la liaison entre espace et temps augmente.
+Ce couplage a cependant un coût~: il implique un faible degré d'abstraction de l'espace et une finesse temporelle importante.
+Il conditionne donc les besoins des historiens en termes de modèles et de représentations de l'espace.
+Dans les paragraphes suivants, nous présentons ces différents niveaux d'intégration du temps et identifions les besoins qui leur sont spécifiques à partir de différents travaux en histoire.
+Bien sûr, les exemples abordés ne constituent qu'une infime partie de la production en histoire urbaine, cependant nous considérons qu'ils illustrent correctement le propos.
+% 
+% La pratique de l'espace peut être particularisés pour chaque étude historique, dépendant de la période, de la zone géographique et du sujet d'étude.
+% Nous choisissons ici de délimiter des catégories générales de prise en compte de la dimension spatiale en histoire en suivant les travaux de \cite{Arnaud2008} sur l'espace de la ville.
+% D'abord, l'espace  peut être utilisé comme simple cadre de l'étude, se plaçant alors comme contexte d'un problème d'avantage que comme un véritable support de travail.
+% Lorsqu'il prend de l'importance dans l'étude, l'espace devient alors un outil servant à mettre en rapport les données historiques sociales, économiques ou bien encore démographiques.
+% Finalement, l'espace devient objet d'étude et il s'agit alors de s'intéresser à son organisation, aux transformations qui l'affectent dans le temps de façon à lire à travers ses formes les phénomènes sociaux qui le modèlent \citep{Lefebvre2000}.
+% Comprendre ces trois niveaux dans l'appréhension de l'espace en histoire illustre les motivations des historiens dans leur usage de l'espace et par là définit les objectifs visés par l'utilisation d'un SIG en histoire.
+
+\myparagraph{L'espace urbain~: cadre de l'étude}
+Mettre en relation un phénomène social avec un espace géographique constitue le premier niveau de prise en compte de l'espace en histoire.
+Cette mise en relation implique de situer dans l'espace les différents phénomènes et faits étudiés, construisant ainsi le contexte géographique de l'étude historique.
+À la manière d'un fond cartographique servant de base à la représentation graphique d'une information géographique, l'espace sous-tend et illustre le propos historique, mais son organisation n'en constitue un élément d'explication qu'à un niveau d'abstraction et une échelle élevés.
+\subparagraph{}
+Dans son travail sur le cosmopolitisme dans les villes méditerranéennes et plus particulièrement celles de l'empire Ottoman, \cite{Lafi2011} explore les différentes formes de ce phénomène, les rapports de pouvoirs entre communautés au travers du prisme des volontés politiques des différents régimes (empire Ottoman et royaumes occidentaux notamment), des valeurs portées par les religions et des traits culturels locaux.
+Ainsi, si la ville se trouve au c\oe ur de cette étude, son espace n'est que très peu considéré.
+En effet, l'évocation des villes par leurs noms fournit surtout une toile de fond sur laquelle est dessinée l'étude, servant à différencier les formes de cosmopolitisme par la ville et sa position dans de grandes zones géographiques (par exemple le nord de la Méditerranée).
+Si le phénomène s'inscrit dans le temps tout au long de l'étude, l'espace quant à lui est figé.
+Il reste très abstrait, évoqué uniquement par des noms de lieux, d'aires culturelles et constitue, à proprement parler, le support de l'étude.
+L'organisation interne des villes n'est alors pas objet d'étude, bien qu'elle se lise par exemple en filigrane dans l'évocation de l'identité communautaire des quartiers (par exemple à Tripoli).
+Cet espace n'est pourtant pas totalement neutre.
+En effet, la situation portuaire de certaines villes est développée pour expliquer certains profils de cosmopolitisme.
+
+\begin{wrapfigure}{r}{80mm}
+	\centering
+		\includegraphics[width=0.4\textwidth]{spaceuse1.png}
+	\caption{Premier niveau d'intégration de l'espace urbain~: c'est un cadre servant de contexte, implicitement situé dans le temps par le thème de l'étude.
+La dimension temporelle  est dominante.
+\textcolor{cyan}{\textbf{T}}}
+	\label{fig:spaceuse1}
+\end{wrapfigure}
+\subparagraph{}
+Dans son travail sur la notion \emph{d'habiter} dans les villes italiennes, \cite{Barbot2013} s'inscrit plus directement dans l'espace urbain, étudiant pour plusieurs villes d'Italie les pratiques sociales liées au fait d'habiter la ville et les rapports de forces entre les couches de la société.
+Plus particulièrement, l'auteur montre parfaitement la conséquence de ces pratiques sur l'espace, les différentes couches sociales présentes dans la ville étant visibles au travers des types d'habitats correspondant à leur degré d'intégration dans la ville.
+Cet espace constitue un cadre dans lequel viennent se placer les différentes formes de l'appartenance à la ville, mais son organisation interne ou sa situation géographique ne sont pas des facteurs de compréhension de ces appartenances.
+La ville reste un objet abstrait, spectateur d'une étude dont le sujet porte essentiellement sur les rapports sociaux.
+
+\subparagraph{}
+Au travers de ces deux travaux, nous pouvons voir apparaître un premier niveau où l'intrication du temps et de l'espace urbain est très peu présente.
+Si le phénomène social s'inscrit toujours dans le temps, l'espace urbain est quant à lui figé dans une temporalité longue.
+Il constitue le contexte du propos plutôt qu'un objet d'étude à part entière (voir figure \ref{fig:spaceuse1}).
+L'étude n'est pas spatiale, mais fait référence à l'espace, elle reste purement temporelle.
+En marge de l'étude, il peut être abordé de façon très abstraite \citep{Arnaud2008}, ses formes apparaissant en filigrane par l'évocation des quartiers, des séparations entre groupes sociaux ou des positions relatives des objets abordés.
+Dans les deux cas, l'échelle est relativement grande, permettant d'englober tout l'espace concerné par le phénomène étudié.
+
+\myparagraph{L'espace urbain outil d'étude} 
+\label{paragraph:space_as_tool}
+D'autres auteurs trouvent dans l'organisation de l'espace un outil de compréhension des phénomènes qu'ils étudient.
+Il s'agit alors la plupart du temps d'aborder l'espace comme un support sur lequel l'on vient localiser des données sociales dans le but de faire apparaître des configurations particulières et des relations jusqu'ici invisibles.
+Il s'agit finalement de considérer que \emph{la distribution des phénomènes dans l'espace n'est pas neutre dans la manière dont ils évoluent et se transforment} \citep{Arnaud2008}.
+Il ne s'agit donc pas encore d'étudier l'organisation et les formes de l'espace en elles-mêmes, mais de lire au travers d'elles des propriétés, des relations entre les phénomènes étudiés que seule leur situation dans l'espace de la ville permet de faire apparaître efficacement (citons par exemple les travaux de \cite{Marraud2010} sur les corporations parisiennes aux XVII\up{e} et XVIII\up{e} siècles, appuyant dans l'espace de Paris son analyse des résistances et des transformations de la corporation des boulangers au gré des rapports de forces qu'elle entretient avec le pouvoir royal et de l'ordre public).
+\begin{wrapfigure}{r}{80mm}
+  \centering
+  \includegraphics[width=0.4\textwidth]{spaceuse2.png}
+  \caption{Second niveau d'intégration de l'espace urbain~: l'espace devient un outil d'analyse des données sociales permettant de les répartir dans la ville.
+Les dimensions spatiales et temporelles sont considérées conjointement (\textcolor{green}{\textbf{S}}+\textcolor{cyan}{T})}
+  \label{fig:spaceuse2}
+\end{wrapfigure}
+\subparagraph{}
+L'espace géographique est aussi un outil de compréhension des phénomènes sociaux.
+Inscrits dans celui-ci, leur répartition et organisation offre de nouvelles pistes de réflexion et d'analyse.
+Il s'agit en quelque sorte de mettre les phénomènes à l'épreuve de l'espace.
+On peut en particulier citer les travaux de \cite{Gauthiez2010} qui restituent à partir de textes d'archives les trajets des milices bourgeoises au XVII\up{e} siècle dans un parcellaire de la ville de Lyon, permettant alors de mettre en évidence différents profils de parcours et faisant naître de nouvelles questions liées aux formes de ces parcours et à leurs transformations.
+\cite{Weiss2009} dans ses travaux sur les censives parisiennes inscrit directement les rapports sociaux entre propriétaires parisiens.
+Les divers conflits juridiques se transcrivent dans l'espace de la ville par des zones où l'appartenance à une censive \footnote{La censive est une terre appartenant à un seigneur, dont il cède certains droits en échange d'une redevance~: le cens.}
+est mal définie.
+
+\subparagraph{}
+Ces études\footnote{On peut encore citer \cite{GonzalezQuijano2012} ou bien \cite{Montel2013}} s'appuient généralement sur des méthodes d'analyse spatiale, en particulier sur des représentations cartographiques des phénomènes dans lesquelles des données qualitatives (par exemples les surfaces des censives) ou quantitatives discrétisées (statistiques notamment) sont rendues visibles.
+La carte est un puissant outil d'interrogation d'un espace passé, fournissant une vue globale de l'organisation spatiale des données, mais également un outil permettant de remettre en question les faits historiques analysés \citep{Arnaud2008}.
+\subparagraph{}
+Cette fois l'espace urbain est considéré, à la manière de \cite{Lepetit1996}, comme un témoin des activités humaines, une construction qui se donne à lire et permet d'extraire une connaissance sur un fait historique.
+L'espace n'est plus abstrait, il est reconstruit à partir des traces qui en subsistent - plans, textes, etc.-, l'étude étant tributaire des sources de descriptions existantes.
+Cet espace reconstruit est alors situé dans le temps, mais il s'agit encore d'un socle d'étude, ses transformations ne font pas l'objet d'une attention particulière.
+Lorsque le phénomène social évolue dans le temps, l'espace doit être reconstruit de nouveau à partir d'autres sources pour que sa forme et son contenu soient contemporains du phénomène.
+La ville est alors traitée comme une accumulation de tranches temporelles, comme illustré dans la figure \ref{fig:spaceuse2}.
+L'étude se place cette fois dans un cadre à la fois spatial et temporel.
+
+\myparagraph{L'espace urbain~: objet d'étude}
+Si l'on considère que l'espace urbain est un produit des activités humaines, son organisation et ses structures gardent la mémoire des activités humaines passées (C'est ce qu'Arnaud \cite[p. 141]{Arnaud2008} nomme \emph{hypothèse de permanence}).
+Il devient donc un outil de lecture au travers duquel il est possible de recomposer une histoire urbaine.
+Ces traces se trouvent accumulées dans l'espace, transcrites notamment par les brisures ou au contraire les persistances des structures urbaines \citep{Ducom2009}.
+L'enchevêtrement qui en résulte doit être décrypté, en \emph{déroulant} l'histoire de la ville, à partir des structures persistantes, des connaissances des structures passées et des événements ayant affecté telle ou telle structure.
+On peut citer en exemple les travaux de \cite{Boudon1977}, analysant dans le détail les transformations du quartier des Halles à Paris dans le temps long.
+\subparagraph{}
+L'objectif n'est pas seulement de retracer les transformations de la ville, mais de considérer qu'il existe une boucle de rétroaction entre l'espace géographique et les phénomènes sociaux, lisible uniquement dans le temps.
+Ainsi, lorsqu'il étudie les évolutions de l'espace social dans un îlot parisien aux XVIII\up{e} et XIX\up{e} siècles (voir figure \ref{fig:ilot_trinite}), \citep{Gribaudi2009} place l'organisation spatiale de l'îlot au c\oe ur de l'étude.
+Ancien hôpital nationalisé sous la Révolution, l'îlot se transforme petit à petit en un espace dense et vivant composé d'ateliers d'artisans et de commerçants.
+Ces transformations, loin d'être homogènes dans leurs localisations et leurs rythmes sont abordées comme le produit de pratiques locales (la spéculation immobilière) et globales (la vente des biens nationaux \footnote{Les biens nationaux correspondent aux biens de l'Église et les domaines seigneuriaux nationalisés à la suite du décret du 2 novembre 1789.}).
+Inversement, les pratiques sociales sont mises en rapport avec la perception de l'espace îlot au travers des perceptions des habitants, mais aussi des administrateurs et observateurs extérieurs.
+D'autres auteurs effectuent le même travail de mise en relation, par exemple pour étudier les évolutions du prix du foncier selon les restructurations du parcellaire parisien \citep{Bove2012}, ou bien encore pour retracer l'évolution des structures urbaines (parcellaire et voirie) d'un espace local à Tours \citep{Lefebvre2009}.
+\subparagraph{}
+Cette fois l'organisation de l'espace urbain lui même est analysée, soit indépendamment de données sociales particulières (l'espace est alors considéré comme gardant la mémoire des activités qui l'ont modelé \citep{Roncayolo2011}), soit en relation avec un ou plusieurs phénomènes sociaux.
+Lorsqu'il s'agit de l'organisation de l'espace seul, l'analyse morphologique via la représentation cartographique des espaces anciens en constitue le principal outil d'exploration \citep{Arnaud2008}.
+Insérée dans le temps, l'analyse morphologique doit également s'intéresser aux changements qui affectent les formes urbaines.
+Elle peut être visuelle, par la mise en correspondance de cartes du même espace à des instants différents (c'est le cas par exemple de l'espace étudié par \cite{Lefebvre2009}), ou bien s'appuyer sur des indicateurs morphologiques (\cite{Strano2012} ou \cite{Barthelemy2013} par exemple) qui étudient les transformations des réseaux de rues dans la région de Milan, puis à Paris via les d'indicateurs structurels sur ces réseaux).
+Finalement, lorsque l'étude porte sur les relations entre le déroulement des phénomènes sociaux et les transformations de l'espace urbain, l'analyse morphologique vient compléter l'analyse spatiale.
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=1\textwidth]{trinite.png}
+	\caption{Transformations des structures morphologiques de l'îlot de la Trinité à Paris sur trois périodes : au milieu du XVIII\up{e}, en 1845 et après les percées haussmanniennes.
+Illustration extraite de \cite{Gribaudi2009}.}
+	\label{fig:ilot_trinite}
+\end{figure}
+\subparagraph{}
+Recomposer un espace dans toute la complexité de ses transformations implique un important volume d'informations décrivant les structures urbaines, leur organisation et les événements qui les affectent.
+Par conséquent, les espaces traités sont souvent restreints mais font l'objet d'une description extrêmement précise.
+L'espace est alors intiment lié au temps, en interaction continue avec les phénomènes sociaux qui y prennent place.
+L'étude n'est plus seulement spatiale et/ou temporelle car les deux dimensions sont indissociables~: elle devient \textbf{spatio-temporelle}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.4\textwidth]{spaceuse3.png}
+\caption{Troisième niveau d'intégration de l'espace urbain~: l'espace en transformation constante est mis en rapport avec les phénomènes sociaux étudiés, chacun améliorant la compréhension de l'autre.
+L'espace devient dynamique, l'analyse spatio-temporelle (\textcolor{magenta}{\textbf{ST}})}
+  \label{fig:spaceuse3}
+\end{figure}
+
+\myparagraph{L'espace urbain~: un système (complexe)}
+Le tableau \ref{table:spaceuse_resume} résume les trois niveaux de prise en compte de l'espace et de son imbrication avec le temps en histoire.
+On constate au travers des exemples présentés précédemment que l'échelle et le niveau de d'abstraction spatiale varient.
+Ceci s'explique notamment par le fait que lorsque l'espace n'occupe qu'un statut de cadre, son détail n'est pas nécessaire à l'analyse mais des études sur de larges étendues peuvent être menées.
+Lorsque les structures mêmes de l'espace interviennent dans l'étude, celle-ci se trouve contrainte par la complexité liée à la reconstruction d'un espace ancien~: quantité de sources d'archives nécessaires, difficultés de traitement de ces sources, etc.
+Le volume de données nécessaires sur l'espace augmente encore lorsque l'on s'intéresse aux transformations de l'espace.
+L'étude nécessite non seulement une connaissance sur les formes de la ville mais aussi sur les événements qui les affectent, réduisant encore son échelle spatiale considérée.
+\subparagraph{}
+Le parcours des différentes considérations spatiales dans les travaux historiques ne fait finalement pas ressortir des catégories séparées, mais plutôt un échelonnement dans la part attribuée non pas seulement à l'espace de la ville, mais surtout à son insertion dans le temps et aux rapports qu'il entretient avec les phénomènes sociaux qui s'y déroulent.
+Finalement, l'espace géographique totalement inclus dans le temps porte à la fois la marque des actions humaines, mais son impact sur les pratiques et la perception par les individus fait également l'objet d'une attention particulière~: il s'agit de considérer l'espace dans un système \emph{au sein duquel il fonctionne selon une boucle de rétroaction avec la société, qui aménage, gère et organise le territoire, tandis que le territoire rétro-agit sur la société} \citep{Raffestin1986}.
+Dans cette relation systémique, les objets géographiques qui composent l'espace urbain (bâtiments, rues, parcelles, etc.) doivent être considérés comme des objets dynamiques, en transformation dans le temps.
+Ils ne sont plus seulement spatiaux et insérés dans le temps à une date ou une période donnée mais ils intègrent cette dimension pour devenir pleinement \textbf{spatio-temporels}.
+
+\begin{table}[ht]
+\caption{Résumé des trois niveaux de relations entre espace urbain et temps et des propriétés particulières de chaque niveau.}
+\label{table:spaceuse_resume} 
+\begin{center}
+\begin{tabular}{|x{3cm}|x{3cm}|x{3cm}|x{3cm}|}
+\hline
+ &\textbf{Cadre} &\textbf{Outil} &\textbf{Objet} \tabularnewline
+  \hline
+ & \includegraphics[width=0.2\textwidth]{spaceuse1.png} &  \includegraphics[width=0.2\textwidth]{spaceuse2.png} &  \includegraphics[width=0.2\textwidth]{spaceuse3.png} \tabularnewline
+\hline
+\textbf{Abstraction spatiale} &  +++ & + &  + \tabularnewline
+\hline
+\textbf{Échelle}\footnote{D'après \cite{Ruas1999}.}  & \textbf{macro} (ensemble de villes, pays, etc.) & \textbf{méso} (ville) & \textbf{méso ou micro} (quartier, bâtiment,etc.) \tabularnewline
+\hline
+\textbf{Dimensions} & \textcolor{cyan}{\textbf{T}} & \textcolor{green}{\textbf{S}}+\textcolor{cyan}{\textbf{T}} & \textcolor{magenta}{\textbf{ST}} \tabularnewline
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\subsection{Conclusion~: besoins généraux}
+Les 3 catégories d'intégration du temps dans l'étude de l'espace urbain ne sont finalement pas isolées les unes des autres, mais résultent d'une gradation de l'insertion de l'espace urbain dans le temps.
+De cette imbrication naît la relation entre l'espace et des phénomènes sociaux particuliers~; c'est considérer que l'espace de la ville permet de mieux comprendre les phénomènes sociaux qui s'y sont déroulés parce qu'il influe sur ces activités et qu'il en porte les traces résiduelles.
+Un tel gradient fait écho à la volonté de Roncayolo, illustrée par \cite{Walter2005}, d'étudier la ville en effectuant une \emph{réduction au temps} de la même manière que \cite{Braudel1951} plaidait pour une \emph{réduction à l'espace}.
+\subparagraph{}
+Spatialiser des information sociales se concrétise la plupart du temps au travers de la production de cartes~\citep[p. 102-103]{Arnaud2008}.
+Manipuler l'espace ancien signifie donc le représenter~: mentalement d'abord, mais aussi visuellement par la 
+construction de cartes, la mise en commun et le croisement de sources historiques.
+De cet intérêt pour la construction de représentations du passé, on peut dégager trois besoins particuliers~:
+\begin{enumerate}
+\item \textbf{Localiser des données sociales} décrivant un des phénomènes ou des faits sociaux, dans l'espace urbain \textbf{contemporain} de leur époque.
+Abstrait, l'espace reste le contexte de l'étude mais il permet d'expliquer certaines spécificités d'un phénomène par sa localisation générale (par exemple les particularités du cosmopolitisme dans les villes côtières chez \cite{Lafi2011}).
+Lorsqu'il est plus concret, l'espace permet de situer les données sociales et de faire apparaître des motifs d'organisations des individus, des jeux de pouvoirs qui se traduisent dans la répartition des individus, des événements, etc.
+\item \textbf{Représenter l'organisation des structures de l'espace et ses transformations au cours du temps}, dans le but de faire apparaître des motifs, des brisures ou à l'inverse des zones de résiliences de l'espace.
+\item \textbf{Représenter l'évolution conjointe de l'espace et d'un phénomène social qui s'y déroule}.
+Il s'agit d'un besoin lié au niveau de relation espace/temps le plus fort, dans lequel les relations de rétroaction entre l'espace urbain et les activités sociales sont directement considérées au sein de l'étude.
+\end{enumerate}
+Plus dynamiques spatiales et sociales sont mêlées, plus il devient important de reconstituer les états et les transformations de l'espace afin d'en produire une représentation visuelle.
+La complexité de ces transformations et le niveau de détail demandé par de tels travaux impliquent une connaissance fine de l'espace étudié ne pouvant être acquise qu'au travers des traces qu'il faut rassembler et lier au sein d'une représentation visuelle cohérente.
+%
+%\begin{center}
+%\fcolorbox{black}{white}{
+%  \begin{minipage}[t]{0.9\textwidth}
+%\begin{center}
+% \textbf{Résumé de la section}
+%\end{center}
+%L'espace de la ville est abordé de façons diverses selon les objectifs des études historiques et selon les angles de vues qu'elles adoptent. Plus encore, c'est le degré de considération pour les interactions entre l'espace géographique et les phénomènes sociaux qui va conditionner la place prise par l'espace urbain dans l'étude. À partir d'un statut pratiquement neutre, décorellé du temps et placé comme une toile de fond sur laquelle se dessine un phénomène social, l'espace prend peu à peu une place centrale dans l'étude historique. D'abord traité comme un outil permettant, par la localisation dans l'espace des données sociales, de mieux comprendre un phénomène et de faire apparaître de nouvelles questions historiques, il est finalement complètement intégré dans le temps et considéré dans ses interactions avec les phénomènes sociaux.
+%\subparagraph{}
+%Nous explicitons cette gradation au travers d'une échelle constituée de trois niveaux liés les uns aux autres. Chaque niveau est illustré par des exemples issus de travaux récents en histoire portant sur des villes. La description de cette échelle nous permet finalement de dresser une liste de trois demandes fondamentales d'un travail historique portant sur un espace urbain : la spatialisation de données sociales, la représentation visuelle d'un espace ancien et enfin la représentation de ses transformations au cours du temps. Pour chaque besoin, la représentation de l'espace prend une part importante de la demande. 
+%  \end{minipage}
+%} 
+%\end{center}
+
+
+\section{Représenter un espace urbain en transformation}
+\label{section:carto_ancienne}
+\myparagraph{Représentation cartographique de l'espace}
+Nous avons présenté la demande d'une représentation représentation de l'espace passé pour l'histoire urbaine.
+Il peut en effet sembler naturel qu'un travail sur l'espace implique la production de représentations visuelles de celui-ci, notamment cartographiques, étant donné la force du lien ainsi créé avec la géographie.
+La représentation de l'espace, comme le fait remarquer \cite{Palsky2004}, est une notion relativement complexe et surtout doublement connotée~: c'est à la fois le processus de création d'une image mentale mais aussi l'image elle-même.
+La carte est une concrétisation de cette représentation sous forme d'image stabilisée, c'est \emph{une abstraction de la réalité spatiale [...] modélisée et codée afin d'être appréhendée par le regard.}
+\subparagraph{}
+Lorsqu'il s'agit de représenter un espace passé, le processus de représentation cartographique peut intervenir à deux moments distincts.
+En effet, l'espace dont on souhaite produire une représentation n'existe plus et n'est donc plus accessible à l'observation directe.
+En conséquence, il doit d'abord faire l'objet d'une reconstruction à partir des traces qui se sont décantées au cours du temps\footnote{Une trace est la marque d'un objet ou d'un événement dont la particularité est \emph{d'avoir été}.
+Une trace crée donc systématiquement un décalage entre le moment de sa création et sa lecture, décalage pendant lequel elle peut se décomposer ou se désintégrer\cite{Kramer2012}.
+Les restants d'un ancien mur, un récit de voyage ou un portulan sont autant d'exemples de traces d'un espace passé.}.
+C'est ce point précisément que nous allons développer par la suite dans la section \ref{subsection:sources}.
+Une fois cette représentation construite, elle peut servir de base à l'analyse ou d'outil permettant de localiser des informations diverses.
+À partir du moment où l'on dispose d'une représentation visuelle d'un espace ancien, elle peut servir à la communication des résultats du travail ou bien de contexte visuel pour la représentation et l'interprétation de données sociales.
+C'est donc un processus en deux temps qui s'impose lorsqu'il s'agit de travailler sur une configuration spatiale passée.
+Nous proposons dès lors d'analyser plus avant ce processus pour en identifier les complexités, en présentant d'abord les différents types de traces considérées sur l'espace.
+Nous nous concentrerons dans la section \ref{subsection:plans} sur les sources cartographiques, qui par leur nature se prêtent le plus naturellement à la construction de représentations visuelles de l'espace.
+
+\myparagraph{La recherche de traces}
+Dans son livre \emph{History and GIS}, \cite{Lunen2013} fait le parallèle, à titre illustratif, entre le travail d'un historien et ceux d'un enquêteur ou d'un chasseur.
+Là où l'enquêteur cherche des pièces à conviction lui permettant d'établir la culpabilité ou l'innocence d'un accusé, ou encore de chercher le coupable d'un crime, l'historien cherche au sein d'archives les éléments lui permettant de répondre à une question historique, de retracer les faits, les événements et leur contexte historique.
+Lünen note cependant que les méthodes sont radicalement différentes.
+À la différence de l'enquêteur qui se base sur des procédés de déductions lui permettant de recomposer une scène de crime, l'historien procède par abduction, c'est à dire par la formulation d'une hypothèse historique qu'il va tenter de faire apparaître au travers de l'agencement des traces historiques qu'il a à sa disposition.
+\subparagraph{}
+Cette analogie peut sembler grossière, mais elle met assez bien en évidence la façon de procéder d'un historien~: à partir d'une question historique précise, il va chercher des faits tangibles lui permettant d'y répondre.
+Il trouve dans le particulier des éléments lui permettant, par généralisation, de répondre à une question plus large.
+Lorsque cette question est profondément spatiale, ou bien que l'historien fait l'hypothèse que l'espace y joue un rôle, le travail historique passe par la mise en relation de traces spatiales ou spatialisables issues de sources historiques diverses.
+\subparagraph{}
+Au delà même des traces directement lisibles au sein de sources historiques, leur croisement permet de faire apparaître de nouvelles informations.
+Par exemple, la comparaison de deux cartes d'un quartier à des époques différentes peut permettre d'acquérir des connaissances sur la façon dont le quartier s'est transformé.
+Du fait de l'importance de ce travail de recherche de traces, de croisement et d'extraction de connaissances nouvelles, il est crucial de garder en tête ses particularités lors de la création d'outils et de modèles SIG adaptés au travail historique.
+
+\myparagraph{Recomposer n'est pas répliquer}
+Lorsque l'on crée une représentation d'un espace ancien, il ne n'agit pas d'essayer de reproduire la réalité à un temps donné, d'autant plus qu'il est impossible d'appréhender une réalité complexe.
+Cet état de fait est largement admis dans les sciences sociales, mais également parmi les disciplines traitant de l'information (géographique notamment) \citep{Bodenhamer2010}.
+Pour la géomatique en particulier, cette question se trouve à la source des modèles de qualité des données et d'imperfections de l'information spatiale \citep{Leyk2005}.
+L'historien, lui, manipule des sources -des traces- dont il connaît les défauts et dont il questionne systématiquement la fiabilité.
+Il faut s'interroger également sur la capacité des SIG à gérer de telles sources et à manipuler des informations dont la fiabilité est très variable.
+%L'imprécision des traces et de l'information spatiale qu'elles contiennent se trouve d'une recomposition pertinente d'un espace passé et de ses dynamiques.
+
+\subsection{Information géohistorique}
+\label{subsection:info_geohisto}
+Dans le domaine des systèmes d'informations géographiques, on désigne par ''information géographique'' le couple formé d'une information portant sur un objet ou un phénomène du monde terrestre et d'une localisation à la surface de la Terre dans un système de référence explicite \citep{Denegre1996}.
+La perception de cette information géographique est classiquement considérée comme le fait de structurer l'espace réel sous la forme d'entités, correspondant à un phénomène quelconque du monde réel (une personne, un bâtiment, l'Europe, un champs de bataille, etc.) \citep{Plewe2002}.
+Le champ de bataille et la personne sont pourtant des entités très différentes.
+Leurs limites en particulier n'ont rien de comparable.
+Dans le cas d'une personne, à l'échelle macroscopique du moins, sa limite est établie \emph{de facto}.
+Il en va d'une manière tout à fait différente pour le champs de bataille~: ses limites résultent de processus cognitifs plus complexes.
+
+
+\myparagraph{Entités}
+\label{paragraph:entite}
+Cette différence entre entités géographiques a été formalisée par \cite{Smith1995}.
+Il classifie ainsi ces différentes entités en deux groupes de natures  différentes~:
+\begin{itemize}
+ \item Les entités \emph{bona fide} présentent des limites directement perceptibles.
+À une échelle macroscopique tout du moins, une personne ou une île sont des entités \emph{bona fide}.
+Leurs limites sont clairement visibles et la correspondance entre l'objet du monde réel ''personne'' ou ''île'' et sa représentation cognitive est directe.
+ \item Les entités \emph{fiat} sont au contraire des entités dont les limites sont créées de toutes pièces par l'Homme.
+Un pays, une paroisse en sont des exemples~: leurs limites peuvent localement s'appuyer sur des éléments naturels, mais elles restent des constructions humaines.
+\end{itemize}
+\cite{Plewe1997} ajoute un troisième groupe qu'il nomme \emph{motivated entities}.
+Comme les entités \emph{fiat}, leurs limites n'existent pas de façon concrète dans la réalité, mais cette fois elles résultent de processus cognitifs plus ou moins complexes tels l'agrégation, la catégorisation ou la simplification.
+La ville est clairement une entité motivée.
+Les délimitations d'une ville procèdent de regroupements de structures humaines dont la densité ou l'organisation définissent une certaine notion d'urbanité.
+\subparagraph{}
+\cite{Smith2010} font cependant remarquer que la séparation entre entités \emph{fiat} et \emph{bona fide} n'est pas si évidente~: les limites d'une entité peuvent être mélangées.
+Ainsi, les quartiers parisiens actuels sont des entités \emph{bona fide} dont les contours sont définis par des rues ou la Seine, mais qui sont également des constructions humaines sans existence \emph{de facto}.
+Les entités sont alors moins définies par leurs frontières seules que par opposition à d'autres entités.
+Nous pensons que la même critique peut être faite pour les entités motivées.
+Les faubourgs anciens de Paris se définissent dans leur rapport d'opposition avec la ville elle-même.
+
+
+\myparagraph{Temps, sémantique, espace}
+Les entités géographiques sont définies non seulement dans l'espace, mais également dans le temps, et sont associées à une sémantique particulière \citep{Plewe2002}~: chaque entité \emph{existe à un endroit donné, pendant une période donnée et possède des propriétés particulières}.
+Ces trois éléments définissent les trois dimensions d'une entité géographique~: \textbf{sa localisation et sa forme, sa période de vie et ses attributs}.
+Ces trois éléments forment alors l'étendue de l'entité géographique.
+Par exemple, la rue \emph{Au Maire}, située dans le 3\up{ème} arrondissement de Paris existe depuis 1280 \citep{Lazare1844}.
+L'entité géographique correspondante peut être alors constituée de la forme de la rue, sa période de vie étant l'intervalle ouvert [1280;2013[, et sa description peut être son nom (la figure \ref{fig:aumaire} donne un aperçu des transformations de la rue Au Maire).
+\subparagraph{}
+Cette triple considération (sémantique, spatiale et temporelle) est présente depuis longtemps dans le domaine de la géographie \citep{Berry1964,Sinton1978, Hagerstrand1970}, mais les SIG se sont formés sur le modèle d'une information atemporelle \citep{Goodchild2008}.
+C'est pourtant cette information triple qu'il est crucial de manipuler pour représenter un phénomène historique, que nous désignerons dans l'ensemble de ce document comme \textbf{géohistorique}\citep{Plewe2002}.
+L'information géohistorique n'est donc pas opposée à l'information géographique, mais précise seulement le fait qu'elle traite d'entités spatiales disparues ou ayant une épaisseur temporelle donnée.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.50\textwidth]{aumaire_echelle.png}
+  \caption{Les transformations de la rue actuelle \emph{Au Maire} comme décrite par des plans successifs de 1716 à nos jours.
+L'église Saint Nicolas des Champs, au sud du Conservatoire National des Arts et Métiers, sert de repère.}
+  \label{fig:aumaire}
+\end{figure}
+
+
+
+\myparagraph{Identité}
+Une quatrième dimension doit être ajoutée à cette définition.
+En effet, l'identification d'un objet géographique du monde réel repose sur la possibilité de lui attribuer une existence qui le définit de façon univoque.
+Cette identité est définie indépendamment des trois autres dimensions.
+L'identification claire d'une entité est une question complexe, notamment pour les données spatio-temporelles \citep{DelMondo2011}.
+Si l'on reprend le cas de la rue \emph{Au Maire}, la définition de son identité n'est pas triviale.
+En effet, la rue a été considérablement allongée en 1833\footnote{\href{[http://www.v2asp.paris.fr/commun/v2asp/v2/nomenclature_voies/Voieactu/5856.nom.htm}{Index des rues fourni par la ville de Paris.}}, englobant le tracé d'un ancien \emph{Cul de Sac de Rome}.
+Dès lors, la rue \emph{Au Maire} avant allongement est-elle la même entité qu'après? Car si le nom reste inchangé, le tracé n'est plus le même.
+
+\subparagraph{}
+L'affectation d'une identité à des entités géographiques pose d'importants problèmes lorsque l'on manipule des objets spatio-temporels.
+En effet, si la rue \emph{Au Maire} conserve son identité malgré les travaux, il s'agit toujours du même objet qui se transforme.
+Mais si l'on considère que par cette opération c'est une nouvelle rue qui est créée, alors la question est toute différente, puisqu'il s'agit cette fois d'une entité qui disparaît au profit d'une autre, il n'y a plus transformation mais brisure.
+Puisqu'il s'agit dans cette thèse de traiter d'entités géohistoriques et donc spatio-temporelles, cette question se verra approfondie dans les chapitres 5 et 6.
+
+
+\subsection{Typologie des sources d'information historiques sur l'espace urbain}
+\label{subsection:sources}
+Puisqu'il s'agit d'espaces disparus, il n'est plus possible d'en obtenir une représentation par l'observation directe et celle-ci doit être reconstituée à partir des informations géohistoriques qui subsistent au travers de sources différentes, documents créés par les contemporains ou traces archéologiques \footnote{Une source ou document historique est [...] toute trace, tout indice de la présence, de l'activité, de la mentalité de l'Homme d'autrefois~\citep{Godding1999}}.
+Ainsi, une carte topographique ancienne, un recensement comprenant les adresses postales des individus, ou les bornes de délimitation d'une ancienne censive constituent autant de ces ressources que l'on nomme ici \textbf{sources géohistoriques}.
+Si elles sont le matériel essentiel d'une étude de la ville, elles constituent un ensemble fortement hétérogène en raison de leur différences, mais également de biais issus des partis pris et objectifs de leurs auteurs \citep{Knowles2008}.
+\subparagraph{}
+Nous proposons ici de mettre en place une typologie de ces sources géohistoriques afin d'en expliciter les spécificités en termes de modes de représentation de l'espace mais également de biais.
+Il n'existe pas de classification unique de ces sources, mais il est possible de produire une synthèse des propositions apparaissant dans divers ouvrages.
+Nous nous fondons ici sur deux typologies en particulier qui présentent l'avantage de se compléter.
+\subparagraph{}
+D'abord, on peut effectuer une première distinction à partir de celle établie par \cite{Barzun1985}, formant deux catégories de sources~:
+\begin{itemize}
+ \item \textbf{Enregistrements}~: Il s'agit des sources qui fournissent une information spatiale intentionnellement, de façon plus ou moins explicite.
+On retrouve dans cette catégorie l'ensemble des documents d'archives portant des informations spatialisées.
+ \item \textbf{Reliques}~: Il s'agit des sources fournissant une information sur un espace passé de façon non intentionnelle.
+Il s'agit ici des artefacts archéologiques, mais également des formes urbaines persistantes ou des éléments architecturaux de l'espace présent.
+\end{itemize}
+Ensuite, \cite{Arnaud2008} tout comme \cite{Laurent1979} effectuent une distinction au sein des sources d'archives entre celles qui fournissent une information spatiale directement représentée et celles dont la localisation doit être retrouvée (par exemple, les adresses d'individus).
+Le schéma \ref{fig:schema_sources} organise ainsi les différents types de sources géohistoriques permettant de décrire l'espace urbain ancien, chaque type étant décrit plus en détail de façon à souligner ses complexités intrinsèques.
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=0.8\textwidth]{typologie_sources.png}
+	\caption{Typologie des sources d'informations géohistoriques sur l'espace urbain ancien}
+	\label{fig:schema_sources}
+\end{figure}
+
+
+\myparagraph{Les sources cartographiques}
+Lorsque l'on se concentre sur la ville, les sources cartographiques anciennes deviennent les sources d'information principales car elles permettent de localiser l'information issue d'autres sources sans composante spatiale explicite.
+Par exemple, un plan parcellaire portant les numéros des immeubles permet de localiser des individus dont l'adresse est indiquée dans une source textuelle (un bottin ou un recensement par exemple).
+\subparagraph{}
+Une source cartographique est qualifiée d'historique dès lors qu'elle est située suffisamment loin dans le passé pour représenter des transformations significatives pour une étude donnée.
+Il s'agit donc d'une qualification subjective liée au contexte de chaque étude \citep{Leyk2005}.
+\subparagraph{}
+Les représentations de l'espace urbain varient fortement et dépendent de l'évolution des visions de la ville par les auteurs des cartes \citep{Arnaud2008}.
+À partir de la période moderne, deux types de représentations se succèdent.
+Le premier type correspond aux plans en perspectives, mêlant une structure générale plane enrichie de vues en élévation des structures urbaines où la précision géométrique ne constitue pas le but principal.
+À partir du XVIII\up{e} siècle le plan en perspective laisse place à des plans géométriques visant à décrire la topographie de la ville et aboutissant à des vues abstraites de celle-ci.
+\subparagraph{}
+Ces \emph{plans de villes} fournissent une vue globale du tissu urbain ancien, souvent matérialisée par la voirie, le parcellaire, le bâti et les espaces privés vides (cours, jardins, champs).
+Ce sont également des sources riches en toponymes servant de support à la localisation d'informations issues d'autres sources.
+Sans dresser une liste exhaustive, on retrouve souvent dans les plans de villes les noms de rues et de places, de bâtiments publics ou religieux ou encore de quartiers.
+La figure \ref{fig:extrait_plans} illustre ainsi le changement entre les deux types de représentations au travers de deux plans de Paris datant de la première moitié du XVIII\up{e} siècle.
+\subparagraph{}
+Nous avons montré dans les sections précédentes que l'utilisation de l'espace urbain en histoire passe généralement par l'analyse visuelle et la production de cartes sur l'espace ancien.
+L'importance du rôle joué par les sources cartographiques anciennes apparaît immédiatement, car elles constituent souvent des représentations graphiques globales de l'espace étudié.
+Ce rôle sera précisé dans la section \ref{subsection:plans}.
+
+\begin{figure}[ht]
+  \centering
+        \begin{subfigure}[b]{0.3\textwidth}
+                \includegraphics[width=\textwidth]{extrait_plans1.png}
+                \caption{Plan de Turgot \citep{MAPTurgot}, 1739}
+                \label{fig:turgot}
+        \end{subfigure}%
+~
+	\begin{subfigure}[b]{0.3\textwidth}
+                \includegraphics[width=\textwidth]{extrait_plans2.png}
+                \caption{Plan de De L'isle \citep{MAPDelisle}, 1716}
+                \label{fig:jaillot}
+        \end{subfigure}%
+         \caption{Deux visions différentes du même espace urbain.
+Extraits de plans de Paris sur l'île de la cité.
+Les dates indiquées correspondent à la date de première publication connue.}
+	\label{fig:extrait_plans}
+\end{figure}
+
+
+\myparagraph{Documents écrits}
+Les documents écrits constituent la ressource historique principale pour les temps les plus récents \footnote{Pour Paris, les documents écrits deviennent rares dès la période du moyen âge, les historiens devant alors avoir plus largement recours aux données archéologiques}.
+Le niveau de structuration de l'information géohistorique varie largement au sein de cette catégorie.
+Ainsi, il peut s'agir de textes littéraires, juridiques, administratifs ou bien de descriptions de lieux ou de récits de voyages où 
+l'information géohistorique doit être interprétée par l'historien afin d'être représentable cartographiquement.
+Par exemple, \cite{Eide2013} développe une méthodologie visant à cartographier des lieux en Norvège décrits de façon vague au sein d'un recueil de textes.
+Les lieux, identifiés par leurs noms, y sont généralement positionnés uniquement de façon relative par leurs orientations et leurs distances par rapport à d'autres lieux.
+\subparagraph{}
+On retrouve également des documents dans lesquelles l'information géohistorique est plus structurée et ainsi plus directement identifiable~: il s'agit de listes, annuaires, tableaux, inventaires, etc.
+Ainsi, les bottins professionnels de Paris (dont un extrait apparaît dans la figure \ref{fig:bottin}) fournissent le nom, mais surtout l'adresse des travailleurs \footnote{L'adresse constitue un système de référence spatial indirect \citep{Denegre1996}}, facilitant ainsi la localisation des lieux de travail.
+De même, un inventaire après décès peut aider à localiser les biens immobiliers d'un individu.
+Si ces documents sont fondamentaux, l'utilisation de l'information géohistorique qu'ils contiennent n'est pas aisée.
+En effet, elle n'est pas référencée directement et doit donc être positionnée dans l'espace par l'historien \citep{Arnaud2008}.
+
+\begin{figure}[ht]
+  \centering
+        \begin{subfigure}[b]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{extrait_textes1.png}
+                \caption{Bottin professionnel, 1818.}
+                \label{fig:bottin}
+        \end{subfigure}%
+~
+	\begin{subfigure}[b]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{extrait_textes2.png}
+                \caption{Dictionnaire des rues de Paris, 1844.}
+                \label{fig:dicorues}
+        \end{subfigure}%
+~
+	\begin{subfigure}[b]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{extrait_textes3.png}
+                \caption{\emph{Terrier du Roy}, 1700}
+                \label{fig:terrier}
+        \end{subfigure}%
+         \caption{Extraits de sources écrites porteuses d'informations spatiales.
+Source~: LaDéHis, EHESS.}
+	\label{fig:textes}
+\end{figure}
+
+
+\myparagraph{Iconographies et photographies}
+Les iconographies et photographies de la ville jouent un rôle fondamental dans la perception de l'espace urbain ancien car si elle décrivent généralement un espace restreint, elles se placent généralement du point de vue du piéton pour fournir un témoignage visuel unique de l'architecture et de l'organisation de la ville.
+Les sources iconographiques forment un ensemble hétérogène de documents, en raison de l'évolution des techniques mais aussi des objectifs variés des auteurs.
+Ainsi, les esquisses, gravures ou estampes (voir figure \ref{fig:carroussel}) fournissent à la fois des descriptions détaillées de l'espace dépeint, mais forment aussi un puissant vecteur de messages politiques.
+La quantité et la qualité des estampes augmentent par exemple largement sous la Révolution Française, reflétant ainsi leur utilisation comme outil politique à un moment où la notion d'opinion publique prend de l'importance \citep{Bosseno1990}.
+Les plans architecturaux constituent un autre ensemble où la priorité réside dans la description précise d'une structure bâtie.
+\subparagraph{}
+À partir du milieu du XIX\up{e} siècle, l'arrivée de la photographie apporte un témoignage plus direct des structures urbaines (voir figure \ref{fig:marville}).
+Cependant la photographie n'est pas un objet neutre, le message véhiculé par l'auteur se transcrivant dans les choix de cadrage, les modes de prise de vue, etc.\footnote{On peut citer pour illustration le travail effectué par \cite{Sicard1999}, notamment sur les photographies effectuées pour le compte du baron Haussmann par Charles Marville (1813-1879).} 
+\subparagraph{}
+Si la richesse des ressources iconographiques permet de produire une représentation détaillée de l'espace urbain, il s'agit d'une représentation partielle et dont il est souvent difficile d'évaluer la fiabilité.
+\begin{figure}[ht]
+  \centering
+        \begin{subfigure}[b]{0.4\textwidth}
+                \includegraphics[width=\textwidth]{extrait_icono1.png}
+                \caption{Le carroussel du Louvre, Paris, 1849}
+                \label{fig:carroussel}
+        \end{subfigure}%
+~~~~~~~~~~~~~~~
+	\begin{subfigure}[b]{0.4\textwidth}
+                \includegraphics[width=\textwidth]{extrait_icono2.png}
+                \caption{La rue de l'arbalète, photographie de Charles Marville, entre 1865 et 1867}
+                \label{fig:marville}
+        \end{subfigure}%
+         \caption{Sources iconographiques}
+	\label{fig:icono}
+\end{figure}
+
+\myparagraph{Sources archéologiques}
+Les sources archéologiques désignent l'ensemble des artefacts des structures urbaines anciennes issus de travaux de fouille, permettant une restitution physique de la ville non plus au travers de documents dont les biais peuvent être difficilement identifiables, mais au travers de données archéologiques restituant plus objectivement les bâtiments anciens sur le parcellaire actuel.
+Il s'agit aussi d'objets complexes, fragmentés, accumulés au cours du temps, permettant surtout une étude locale plutôt qu'un raisonnement à l'échelle de la ville \citep{Galinie2000}.
+Différents travaux portent sur l'utilisation de tels artefacts pour reconstituer un espace passé, parmi eux les travaux de \cite{Rodier2010}, \cite{DeRunz2008} ou \cite{Stefani2010}.
+
+
+\myparagraph{Le terrain de la ville actuelle}
+L'espace de la ville actuelle est le produit de la sédimentation au cours du temps d'une multitude de tissus et de structures, il est un \emph{conservatoire temporel} \citep{Lepetit1996}.
+La ville actuelle comporte alors les traces de tous ces espaces passés, directement accessibles lorsqu'il s'agit d'objets urbains ou d'éléments architecturaux ayant survécu à l'épreuve du temps,
+ou bien indirectement à travers la persistance dans le tissu urbain de structures anciennes \citep{Ducom2009}.
+La ville actuelle constitue pour l'historien une source d'informations à part entière, mais aussi un appui pour comprendre les structures urbaines décrites dans des sources anciennes.
+
+
+\subsection{Le plan de ville au c\oe ur de la représentation visuelle d'un espace urbain ancien}
+\label{subsection:plans}
+\subsubsection{Le socle d'une représentation de l'espace ancien}
+
+\myparagraph{Processus de communication cartographique}
+Nous avons abordé en début de section la notion de représentation cartographique, dont nous avons présenté succinctement l'adaptation à un travail historique qui se fonde sur les traces survivantes d'un état ancien de la ville.
+Les sources cartographiques sont des traces particulières en ceci qu'elles sont des représentations visuelles concrètes et globales des anciennes structures, à la différence par exemple d'un texte qui, aussi précis qu'il soit dans sa description des lieux, fait appel à l'imagination du lecteur.
+
+\subparagraph{}
+Une carte ancienne est également un objet complexe.
+En effet, elle est une trace et par conséquent il existe une rupture temporelle entre le moment de sa création et le moment de sa lecture \citep{Kramer2012}.
+Le créateur et le lecteur de la carte sont différents et appartiennent à des époques également différentes.
+Qu'il s'agisse de construire une carte ou de la lire, les deux opérations font appel à des processus cognitifs de perception de l'espace qui, par plusieurs phases de filtrages (des sens, culturels, etc.) déforment la réalité.
+Sans aller plus loin sur ces processus (pour lesquels on pourra se référer à \cite{Bailly1977, Bailly1985}), il faut prendre en considération le double filtrage qui résulte~: de la représentation cartographique d'un espace par un cartographe; de sa lecture plus tardive par une autre personne dans un contexte culturel et historique différent.
+\subparagraph{}
+Ce processus de transmission d'un message et les déformations qu'il subit lors de son codage au sein d'une carte puis son décodage, sont abondamment abordés dans le domaine de la cartographie \citep{Dodge2012}.
+Afin de clarifier notre propos, nous proposons de nous appuyer sur un modèle de communication cartographique proposé par \cite{Salitchev1978}, résumé dans le schéma \ref{fig:schem_salitchev}.
+Dans ce modèle, une part de la réalité est d'abord observée par le cartographe qui souhaite la cartographier (1).
+Il effectue alors une sélection des éléments qu'il souhaite représenter et réunit les informations nécessaires à leur description par divers moyens d'acquisition (observation visuelle, levé topographique, etc.)(2).
+L'information géographique alors constituée est encodée et éventuellement généralisée au sein d'une carte au moyen de symboles cartographiques (3).
+La carte, une fois construite, peut être décodée (lue) par un individu qui possède une connaissances des symboles cartographiques utilisés, lui permettant d'obtenir une somme d'informations géographiques.
+Finalement, le lecteur interprète ces informations en fonction de son expérience et de l'état de ses connaissances sur la réalité représentée, agrandissant alors ses connaissances sur cette réalité (4).
+Cependant, puisque les connaissances et l'expérience varient d'un lecteur à l'autre, la part de réalité ainsi enrichie varie également.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=1\textwidth]{comm_carto_salitchev.png}
+\caption{Le processus de communication cartographique de \cite{Salitchev1978}}
+  \label{fig:schem_salitchev}
+\end{figure}
+
+\myparagraph{Processus de communication cartographique différée}
+\label{paragraph:comm_caro_differee}
+Lorsqu'il s'agit de lire une carte ancienne, la rupture temporelle existant entre la production de la carte et sa lecture crée deux spécificités.
+Nous proposons alors d'adapter le schéma de \cite{Salitchev1978} dans le cadre d'une lecture de carte ancienne en modélisant une communication différée.
+Bien sûr, comme nous l'avons abordé précédemment, toute communication cartographique génère un décalage entre le message transmis par le cartographe et sa réception par un lecteur.
+Cependant dans le cas de cartes historiques le décalage est tel que la réalité du cartographe et celle du lecteur sont sensiblement différentes.
+Cette rupture amène deux particularités~:
+\begin{itemize}
+ \item Le \textbf{temps écoulé} entre la production de la carte et sa lecture est tel que cette dernière ne peut arriver qu'après une phase de préservation de la carte.
+Il peut s'agir simplement d'un archivage du document cartographique, mais aussi d'une survivance du message au travers de réutilisations plus tardives.
+\cite[p. 10]{Pinon2004} en fournit un exemple parlant~: 'original du premier plan de Paris dressé vers 1523-1530) a été perdu, mais il reste connu au travers de diverses copies.
+ \item L'augmentation de la connaissance ne porte pas sur la réalité du lecteur, mais sur une \textbf{réalité antérieure} à laquelle il n'a pas accès.
+Dès lors, il dispose d'une base de connaissances plus faible pour interpréter le message cartographique transmis.
+Le risque est alors d'accorder un crédit trop grand, par manque d'informations, à une carte ancienne dont le degré de réalisme dépend fortement des biais de représentation (volontaires ou non) introduits par le cartographe.
+\end{itemize}
+Le schéma adapté est présenté par la figure \ref{fig:comm_carto_traces}.
+La réalité n'est plus représentée comme figée dans le temps, mais le cylindre indique son évolution.
+Le déroulement de la communication cartographique se déroule alors également dans le temps, la hauteur de chaque point et flèche indiquant ce déroulement.
+L'étape (3) décrit la phase de préservation du document, tandis que la flèche qui reviens dans le temps (5) illustre l'acquisition d'une connaissance non pas sur la réalité présente du lecteur, mais sur celle passée du cartographe.
+Finalement, le dégradé en (1) illustre la phase d'acquisition de l'information géographique, qui elle aussi n'est plus instantanée mais dure pendant un certain temps~: l'information encodée est alors non plus un instantané de la réalité mais une accumulation de temporalités différentes.
+Les portions de réalités perçues ou élargies ne s'étalent alors pas seulement dans l'espace, mais également dans le temps.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=1\textwidth]{comm_carto.png}
+\caption{Le processus de communication cartographique de \cite{Salitchev1978} adapté pour la lecture de traces historiques dans des cartes.}
+  \label{fig:comm_carto_traces}
+\end{figure}
+
+% \myparagraph{Des atouts particuliers}
+% Les sources cartographiques ont l'avantage de permettent d'englober d'un coup tout un espace. En plus, la représentation visuelle est bien plus efficace pour une compréhension rapide de la disposition des éléments de l'espace. En plus de cela, les cartes ne comportent rarement que des indications topographiques. Elles portent souvent de nombreux toponymes qui peuvent donner des indices historiques. Bien sur ce sont souvent les noms de rue. Ca peut être les noms des édifices, ou les adresse. La légende elle même indique beaucoup : tracés projetés, status de la voie, travaux.  
+% 
+% \myparagraph{Lire les transformations de l'espace dans les plans}
+% Le plan est une tranche d'un moment dans la ligne du temps. De ce fait, il ne donne à priori pas à lire les transformations de l'espace. Pourtant il n'est pas muet. Une technique très utilisée consiste simplement à mettre côte à côte ou à superposer plusieurs plans anciens de façon à lire les transformations dans les changements observés entre 2 couches.
+% 
+  
+\subsubsection{Types de plans}
+Les sources anciennes sont des \emph{miroirs déformants du passé} \citep{Spitzer1999}.
+Ces déformations résultent de divers causes que nous aborderons en détails dans la section \ref{section:imperfections}.
+Cependant, les effets du temps dans la conservation du message cartographique ou dans sa construction même sont des facteurs de déformations important.
+Outre le temps, la multitude d'objectifs définis par les commanditaires des plans ou les cartographes eux-même peuvent impacter fortement le la précision d'une représentation cartographique.
+Afin d'identifier les principales différences entre plans de villes et par là les causes de déformations du passé, nous nous appuyons sur une séparation en deux classe basée sur les objectifs des plans, proposée par \cite{Pinon2004}.
+
+\myparagraph{Plans fonciers}
+Les plans fonciers désignent l'ensemble des plans, sur l'ensemble de la ville ou un espace restreint, dont l'objectif est de décrire la répartition spatiale des propriétés foncières, c'est à dire le tissu parcellaire de la ville.
+\`A Paris, les plans parcellaires apparaissent à partir du XVII\up{e} siècle, permettant une représentation plus claire des limites de propriétés jusqu'alors matérialisées par des repères divers telles des bornes.
+\cite{Arnaud2008} distingue les plans parcellaires selon trois contextes d'utilisation~: juridique, fiscal et administratif.
+\subparagraph{}
+Dans le contexte juridique, les plans parcellaires visent à aider la résolution de conflits entre deux parties revendiquant, par exemple, des droits sur un même emplacement \footnote{C'est par exemple le cas du plan de Quesnel à Paris}.
+Les plans parcellaires fiscaux servent quant à eux d'outil pour la répartition et le calcul d'un impôt.
+Ainsi dans le Paris de l'ancien régime apparaissent à partir du XVII\up{e} siècle les plans des censives, dressés par différentes seigneurs fonciers laïcs ou ecclésiastiques ayant droit de perception du cens sur leurs possessions parisiennes \footnote{Pour plus d'informations sur les censives parisiennes, voir les travaux de \cite{Weiss2009}}.
+\subparagraph{}
+On retrouve également dans cette catégorie le Papier-terrier du Roi, exécuté de 1700 à 1726-1727, décrivant pour Paris et ses faubourgs chacune des parcelles quelque soit le propriétaire foncier la possédant associé à un plan détaillé de chaque zone.
+Enfin, il s'agit aussi de plans administratifs précis, servant alors de base à des travaux cartographiques.
+Si son but est également fiscal, rentre dans cette catégorie le cadastre napoléonien dont la justesse géométrique et l'échelle (1/2000 sur Paris) en fait une base pour la construction de plans de la ville.
+
+\myparagraph{Plans topographiques et projets}
+Les plans topographiques sont des outils d'aménagement de la ville, destinés à faciliter la compréhension et la mise en place d'interventions urbaines.
+Ils sont une représentation épurée de la ville, l'accent étant placé sur la justesse géométrique et la fidélité à la morphologie des éléments urbains.
+Les plans projets visent la même précision géométrique, mais leur but diffère.
+Ces plans sont directement liés à un projet urbain, préparant, présentant ou faisant le bilan du projet.
+\subparagraph{}
+Si la distinction est faite entre plans topographiques et plans projets, il n'est pas évident de distinguer les deux, les plans pouvant mêler différents messages pour livrer une vision d'un espace urbain certes précise, mais modifiée par des projets liés aux commanditaires du plan \citep{Pinon2004}.
+Par exemple, le plan de Verniquet vise et atteint une grande précision géométrique en fournissant une description riche et complète de Paris.
+Mais il aussi porte le tracé de différents projets de percements de voies qui ne seront pas toujours réalisés.
+
+\subsubsection{Complexités temporelles des plans anciens}
+\myparagraph{Le temps du plan}
+\label{paragraph:map_is_not_instant}
+À la différence d'autres représentations visuelles comme la photographie, la carte ne représente pas la configuration de l'espace à un moment donné, bien qu'elle en offre une représentation statique.
+En effet, la carte prend nécessairement un temps variable pour être construite, pendant lequel l'espace qu'elle représente continue à se transformer.
+Si cet aspect peut éventuellement être négligé lorsqu'il s'agit de cartes récentes, la durée de levé des plans anciens, s'étalant souvent sur plusieurs années, oblige à prendre en compte cette temporalité interne au plan.
+La source cartographique ancienne doit alors être considérée comme un empilement de fragments de l'espace représenté à des moments différents.
+À un plan ne correspond donc pas un instant, mais plutôt une période pendant laquelle le plan est considéré comme une représentation fiable de l'espace.
+\subparagraph{}
+Cette période ne peut être définie qu'au cas par cas, mais nous considérons par défaut qu'il s'agit de la période pendant laquelle le plan est levé, correspondant au moment où les mesures trigonométriques sont effectuées sur le terrain, et donc où le décalage temporel entre le plan et l'espace réel est moindre.
+Qu'elle corresponde au levé du plan ou soit définie par un exemple, cette duré correspond au \emph{temps valide} des bases de données temporelles \citep[p. 189]{NGuyen2006}~: \emph{un instant précis auquel se produit un événement, [ou] un intervalle de temps qui définit la durée de validité des valeurs des données associées}.
+Nous nommons donc cette période \textbf{temps valide du plan}.
+
+
+\myparagraph{Types de plans par époque}
+ Au delà de cette spécificité, \cite{Pinon2004} distinguent deux catégories de plans anciens selon leurs modes de création mais également selon leurs époques~:
+\begin{itemize}
+ \item \textbf{Plans thématiques}~: Il s'agit de plans commandés par un individu ou une institution, et confiés à un cartographe.
+Répondant aux demandes des commanditaires, ces plans sont orientés vers une représentation mettant en valeur un élément particulier de la ville ou la cité dans son ensemble, sans forcément de considération profonde pour la justesse géométrique des tracés.
+À Paris, les plans de Gomboust, De La Caille et Bullet en constituent des exemples pour les XVII\up{e} et XVIII\up{e} siècles, ceux de Vasserot et Bellanger ou de Alphand pour le XIX\up{e} siècle.
+ \item \textbf{Plans topographiques}~: Il s'agit souvent de plans dont les levés sont prévus par le cartographe lui-même, lequel cherche ensuite un client prêt à financer la production de la carte.
+Ces plans visent à plus d'exactitude géométrique et représentent la ville de façon plus neutre, s'attachant d'avantage aux structures même de l'espace qu'à d'éventuels enjeux politiques.
+Dans cette catégorie rentrent notamment des plans tels que ceux de Delagrive, Verniquet ou encore Delisle, tous intégralement ou en partie financés sur fonds propres du cartographe.
+\end{itemize}
+\subparagraph{}
+Bien sur, les frontières entre ces deux catégories ne sont pas étanches.
+Par exemple, le plan de Jacoubet \citep{MAPJacoubet} est une commande du préfet de la Seine visant la précision géométrique et une description relativement épurée de la ville.
+De plus, cette classification se base sur une distinction entre commanditaires ''officiels'' et initiatives privés.
+Cependant, les commanditaires de nombreux plans sont inconnus, tels que ceux de Benedict Vassalieu \citep{MAPVassalieu} et Albert Jouvain de Rochefort \citep{MAPRochefort} sur Paris.
+D'après \cite{Pinon2004}, les dédicaces indiquées dans ces plans ne constituent en rien une désignation suffisante d'un éventuel commanditaire.
+Enfin, certains plans sont à mi-chemin des deux catégories, comme le plan de Verniquet \citep{MAPVerniquet}, commencé par une initiative privée puis financé par les pouvoirs officiels.
+Malgré la porosité de cette frontière, la considération de ces différents éléments nous permet de préciser les complexités engendrées par la temporalité propre aux plans.
+
+\myparagraph{Multiplicité temporelle}
+Qu'il s'agisse de plans thématiques ou purement topographiques, il peut coexister au sein d'un plan des représentations issues de périodes différentes présentées sur un même fond de carte.
+La figure \ref{fig:multitemp} illustre un tel cas sur différents plans thématiques présentant les interventions urbaines effectuées dans Paris au XIX\up{e} siècle.
+Dans le cas de la carte topographique, bien que l'objectif soit de représenter la ville au moment du levé, le plan comporte également des tracés de rue en projet, dont le percement n'est pas commencé et qui n'ont donc aucune réalité physique au moment du levé du plan.
+Pour la carte thématique, il s'agit cette fois de représenter un historique et des événements antérieurs sur un plan de Paris, résultant ici aussi en une accumulation de temporalités au sein de la source.
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=0.8\textwidth]{multitemp.png}
+	\caption{Différentes temporalités au sein d'une même carte~: les travaux de voirie effectués et édifices construits de 1789 à 1889, d'après \cite{Huet1889} }
+	\label{fig:multitemp}
+\end{figure} 
+\myparagraph{Durée des opérations de levés}
+Comme nous l'avons introduit, le tracé d'un plan de ville complet n'est pas une opération rapide et nécessite une ou plusieurs campagnes de levés, étalant la période de construction du plan sur plusieurs années alors que l'espace urbain continue de se transformer.
+Lors de la production finale du plan, celui-ci contient alors des informations provenant de phases d'observation de la ville à des moments différents, pouvant mener à des anachronismes.
+Par exemple, le plan de Verniquet \citep{MAPVerniquet} fit d'abord l'objet d'un levé à partir de 1775, suivi par un second entre 1785 et 1795.
+%\begin{figure}[ht]
+%	\centering
+%		\includegraphics[width=0.01\textwidth]{void.png}
+%	\caption{\'Etalement des levés du plan de Verniquet et minutes}
+%	\label{fig:minutes_verniquet}
+%\end{figure} 
+
+\myparagraph{Réutilisation de plans}
+Lever un plan étant une opération longue et coûteuse, la construction d'un plan est parfois effectuée sur la base d'un plan plus ancien.
+Sur Paris par exemple, de nombreux plans du XIX\up{e} siècle réutilisent le plan de Verniquet tracé au moment de la Révolution française, ce qui est notamment le cas de plans très largement utilisés par l'administration de l'époque, comme l'Atlas de Jacoubet \citep{MAPJacoubet} ou plan de Girard \citep{MAPGirard}.
+Cette réutilisation peut avoir comme conséquence un effet d'anachronisme qui se produit entre la période de publication du plan et l'espace qu'il représente réellement. Cette pratique induit aussi la reproduction des éventuelles erreurs présentes dans les opérations de lever et de gravure du premier plan.
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=0.8\textwidth]{reuse.png}
+	\caption{Réutilisation du plan de Verniquet (à gauche) dans deux plans plus tardifs (à droite)}
+	\label{fig:base_verniquet}
+\end{figure} 
+
+%
+%\begin{center}
+%\fcolorbox{black}{white}{
+%  \begin{minipage}[t]{0.9\textwidth}
+%\begin{center}
+% \textbf{Résumé de la section}
+%\end{center}
+%La cartographique permet de reconstruire, à partir de sources diverses, une représentation globale d'un espace ancien qui peut alors devenir le support à la spatialisation de données sociales, ou bien un outil d'analyse des formes de la ville et de leurs transformations.
+%La reconstitution d'un espace urbain peut se révéler un processus délicat, les sources géohistoriques étant hétérogènes dans leurs formes et leurs contenus.
+%\subparagraph{}
+%Dans cette section, nous avons suggéré une typologie des sources géohistoriques permettant de reconstituer les transformations morphologiques d'un espace donné. Nous avons aussi montré que chaque type de source comporte des spécificités et certains biais. En particulier, lorsqu'il s'agit de représenter les structures d'un espace ancien, il existe une différenciation importante entre les sources fournissant des données spatiales dont les formes et la localisation sont explicitement représentée (les cartes, les éléments architecturaux, les artefacts archéologiques et les iconographies) et les sources textuelles dont les informations spatiales doivent être localisées .
+%\subparagraph{}
+%Les cartes anciennes constituent la source principale de représentation de l'espace ancien.
+%Les plans de villes donnent des vues souvent globales en fournissant de nombreuses informations~: les structures spatiales d'abord, mais également des informations sémantiques (toponymes, structure des bâtis, etc.).
+%Ces plans sont cependant des sources complexes et hétérogènes, dont il est important de connaître les particularités en vue de l'extraction des informations qu'ils contiennent et de son utilisation dans un SIG.
+%Nous avons identifié les causes de cette hétérogénéité qui marque la nature de ces sources. alors les différentes causes de cette hétérogénéité, et pointons les complexités internes de ces plans.
+%Le temps de construction des plans, avant tout, mais aussi les biais induits par les finalités des cartographes et commanditaires apparaissent en particulier comme autant de points critiques qui demandent à être analysés avant l'utilisation d'un plan.
+%\end{minipage}
+%} 
+%\end{center}
+
+
+\section{L'apport des  SIG pour étudier l'histoire~: un choix méthodologique}
+\label{section:SIG}
+\subsection{Introduction~: définitions préalables}
+\myparagraph{Des Systèmes d'Informations Géographiques...}
+Il n'existe pas une définition unique des Systèmes d'Informations Géographiques (SIG), mais différentes approches issues des diverses disciplines qui se sont intéressées aux données géographiques \citep{Denegre1996}.\footnote{Notons dès à présent que dans les travaux présentés au sein de cette thèse, l'acronyme anglais ''GIS'' correspond systématiquement à  \emph{Geographic Information System}.
+Lorsqu'un homonyme est utilisé (comme \emph{Geographic Information Science}), l'acronyme ne sera pas utilisé pour éviter les confusions.}.
+La relative jeunesse de la géomatique ainsi que le fort attrait pour la représentation d'une information spatiale ou spatialisée au sein de divers domaines (scientifiques, industriels, éducatifs, etc.) ont engendré une multiplicité d'usages, d'applications rassemblés sous le même sigle \citep{Chrisman1999}.
+\subparagraph{}
+On peut avoir une appréciation indirecte de la variété de dimensions qui marque l'horizon de ce domaine en évoquant~\citep{Denegre1996} deux définitions qui synthétisent les principales approches existantes~: d'une part, une vision technique des SIG issue principalement de l'informatique, d'autre part un point de vue centré sur l'utilisation de ces systèmes pour répondre à des besoins thématiques.
+\begin{itemize}
+ \item La première définition est elle même une synthèse de diverses propositions issues de la géomatique, de l'informatique ou de la géographie, et qui peut être résumée par la définition adoptée par la Société Française de Télédétection \footnote{http://www.sfpt.fr/}~: \emph{ un système informatique permettant, à partir de diverses sources, de rassembler et d'organiser, de gérer,d'analyser et de combiner, d'élaborer et de présenter des informations localisées géographiquement, contribuant notamment à la gestion de l'espace}.
+Dans cette optique, on considère également des systèmes d'informations au sens plus général du terme et pouvant être constitués de procédures manuelles.
+Les outils logiciels, les processus de traitement de l'information spatiale, mais également les bases de données géographiques entrent dans cette catégorie.
+\item La seconde définition est plus proche de l'usage fait de l'information géographique dans des domaines autres que la géomatique et se focalise d'avantage sur les données et leur exploitation.
+Un SIG est ainsi défini comme \emph{un ensemble de données repérées dans l'espace, structuré de façon à pouvoir en extraire commodément des synthèses utiles à la décision}~\citep{Didier1990}.
+Il ne s'agit plus de s'intéresser aux systèmes de traitement de l'information géographique eux mêmes, mais aux données structurées qui en sont issues et qui constituent la base d'un travail thématique (production de cartes, analyse spatiale, etc.).
+\end{itemize}
+Ces deux définitions sont particulièrement intéressantes dans la mesure où elles montrent finalement deux visions différentes des systèmes d'informations géographiques, l'une provenant des domaines à l'origine des systèmes eux même, la seconde correspondant à la vision des utilisateurs finaux de ces outils.
+Pourtant, elles sont aussi complémentaires, chacune se positionnant à des endroits différents du même système de manipulation d'informations géographiques.
+Si cette multiplicité peut sembler uniquement formelle, elle est en fait source d'une ambiguïté importante dans la désignation des SIG destinés à des travaux historiques.
+
+\myparagraph{... aux Systèmes d'Informations Géographiques Historiques}
+Les premières utilisations des SIG en histoire au début des années 1990 ont donné lieu à une explosion du nombre de travaux. C'est pourquoi on peut plutôt parler d'un ensemble d'éléments rassemblés sous une dénomination polysémique que d'un élément unique.
+C'est pourquoi il nous paraît important de clarifier cette définition pour pouvoir nous positionner efficacement par rapport aux propositions existantes.
+Le plus simple est sans doute d'éclaircir cette notion à partir des énoncés que l'on retrouve dans la littérature. À ce niveau \citep{Knowles2008}, les SIG historiques peuvent désigner en même temps~:
+\begin{itemize}
+ \item Les outils logiciels qui permettent de visualiser, stocker et analyser une information géohistorique issue de sources multiples.
+ \item Les méthodologies d'intégration d'une information géohistorique au sein d'un outil SIG (logiciel ou base de données).
+\end{itemize}
+Mises en rapport avec les définitions précédentes des SIG, il apparaît clairement que ces deux propositions s'insèrent en plein dans la première vision, que nous venons d'évoquer et qui exprime une approche principalement technique des SIG, car il s'agit ici de considérer des systèmes spécifiquement dédiés à l'analyse et au traitement de données historiques.
+Pourtant, on le voit, on parle aussi de SIG historique pour désigner un ensemble de données qui changent dans le temps~\citep{ALPAGE}. Dans cette optique, nous rejoignons donc davantage la seconde vision, axée non plus sur les outils informatiques eux-même mais sur les données spatiales produites à partir de la collecte de sources d'archive ou d'observations archéologiques.
+\subparagraph{}
+Dans leurs travaux, \cite{Gregory2007} sortent des catégories déjà identifiées en parlant cette fois non plus des outils, des méthodes ou des données, mais de la discipline même émergeant de l'utilisation des outils SIG dans le cadre d'études historiques.
+Cette proposition particulière est fondamentale car elle met en lumière la position des historiens comme utilisateurs principaux.
+En effet, il s'agit plus souvent d'utiliser des outils existant et d'adapter leur usage à un problème historique que de mettre en place des outils SIG spécifiques.
+Nous le constaterons plus précisément en explorant les propositions d'outils existants dans la partie \ref{subsection:currgis}.
+Les trois définitions présentées ici ne sont qu'un bref aperçu des écrits sur les SIG historiques, mais elles permettent de mettre en lumière deux besoins particuliers~:
+\begin{itemize}
+ \item \colorbox{red}{\textbf{H}} \textbf{Gérer des sources et des données hétérogènes}\\
+Nous avons vu dans la section \ref{subsection:sources} que les sources historiques sont de nature, de forme, de contenu variés, induisant une forte hétérogénéité des données qui peuvent en être extraites.
+Nous avons vu dans la section \ref{subsection:sources} que les sources historiques, par la variété de leu forme et leu contenu, induit une forte hétérogénéité des données qui peuvent en être extraites. Par conséquent, puisque la nature même du travail historique implique de croiser un nombre important d'informations différentes, les SIG peuvent se révéler des outils extrêmement efficaces utilisant la localisation spatiale comme pivot pour intégrer différentes sources de données.
+Partant du constat que les sources historiques sont imparfaites et dont la fiabilité n'est jamais totale, \cite{Knowles2008} avance également le besoin d'être capable de questionner toute donnée sur l'origine et le degré de fiabilité de la source dont elle provient.
+\item \colorbox{magenta}{\textbf{ST}} \textbf{Modéliser et représenter les changements de l'espace dans le temps} \\
+Comme le font remarquer plusieurs auteurs  \citep{Berman2009, Parker2010}, il s'agit de traiter et analyser des \emph{données qui changent dans le temps}, c'est à dire des \textbf{données spatio-temporelles}.
+On retrouve ici l'importance de traiter non pas d'espaces figés, mais de ses transformations au cours du temps, qui doivent donc être gérées par un SIG spécifiquement dessiné pour les traitements historiques.
+\end{itemize}
+Il apparaît donc que ces deux éléments constituent des besoins essentiels auxquels un SIG dédié à l'étude de phénomènes historiques doit pouvoir répondre.
+S'il s'agit de besoins généraux, ils sont pourtant fondamentaux et ils questionnent particulièrement les système existants.
+En effet, l'absence d'hégémonie d'un SIG particulier nous emmène à questionner l'adéquation des outils et des méthodes mis en place jusqu'à maintenant pour répondre à ces besoins.
+Certains travaux, comme l'étude du quartier des Halles effectuée par \cite{Boudon1977} montrent d'ailleurs que les outils informatiques ne sont pas strictement nécessaires pour travailler de manière conséquente sur la morphologie d'un espace ancien et ses dynamiques de transformations.
+Il nous faut donc explorer les raisons qui feraient des SIG des outils importants en histoire, et quels sont les objectifs précis auxquels ils peuvent répondre.
+Pour ce faire, nous proposons d'abord d'identifier les particularités du traitement de l'information géohistorique au sein d'un SIG, notamment quant à la manipulation de données hétérogènes et imparfaites (section \ref{section:imperfections}), puis d'expliciter ces objectifs et leur adéquation avec le travail historique en section \ref{section:SIG}.
+De là, nous pourrons dégager un positionnement plus clair pour notre travail.
+% 
+% 
+% \subsection{Objectifs des SIG historiques}
+% \subparagraph{}
+% Nous avons jusqu'ici fait apparaître les demandes que les historiens adressent aux SIG en tant qu'outils ou données structurées et localisées. Les SIG ont été identifiés par les historiens \citep{Gregory2007} comme pouvant apporter une meilleure compréhension de phénomènes historiques grâce à leur localisation dans l'espace et la mise en relation de données spatialisées. Cet objectif très général se trouve atteint par différents moyens, que nous exposons tout en les mettant en relation avec les besoins identifiés précédemment et indiqués par leur couleur. Ainsi, l'objectif est de spécifier ces besoins en fonction des différents buts des historiens et de mettre en place une classification des éléments qu'un SIG historique complet doit présenter pour s'adapter aux besoins d'un historien. Nous utiliserons par la suite cette classification pour analyser les SIG historiques existants.
+% 
+% \subparagraph{}
+% Pour \cite{Gregory2007}, les SIG constituent un atout important pour l'enseignement de l'histoire.  Gregory et Healey identifient plus tard 3 objectifs spécifiques. On peut synthétiser ces deux propositions autour des 3 points suivants : 
+% Former des corpus de données localisées dans l'espace géographique
+% Analyser les changements des structures spatiales au cours du temps, retracer les mouvements d'individus dans l'espace : analyse spatiale
+% Fournir un moyen de visualisation de multiples données et de confrontation des données ainsi que de produciton de cartes.
+% 
+% 
+% \myparagraph{Agrégation et diffusion de donnée spatiales et spatialisées}
+% Un des principaux buts recherchés dans l'utilisation d'outils SIG en histoire est de pouvoir rassemblés, dans un même référentiel spatial, un ensemble de données et de sources historiques diverses dans un but pédagogique (partage de ressources avec des étudiants), pour des travaux collaboratifs ou plus simplement pour diffuser des données, des résultats. La localisation dans l'espace est le référentiel qui permet de lier des données hétérogènes.
+% Plus encore, il s'agit de placer dans l'espace des informations sociales diverses afin de les mettre en relation. EN PARLER MIEUX!
+%  Ici, l'objectif du SIG est d'avantage de structurer et stocker l'information géohistorique plutôt que de fournir des outils d'analyse.
+% 
+% 
+% \begin{itemize}
+%  \item \colorbox{red}{\textbf{H}}-\smallskip-\smallskip-
+% \end{itemize}
+% 
+% \myparagraph{Visualiser et produire des cartes}
+% Le second objectif ressort d'un besoin de visualisation des données sous forme de cartes. Il peut s'agir bien sur simplement de représenter les données spatiales ou sociales localisées, mais également de fournir sous forme de carte pour une analyse qualitative.  Le SIG permet ici d'explorer les données historiques spatialisées et mises en rapport les unes aux autres par la relation de distance.
+% C'est aussi visualiser les dynamiques de l'espace, ou bien fournir des cartes sur les transformations de celui ci (cartes différentieles, animées,etc.) Les travaux sur les prévenus par exemple c'est un bon exemple.
+% 
+% \myparagraph{Analyser des phénomènes dynamiques}
+% Ici c'est le SIG comme outil d'analyse de phénomènes dynamiques : outil d'analyse spatiale (par exemple ALPAGE est un bon exemple).
+% Les capacités d'analyses des systèmes d'information géograohiques.
+% Ici c'est carrément d'illustrer un phénomène historique, c'est à dire une suite d'évènements dans l'espace.
+% La plupart du temps on touche ici à des considérations temporelles, car le phénomène ne peut être saisie que dans sa dynamique.
+% Il ne s'agit pas forcément d'une analyse quantitative même si la production de cartes est généralement présente. Il peut aussi s'agir d'une analyse qualitative via la visu de phénomènes spatialisés et cartographiés.
+% 
+% 
+% 
+% D'
+% - PAST TIME PAST PLACES - KNOWLES et A PLACE IN HISTORY  de Gregory-
+% he literature 1 on historical GIS suggests that GIS proc esses employed by students in the classroom could inv o lve: ! Analyz ing c hange in s pace over time. ! Attaching sources/data/images to location.
+% !
+% Tracking movement over space.
+% !
+% Searching databases over space
+% 
+% Gregory 2001 : GEOGRAPHICAL INFORMATION AND HISTORICAL RESEARCH:CURRENT PROGRESS AND EUTURE DIRECTIONS
+% L'utilisation des SIG par les historiens couvre 3 usages : 
+%   - découvrir, gérer et intégrer des ressources historiques
+%   - faire de la visu des données sous forme de cartes ou d'autres visus 
+%   - faire de l'analyse spatiale
+% Ce qui est nécessaire pour qu'un SIg soit adapté aux historiens :
+%   - gérer les infos incertaines
+%   - Gérer du spatio-temporal 
+%   - Faire de l'intégration de données qualitatives et quantitatives
+% 
+% 
+% Parce que l'espace c'est un REFERENTIEL pour situer des données historiques.
+% \cite{Gregory2007} identifie 3 avantages à utiliser un SIG dans le cadre d'une étude historique.
+% D'abord, les données spatiales (comme les cartes) permettent de placer dans l'espace les autres données et de corriger des données incompatibles grace simplement à travers leur emplacement dans l'espace.
+% Ensuite, ça permet la visualisation des données sous la forme de cartes, d'animations ou de paysages virtuels.
+% Enfin, c'est un outil d'analyse spatiale pour traiter des donnée historiques.
+% Angelo Torre montre que le spatial turn aujourd'hui dérive vers un espace symbolique et la notion de paysage, et déplore le manque d'attachement à la topologie, c'est à dire proprement à l'espace géographique. Les SIG constituent aujourd'hui un espoir SANS PAREIL pour ce type, car justement ils forcent l'historien à considérer l'espace dans son aspect le lus concret, brute et précis. D'ailleurs, c'est exactement ça qui pose un problème
+% 
+% 
+% Classiquement, on définit 5 objectifs pour les SIG. En histoire, ces 5 objectifs restent vrai mais se trouvent rassemblés autour de 3 axes principaux, identifiés par Knowles et Gregory.
+% En histoire, les SIG répondent généralement à 3 buts identifiés par Knowles et Grégory. 
+% Bien sur les SIG existants ne répondent génralement pas à un de ces buts seulement mais à plusieurs, de façon plus ou moins complètes, en fonction des objectifs de l'étude historique mais également des politiques de diffusion choisies par les auteurs.
+% 
+% \myparagraph{Mettre en commun une information}
+% Une première utilisation des SIG en histoire vise justement le coté ``ensemble de données'' des systèmes d'information géographiques.
+% Il s'agit ici de servir de ressource soit à d'autres historiens pour partager des sources, des données et des résultats, soit dans un cadre éducatif.
+% De manière globale, ces SIG passent par la composante spatiale pour lier des sources et des documents entre eux, pour les centraliser et les organiser.
+% Il s'agit exactement du SIG comme ensemble de données. D'ailleurs, ce sont des SIG qui ne proposent pas forcément des outils de visualisation poussés, par exemple juste un visualisateur pour les cartes, les données étant téléchargeables.
+% Il s'agit bien sur la plupart du temps de SIG en ligne, ce sont des portails d'accès vers des ensembles de données sur des territoires relativement larges.
+% 
+% \myparagraph{Visualiser}
+% Il s'agit d'outils qui permettent de visualiser et d'explorer des données historiques spatialialiées et représentées dans le contexte spatial ancien. 
+% Un bon exemple c'est ALPAGE, qui permet de visualiser dans une interface de cartographie classique des données sur la ville de Paris au 19eme mais également au moyen age. Il y aussi des données démographiques, ce qui montre bien que l'espace est ici utilisé comme référentiel.
+% Visualiser un espace, ou un phénomène  = analyse qualitative
+% Faire des cartes, mettre à dispo des outils web, des données sous format vecteur...
+% 
+% \myparagraph{Analyser}
+% Ici c'est carrément d'illustrer un phénomène historique, c'est à dire une suite d'évènements dans l'espace.
+% La plupart du temps on touche ici à des considérations temporelles, car le phénomène ne peut être saisie que dans sa dynamique.
+% Il ne s'agit pas forcément d'une analyse quantitative même si la production de cartes est généralement présente. Il peut aussi s'agir d'une analyse qualitative via la visu de phénomènes spatialisés et cartographiés.
+
+\subsection{Représentation de l'information historique}
+%\myparagraph{utiliser un SIG existant ou en créér un}
+
+\myparagraph{Modes de représentation de l'information géographique dans un SIG}
+Les SIG s'appuient sur deux modes de représentation de l'information géographique \citep{Denegre1996}~:
+\begin{itemize}
+ \item Le mode \textbf{raster} représente un espace géographique sous la forme d'une grille régulière dont la résolution est fixe.
+Chaque cellule de la grille stocke une information unique, faisant d'elle la plus petite entité
+ géographique représentable.
+Un raster permet de stocker des informations thématiques discrètes, comme le type d'occupation du sol, mais également des données continues (élévation, température,etc.).
+Les images constituent les données sous forme raster les plus répandues~: la cellule de la grille correspond à un pixel de l'image.
+Dans le cadre de données historiques, il s'agit la plupart du temps de cartes historiques numérisées.
+
+ \item Le mode \textbf{vecteur} permet de représenter les formes des objets du monde réel à l'aide de quelques primitives géométriques simples~: points, lignes polygonales et polygones.
+Chacune de ces primitives est composée de points auxquels sont attribués des coordonnées géographiques.
+À chaque primitive géométrique peut être associé un ensemble d'attributs, permettant de stocker des informations sémantiques associées.
+Lorsqu'il s'agit de données historiques, les données vecteur sont souvent issues de la vectorisation, généralement manuelle, de sources cartographiques.
+La figure \ref{fig:vecras} illustre les deux modes de représentation de l'information géographique sur un extrait d'un plan de ville de Paris.
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+        \begin{subfigure}[b]{0.4\textwidth}
+                \includegraphics[width=\textwidth]{raster.png}
+                \caption{L'église Saint Nicolas des Champs dans plan de Verniquet numérisé.}
+                \label{fig:verniquet_raster}
+        \end{subfigure}%
+~~~~
+	\begin{subfigure}[b]{0.4\textwidth}
+                \includegraphics[width=\textwidth]{vecteur.png}
+                \caption{Représentation vecteur de la même église.}
+                \label{fig:verniquet_vecteur}
+        \end{subfigure}%
+         \caption{Les deux modes de représentation de l'information géographique.
+Raster en (a), vecteur en (b).}
+	\label{fig:vecras}
+\end{figure}
+
+
+
+\subsubsection{Intégrer une information géohistorique explicite}
+On considère les cartes, plans et mappes, ainsi que les représentations iconographiques d'un espace ou d'un monument, comme des sources géohistoriques explicites.
+Les reliques, vestiges archéologiques ou traces sur le terrain, peuvent également être considérées comme explicites, leur localisation pouvant être acquise par mesure directe (en particulier par relevé GPS).
+Nous ne considérons pas ici le cas des sources iconographiques qui sont, aux époques considérées, généralement des vues en perspectives de bâtis, de lieux ou de scènes de vies et qui nécessitent dès lors des données 3D pour être recalées.
+La constitution de données 3D sur l'espace passé est problématique, en raison de la pauvreté des sources. En effet, peu de sources anciennes permettent de reconstruire des éléments en volumes et plus rares encore sont celles qui représentent ces éléments avec réalisme.
+
+\myparagraph{Géoréférencement}
+% \newglossaryentry{SCR}{name={Système de coordonnées}, description = {\emph{Le Système de coordonnées est un système de référence permettant d'exprimer la position d'un objet dans ses 2 ou 3 dimensions.} Un système de coordonnées peut être sphérique, permettant alors de positionner un élément à la surface du globe terrestre.
+%Il peut s'agir également d'une projection cartographique plane}}
+\subparagraph{}
+Les sources cartographiques constituent un élément central dans la construction d'une démarche qui vise à reconstituer la morphologie d'un espace passé et d'en donner une représentation globale.
+
+Afin de pouvoir les confronter de manière critique à d'autres sources et d'autres données spatiales, il est nécessaire d'assigner une localisation précise dans l'espace géographique aux cartes et plans.
+Cette opération, nommée \emph{géoréférencement} n'est pas propre aux sources historiques mais elle constitue une étape cruciale dans la constitution d'un SIG historique pour lequel une grande part des données spatiales provient de cartographies anciennes \citep{Rumsey2002}.
+\subparagraph{}
+L'opération de géoréférencement implique tout simplement la tentative de faire correspondre, et donc de superposer dans un repère géographique, le plus exactement possible, les objets géographiques communs à la carte ancienne et à la carte contemporaine. Pour ce faire, la méthode habituellement adoptée \citep{Rumsey2002} consiste à placer des \emph{points de contrôle}, généralement de façon manuelle, dans la carte numérisée sous forme raster une carte.
+À chaque point de contrôle est alors lié un second point situé dans un référentiel spatial muni d'un système de coordonnées de référence choisi au préalable.
+Les nombreuses bases de données géographiques actuellement à disposition servent souvent de référentiels, les points de contrôles étant placés sur des éléments du paysage (point culminant, tour, croisement de rues, etc.) présent à la fois dans le référentiel et dans la carte.
+Quant au géoréférencement, il repose sur l'application de méthodes de transformation mathématiques permettant, à partir des points de la carte ainsi associés, d'assigner une coordonnée à chaque point de la carte raster\citep{Grosso2010}.
+\subparagraph{}
+Comme le note \citep[p. 5]{Rumsey2002}, le géoréférencement parfait de cartes anciennes sur un référentiel actuel est souvent impossible.
+D'abord, les systèmes de coordonnées utilisés dans les cartes anciennes ne correspondent plus à ceux utilisés actuellement, et sont souvent difficiles à reconstituer.
+De plus, la précision géométrique des plans anciens est variable, en raison des techniques de levé ou encore de la précision des instruments de mesures géodésiques utilisés.
+Les biais introduits par les cartographes ayant tracé la carte influent également sur la précision géométrique des informations qu'elle contient.
+Ainsi, sur la carte de Cassini dressée pour l'ensemble de la France entre $1747$ et $1789$ \footnote{Les relevés sont terminés au moment de la Révolution, mais la carte ne sera entièrement éditée qu'en 1815.}, la taille et le nombre de certains symboles peuvent affecter la disposition des éléments, en provoquant, par exemple, le déplacement du tracé d'une rivière au profit du toponyme d'un village \citep[p. 3]{GeopeupleL231}.
+Enfin, les conditions de conservation peuvent déformer une carte ancienne, notamment si son support est sensible à l'humidité (bois, toile, papier,etc.).
+ 
+\myparagraph{Vectorisation}
+La seconde méthode d'intégration d'une information géohistorique explicite dans un SIG consiste à transformer les objets géographiques représentés dans la carte en objets vecteurs~: il s'agit de la \emph{vectorisation}.
+Cette étape succède au géoréférencement et permet d'assigner à chaque objet géographique identifié dans la carte une primitive géométrique, des informations sémantiques sous forme d'attributs ainsi qu'une identité.
+Cette identité, implicite lorsque l'objet est saisi, peut être explicité par exemple à l'aide d'un identifiant unique.
+La vectorisation d'une carte ancienne offre plusieurs avantages~:
+\begin{itemize}
+ \item Elle permet d'extraire l'information sémantique contenue dans la carte et de s'abstraire du style cartographique qui lui est associée.
+ \item La séparation des composantes de l'information spatiale permet de nombreux traitements automatiques par un outil SIG (croisements attributaires, requêtes spatiales, sélection,etc.)
+\end{itemize}
+
+Tout comme le géoréférencement, la vectorisation de cartes est loin d'être une tâche anodine.
+En premier lieu, elle implique des opérations de précision qui peuvent se révêler longues en raison du nombre d'objets, ce qui explique en partie la rareté des bases historiques vectorielles~\citep{Rumsey2002}.
+En second lieu, la vectorisation d'une carte implique d'identifier des objets au sein d'une carte, c'est à dire à assigner une identité particulière à une zone de l'espace.
+Dans les cartes historiques cette assignation peut poser problème.
+En effet, dans une carte récente il peut être possible de comparer une représentation cartographique avec l'espace réel et aider ainsi la vectorisation, ce qui est impossible lorsqu'il s'agit d'une carte historique.
+En conséquence la carte ancienne devient le seul témoin d'un objet géographique dont l'identification n'est pas toujours aisée.
+
+
+\subsubsection{Intégrer une information géohistorique implicite}
+Les sources d'information géographique habituellement définies comme ''implicites'' sont constituées par l'ensemble des ressources portant une information spatiale qu'il n'est pas possible de localiser directement.
+La forme de ces informations et la difficulté de leur localisation varient largement~: l'adresse postale d'un individu ou l'itinéraire d'un voyageur sont toutes deux des informations implicites et pourtant très différentes.
+%Les donnée statistiques sont également implicites lorsqu'elles font référence à un phénomène spatial et peuvent donc être cartographiées. La cartographie des données statistiques ne sera pas abordée ici, en raison notamment d
+
+\myparagraph{Géocodage}
+Conceptuellement proche mais techniquement différent des opérations de géoréférencement, le \emph{géocodage} consiste à placer une donnée spatiale implicite dans un repère géographique absolu \citep{Goldberg2007} en lui attribuant une coordonnée géographique.
+Très utilisée dans diverses disciplines, cette opération permet~:
+\begin{itemize}
+ \item D'intégrer une information sémantique dans un référentiel spatial en vue de croisements avec d'autres informations.
+ C'est notamment le cas des adresses, qui, une fois localisées, peuvent permettre de mettre en relations divers sources dont elles constituent le lien (par exemple pour des habitations parisiennes~: des actes notariés, des recensements, des calepins cadastraux,etc.
+ \item De cartographier ces informations et éventuellement de faire apparaître des relations jusqu'alors invisibles \citep{Gauthiez2010}.
+\end{itemize}
+Les méthodes de géocodages sont très diverses et dépendent fortement du cas d'application et aboutissent au développement de méthodes \emph{ad-hoc}, dont on pourra trouver un état de l'art détaillé dans \citep{Goldberg2007}.
+Depuis quelques années cependant, les différentes propositions de méthodes de géocodage tendent à s'appuyer sur des 
+index géographiques en ligne tels Geonames\footnote{http://www.geonames.org/} ou Pleiades\footnote{http://pleiades.stoa.org/}.
+
+% 
+% Les informations spatiales disponibles sous forme textuelles sont particulièrement hétérogènes et leur localisation peut être difficilement identifiable. Ce peut être le cas lorsque les informations de localisation sont vagues ou bien qu'elles sont relatives à d'autres lieux \citep{Eide2013}, ou bien encore lorsque l'orthographe d'un nom varie. Un nombre croissant de méthodes de géocodage permettent de prendre en compte les incertitudes de ces données
+ 
+%
+%
+%\begin{center}
+%\fcolorbox{black}{white}{
+%  \begin{minipage}[t]{0.9\textwidth}
+%\begin{center}
+% \textbf{Résumé de la section}
+%\end{center}
+%En définissant les SIG historiques par rapport à une utilisation plus classique de ces systèmes (gestion du territoire, urbanisme, etc.), nous avons mis en lumière deux besoins particuliers des historiens.
+%Premièrement, les SIG constituent un outil performant de croisement et de partage de données historiques spatiales, permettant aux chercheurs de mettre en relation des données dont l'accès et l'exploitation peuvent être difficiles.
+%Deuxièmement, par leur capacité à stocker des donnée spatiales hétérogènes, les SIG constituent un outil de choix pour traiter des données spatio-temporelles.
+%\subparagraph{}
+%Cependant, l'utilisation de SIG nécessite des traitements spécifiques sur l'information géohistorique en vue de son intégration.
+%Le géoréférencement, la vectorisation de plans ou le géocodage de données constituent trois outils de base permettant d'intégrer une telle information.
+%En ajoutant des étapes de traitement ainsi qu'en utilisant des outils peu adaptés \emph{a priori} pour manipuler des données historiques, le risque d'accumulation d'erreurs dans les données et dans leur traitement augmente.
+%  \end{minipage}
+%} 
+%\end{center}
+
+\section{Les difficultés dues aux imperfections de l'information géohistorique}
+\label{section:imperfections}
+Nous venons de voir que les SIG constituent un outil performant de croisement et de partage de données historiques spatiales, permettant aux chercheurs de mettre en relation des données dont l'accès et l'exploitation peuvent être difficiles. Par leur nature, les SIG nécessitent des traitements spécifiques pour intégrer et traiter des informations géohistoriques. Le géoréférencement, la vectorisation de plans et le géocodage constituent les trois outils de base permettant ces opérations. Cependant, tout en étant très performante, ces opérations sont loin d'être anodines. En intégrant une suite de techniques conçues et développées pour des traitements fondés sur l'observation directe des sources et des terrains, elles risquent de déformer les informations portées par les sources historiques dont la spécificité est avant tout liée à leurs imperfections. L'information géohistorique, comme toute information, est en effet toujours entachée d'imperfections~\citep{Plewe2002}.
+La principale raison, déjà évoquée pour la représentation cartographique, réside dans l'impossibilité de saisir la complexité d'éléments qui permettent de saisir un phénomène dans la totalité de ses dimensions. Ces imperfections ont été largement étudiées et sont notamment décrites par~\cite{BouchonMeunier1995} qui en a proposé une typologie fondée sur trois classes~:
+\begin{itemize}
+ \item \textbf{L'incertitude}~: Une information est dite incertaine lorsque on a un doute sur sa validité.
+Par exemple, le témoin d'un vol de voiture peut expliquer à la police qu'il ''pense que la voiture était verte''.
+L'information sur la couleur de la voiture est incertaine~: elle est très probablement verte, mais ce n'est pas certain.
+ \item \textbf{L'imprécision}~: Une information imprécise aboutit à l'impossibilité de définir clairement des limites à une ou plusieurs entités.
+Ces limites peuvent être mal connues en raison de manques dus aux appareils de mesure (par exemple un thermomètre précis à 1°C près).
+Une imprécision apparaît également lorsque les limites d'une entité sont flexibles car désignées par des termes vagues.
+ Ce peut être le cas également quand les limites sont flexibles, soit parce qu'elles sont définies de façon vague, soit parce qu'elles sont proviennent 
+\item \textbf{L'incomplétude}~: Il est possible qu'une information parvienne de façon incomplète, soit parce qu'une partie est manquante, soit parce qu'elle ne couvre pas l'intégralité du phénomène représenté.
+\end{itemize}
+Ces trois types d'imperfections se retrouvent à différents instants de l'acquisition, la représentation et l'analyse de l'information géohistorique.
+Dans cette section, nous proposons de mettre en lumière ces imperfections et de les mettre en rapport avec le processus de représentation d'un espace ancien abordé dans la section \ref{section:carto_ancienne}.
+\subparagraph{}
+Les imperfections des informations spatiales représentées au sein des SIG sont aujourd'hui bien connues et identifiées au travers de plusieurs taxonomies visant à classifier les types, les causes et les effets de chaque imperfection \citep{Fisher1999, Klir1995,Atkinson2002, Fisher2005}.
+Lorsqu'il s'agit d'informations géohistoriques, spatiales mais également temporelles, issues de sources décalées temporellement, il devient nécessaire d'adapter les approches et les modèles existants.
+Au cours de la dernière décennie, plusieurs chercheurs ont élaboré des propositions visant à spécialiser les modèles existants pour le traitement de données géohistoriques \citep{Plewe2002, Leyk2005, DeRunz2008}.
+En nous inscrivant à notre tour dans cette optique, à partir de l'analyse du processus d'intégration des informations géohistoriques dans un SIG, nous avons essayé de proposer un modèle adapté pour l'analyse des transformations morphologiques de l'espace urbain.
+
+\myparagraph{Incertitude et imperfection}
+Notons dès à présent que les modèles d'imperfection de l'information spatiale rassemblent les différents types d'imperfections des données et de l'information spatiale sous le terme d'\emph{incertitudes}.
+Cependant, de la même manière que \cite{DeRunz2008}, nous lui préférerons ici le terme d'\emph{imperfection} issue de la classification de \cite{BouchonMeunier1995}.
+Le sens de l'incertitude pour \cite{BouchonMeunier1995} et pour les modèles tels celui de \cite{Fisher2005} varient sensiblement.
+En effet, pour \cite{Fisher2005} l'incertitude est le concept qui coiffe l'ensemble des défauts qui affectent l'information, tandis la validité de l'information est plutôt liée au concept d'erreur.
+
+\subsection{Le processus d'intégration d'une information géohistorique}
+Nous avons pour l'instant parlé des imperfections qui affectent l'information géohistorique de façon générale, sans en identifier les causes, les types et les effets.
+La première étape est alors d'identifier les causes de ces imperfections.
+Dans les sections précédentes, différentes imperfections sont apparues~: imperfections des sources historiques, de l'information qu'elles contiennent ou bien encore de sa représentation au sein d'un SIG.
+Ces divers générateurs d'informations imparfaites se trouvent répartis à différents instants de l'intégration d'informations géohistoriques dans un SIG.
+\myparagraph{Les étapes du processus}
+D'autres recherches ont permis d'individualiser les différents moments durant lesquels des imperfections apparaissent à l'intérieur du processus d'intégration d'informations géohistoriques dans un SIG.
+Ainsi, on distingue classiquement trois étapes dans ce processus \citep{Fisher1999, Longley2005}, décrites dans la figure \ref{fig:imperfection}.
+La proximité avec la figure \ref{fig:comm_carto_traces} sur la communication cartographique est naturelle~: il s'agit d'une forme particulière de représentation d'informations spatiales. \cite{Plewe2002} fournit une description plus détaillée de chacune des étapes du processus.
+Ainsi, d'après lui, le processus serait constitué de la chaîne d'états suivants~:
+
+\begin{itemize}
+ \item D'abord, une part de la réalité est \textbf{conceptualisée}.
+Cette étape consiste à identifier différentes entités géographiques qui constituent la réalité d'un lieu à une époque donnée, selon leur nature (voir le paragraphe \ref{paragraph:entite}).
+L'identification de ces entités construit leur \emph{étendue idéale} (\emph{ideal extent}), c'est à dire la représentation mentale des trois dimensions qui composent l'étendue de l'entité.
+ \item Ensuite, les entités identifiées sont \textbf{mesurées} par le biais de différentes méthodes (observation, généralisation, classification, interprétation ou encodage), ce qui permet de construire leur représentation sous la forme de données manipulables par un SIG.
+Cette opération permet de créer l'\emph{étendue évaluée} (\emph{asserted extent}) de l'entité, c'est à dire la transformation de l'entité conceptuelle en donnée concrète dont le propriétés ont été mesurées.
+  \item Enfin, la dernière phase d'\textbf{analyse} permet de construire de nouvelles entités à partir de celles déjà connues.
+Généralement, ces entités sont plus précisément définies que les données initiales \citep{Plewe2002}.
+Par exemple, une personne localisée par une étape de géocodage aura une étendue plus complète que la donnée d'origine dont on ne connaissait pas la localisation.
+
+\end{itemize}
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=0.8\textwidth]{uncertainty.png}
+	\caption{Schéma des différents filtres (U1,U2,U3) déformant la réalitée perçue et représentées dans un SIG.
+Chaque filtre génère des imperfections différentes affectant l'information spatiale transmise.}
+	\label{fig:imperfection}
+\end{figure} 
+
+\myparagraph{Sources des imperfections}
+\cite{Longley2005} identifient trois principales causes menant à la dégradation de l'information spatiale. \cite{Leyk2005}, en l'adaptant au cas où l'information provient de sources historiques, les présentent comme tel~:
+\begin{itemize}
+ \item Les \textbf{Imperfections orientées production}~: Il s'agit des différentes imperfections inhérentes à l'utilisation de sources historiques.
+Pour \cite{Leyk2005}, il s'agit des erreurs des sources~: les erreurs de position et les erreurs dans les attributs des données\citep{Atkinson2004}.
+Ainsi, les erreurs de levés des cartographes ou l'imprécision de leurs mesures se retrouvent invariablement au sein des sources.
+ \item Les \textbf{Imperfections orientées transformations}~: Ce sont les différentes imperfections qui résultent de la transformation de l'information contenue dans les sources en donnée utilisable, sous forme vecteur ou raster.
+Ainsi, le géoréférencement de cartes anciennes déforme l'espace, et la vectorisation ne permet que de saisir partiellement le contenu de la carte.
+ \item Les \textbf{Imperfections orientées application}~: Il s'agit cette fois des imperfections dues à la comparaison des données issues de différentes sources et à leur confrontation à l'espace présent.
+Les mauvaises interprétations du contenu des sources dues au manque d'informations sur les pratiques des cartographes en sont un exemple.
+\end{itemize}
+
+Ces différentes sources d'imperfections se retrouvent de fait sur le schéma \ref{fig:imperfection}.
+En effet, la transition entre les différents états de l'information géohistorique est effectuée par l'application  de plusieurs filtres (dénommés U1, U2 et U3) qui s'appliquent les uns après les autres.
+Ces filtres déforment la réalité de façon progressive, dégradant et modifiant l'information initiale.
+\begin{itemize}
+ \item Le premier filtre \textbf{U1} correspond à la perception de la réalité qui aboutit à la représentation mentale d'un espace \citep{Bailly1985}.
+Lorsque la réalité passée n'est plus perceptible que par des sources historiques, le filtre U1 génère les imperfections orientées production.
+ \item Le second filtre \textbf{U2} correspond à la transition entre l'entité conceptuelle et l'entité mesurée.
+Sur des sources historiques, la mesure est effectuée par le géoréférencement, le géocodage et la vectorisation.
+Le filtre U2 est source d' imperfections de transformation.
+ \item Enfin, les données géohistoriques sont interprétées au sein d'une grille d'analyse, créant un dernier filtre \textbf{U3}.
+Cette fois, ce sont les imperfections orientées application qui apparaissent.
+\end{itemize}
+
+\subsection{Types d'imperfections de l'information géohistorique}
+En montrant le processus d'intégration de l'information géohistorique depuis des sources, nous avons mis en lumière les différents événements qui dégradent l'information.
+Cependant, il faut encore préciser quelles sont exactement les types d'imperfections qui peuvent affecter cette information.
+Dans le cas de l'information spatiale, la taxonomie de \cite{Fisher2005} fait école car elle associe à chaque type d'imperfection un formalisme mathématique permettant de la représenter.
+Sur ces bases, \cite{DeRunz2008} a proposé une taxonomie adaptée à l'information archéologique.
+Cette taxonomie s'adaptant à nos données, nous proposons de l'utiliser pour identifier et traiter l'imperfection de l'information géohistorique dans cette thèse.
+La figure \ref{fig:redunz} présente cette taxonomie.
+Nous détaillons ensuite les différents types d'imperfection en les spécialisant sur le cas des données géohistoriques issues de cartes anciennes.
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=0.8\textwidth]{derunz.png}
+	\caption{Taxonomie des imperfections de l'information géohistorique, d'après \cite{DeRunz2008}}
+	\label{fig:redunz}
+\end{figure} 
+
+\subsubsection{Détails de la taxonomie}
+
+\myparagraph{Qualité de définition d'une entité}
+Une première distinction est faite selon la qualité de définition de l'entité géohistorique considérée.
+En effet, le premier problème qui se pose lors de l'étape de conceptualisation est la construction des limites de l'entité, ou, pour reprendre \cite{Fisher2005}, de l'affectation d'une classe à chaque portion de l'espace.
+Une entité est bien définie lorsque qu'elle est spécifiée de manière \emph{complète, précise et unique} \citep{DeRunz2008}.
+Afin d'illustrer chaque catégorie d'imperfection, nous nous appuierons sur l'exemple de la rue \emph{Au Maire} illustrée dans la figure \ref{fig:aumaire}.
+Chaque type d'imperfection peut s'appliquer à toute une entité ou seulement à l'une de ses trois composantes.
+
+\myparagraph{Incertitude}
+Même lorsqu'une entité est bien définie, il est possible qu'elle soit incertaine. Pour se rattacher au sens fixé par \cite{BouchonMeunier1995} (\ref{section:imperfections}), il peut s'agir d'une entité dont la validité d'au moins une partie de son étendue est mise en doute.
+\subparagraph{}
+Reprenons le cas du champ de blé dont l'information sur l'emprise spatiale et le type de culture est issue d'un plan ancien.
+Son étendue évaluée correspond donc spatialement à son emprise sur la carte, sa période de vie à la date du plan et sa sémantique est donnée par son type de culture.
+Cette dernière information peut être soit fausse, soit vraie. Elle peut être affectée par diverses erreurs et la source en elle-même peu fiable \citep[p. 28]{DeRunz2008}.
+Dès lors, la validité du type de culture \emph{blé} peut être mise en doute, bien que le champ soit une entité bien définie.
+
+
+\myparagraph{Imprécision}
+Une entité peut être mal définie lorsque la spécification de ses éléments constitutifs n'est que partielle.
+Plus précisément, l'imprécision apparaît dès lors qu'il est impossible de fixer des limites bien définies pour une entité ou pour un de ses éléments, rendant impossible sa catégorisation simple dans une classe unique et menant à la nécessité de classer les limites comme floues.
+Reprenant \cite{BouchonMeunier1995}, cite{DeRunz2008} spécialise l'imprécision en deux sous-catégories~: le vague et l'approximatif.
+
+\begin{itemize}
+ \item Le fait qu'une entité soit définie de façon vague résulte de l'utilisation de termes du langage naturel subjectifs ou flexibles \citep[p. 29]{DeRunz2008}.
+Par exemple, on peut dire que l'église Saint Nicolas des champs est ''proche de'' ou bien même ''à l'entrée ouest'' de la rue \emph{Au Maire} et ''au nord'' de celle-ci.
+Ces trois termes permettent de localiser l'église par rapport à la rue de façon indirecte, mais uniquement de façon vague.
+Cette description ne permet pourtant pas de localiser de manière précise l'église car chacun des termes ne définit que des relations spatiales variables et subjectives.
+ \item Une entité est définie de façon approximative lorsque ses limites ne peuvent pas être clairement fixées, en conséquence de quoi l'entité englobe des éléments qui ne lui appartiennent que partiellement.
+Par exemple, la rue \emph{Au Maire} a été allongée en 1833 par une percée à l'Est.
+Pour autant, cette percée n'est pas un événement instantané mais un certain temps s'est déroulé entre la décision d'ouverture et la fin des travaux.
+La date donnée est donc une approximation de la véritable tranche temporelle qui correspond à la durée de l'opération.
+\end{itemize}
+
+\myparagraph{Ambiguïté}
+L'ambiguïté est induite quand une entité appartient, intégralement ou en partie, à plusieurs catégories possibles.
+Pour \cite{DeRunz2008}, un tel problème résulte soit d'un manque de spécificité de la définition de l'entité, soit d'un désaccord entre plusieurs définitions.
+Dans les deux cas, le problème peut être dû soit à des divergences entre des avis d'experts, ou bien directement par des incohérences dans les sources de données.
+\begin{itemize}
+ \item Une entité présente un manque de spécificité lorsque plusieurs classes peuvent lui correspondre.
+La rue \emph{Au Maire} est en partie construite sur un ancien cul-de-sac, parfois dénommé \emph{Cul-de sac de Rome} ou \emph{Passage de Rome}, bien que sa structure n'ai pas changé.
+Il est clair ici que deux classe de voies (cul-de-sac et passage) dont le sens est très différent peuvent s'appliquer à la même entité.
+Il faut remarquer que ce manque de spécificité, du moins lorsque l'on travaille avec des plans anciens, résulte en partie des différences d'échelles et de niveaux d'interprétation des informations qu'ils contiennent.
+ \item Enfin, une information sur une entité peut rentrer en conflit avec une autre.
+Dès lors, une même entité peut posséder plusieurs valeurs pour chacun de ses éléments constitutifs qui sont en désaccord.
+Plusieurs définitions d'une entité peuvent également être en conflit, par exemple lorsque les avis de deux experts divergent.
+\end{itemize}
+
+\subsubsection{Incomplétudes}
+Enfin, \cite{DeRunz2008} spécifie deux autres types d'imperfections qui se différencient substantiellement des autres, à savoir les lacunes et les absences.
+Ces deux types sont des sous-catégories de la notion d'incomplétude abordée par \cite{BouchonMeunier1995}.
+L'absence désigne le fait qu'il manque des informations pour décrire complètement une entité.
+Par exemple, même si l'on sait que la rue \emph{Au Maire} existait en 1280, on ne dispose pas de sources sur son emprise spatiale.
+Des trois éléments espace-temps-sémantique qui participent à la définition de l'entité rue, l'espace est dans ce cas absent.
+Les lacunes ajoutent une dimension hiérarchique à la notion d'incomplétude.
+En effet, une entité est lacunaire lorsqu'elle est composée de plusieurs entités dont certaines sont inconnues.
+\subparagraph{}
+L'incomplétude est sans doute le type d'imperfection le plus répandu dans les informations géohistoriques.
+En effet, ces informations sont issues de sources partielles, éparses et régulièrement incomplètes.
+Ainsi, aucun plan ne décrit exhaustivement un espace, et chacun décrit de façon différente un même espace.
+Enfin, comme toute source d'information, les plans ne donnent qu'un aperçu d'un espace pendant une courte période.
+Entre ces périodes de temps, l'état de l'espace doit être supposé inconnu.
+%
+%\begin{center}
+%\fcolorbox{black}{white}{
+%  \begin{minipage}[t]{0.9\textwidth}
+%\begin{center}
+% \textbf{Résumé de la section}
+%\end{center}
+%Dans cette section, nous avons détaillé la nature de l'imperfection de l'information géohistorique et de ses impacts sur les entités géographiques mesurées, acquises et manipulées au sein d'un SIG.
+%En nous appuyant sur la taxonomie des imperfections de l'information archéologique mise en place par \cite{DeRunz2008}, nous avons décrit chaque catégorie d'imperfection inhérentes aux informations géohistoriques issues de sources cartographiques.
+%
+%  \end{minipage}
+%} 
+%\end{center}
+
+\section{État de l'art des SIG utilisés en histoire}
+\label{subsection:currgis}
+\myparagraph{Diffusion de données historiques}
+Nous avons identifié la diffusion de données, c'est à dire la mise à disposition de données de manière large et systématique, comme un des facteurs importants de l'engouement des sciences sociales envers les SIG.
+Les données géographiques ainsi diffusées sont généralement associées à des plateformes de webmapping permettant d'accéder de façon plus rapide et plus intuitives aux données voulues.
+Étant donné le coût de développement d'un site web dédié à la diffusion de telles données, on y retrouve essentiellement des plateformes mises en place au niveau d'un État.
+C'est par exemple le cas des SIG historiques de Grande Bretagne (GBHGIS) \citep{GBHGIS} et des États-Unis (NHGIS) \citep{NHGIS} portant respectivement sur l'ensemble des deux pays.
+De tels SIG sont alors dédiés à la diffusion à grande échelle de données démographiques et sociales socio-économiques spatialisées, notamment les recensements du pays à différentes dates~: ce sont des index géohistoriques ou \emph{historical gazetteers}.
+\subparagraph{}
+D'autres SIG visent d'avantage la diffusion de cartes anciennes et se constituent en atlas historiques en ligne.
+Ces outils mettent à disposition du public des collections de cartes historiques, généralement topographique et sous forme raster \citep{Rumsey2012}.
+Le SIG historique ALPAGE \citep{ALPAGE} est un cas particulier de SIG dédié à la diffusion de données.
+En effet, les données diffusées par le SIG ALPAGE sont, pour la majorité, des informations spatiales vectorisées à partir de divers documents anciens.
+S'il ne s'agit pas d'un index géohistorique comparable aux SIG précédents, l'objectif d'ALPAGE ne se limite pas à la diffusion de cartes anciennes.
+La mise à disposition de données topographiques (cadastre napoléonien vectorisé, limites anciennes,etc.) permet de fournir, en plus d'informations sur un espace (en l'occurrence, Paris), des données manipulables par des outils SIG exterieurs dans des buts d'analyse spatiale ou de géocodage.
+
+\myparagraph{Représentation visuelle}
+La représentation visuelle de données historiques constitue également un des besoins de la recherche en histoire.
+Il n'est donc pas étonnant de retrouver des outils de visualisation cartographique dans la majorité des SIG historiques présentés dans le tableau \ref{table:exgis}.
+Si des outils de représentation visuelle sont systématiquement disponibles, la nature de ces outils dépend des objectifs du SIG~: soit il s'agit de communiquer les résultats d'une étude historique, soit il s'agit de visualiser des données historiques dans un but de diffusion.
+\subparagraph{}
+Différents moyens sont alors utilisés.
+Lorsqu'il s'agit de communiquer des résultats de recherche, le SIG historique peut simplement mettre à disposition des cartes créées pour les besoins de l'étude, comme par exemple pour le projet \emph{Valley of the Shadow} \citep{VALLEY}.
+Plus souvent, la mise en place d'un outil de \emph{webmapping} permet de communiquer au sein d'un seul outil l'ensemble des données créées ou assemblées au cours de l'étude.
+La diffusion de données s'appuie également largement sur de tels outils, permettant un accès plus intuitif à des données spatiales.
+\subparagraph{}
+Bien qu'il s'agisse également d'un index géohistorique, l'outil en ligne GAPVIS \citep{GAPVIS} vise un but différent.
+L'objectif de ce SIG historique est de cartographier les lieux et les relations entre lieux décrits au sein de récits anciens.
+À partir de textes de livres anciens issus de \emph{Google Books}, les lieux sont automatiquement détectés et géocodés à l'aide de l'index géographiques web externes Pléiades\footnote{http://pleiades.stoa.org/}.
+
+\myparagraph{Gestion des imperfections}
+Nous l'avons vu, les imperfections des informations géohistoriques sont nombreuses et se trouvent à toutes les étapes de l'intégration de données dans un SIG.
+la gestion de ces imperfections devient primordiale lorsque l'on traite de données fortement imparfaites dont les défauts peuvent mener à une lecture erronée.
+Plus radicalement, de trop fortes imperfections peuvent s'accumuler pour rendre le phénomène retranscrit illisible.
+Pourtant, rares sont les SIG historiques qui modélisent explicitement les différentes imperfections des données.
+\subparagraph{}
+La majeure partie du temps, les données font l'objet de pré-traitements de façon à réduire ou éliminer ces imperfections.
+Les données raster -généralement des cartes anciennes- sont géoréférencées en amont de leur mise à disposition.
+Cette opération aborde par nature certaines imperfections des plans, notamment les erreurs géométriques qui empêchent un recalage parfait de ces plans sur un référentiel récent.
+Les lacunes et les choix de représentations de ces sources (échelle homogène ou non, éléments non représentés, vues à projection multiples, etc.) peuvent également affecter le géoréférencement de ces sources.
+Pourtant, rares sont les SIG qui prennent en compte de telles imperfections.
+Lorsqu'il s'agit de cartes, cette prise en compte passe généralement par la communication des déformations et erreurs résultantes ainsi que les choix des méthodes de géoréférencement adoptées dans des métadonnées.
+La plateforme de diffusion de cartes anciennes \emph{David Rumsey Map Collection} \citep{Rumsey2012} par exemple met à disposition du public de très nombreuses cartes anciennes géoréférencées, sur le monde entier.
+Pourtant, les informations portant sur le géoréférencement des cartes diffusées ne sont pas disponibles, malgré la présence de nombreuses métadonnées sur chaque carte.
+\subparagraph{}
+À l'opposé, le SIG \emph{Historical Counties} \citep{HISTOCOUNTIES} fournit un certain nombre d'informations sur les imperfections des données qu'il manipule au travers de métadonnées.
+L'objectif de ce SIG est de mettre à disposition du public l'ensemble des données vecteur décrivant les évolutions des limites des comtés américains, depuis le début du XVII\up{e}siècle jusqu'à l'année 2000.
+L'ensemble des frontières des comtés ont été saisies à partir d'un référentiel récent qui varie selon le comté, chaque frontière étant par la suite située temporellement dans une base de données par ses dates d'apparition et de disparition.
+À chaque comté ainsi vectorisé est associé un ensemble de métadonnées basées sur le schéma de métadonnées Dublin Core \citep{DublinCore2008}, décrivant notamment la précision de localisation des données par rapport aux données de références utilisées lors de la saisie, mais aussi une description fine des différentes opérations et des différentes sources historiques ayant mené à la constitution complète des frontières du comté.
+\subparagraph{}
+\citep{ALPAGE} constitue ici également un cas à part.
+Cette plateforme, diffusant entre autre des données vectorisées sur des plans de villes anciens, fournit diverses métadonnées décrivant les imperfections des plans et de leur contenu.
+Ainsi, pour chaque couche vectorisée, les erreurs résiduelles du géoréférencement sont disponibles dans les métadonnées associées à la couche.
+De plus, une attention particulière est portée au contenu des plans vectorisés.
+Ainsi, aux îlots du cadastre napoléonien de Paris sont associés un indice de fiabilité décrivant la qualité de la représentation de l'îlot dans le plan, et indiquant les éventuels problèmes de géoréférencement.
+\subparagraph{}
+Si les imperfections des données peuvent être représentées au sein d'un méta-modèle, il est également envisageable de fournir des outils de visualisation de ces imperfections.
+Cependant, peu de SIG historiques proposent une telle visualisation.
+Nous retenons ici l'exemple du projet \emph{Mapping the jewish communities of the byzantine empire} \citep{SIGJUIFS} dont l'objectif est de cartographier les communautés juives dans la zone géographique de l'empire byzantin.
+Les sources historiques, souvent textuelles, qui ont permis l'identification de ces communautés sont un cas de sources spatiales implicites.
+Dès lors, les auteurs ont dû reconstituer les emplacements de chacune des communautés, impliquant donc un haut niveau d 'incertitude quant au placement de chaque peuplement.
+Afin de traduire ces incertitudes, le choix a été fait de mettre en place un code graphique décrivant le niveau d'incertitudes sur chaque élément de l'information géohistorique~: la localisation de chaque communauté, sa période d'existence et sa dénomination (voir figure  \ref{fig:comm_juifs}).
+Ce SIG fournit en outre des informations sur les lacunes des sources dans les métadonnées associées à chaque communauté identifiés.
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=1\textwidth]{jewish.png}
+	\caption{Extrait du SIG \emph{Mapping Jewish Communities} \citep{SIGJUIFS} et légende associée.
+Les lieux de peuplement des communautés juives de l'empire Bizantin sont symbolisés en fonction des incertitudes associées à leurs composantes sémantiques, spatiales et temporelles.}
+	\label{fig:comm_juifs}
+\end{figure} 
+
+
+\myparagraph{Gestion des dynamiques spatiales}
+La représentation, visuelle ou bien dans le modèle de données, des dynamiques de l'espace constitue un besoin crucial des historiens travaillant sur des problèmes spatialisées.
+Il paraît donc naturel que les SIG historiques fournissent des outils permettant une telle représentation.
+Cependant, force est constater qu'aucun systématisme n'existe sur les méthodes de représentation ou le niveau de considérations pour ces dynamiques.
+\subparagraph{}
+La plupart du temps, les SIG historiques se construisent autour de modèles spatiaux et temporels (voir le paragraphe \ref{paragraph:space_as_tool}) dans lequel chaque donnée -carte, couche vecteur, etc.- est associée à une date.
+Cette méthode d'association est nommée \emph{date stamping} \citep{Gregory2007}, et, si elle constitue un moyen simple et efficace pour situer temporellement des donnée historiques, elle ne permet pas de modéliser une connaissance sur leurs évolutions.
+Souvent, cette représentation est associée à des curseurs permettant de naviguer sur la ligne du temps, les données correspondant à la date sélectionnée s'affichant alors.
+La représentation des dynamiques de l'espace est donc implicite et doit être recomposée mentalement par l'utilisateur en \emph{déroulant le temps}.
+C'est cette représentation qui se trouve au coeur de nombreux SIG historiques \citep{MAPPINGDECLINE, HISTOCOUNTIES,SIGJUIFS, SPATIALHISTO, GAPVIS, HISTOATLAS} ou encore l'outil TimeMap \citep{TIMEMAP2005}.
+\subparagraph{}
+Quelques SIG historiques ont développé un modèle de données visant à représenter les dynamiques de données spatiales.
+Le SIG \emph{China GIS} \citep{CHGIS} en particulier développe un modèle de données se fondant sur la représentation des filiations entre zones administratives existantes à différentes époques.
+Représentées par des surfaces vectorisées, chaque unité administrative peut être associée à des successeurs dans le temps par des liens de filiations décrivant le type de transformations.
+Ainsi, une unité administrative existant à un temps $t=1$ donné correspondant à l'emprise spatiale de trois unités administratives à $t=2$ créera une relation de scission, la première unité ayant été séparé en deux plus petites (voir la figure \ref{fig:lineage}).
+\subparagraph{}
+Enfin, certains SIG historiques, également axés sur les transformations de zones administratives, modélisent les transformations de l'espace en décrivant les modifications des frontières.
+Les frontières, généralement considérées à partir d'une période initiale, sont dans un premier temps représentées et associées à une tranche temporelle.
+Lorsqu'une modification affecte une frontière, celle ci est découpée en plusieurs parties.
+Les parts ne changeant pas voient leur période temporelle agrandie, tandis que les parties modifiées donnent naissance à de nouvelles frontières.
+Finalement, les frontières deviennent un amalgame d'\emph{atomes} spatio-temporels, qui sont associés à chaque date pour former des frontières complètes.
+Les SIG \emph{Historical Counties} \citep{HISTOCOUNTIES} et \emph{China GIS} \citep{CHGIS} mettent notamment en place de telles architectures.
+\subparagraph{}
+Notons dès à présent que ces modèles constituent des instanciations, dans un cadre historique, de modèles de données spatio-temporels existants dans la littérature.
+Ces différents modèles seront abordés en détails dans le chapitre 3.
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=0.4\textwidth]{chgis.png}
+	\caption{Liens de filiations entre unités administratives dans le SIG \emph{China GIS} \cite{CHGIS}. Issue de \cite{Berman2013}.}
+	\label{fig:lineage}
+\end{figure} 
+
+
+\myparagraph{Intégration de données historiques}
+Au delà de la diffusion de données historiques, les historiens voient dans les SIG un moyen de partage d'informations.
+Afin de mettre en place des systèmes ouverts et évolutifs, il est donc important de prévoir des méthodes permettant d'ajouter de nouvelles données.
+Puisque le passage entre les sources de données historiques et les bases de données géographiques nécessitent de nombreuses opérations, la création de méthodes permettant d'intégrer de nouvelles informations peut devenir complexe.
+Nous entendons ici le terme \emph{intégrations de données} au sens de \cite{Li2011}, c'est à dire la combinaison de deux ou plus sources d'informations permettant d'obtenir une informations impossible à acquérir avec une source seule.
+Ici, l'intégration de données concerne deux éléments~:
+\begin{enumerate}
+\item la mise en relation de données spatiales implicites de façon à leur attribuer une localisation dans l'espace;
+\item la combinaison de données spatiales et d'informations sur ses transformations de façon à créer des données spatio-temporelles.
+\end{enumerate}
+\subparagraph{}
+Le premier aspect de l'intégration s'illustre notamment au travers de GAPVIS \citep{GAPVIS}, dont l'objectif est de cartographier les récits contenus dans des livres anciens (antiquité romaine en particulier).
+Ainsi, à partir de textes anciens, les noms de lieux et les relations entre lieux sont extraits de façon automatique, puis associés à une localisation dans l'espace grâce à l'index géographiques en ligne Pléiades.
+De même, la plateforme \emph{Mapping London's Past} \citep{LONDONPAST} possède un outil permettant de géocoder automatiquement des noms de lieux dans Londres ainsi que des outils de post-traitement manuel et de vérification des données géocodées.
+Notons également que le SIG historique de Grande Bretagne subit actuellement un profond remaniement de son modèle, s'intéressant notamment à l'intégration d'informations qualitatives portant sur des lieux décrits au sein de textes \citep{Southall2012}.
+
+\subparagraph{}
+\subparagraph{}
+\begin{wrapfigure}{r}{80mm}
+	\centering
+		\includegraphics[width=0.35\textwidth]{chgis2.png}
+	\caption{Modèle d'objets géohistoriques asynchrones et couches fusionnées dans le \emph{China GIS}}
+	\label{fig:frontieres}
+\end{wrapfigure}
+Le \emph{China GIS} illustre pour sa part le second point de l'intégration de données géohistoriques.
+Les données manipulées par le SIG sont un ensemble de zones administratives de la Chine ancienne, représentées sous la forme de polygones à différentes périodes historiques.
+À chacune des unités administratives est associé une sémantique (son nom et ses liens hiérarchiques) ainsi que la période temporelle de son existence.
+Les différentes données sont alors tout à fait asynchrones, chacune étant associée à une période propre.
+Afin de permettre la représentation de l'ensemble des unités administratives à une date choisie tout en évitant la réplication des données, le choix à été fait de fusionner les données au sein d'une couche unique lors d'une requête temporelle.
+Ainsi, lorsqu'une représentation à un moment donné est demandé, le SIG agrège les différentes unités administratives dont la période d'existence comprend la date demandée, tel qu'illustré dans la figure \ref{fig:frontieres}.
+Les transformations des unités administratives peuvent alors être obtenues en fusionnant plusieurs couches à des dates différents.
+Leur recouvrement spatial permet d'identifier les liens de filiations existants entre les différentes données.
+
+Enfin, puisqu'il s'agit pour la majorité de plateformes web, des méthodes d'intégration de données pourraient permettre d'ouvrir le SIG vers l'extérieur en le transformant en SIG collaboratif.
+Pourtant, nous avons constaté qu'aucun n'a fait ce choix.
+L'outil TimeMap \citep{TIMEMAP2005} permet à l'utilisateur d'ajouter ses propres informations, mais il s'agit d'avantage d'un outil de création de cartes dynamiques que d'un système d'information géographique.
+Finalement, le SIG en ligne \emph{HistoAtlas} \citep{HISTOATLAS} est pour sa part entièrement basé sur un processus collaboratif, la plus grande part de son contenu étant créé par les utilisateurs.
+Ainsi, toute personne peut ajouter des objets géographiques (pays ville, événements, etc.), les situer dans le temps, créer des hiérarchies entre objets et des cartes.
+Finalement, les données et les cartes ainsi créées sont accessibles et modifiables par d'autres utilisateurs.
+
+\myparagraph{Bilan sur les SIG historiques existants}
+Nous avons évoqué jusqu'ici les différentes stratégies adoptées par les SIG historiques pour répondre aux demandes des historiens.
+Dans cette étude rapide, on peut constater que les SIG existants répondent à la majorité de ces besoins, mais souvent de manière incomplète.
+Ainsi, la représentation visuelle des incertitudes ou des dynamiques l'emporte souvent sur leur prise en compte dans le modèle de données associé au SIG.
+L'objectif premier de ces outils étant la diffusion de données ou de résultats d'études, il n'est pas étonnant que l'accent soit mis en priorité sur la représentation visuelle des données.
+De plus, les outils de webmapping existants\footnote{Tels Geoserver (\href{http://geoserver.org}{http://geoserver.org}) et Mapserver(\href{http://mapserver.org}{http://mapserver.org})} constituent des outils puissants et aboutis qui permettent aux historiens, souvent utilisateurs finaux des outils SIG, de mettre en place des plateformes web avec une relative facilité.
+Cependant, de tels outils sont inadaptés pour la représentation de données imparfaites ou la modélisation des dynamiques de l'espace.
+En conséquence, ils ne fournissent aucun moyen de modéliser, représenter ou intégrer des données spatiales comportant ces deux aspects.
+On peut alors penser que cette inaptitude freine largement la mise en place de SIG historiques répondant de manière complète aux besoins historiques.
+\\
+Afin d'expliciter cette constatation, nous résumons les différents points abordés dans le tableau \ref{table:exgis}.
+Pour chaque système abordé dans les paragraphes précédents, nous avons représenté sa capacité de réponse aux demandes des historiens.
+Chaque demande est décomposée en quelques stratégies adoptées \emph{de facto} par les SIG existants.
+Un violet clair signifie que le SIG ne répond pas au point correspondant, tandis que le violet le plus foncé signifie que le SIG possède une fonctionnalité répondant totalement au critère.
+Enfin, une couleur intermédiaire est présente dans le cas où le SIG répond de façon partielle à un critère, la grande diversité de ces outils empêchant parfois un classement clair dans une catégorie précise.
+Par exemple, si le \emph{China GIS} aborde la question de l'intégration de données par la méthode décrite précédemment, il ne propose pas de véritable processus d'intégration permettant d'ajouter de nouvelles informations de façon automatique et donc extensibles à d'autres données.
+
+
+\begin{figure}[ht]
+\begin{tabular}{|l|c c|c c|c c c|c c|c c c|l|}
+\hline
+&\multicolumn{2}{c}{\rotatebox{90}{Diffusion de données~}} & \multicolumn{2}{c}{\rotatebox{90}{Visualisation}} & \multicolumn{3}{c}{\rotatebox{90}{Incertitudes}} & \multicolumn{2}{c}{\rotatebox{90}{Dynamiques}} & \multicolumn{3}{c}{\rotatebox{90}{Intégration}} &\\
+\hline
+\textbf{SIG Historique}   & \rotatebox{90}{Cartes} & \rotatebox{90}{Données Spatiales} & \rotatebox{90}{Carto. en ligne} & \rotatebox{90}{Résultats de recherche} & \rotatebox{90}{Modèle}& \rotatebox{90}{Métamodèle} & \rotatebox{90}{Rep. visuelle} & \rotatebox{90}{Rep. visuelle} & \rotatebox{90}{Modèle} & \rotatebox{90}{\emph{A priori}} & \rotatebox{90}{Méthode d'intégration} & \rotatebox{90}{Collaboratif} & \rotatebox{90}{Date de publication}\\
+\hline
+\emph{TimeMap} &\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet2}{}&\cellcolor{violet1}{}&\cellcolor{violet2}{}&\cellcolor{violet2}{}& 2004\\
+\hline
+\emph{Mapping Decline} &\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}& 2008\\
+\hline
+\emph{HistoAtlas} &\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet2}{}&\cellcolor{violet3}{}& 2009\\
+\hline
+\emph{GBHGIS} &\cellcolor{violet3}{}&\cellcolor{violet3}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}& 2009\\
+\hline
+\emph{NHGIS} &\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}& 2010\\
+\hline
+\emph{CHGIS} &\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet2}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet3}{}&\cellcolor{violet2}{}&\cellcolor{violet1}{}& 2010\\
+\hline
+\emph{Alpage} &\cellcolor{violet3}{}&\cellcolor{violet3}{}&\cellcolor{violet3}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}& 2010\\
+\hline
+\emph{Locating London past} &\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}& 2011\\
+\hline
+\emph{Valley of the shadow} &\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet2}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}& 2011\\
+\hline
+\emph{MJCB} &\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet2}{}&\cellcolor{violet3}{}&\cellcolor{violet2}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}& 2011\\
+\hline
+\emph{GAPVIS} &\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet3}{}&\cellcolor{violet3}{}& 2011\\
+\hline
+\emph{Historical counties} &\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet2}{}&\cellcolor{violet3}{}&\cellcolor{violet2}{}&\cellcolor{violet1}{}& 2012\\
+\hline
+\emph{Spatial History} &\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}& 2013\\
+\hline
+\emph{David Rumsey Collection} &\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}& 2013\\
+\hline
+\emph{Geoportail} &\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}&\cellcolor{violet3}{}&\cellcolor{violet1}{}&\cellcolor{violet1}{}& 2013\\
+\hline
+\end{tabular}
+\caption{Tableau récapitulatif des fonctionnalités de 15 SIG historiques existants.
+\colorbox{violet1}{ }~: Non prise en compte. \colorbox{violet2}{ }~: Prise en compte partielle ou traitement manuel. \colorbox{violet3}{ }~: Prise en compte totale.}
+\label{table:exgis}
+\end{figure}
+%
+%\begin{center}
+%\fcolorbox{black}{white}{
+%  \begin{minipage}[t]{0.9\textwidth}
+%\begin{center}
+% \textbf{Résumé de la section}
+%\end{center}
+%Au travers de cette section, nous avons exploré différentes propositions d'outils SIG historiques mis en place au cours des dernières années, choisis en raison de leur importance ou d'une fonctionnalité originale.
+%Chaque SIG a alors été confronté aux différents besoins exprimés par les historiens, de façon à faire apparaître le niveau d'adéquation entre ces besoins et les outils existants.
+%\subparagraph{}
+%Finalement, nous avons constaté que si la diffusion de donnée historiques, le croisement de sources et le partage de résultats de recherche est aujourd'hui un trait majeur des SIG, il ne répondent que très sommairement au besoin de représentation et de manipulation d'espaces dynamiques.
+%De plus, ils n'offrent pas la souplesse et la prudence d'usage qu'imposent des sources toujours imparfaites.
+%  \end{minipage}
+%} 
+%\end{center}
+
+
+\section{Positionnement}
+\label{section:positionnement}
+\myparagraph{Constatations}
+Au travers des sections précédentes, nous avons vu que la reconstitution précise de l'espace ancien constitue une ressource de première importance dans le cadre d'un travail historique sur la ville.
+Elle agit comme un pivot pour l'étude de données sociales car il permet de situer les individus, les activités et les événements au sein d'un référentiel commun.
+Mais il peut être également lui-même objet d'étude lorsqu'il est considéré dans une relation systémique avec les activités humaines, lorsqu'il est pris comme composante d'un territoire.
+Dans les deux cas, s'appuyer sur l'espace pour étudier un phénomène social par nature dynamique impose de considérer un espace également dynamique, dont les transformations dans le temps se lient avec les activités humaines.
+\subparagraph{}
+Les systèmes d'informations géographiques, par leur capacité à manipuler ,stocker et représenter une information spatiale ont attiré les sciences sociales, en particulier les historiens, au cours des dix dernières années.
+Pour un travail historique, les SIG sont dès lors de puissants outils permettant de centraliser, de partager, d'analyser et de cartographier des phénomènes sociaux et spatiaux s'était déroulés dans le passé.
+Ils permettent de fournir des représentations visuelles, mais aussi de constituer des bases de données spatiales sur les formes des espaces passés de grande taille.
+\subparagraph{}
+Lorsqu'il s'agit de la ville, la constitution de représentations et de bases de données globales dépendent de nombreuses sources historiques extrêmement hétérogènes.
+Les cartes anciennes, en particulier les plans de villes forment le socle fondamental de la reconstitution d'un espace ancien.
+Très diverses, ces sources, tout comme l'information spatiale qu'elles portent sont imparfaites.
+Ainsi, la fiabilité de chaque source historique doit être questionnée avant d'être utilisée dans un travail historique, les informations qu'elle portent pouvant être incertaines, ambiguës ou lacunaires.
+\subparagraph{}
+Si la prise en compte de ces imperfections fait partie intégrante de la pratique quotidienne d'un chercheur, habitué à confronter chaque information à d'autres sources en les croisant et en analysant leur consistance, la capacité des SIG à manipuler une telle information doit être questionnée.
+Au travers de l'exploration de différents SIG dédiés à l'étude historique, nous avons clairement fait apparaître la faible capacité de ces systèmes à manipuler, modéliser et représenter des données spatiales imparfaites.
+Nous l'avons vu, la prise en compte des imperfections de l'information se limite la plupart du temps à la minimisation des déformations des cartes géoréférencées.
+Seul les SIG \emph{ALPAGE} et \emph{Historical Counties} tentent de modélisent l'incertitude de leurs données au sein d'un schéma de métadonnées.
+Quant à la représentation visuelle des incertitudes, seul le SIG \emph{Mapping Jewish Communities} \citep{SIGJUIFS} propose une symbolisation spécifique de l'incertitude des données qu'il cartographie.
+\subparagraph{}
+Enfin, la modélisation des dynamiques de l'espace manque également dans la majorité des SIG existants, malgré l'importance de ce besoin parmi la communauté des historiens.
+En effet, bien que cette dimension apparaisse comme essentielle pour analyser les transformations connues au cours du temps par un lieu et une société, seuls les auteurs du\emph{China GIS} \citep{CHGIS} modélisent explicitement les transformations des données spatiales qu'ils manipulent.
+Dans le cas du SIG \emph{Historical Counties} et \emph{TimeMap}, les transformations des objets spatiaux ne sont pas modélisées explicitement.
+En effet, seules sont stockées des dates de début et de fin d'existence de chaque objet, la représentation des dynamiques étant dès lors uniquement visuelle grâce à la production de cartographies dynamiques.
+Notons cependant que pour \emph{Historical Counties}, les changements sont tout de même décrits dans les métadonnées.
+\subparagraph{}
+Finalement, on constate au travers du tableau \ref{table:exgis} que pour la majorité des SIG, l'intégration des données est effectuée soit \emph{a priori}, soit de façon manuelle.
+Plus encore, les seuls systèmes qui possèdent des outils d'intégration automatique des données historiques sont dédiés à la localisation de lieux ou d'individus, c'est à dire à au géocodage de l'information.
+Ainsi, GAPVIS s'appuie sur des index géographiques en ligne pour localiser des lieux anciens, tandis que le SIG \emph{Locating London Past} utilise des banques de données d'adresses pour placer des individus dans l'espace.
+\subparagraph{}
+L'ordonnancement chronologique proposé dans le tableau \ref{table:exgis} ne fait pas apparaître de tendances particulières dans l'évolution ce ces systèmes, sinon par le développement des outils de visualisation de données en ligne.
+Si une considération pour les imperfections des données semble apparaître à partir de la publication du \emph{China GIS}, la modélisation des dynamiques de transformation des objets étudiés est rarement traitée, la cartographie dynamique restant l'outil d'exploration spatio-temporel privilégié.
+Il faut cependant rester prudent~: le tri temporel est effectué sur les dernières versions de chacun des SIG, certaines versions anciennes peuvent présenter des fonctionnalités complexes.
+C'est par exemple le cas pour \emph{Historical Countier}, dont la création des bases de données spatiales a commencée en 1987 \footnote{http://publications.newberry.org/ahcbp/project.html}.
+
+
+\myparagraph{Hypothèses et objectif}
+Nous nous plaçons dans le cadre de la modélisation de l'espace urbain ancien au sein d'un SIG historique.
+Nous avons identifié dans les sections \ref{section:SIG} et \ref{section:SIG} deux demandes importantes des historiens adressées à de tels outils~:
+\begin{itemize}
+ \item La possibilité de centraliser, croiser et diffuser des données et des sources géohistoriques.
+\item La modélisation des dynamiques de l'espace en vue de leur analyse.
+\end{itemize}
+Au travers de l'exploration des SIG historiques existants, nous avons constaté qu'ils répondent à l'heure actuelle de façon satisfaisante à la première demande, notamment grâce aux initiatives de création de SIG en ligne de niveau national tels \emph{ China GIS, NHGIS} ou \emph{GBHGIS}.
+\subparagraph{}
+Le deuxième point cependant fait cruellement défaut au sein des outils et systèmes existants à l'heure actuelle.
+S'il est communément admis \citep{Gregory2007, Knowles2008} que ce manque est principalement dû à l'incapacité des outils grand publique à manipuler des données imparfaites et spatio-temporelles, force est de constater que le développement des systèmes plus spécialisés n'a pas abouti à la proposition d'outils ou de modèles adaptés aux besoins de l'histoire.
+En effet, les SIG historiques restent aujourd'hui dédiés à des applications spécifiques et ne sont pas destinés à être utilisés comme outils dans d'autres études historiques.
+
+\subparagraph{}
+On peut alors penser que l'absence d'un modèle répondant au second besoin des historiens provient d'un manque de méthodes dédiées à la constitution de bases de données spatio-temporelles à partir de données géohistoriques issues de sources hétérogènes.
+En effet, nous avons vu que dans la majorité des cas, les données spatio-temporelles sont crées de façon manuelle à partir de diverses sources, qu'elles aient été saisies en amont de la construction du SIG ou ajoutées au fur et à mesure.
+Tout comme l'indique \cite{Arnaud2008}, la recomposition des dynamiques spatiales à partir uniquement de sources historiques agissant comme des \emph{tranches temporelles} est une tâche fastidieuse dont la complexité est extrême lorsque les sources sont imparfaites.
+\subparagraph{}
+La mise en place d'un processus d'intégration de données géohistoriques visant à constituer des données spatio-temporelles peut permettre d'augmenter la généricité d'un SIG historique. L'automatisation de ce processus est donc un atout important.
+Cependant, nous pensons que la complexité des sources géohistoriques ainsi que les connaissances mise à l'\oe uvre pour comprendre, analyser et critiquer une source rendent peu pertinent la mise en place de processus d'intégration entièrement automatisés.
+\subparagraph{}
+Comme nous l'avons vu dans la section \ref{section:usages}, la reconstruction d'un espace ancien permet de produire des données géohistoriques à la fois spatiales et temporelles.
+Afin d'obtenir une représentation des dynamiques de cet espace, il est nécessaire d'opérer la mise en relation des différents objets porteurs d'informations spatiales pour des temporalités différentes pour constituer des bases de données géohistoriques de nature proprement spatio-temporelles.
+Une fois ces données constituées, leurs transformations peuvent être analysées.
+\subparagraph{}
+Nous avons également souligné en section \ref{subsection:plans} l'importance des plans lorsqu'il s'agit d'étudier un espace ancien.
+Dans le cas des villes plus particulièrement, et pour des périodes récentes, ces sources fournissent la partie la plus significative des informations sur leurs structures et leur organisation. En nous fondant sur ce constat, nous avons donc choisi de concentrer notre travail sur le traitement des informations spatiales issues de plans de villes anciens.
+Plus précisément, dans le cadre de cette thèse, l'espace considéré sera la ville de Paris entre les XVIII\up{e} et XX\up{e} siècles, en raison de la richesse des ressources cartographiques décrivant la ville, mais également de l'intensité des transformations qu'elle connaît en l'espace de deux siècles (voir le chapitre 2).
+\subparagraph{}
+En résumant, dans notre travail nous nous sommes fixé trois objectifs principaux~:
+\textbf{
+\begin{itemize}
+ \item Constituer une base de données spatiale et temporelle de données vectorielles extraites de plans de villes anciens.
+\vspace{11pt}
+ \item Proposer aux historiens une méthode semi-automatique pour la constitution de bases de données spatio-temporelle, à partir de l'analyse, du traitement et de la mise en relation de sources historiques à contenu spatial.
+\vspace{11pt}
+ \item Modéliser et de prendre en compte, au sein des différentes étapes de l'intégration des données géohistoriques, les différentes imperfections qui entachent l'information manipulée.
+\end{itemize}
+}
+\newpage
+\section{Conclusion}
+Dans ce chapitre, nous avons tout d'abord identifié les principales fonctionnalités qu'un SIG historique doit posséder pour être adapté aux besoins des chercheurs en histoire. Pour cela, nous avons exploré comment l'espace géographique étant actuellement utilisé dans différents travaux de recherche en histoire urbaine. Nous avons vu la nécessité de visualiser, analyser et manipuler les dynamiques de transformation des objets géographiques urbains. En effet, les phénomènes sociaux étudiés évoluent conjointement à l'espace dans lequel ils se déroulent. Ils interagissent également avec lui, rendant ainsi leur analyse complète seulement possible si l'espace est considéré dynamique. Sur ce point, nous avons listé les principaux SIG historiques existants et constaté qu'ils ne répondent pas à ce besoin. Ceux-ci sont en réalité statiques, peu extensibles et servent principalement de plateforme de diffusion de données brutes et de résultats de travaux. Ils ne fournissement en général pas d'outils d'analyse de ces données et ne permettent pas de manipuler et d'analyser des objets géographiques en transformation dans le temps.
+Ces manques sont notamment dus aux complexités des sources historiques, imparfaites et difficiles à intégrer car demandant d'importants traitements (numérisation, vectorisation, etc.). 
+\\
+De cette étude, nous avons dégagé l'objectif principal de cette thèse~: mettre en place une approche permettant de constituer des bases de données spatio-temporelles décrivant les transformations de l'espace urbain à partir de sources cartographiques anciennes.
+\\
+Notre cas d'application est la ville de Paris aux XVIII et XIX\textsuperscript{e} siècles. Nous avons pointé dans ce chapitre la nécessité d'une connaissance fine des  sources utilisées si l'on veut utiliser sans risque d'erreurs les informations qu'elles contiennent. Nous procédons à cette analyse dans le prochain chapitre sur cinq sources cartographiques parisiennes que nous utiliserons pour expérimenter et valider l'approche proposée au long de ce travail.
